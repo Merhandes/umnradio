@@ -35,71 +35,71 @@
                     <div class="tab-content mt-3">
                         <div class="tab-content-item flex justify-around">
                             <div>
-                                <img src="{{ asset('assets/NF.png') }}" alt="News Flash" class="w-20">
+                                <img src="{{ asset('assets/NF.webp') }}" alt="News Flash" class="w-20">
                                 <p class="-ml-1.5">10.00 - 11.00</p>
                             </div>
                             
                             <div>
-                                <img src="{{ asset('assets/SS.png') }}" alt="SERSAN" class="w-20">
+                                <img src="{{ asset('assets/SS.webp') }}" alt="SERSAN" class="w-20">
                                 <p class="-ml-1.5">11.00 - 14.00</p>
                             </div>
                             
                             <div>
-                                <img src="{{ asset('assets/SKOOB.png') }}" alt="SKOOB" class="w-20">
+                                <img src="{{ asset('assets/SKOOB.webp') }}" alt="SKOOB" class="w-20">
                                 <p class="-ml-1.5">14.00 - 17.00</p>
                             </div>
                         </div>
                         <div class="tab-content-item flex justify-around">
                             <div>
-                                <img src="{{ asset('assets/M.png') }}" alt="Musikalitas" class="w-20">
+                                <img src="{{ asset('assets/M.webp') }}" alt="Musikalitas" class="w-20">
                                 <p class="-ml-1.5">11.00 - 14.00</p>
                             </div>
                             
                             <div>
-                                <img src="{{ asset('assets/CT.png') }}" alt="Campus Troops" class="w-20">
+                                <img src="{{ asset('assets/CT.webp') }}" alt="Campus Troops" class="w-20">
                                 <p class="-ml-1.5">15.00 - 17.00</p>
                             </div>
                         </div>
                         <div class="tab-content-item flex justify-around">
                             <div>
-                                <img src="{{ asset('assets/SODA.png') }}" alt="SODA" class="w-20">
+                                <img src="{{ asset('assets/SODA.webp') }}" alt="SODA" class="w-20">
                                 <p class="-ml-1.5">10.00 - 13.00</p>
                             </div>
 
                             <div>
-                                <img src="{{ asset('assets/NF.png') }}" alt="News Flash" class="w-20">
+                                <img src="{{ asset('assets/NF.webp') }}" alt="News Flash" class="w-20">
                                 <p class="-ml-1.5">13.00 - 14.00</p>
                             </div>
                         
                             <div>
-                                <img src="{{ asset('assets/K.png') }}" alt="KAJJA" class="w-20">
+                                <img src="{{ asset('assets/K.webp') }}" alt="KAJJA" class="w-20">
                                 <p class="-ml-1.5">14.00 - 17.00</p>
                             </div>
                         </div>
                         <div class="tab-content-item flex justify-around">
                             <div>
-                                <img src="{{ asset('assets/JM.png') }}" alt="Jerit Malam" class="w-20">
+                                <img src="{{ asset('assets/JM.webp') }}" alt="Jerit Malam" class="w-20">
                                 <p class="-ml-1.5">11.00 - 14.00</p>
                             </div>
                             
                             <div>
-                                <img src="{{ asset('assets/CT.png') }}" alt="Campus Troops" class="w-20">
+                                <img src="{{ asset('assets/CT.webp') }}" alt="Campus Troops" class="w-20">
                                 <p class="-ml-1.5">15.00 - 17.00</p>
                             </div>
                         </div>
                         <div class="tab-content-item flex justify-around">
                             <div>
-                                <img src="{{ asset('assets/BC.png') }}" alt="BILCIN" class="w-20">
+                                <img src="{{ asset('assets/BC.webp') }}" alt="BILCIN" class="w-20">
                                 <p class="-ml-1.5">10.00 - 13.00</p>
                             </div>
 
                             <div>
-                                <img src="{{ asset('assets/NF.png') }}" alt="News Flash" class="w-20">
+                                <img src="{{ asset('assets/NF.webp') }}" alt="News Flash" class="w-20">
                                 <p class="-ml-1.5">13.00 - 14.00</p>
                             </div>
                             
                             <div>
-                                <img src="{{ asset('assets/C.png') }}" alt="Charttopppers" class="w-20">
+                                <img src="{{ asset('assets/C.webp') }}" alt="Charttopppers" class="w-20">
                                 <p class="-ml-1.5">14.00 - 17.00</p>
                             </div>
                         </div>
@@ -112,7 +112,7 @@
             <footer>
                 <div class="flex flex-col items-center text-center space-y-3 md:flex-row md:justify-around md:items-start md:text-left md:space-y-0">
                     <div>
-                        <img src="{{ asset('assets/umnradio.png') }}" alt="logo" class="w-20 mt-1">
+                        <img src="{{ asset('assets/umnradio.webp') }}" alt="logo" class="w-20 mt-1">
                     </div>
                     <div class="text-xs">
                         <p>Jalan Scientia Boulevard</p>
@@ -124,21 +124,21 @@
                         <div class="flex-col">
                             <a href="http://line.me/ti/p/~@umnradio#~" class="text-black no-underline">
                                 <div class="flex">
-                                    <img src="{{ asset('assets/line.png') }}" alt="line" class="w-4 mb-1 mr-1">
+                                    <img src="{{ asset('assets/line.webp') }}" alt="line" class="w-4 mb-1 mr-1">
                                     <p>Line@</p>
                                 </div>
                             </a>
 
                             <a href="https://twitter.com/UMNRADIO" class="text-black no-underline">
                                 <div class="flex">
-                                    <img src="{{ asset('assets/twitter.png') }}" alt="line" class="w-4 mb-1 mr-1">
+                                    <img src="{{ asset('assets/twitter.webp') }}" alt="line" class="w-4 mb-1 mr-1">
                                     <p>Twitter</p>
                                 </div>
                             </a>
 
                             <a href="https://www.youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg" class="text-black no-underline">
                                 <div class="flex">
-                                    <img src="{{ asset('assets/youtube.png') }}" alt="line" class="w-4 mb-1 mr-1">
+                                    <img src="{{ asset('assets/youtube.webp') }}" alt="line" class="w-4 mb-1 mr-1">
                                     <p>Youtube</p>
                                 </div>
                             </a>
@@ -146,7 +146,7 @@
                     </div>
                     <div class="text-xs">
                         <p class="mb-1">Get Our App</p>
-                        <a href="https://play.google.com/store/apps/details?id=com.umnradio.umnradio&pcampaignid=web_share"><img src="{{ asset('assets/playstore.png') }}" alt="playstore" class="w-20"></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.umnradio.umnradio&pcampaignid=web_share"><img src="{{ asset('assets/playstore.webp') }}" alt="playstore" class="w-20"></a>
                     </div>
                 </div>
             </footer>
