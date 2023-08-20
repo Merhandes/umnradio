@@ -102,20 +102,20 @@
             <div class="border-t-2 border-[#021f3a] w-56 mx-auto mt-4"></div>
             <div class="tabs-group">
                 <div class="tabs-container flex justify-center items-center">
-                    <div class="tabs">
-                        <p class="font-semibold text-md font-poppins text-center text-[#021f3a]">Monday</p>
+                    <div class="tabs flex justify-center max-w-[20%]">
+                        <p class="font-semibold text-sm md:text-md font-poppins text-center text-[#021f3a]">Monday</p>
                     </div>
-                    <div class="tabs">
-                        <p class="font-semibold text-md font-poppins text-center text-[#021f3a]">Tuesday</p>
+                    <div class="tabs flex justify-center max-w-[20%]">
+                        <p class="font-semibold text-sm md:text-md font-poppins text-center text-[#021f3a]">Tuesday</p>
                     </div>
-                    <div class="tabs">
-                        <p class="font-semibold text-md font-poppins text-center text-[#021f3a]">Wednesday</p>
+                    <div class="tabs flex justify-center max-w-[20%]">
+                        <p class="font-semibold text-sm md:text-md font-poppins text-center text-[#021f3a]">Wednesday</p>
                     </div>
-                    <div class="tabs">
-                        <p class="font-semibold text-md font-poppins text-center text-[#021f3a]">Thursday</p>
+                    <div class="tabs flex justify-center max-w-[20%]">
+                        <p class="font-semibold text-sm md:text-md font-poppins text-center text-[#021f3a]">Thursday</p>
                     </div>
-                    <div class="tabs">
-                        <p class="font-semibold text-md font-poppins text-center text-[#021f3a]">Friday</p>
+                    <div class="tabs flex justify-center max-w-[20%]">
+                        <p class="font-semibold text-sm md:text-md font-poppins text-center text-[#021f3a]">Friday</p>
                     </div>
 
                     <div class="indicator"></div>
