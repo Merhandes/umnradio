@@ -16,3 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('Home.index');
 });
+
+Route::get('/article', function () {
+    return view('News.index');
+});
+
+Route::get('/article/obral-etalase-mimpi', function () {
+    return view('News.Article.satu');
+});
+
+Route::get('/article/kepada-yth-maba-apa-kabar-kali-ini', function () {
+    return view('News.Article.dua');
+});
+

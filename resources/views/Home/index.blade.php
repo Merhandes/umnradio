@@ -31,9 +31,9 @@
                 </button>
                 <div class="pr-4 hidden space-x-6 lg:inline-block">
                     <a href="/" class="font-poppins text-base text-white underline-offset-4">Home</a>
-                    <a href="#" class="font-poppins text-base text-white no-underline">About</a>
-                    <a href="#" class="font-poppins text-base text-white no-underline">Programs</a>
-                    <a href="#" class="font-poppins text-base text-white no-underline">Podcasts</a>
+                    <a href="/article" class="font-poppins text-base text-white no-underline">Articles</a>
+                    <!-- <a href="#" class="font-poppins text-base text-white no-underline">Programs</a>
+                    <a href="#" class="font-poppins text-base text-white no-underline">Podcasts</a> -->
                 </div>
 
                 <div class="mobile-navbar">
@@ -41,7 +41,7 @@
                         @click.away=" isOpen = false">
                         <div class="flex flex-col space-y-6">
                             <a href="#" class="font-poppins -sm text-black">Home</a>
-                            <a href="#" class="font-poppins text-sm text-black">About</a>
+                            <a href="/article" class="font-poppins text-sm text-black">Article</a>
                             <!-- <a href="#" class="text-sm text-black">Programs</a>
                             <a href="#" class="text-sm text-black">Podcasts</a> -->
                         </div>
@@ -49,7 +49,7 @@
                 </div>
             </div>
         </div>
-
+        </div>
     {{-- BACKGROUND --}}
     <!-- <img class="w-screen z-0" src="{{ asset('images/background.webp') }}"
         alt=""> -->
@@ -65,7 +65,7 @@
                         <button id="buttonpause" class="hidden"><svg xmlns="http://www.w3.org/2000/svg" height="3em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm224-72V328c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24zm112 0V328c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24z"/></svg></button>
                     </div>
                         <audio id="player">
-                        <source src='https://521dimensions.com/song/IntroSweetGlory-Jimkata.mp3'/>
+                        <source src='https://shoutcast.radio.umn.ac.id/stream.mp.3'/>
                         </audio>
                 </div>
             </div>
@@ -102,20 +102,20 @@
             <div class="border-t-2 border-[#021f3a] w-56 mx-auto mt-4"></div>
             <div class="tabs-group">
                 <div class="tabs-container flex justify-center items-center">
-                    <div class="tabs">
-                        <p class="font-semibold text-md font-poppins text-center text-[#021f3a]">Monday</p>
+                    <div class="tabs flex justify-center max-w-[20%]">
+                        <p class="font-semibold text-sm md:text-md font-poppins text-center text-[#021f3a]">Monday</p>
                     </div>
-                    <div class="tabs">
-                        <p class="font-semibold text-md font-poppins text-center text-[#021f3a]">Tuesday</p>
+                    <div class="tabs flex justify-center max-w-[20%]">
+                        <p class="font-semibold text-sm md:text-md font-poppins text-center text-[#021f3a]">Tuesday</p>
                     </div>
-                    <div class="tabs">
-                        <p class="font-semibold text-md font-poppins text-center text-[#021f3a]">Wednesday</p>
+                    <div class="tabs flex justify-center max-w-[20%]">
+                        <p class="font-semibold text-sm md:text-md font-poppins text-center text-[#021f3a]">Wednesday</p>
                     </div>
-                    <div class="tabs">
-                        <p class="font-semibold text-md font-poppins text-center text-[#021f3a]">Thursday</p>
+                    <div class="tabs flex justify-center max-w-[20%]">
+                        <p class="font-semibold text-sm md:text-md font-poppins text-center text-[#021f3a]">Thursday</p>
                     </div>
-                    <div class="tabs">
-                        <p class="font-semibold text-md font-poppins text-center text-[#021f3a]">Friday</p>
+                    <div class="tabs flex justify-center max-w-[20%]">
+                        <p class="font-semibold text-sm md:text-md font-poppins text-center text-[#021f3a]">Friday</p>
                     </div>
 
                     <div class="indicator"></div>
@@ -123,8 +123,8 @@
 
                 <div class="tab-content">
                     <div class="flex justify-around tab-content-item text-center lg:mb-3">
-                        <div class="relative group cursor-pointer lg:p-10 p-5">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out">
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out">
                                 <div class="font-bold text-xl font-poppins text-center text-white">NEWS FLASH</div>
                                 <div class="opacity-80 text-l font-poppins text-center text-white">10.00 - 11.00</div>
                             </div>
@@ -134,8 +134,8 @@
                             />
                         </div>
 
-                        <div class="relative group cursor-pointer lg:p-10 p-5">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-pink-400/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-pink-400/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
                                 <div class="font-bold text-xl font-poppins text-center text-white">SERSAN</div>
                                 <div class="opacity-80 text-l font-poppins text-center text-white">11.00 - 14.00</div>
                             </div>
@@ -145,8 +145,8 @@
                             />
                         </div>
 
-                        <div class="relative group cursor-pointer lg:p-10 p-5">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-orange-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-orange-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
                                 <div class="font-bold text-xl font-poppins text-center text-white">SKOOB</div>
                                 <div class="opacity-80 text-l font-poppins text-center text-white">14.00 - 17.00</div>
                             </div>
@@ -156,9 +156,9 @@
                             />
                         </div>
                     </div>
-                    <div class="flex justify-around tab-content-item text-center mx-32 lg:mx-60">
-                        <div class="relative group cursor-pointer lg:p-10 p-5">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-blue-800/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                    <div class="flex justify-around tab-content-item text-center mx-20 md:mx-32 lg:mx-60">
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-blue-800/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
                                 <div class="font-bold text-xl font-poppins text-center text-white">MUSIKALITAS</div>
                                 <div class="opacity-80 text-l font-poppins text-center text-white">11.00 - 14.00</div>
                             </div>
@@ -168,8 +168,8 @@
                             />
                         </div>
 
-                        <div class="relative group cursor-pointer lg:p-10 p-5">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-blue-500/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-blue-500/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
                                 <div class="font-bold text-xl font-poppins text-center text-white">CAMPUS TROOPS</div>
                                 <div class="opacity-80 text-l font-poppins text-center text-white">15.00 - 17.00</div>
                             </div>
@@ -180,8 +180,8 @@
                         </div>
                     </div>
                     <div class="flex justify-around tab-content-item text-center lg:mb-3">
-                        <div class="relative group cursor-pointer lg:p-10 p-5">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-purple-900/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-purple-900/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
                                 <div class="font-bold text-xl font-poppins text-center text-white">SODA</div>
                                 <div class="opacity-80 text-l font-poppins text-center text-white">10.00 - 13.00</div>
                             </div>
@@ -191,8 +191,8 @@
                             />
                         </div>
 
-                        <div class="relative group cursor-pointer lg:p-10 p-5">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
                                 <div class="font-bold text-xl font-poppins text-center text-white">NEWS FLASH</div>
                                 <div class="opacity-80 text-l font-poppins text-center text-white">13.00 - 14.00</div>
                             </div>
@@ -202,8 +202,8 @@
                             />
                         </div>
 
-                        <div class="relative group cursor-pointer lg:p-10 p-5">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-yellow-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-yellow-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
                                 <div class="font-bold text-xl font-poppins text-center text-white">KAJJA</div>
                                 <div class="opacity-80 text-l font-poppins text-center text-white">14.00 - 17.00</div>
                             </div>
@@ -213,9 +213,9 @@
                             />
                         </div>
                     </div>
-                    <div class="flex justify-around tab-content-item text-center mx-32 lg:mx-60">
-                        <div class="relative group cursor-pointer lg:p-10 p-5">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                    <div class="flex justify-around tab-content-item text-center mx-20 md:mx-32 lg:mx-60">
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
                                 <div class="font-bold text-xl font-poppins text-center text-white">JERIT MALAM</div>
                                 <div class="opacity-80 text-l font-poppins text-center text-white">11.00 - 14.00</div>
                             </div>
@@ -225,8 +225,8 @@
                             />
                         </div>
 
-                        <div class="relative group cursor-pointer lg:p-10 p-5">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-blue-500/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-blue-500/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
                                 <div class="font-bold text-xl font-poppins text-center text-white">CAMPUS TROOPS</div>
                                 <div class="opacity-80 text-l font-poppins text-center text-white">15.00 - 17.00</div>
                             </div>
@@ -237,8 +237,8 @@
                         </div>
                     </div>
                     <div class="flex justify-around tab-content-item text-center lg:mb-3">
-                        <div class="relative group cursor-pointer lg:p-10 p-5">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-red-800/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-red-800/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
                                 <div class="font-bold text-xl font-poppins text-center text-white">BILCIN</div>
                                 <div class="opacity-80 text-l font-poppins text-center text-white">10.00 - 13.00</div>
                             </div>
@@ -248,8 +248,8 @@
                             />
                         </div>
 
-                        <div class="relative group cursor-pointer lg:p-10 p-5">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
                                 <div class="font-bold text-xl font-poppins text-center text-white">NEWS FLASH</div>
                                 <div class="opacity-80 text-l font-poppins text-center text-white">13.00 - 14.00</div>
                             </div>
@@ -259,8 +259,8 @@
                             />
                         </div>
 
-                        <div class="relative group cursor-pointer lg:p-10 p-5">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-purple-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-purple-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
                                 <div class="font-bold text-xl font-poppins text-center text-white">CHARTTOPPERS</div>
                                 <div class="opacity-80 text-l font-poppins text-center text-white">14.00 - 17.00</div>
                             </div>
@@ -337,6 +337,54 @@
             </div>
         </div>
     </div>
+
+    {{-- ARTICLE --}}
+        <div class="mx-12 font-poppins text-black mb-6">
+        <h1 class="font-poppins text-[#021f3a] font-bold text-center my-2 mb-6">News</h1>
+            <div class="flex flex-col md:flex-row gap-16 items-center justify-center">
+
+            <a class="no-underline" href="/article/kepada-yth-maba-apa-kabar-kali-ini">
+                    <div class="max-w-sm rounded overflow-hidden shadow-lg no-underline">
+                    <img class="w-full" src="{{ asset('images/artikel2/FEATURED IMAGE MABA.webp') }}" alt="Featured Image">
+                    <div class="px-6 py-4">
+                        <div class="font-bold text-xl mb-2 text-[#021f3a]">Kepada Yth. Maba: Apa Kabar Kali Ini?</div>
+                        <p class="text-gray-700 text-base">
+                        “Buka lagi visimu, kau tahu mana urutan satu”<br>
+            Sepenggal lirik dari lagu “33x”. . .
+                        </p>
+                    </div>
+                    <div class="px-6 pt-4 pb-2">
+                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Lapor OMB</span>
+                    </div>
+                    </div>
+                </a>
+
+                <a class="no-underline" href="/article/obral-etalase-mimpi">
+                    <div class="max-w-sm rounded overflow-hidden shadow-lg no-underline">
+                    <img class="w-full" src="{{ asset('images/artikel1/FEATURED IMAGE.webp') }}" alt="Featured Image">
+                    <div class="px-6 py-4">
+                        <div class="font-bold text-xl mb-2 text-[#021f3a]">Obral Etalase Mimpi</div>
+                        <p class="text-gray-700 text-base">
+                        “Dibeli! Dibeli! Diobral <i>nih</i> mimpinya!” <br>
+                    Hah? Dibeli? Diobral? Mimpinya? Apa <i>sih</i> maksudnya? <i>Kinda little bit confusing,</i> ya
+                    Ultimafriends?. . .
+                        </p>
+                    </div>
+                    <div class="px-6 pt-4 pb-2">
+                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Lapor OMB</span>
+                    </div>
+                    </div>
+                </a>
+
+            </div>
+            <div class="text-center flex flex-row justify-center items-center my-6">
+            <a class="no-underline" href="/article">
+                <button class="bg-transparent hover:bg-[#021f3a] text-[#021f3a] font-semibold hover:text-white py-2 px-4 border border-[#021f3a] hover:border-transparent rounded">
+                Read More
+                </button>
+                </a>
+                </div>
+        </div>
 
     {{-- Section 3 --}}
     <div id="section-3" class="mx-4">
@@ -764,19 +812,19 @@
             }
             });
 
-            var button = document.getElementById("buttonplay");
-            var button2 = document.getElementById("buttonpause");
-            var audio = document.getElementById("player");
-
             button3.addEventListener("click", function(){
             if(audio.paused){
                 audio.play();
                 button.classList.add('hidden');
                 button2.classList.remove('hidden');
+                button3.classList.add('hidden');
+                button4.classList.remove('hidden');
             } else {
                 audio.pause();
                 button2.classList.add('hidden');
                 button.classList.remove('hidden');
+                button4.classList.add('hidden');
+                button3.classList.remove('hidden');
             }
             });
 
@@ -785,10 +833,14 @@
                 audio.play();
                 button.classList.add('hidden');
                 button2.classList.remove('hidden');
+                button3.classList.add('hidden');
+                button4.classList.remove('hidden');
             } else {
                 audio.pause();
                 button2.classList.add('hidden');
                 button.classList.remove('hidden');
+                button4.classList.add('hidden');
+                button3.classList.remove('hidden');
             }
             });
 

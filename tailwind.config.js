@@ -10,6 +10,9 @@ module.exports = {
       fontFamily: {
           poppins: ['Poppins']
       },
+      height: {
+        '128': '32rem',
+      },
     },
   },
   plugins: [require("daisyui")],
