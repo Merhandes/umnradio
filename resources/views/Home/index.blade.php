@@ -103,19 +103,19 @@
             <div class="tabs-group">
                 <div class="tabs-container flex justify-center items-center">
                     <div class="tabs flex justify-center max-w-[20%]">
-                        <p class="font-semibold text-sm md:text-md font-poppins text-center text-[#021f3a]">Monday</p>
+                        <p class="font-semibold text-xs md:text-md font-poppins text-center text-[#021f3a]">Monday</p>
                     </div>
                     <div class="tabs flex justify-center max-w-[20%]">
-                        <p class="font-semibold text-sm md:text-md font-poppins text-center text-[#021f3a]">Tuesday</p>
+                        <p class="font-semibold text-xs md:text-md font-poppins text-center text-[#021f3a]">Tuesday</p>
                     </div>
                     <div class="tabs flex justify-center max-w-[20%]">
-                        <p class="font-semibold text-sm md:text-md font-poppins text-center text-[#021f3a]">Wednesday</p>
+                        <p class="font-semibold text-xs md:text-md font-poppins text-center text-[#021f3a]">Wednesday</p>
                     </div>
                     <div class="tabs flex justify-center max-w-[20%]">
-                        <p class="font-semibold text-sm md:text-md font-poppins text-center text-[#021f3a]">Thursday</p>
+                        <p class="font-semibold text-xs md:text-md font-poppins text-center text-[#021f3a]">Thursday</p>
                     </div>
                     <div class="tabs flex justify-center max-w-[20%]">
-                        <p class="font-semibold text-sm md:text-md font-poppins text-center text-[#021f3a]">Friday</p>
+                        <p class="font-semibold text-xs md:text-md font-poppins text-center text-[#021f3a]">Friday</p>
                     </div>
 
                     <div class="indicator"></div>
@@ -125,8 +125,8 @@
                     <div class="flex justify-around tab-content-item text-center lg:mb-3">
                         <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
                             <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-xl font-poppins text-center text-white">NEWS FLASH</div>
-                                <div class="opacity-80 text-l font-poppins text-center text-white">10.00 - 11.00</div>
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">NEWS FLASH</div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">10.00 - 11.00</div>
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
@@ -136,8 +136,8 @@
 
                         <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
                             <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-pink-400/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-xl font-poppins text-center text-white">SERSAN</div>
-                                <div class="opacity-80 text-l font-poppins text-center text-white">11.00 - 14.00</div>
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">SERSAN</div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">11.00 - 14.00</div>
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
@@ -147,8 +147,8 @@
 
                         <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
                             <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-orange-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-xl font-poppins text-center text-white">SKOOB</div>
-                                <div class="opacity-80 text-l font-poppins text-center text-white">14.00 - 17.00</div>
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">SKOOB</div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">14.00 - 17.00</div>
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
@@ -159,8 +159,8 @@
                     <div class="flex justify-around tab-content-item text-center mx-20 md:mx-32 lg:mx-60">
                         <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
                             <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-blue-800/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-xl font-poppins text-center text-white">MUSIKALITAS</div>
-                                <div class="opacity-80 text-l font-poppins text-center text-white">11.00 - 14.00</div>
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">MUSIKALITAS</div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">11.00 - 14.00</div>
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
@@ -170,8 +170,8 @@
 
                         <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
                             <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-blue-500/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-xl font-poppins text-center text-white">CAMPUS TROOPS</div>
-                                <div class="opacity-80 text-l font-poppins text-center text-white">15.00 - 17.00</div>
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">CAMPUS TROOPS</div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">15.00 - 17.00</div>
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
@@ -182,8 +182,8 @@
                     <div class="flex justify-around tab-content-item text-center lg:mb-3">
                         <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
                             <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-purple-900/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-xl font-poppins text-center text-white">SODA</div>
-                                <div class="opacity-80 text-l font-poppins text-center text-white">10.00 - 13.00</div>
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">SODA</div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">10.00 - 13.00</div>
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
@@ -193,8 +193,8 @@
 
                         <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
                             <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-xl font-poppins text-center text-white">NEWS FLASH</div>
-                                <div class="opacity-80 text-l font-poppins text-center text-white">13.00 - 14.00</div>
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">NEWS FLASH</div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">13.00 - 14.00</div>
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
@@ -204,8 +204,8 @@
 
                         <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
                             <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-yellow-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-xl font-poppins text-center text-white">KAJJA</div>
-                                <div class="opacity-80 text-l font-poppins text-center text-white">14.00 - 17.00</div>
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">KAJJA</div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">14.00 - 17.00</div>
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
@@ -216,8 +216,8 @@
                     <div class="flex justify-around tab-content-item text-center mx-20 md:mx-32 lg:mx-60">
                         <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
                             <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-xl font-poppins text-center text-white">JERIT MALAM</div>
-                                <div class="opacity-80 text-l font-poppins text-center text-white">11.00 - 14.00</div>
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">JERIT MALAM</div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">11.00 - 14.00</div>
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
@@ -227,8 +227,8 @@
 
                         <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
                             <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-blue-500/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-xl font-poppins text-center text-white">CAMPUS TROOPS</div>
-                                <div class="opacity-80 text-l font-poppins text-center text-white">15.00 - 17.00</div>
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">CAMPUS TROOPS</div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">15.00 - 17.00</div>
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
@@ -239,8 +239,8 @@
                     <div class="flex justify-around tab-content-item text-center lg:mb-3">
                         <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
                             <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-red-800/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-xl font-poppins text-center text-white">BILCIN</div>
-                                <div class="opacity-80 text-l font-poppins text-center text-white">10.00 - 13.00</div>
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">BILCIN</div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">10.00 - 13.00</div>
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
@@ -250,8 +250,8 @@
 
                         <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
                             <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-xl font-poppins text-center text-white">NEWS FLASH</div>
-                                <div class="opacity-80 text-l font-poppins text-center text-white">13.00 - 14.00</div>
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">NEWS FLASH</div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">13.00 - 14.00</div>
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
@@ -261,8 +261,8 @@
 
                         <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
                             <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-purple-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-xl font-poppins text-center text-white">CHARTTOPPERS</div>
-                                <div class="opacity-80 text-l font-poppins text-center text-white">14.00 - 17.00</div>
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">CHARTTOPPERS</div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">14.00 - 17.00</div>
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
@@ -347,7 +347,7 @@
                     <div class="max-w-sm rounded overflow-hidden shadow-lg no-underline">
                     <img class="w-full" src="{{ asset('images/artikel2/FEATURED IMAGE MABA.webp') }}" alt="Featured Image">
                     <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2 text-[#021f3a]">Kepada Yth. Maba: Apa Kabar Kali Ini?</div>
+                        <div class="font-bold text-l md:text-xl mb-2 text-[#021f3a]">Kepada Yth. Maba: Apa Kabar Kali Ini?</div>
                         <p class="text-gray-700 text-base">
                         “Buka lagi visimu, kau tahu mana urutan satu”<br>
             Sepenggal lirik dari lagu “33x”. . .
@@ -363,7 +363,7 @@
                     <div class="max-w-sm rounded overflow-hidden shadow-lg no-underline">
                     <img class="w-full" src="{{ asset('images/artikel1/FEATURED IMAGE.webp') }}" alt="Featured Image">
                     <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2 text-[#021f3a]">Obral Etalase Mimpi</div>
+                        <div class="font-bold text-l md:text-xl mb-2 text-[#021f3a]">Obral Etalase Mimpi</div>
                         <p class="text-gray-700 text-base">
                         “Dibeli! Dibeli! Diobral <i>nih</i> mimpinya!” <br>
                     Hah? Dibeli? Diobral? Mimpinya? Apa <i>sih</i> maksudnya? <i>Kinda little bit confusing,</i> ya
