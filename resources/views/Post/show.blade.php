@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>UMN Radio</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
@@ -11,6 +12,9 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
 </head>
 
 <body class="composer h-full bg-white">
@@ -48,68 +52,18 @@
         </div>
     </div>
 
-    {{-- ARTICLE --}}
+    {{-- SHOW ARTICLE --}}
     <div class="pt-10 mx-6 md:mx-48 font-poppins text-black pb-24">
-        <h1 class="pt-12 md:pt-24 text-center font-bold mb-6">Articles</h1>
-        <div class="flex flex-col md:flex-row gap-16 justify-center">
-
-            <a class="no-underline" href="/article/kepada-yth-maba-apa-kabar-kali-ini">
-                <div class="max-w-sm rounded overflow-hidden shadow-lg no-underline">
-                    <img class="w-full" src="{{ asset('images/artikel2/FEATURED IMAGE MABA.webp') }}"
-                        alt="Featured Image">
-                    <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2 text-[#021f3a]">Kepada Yth. Maba: Apa Kabar Kali Ini?</div>
-                        <p class="text-gray-700 text-base">
-                            “Buka lagi visimu, kau tahu mana urutan satu”<br>
-                            Sepenggal lirik dari lagu “33x”. . .
-                        </p>
-                    </div>
-                    <div class="px-6 pt-4 pb-2">
-                        <span
-                            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Lapor
-                            OMB</span>
-                    </div>
-                </div>
-            </a>
-
-            <a class="no-underline" href="/article/obral-etalase-mimpi">
-                <div class="max-w-sm rounded overflow-hidden shadow-lg no-underline">
-                    <img class="w-full" src="{{ asset('images/artikel1/FEATURED IMAGE.webp') }}" alt="Featured Image">
-                    <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2 text-[#021f3a]">Obral Etalase Mimpi</div>
-                        <p class="text-gray-700 text-base">
-                            “Dibeli! Dibeli! Diobral <i>nih</i> mimpinya!” <br>
-                            Hah? Dibeli? Diobral? Mimpinya? Apa <i>sih</i> maksudnya? <i>Kinda little bit confusing,</i>
-                            ya
-                            Ultimafriends?. . .
-                        </p>
-                    </div>
-                    <div class="px-6 pt-4 pb-2">
-                        <span
-                            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Lapor
-                            OMB</span>
-                    </div>
-                </div>
-            </a>
-
-            @foreach ($posts as $post)
-                <a class="no-underline" href="/article/{{ $post->slug }}">
-                    <div class="max-w-sm rounded overflow-hidden shadow-lg no-underline">
-                        <img class="w-full h-52 object-cover" src="{{ asset('storage/' . $post->cover_photo) }}" alt="Featured Image">
-                        <div class="px-6 py-4">
-                            <div class="font-bold text-xl mb-2 text-[#021f3a]">{{ $post->title }}</div>
-                            <p class="text-gray-700 text-base">
-                                {{ $post->excerpt }}
-                            </p>
-                        </div>
-                        <div class="px-6 pt-4 pb-2">
-                            <span
-                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Category</span>
-                        </div>
-                    </div>
-                </a>
-            @endforeach
-        </div>
+        <img src="{{asset('storage/'.$post->cover_photo)}}" alt="" class="my-4 w-full h-80 object-cover mt-16">
+        <h1 class="mt-4 text-3xl text-center font-bold mb-4">
+            <strong>{{$post->title}}</strong>
+        </h1>
+        <h3 class="mt-2 text-start mb-6">
+            By {{$post->author}}. Published {{$post->published}}.
+        </h3>
+        <article class="body-content">
+            {!!$post->post_content!!}
+        </article>
     </div>
 
     {{-- AUDIO --}}
@@ -169,6 +123,17 @@
             }
         });
     </script>
+    <script src="{{ asset('js/attachments.js') }}"></script>
 </body>
+<style>
+    .attachment img{
+        height: 400px;
+        width:auto;
+    }
+    .attachment{
+        display: flex;
+        justify-content: center;
+    }
+</style>
 
 </html>

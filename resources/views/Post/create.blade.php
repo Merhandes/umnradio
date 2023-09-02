@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>UMN Radio</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
@@ -11,6 +12,9 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
 </head>
 
 <body class="composer h-full bg-white">
@@ -48,68 +52,73 @@
         </div>
     </div>
 
-    {{-- ARTICLE --}}
+    {{-- POST FORM --}}
     <div class="pt-10 mx-6 md:mx-48 font-poppins text-black pb-24">
-        <h1 class="pt-12 md:pt-24 text-center font-bold mb-6">Articles</h1>
-        <div class="flex flex-col md:flex-row gap-16 justify-center">
-
-            <a class="no-underline" href="/article/kepada-yth-maba-apa-kabar-kali-ini">
-                <div class="max-w-sm rounded overflow-hidden shadow-lg no-underline">
-                    <img class="w-full" src="{{ asset('images/artikel2/FEATURED IMAGE MABA.webp') }}"
-                        alt="Featured Image">
-                    <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2 text-[#021f3a]">Kepada Yth. Maba: Apa Kabar Kali Ini?</div>
-                        <p class="text-gray-700 text-base">
-                            “Buka lagi visimu, kau tahu mana urutan satu”<br>
-                            Sepenggal lirik dari lagu “33x”. . .
-                        </p>
-                    </div>
-                    <div class="px-6 pt-4 pb-2">
-                        <span
-                            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Lapor
-                            OMB</span>
-                    </div>
-                </div>
-            </a>
-
-            <a class="no-underline" href="/article/obral-etalase-mimpi">
-                <div class="max-w-sm rounded overflow-hidden shadow-lg no-underline">
-                    <img class="w-full" src="{{ asset('images/artikel1/FEATURED IMAGE.webp') }}" alt="Featured Image">
-                    <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2 text-[#021f3a]">Obral Etalase Mimpi</div>
-                        <p class="text-gray-700 text-base">
-                            “Dibeli! Dibeli! Diobral <i>nih</i> mimpinya!” <br>
-                            Hah? Dibeli? Diobral? Mimpinya? Apa <i>sih</i> maksudnya? <i>Kinda little bit confusing,</i>
-                            ya
-                            Ultimafriends?. . .
-                        </p>
-                    </div>
-                    <div class="px-6 pt-4 pb-2">
-                        <span
-                            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Lapor
-                            OMB</span>
-                    </div>
-                </div>
-            </a>
-
-            @foreach ($posts as $post)
-                <a class="no-underline" href="/article/{{ $post->slug }}">
-                    <div class="max-w-sm rounded overflow-hidden shadow-lg no-underline">
-                        <img class="w-full h-52 object-cover" src="{{ asset('storage/' . $post->cover_photo) }}" alt="Featured Image">
-                        <div class="px-6 py-4">
-                            <div class="font-bold text-xl mb-2 text-[#021f3a]">{{ $post->title }}</div>
-                            <p class="text-gray-700 text-base">
-                                {{ $post->excerpt }}
-                            </p>
-                        </div>
-                        <div class="px-6 pt-4 pb-2">
-                            <span
-                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Category</span>
-                        </div>
-                    </div>
-                </a>
-            @endforeach
-        </div>
+        <h1 class="pt-12 md:pt-24 text-center font-bold mb-6">New Article</h1>
+        <form class="w-[90%]" action="/posts" enctype="multipart/form-data" method="post">
+            @csrf
+            <div class="my-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
+                    Title
+                </label>
+                <input
+                    class="@error('title') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    name="title" id="title" type="text" placeholder="Title" value="{{ old('title') }}">
+                @error('title')
+                    <div class="text-sm text-red-600">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="my-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="slug">
+                    Slug
+                </label>
+                <input
+                    class="@error('slug') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    name="slug" id="slug" type="text" placeholder="" value="{{ old('slug') }}">
+                @error('slug')
+                    <div class="text-sm text-red-600">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="my-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="author">
+                    Author
+                </label>
+                <input
+                    class="@error('author') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    name="author" id="author" type="text" placeholder="Author" value="{{ old('author') }}">
+                @error('author')
+                    <div class="text-sm text-red-600">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="my-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="cover_photo">
+                    Cover Photo
+                </label>
+                <input type="file" accept="image/*" id="cover_photo" name="cover_photo" onchange="previewImage()"
+                    class="@error('cover_photo') border-red-500 @enderror ">
+                <img src="" alt="" class="my-4 img-preview w-full h-80 object-cover hidden">
+                @error('cover_photo')
+                    <div class="text-sm text-red-600">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="my-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="post_content">
+                    Content
+                </label>
+                <input id="x" type="hidden" name="post_content" value="{{ old('post_content') }}">
+                <trix-editor class="@error('post_content') border-red-500 @enderror  " input="x"></trix-editor>
+                @error('post_content')
+                    <div class="text-sm text-red-600">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="flex items-center justify-between my-4">
+                <button
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    type="submit">
+                    Publish
+                </button>
+            </div>
+        </form>
     </div>
 
     {{-- AUDIO --}}
@@ -169,6 +178,42 @@
             }
         });
     </script>
+    <script src="{{ asset('js/attachments.js') }}"></script>
 </body>
+
+<script>
+    const title = document.querySelector('#title');
+    const slug = document.querySelector('#slug');
+
+    title.addEventListener('change', function() {
+        fetch('/posts/checkSlug?title=' + title.value)
+            .then(response => response.json())
+            .then(data => slug.value = data.slug)
+    })
+
+    function previewImage() {
+        const image = document.querySelector('#cover_photo')
+        const imgPreview = document.querySelector(".img-preview")
+
+        imgPreview.style.display='block'
+        const oFReader = new FileReader()
+
+        oFReader.readAsDataURL(image.files[0])
+        oFReader.onload = function(oFREvent){
+            imgPreview.src = oFREvent.target.result;
+        }
+    }
+</script>
+
+<style>
+    .attachment img{
+        height: 400px;
+        width:auto;
+    }
+    .attachment{
+        display: flex;
+        justify-content: center;
+    }
+</style>
 
 </html>
