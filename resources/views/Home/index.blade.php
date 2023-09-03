@@ -81,18 +81,52 @@
     <div id="section-1" class="w-full my-6 md:mt-12 md:mx-4">
         <h1 class="font-poppins text-[#021f3a] font-bold w-full text-center">Live Broadcast</h1>
         <div id="sign" class="m-6 text-center">
-            <div id="onair" class="border rounded-md bg-[#dfdfdf] w-24 p-2 m-auto">
+
+            {{-- SCHEDULE SYSTEM PHP --}}
+
+            <?php
+                use Carbon\Carbon;
+
+                $day = Carbon::now()->format('N');
+                $hour = Carbon::now()->format('H');
+                // $day = 1;
+                // $hour = 10;
+
+                foreach ($programs as $program) {
+                    if ($program->broadcast_day == $day && $hour < $programs->where('broadcast_day', $day)->first()->start_hour) {
+                        $text = "Upcoming Program";
+                        $now = $programs->where('broadcast_day', $day)->first();
+                        $onair = "bg-[#dfdfdf]";
+                    } else if ($program->broadcast_day == $day && $hour < 17) {
+                        $text = "You're Listening to";
+                        if ($hour >= $program->start_hour && $hour < $program->end_hour) {
+                            $now = $program;
+                        }
+                        $onair = "bg-[#fc1414]";
+                    } else if ($program->broadcast_day == $day) {
+                        $text = "Upcoming Program";
+                        $now = $programs->where('broadcast_day', $day+1)->first();
+                        $onair = "bg-[#dfdfdf]";
+                    } else if ($day > 5) {
+                        $text = "Upcoming Program";
+                        $now = $programs->where('broadcast_day', 1)->first();
+                        $onair = "bg-[#dfdfdf]";
+                    }
+                }
+
+            ?>
+
+            <div id="onair" class="border rounded-md {{ $onair }} w-24 p-2 m-auto">
                 <h1 class="font-poppins text-xl text-white"> On Air </h1>
             </div>
+
             <div class="flex flex-col md:flex-row gap-4 md:gap-16 mt-6 justify-center items-center">
-                <img id="simbPoster" class="h-80 rounded-lg" src="{{ asset('images/sim.webp') }}" alt="SIMB" />
-                <img id="newsPoster" class="hidden h-80 rounded-lg" src="{{ asset('assets/NF.webp') }}" alt="NEWS" />
+                <img class="h-80 rounded-lg" src="{{ asset($now->img) }}" alt="ON AIR" /> 
                 
                 <div>
-                    <h3 id="upcomingtext" class="font-poppins mt-3 font-bold text-black">Upcoming Program</h3>
-                    <h3 id="listeningtext" class="hidden font-poppins mt-3 font-bold text-black">You're Listening to</h3>
-                    <h3 id="namaProgram" class="font-poppins mt-3 font-bold text-3xl text-[#021f3a]">SIMB</h3>
-                    <p id="waktuTayang" class="font-poppins mt-3 text-black">Monday (17:00-19:00)</p>
+                    <h3 class="font-poppins mt-3 font-bold text-black">{{ $text }}</h3>
+                    <h3 class="font-poppins mt-3 font-bold text-3xl text-[#021f3a]">{{ $now->name }}</h3>
+                    <p class="font-poppins mt-3 text-black">{{ $now->desc }}</p>
                 </div>
             </div>
         </div>
@@ -130,7 +164,7 @@
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('assets/NF.webp') }}"
+                                src="{{ asset('images/programs/NF.webp') }}"
                             />
                         </div>
 
@@ -141,7 +175,7 @@
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('assets/SS.webp') }}"
+                                src="{{ asset('images/programs/SS.webp') }}"
                             />
                         </div>
 
@@ -152,7 +186,7 @@
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('assets/SKOOB.webp') }}"
+                                src="{{ asset('images/programs/SKOOB.webp') }}"
                             />
                         </div>
                     </div>
@@ -164,7 +198,7 @@
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('assets/M.webp') }}"
+                                src="{{ asset('images/programs/M.webp') }}"
                             />
                         </div>
 
@@ -175,7 +209,7 @@
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('assets/CT.webp') }}"
+                                src="{{ asset('images/programs/CT.webp') }}"
                             />
                         </div>
                     </div>
@@ -187,7 +221,7 @@
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('assets/SODA.webp') }}"
+                                src="{{ asset('images/programs/SODA.webp') }}"
                             />
                         </div>
 
@@ -198,7 +232,7 @@
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('assets/NF.webp') }}"
+                                src="{{ asset('images/programs/NF.webp') }}"
                             />
                         </div>
 
@@ -209,7 +243,7 @@
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('assets/K.webp') }}"
+                                src="{{ asset('images/programs/K.webp') }}"
                             />
                         </div>
                     </div>
@@ -221,7 +255,7 @@
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('assets/JM.webp') }}"
+                                src="{{ asset('images/programs/JM.webp') }}"
                             />
                         </div>
 
@@ -232,7 +266,7 @@
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('assets/CT.webp') }}"
+                                src="{{ asset('images/programs/CT.webp') }}"
                             />
                         </div>
                     </div>
@@ -244,7 +278,7 @@
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('assets/BC.webp') }}"
+                                src="{{ asset('images/programs/BC.webp') }}"
                             />
                         </div>
 
@@ -255,7 +289,7 @@
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('assets/NF.webp') }}"
+                                src="{{ asset('images/programs/NF.webp') }}"
                             />
                         </div>
 
@@ -266,7 +300,7 @@
                             </div>
                             <img alt=""
                                 class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('assets/C.webp') }}"
+                                src="{{ asset('images/programs/C.webp') }}"
                             />
                         </div>
                     </div>
@@ -591,7 +625,7 @@
         }
     </style>
 
-{{-- <div id="chart-carousel" class="flex justify-center align-middle w-full my-4 mx-4">
+        {{-- <div id="chart-carousel" class="flex justify-center align-middle w-full my-4 mx-4">
             <div class="carousel carousel-center max-w-[60%] p-4 space-x-4 bg-neutral rounded-box">
                 <div class="carousel-item">
                     <iframe style="border-radius:15px"
@@ -651,8 +685,6 @@
                 </div>
             </div>
         </div> --}}
-            
-            <div class="m-10"></div>
 
             <footer class="bg-[#021f3a] md:h-24 mb-16 p-4">
                 <div class="flex flex-col items-center text-center space-y-3 md:flex-row md:justify-around md:items-center md:text-left md:space-y-0">
@@ -698,81 +730,9 @@
                 </div>
             </footer>
         </div>
-        <script>
-            var date = new Date();
-            var simbdate = new Date('2023-08-22');
-            var today = date.getDay();
-            var time = date.getHours();
 
-            var namaProgram = document.getElementById("namaProgram");
-            var waktuTayang = document.getElementById("waktuTayang");
 
-            var simbPoster = document.getElementById("simbPoster");
-            var newsPoster = document.getElementById("newsPoster");
 
-            var upcoming = document.getElementById("upcomingtext");
-            var listening = document.getElementById("listeningtext");
-            var onair = document.getElementById("onair");
-
-            if(today == 6 && date < simbdate || today == 0 && date < simbdate){
-                namaProgram.innerHTML = "SIMB";
-                waktuTayang.innerHTML = "Monday (17:00-19:00)";
-            } else if (today == 6 || today == 0) {
-                simbPoster.classList.add('hidden');
-                newsPoster.classList.remove('hidden');
-                namaProgram.innerHTML = "News Flash";
-                waktuTayang.innerHTML = "Monday (10:00-11:00)";
-            } else if (today == 1){
-                if(time >= 19){
-                    waktuTayang.innerHTML = "Tuesday (17:00-19:00)";
-                } else if (time >= 17 && time < 19){
-                    upcoming.classList.add('hidden');
-                    listening.classList.remove('hidden');
-                    onair.classList.remove('bg-[#dfdfdf]');
-                    onair.classList.add('bg-[#fc1414]');
-                } else {
-                    waktuTayang.innerHTML = "Monday (17:00-19:00)";
-                }
-            } else if (today == 2){
-                if(time >= 19){
-                    waktuTayang.innerHTML = "Wednesday (17:00-19:00)";
-                } else if (time >= 17 && time < 19){
-                    upcoming.classList.add('hidden');
-                    listening.classList.remove('hidden');
-                    onair.classList.remove('bg-[#dfdfdf]');
-                    onair.classList.add('bg-[#fc1414]');
-                } else {
-                    waktuTayang.innerHTML = "Tuesday (17:00-19:00)";
-                }
-            } else if (today == 3){
-                if(time >= 19){
-                    waktuTayang.innerHTML = "Friday (17:00-19:00)";
-                } else if (time >= 17 && time < 19){
-                    upcoming.classList.add('hidden');
-                    listening.classList.remove('hidden');
-                    onair.classList.remove('bg-[#dfdfdf]');
-                    onair.classList.add('bg-[#fc1414]');
-                } else {
-                    waktuTayang.innerHTML = "Wednesday (17:00-19:00)";
-                }
-            } else if (today == 4){
-                waktuTayang.innerHTML = "Friday (17:00-19:00)";
-            } else if (today == 5){
-                if(time >= 19){
-                    simbPoster.classList.add('hidden');
-                    newsPoster.classList.remove('hidden');
-                    namaProgram.innerHTML = "News Flash";
-                    waktuTayang.innerHTML = "Monday (10:00-11:00)";
-                } else if (time >= 17 && time < 19){
-                    upcoming.classList.add('hidden');
-                    listening.classList.remove('hidden');
-                    onair.classList.remove('bg-[#dfdfdf]');
-                    onair.classList.add('bg-[#fc1414]');
-                } else {
-                    waktuTayang.innerHTML = "Friday (17:00-19:00)";
-                }
-            };
-        </script>
         <script>
             var button = document.getElementById("buttonplay");
             var button2 = document.getElementById("buttonpause");
