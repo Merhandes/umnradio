@@ -40,4 +40,6 @@ Route::post('/posts/upload', [PostController::class, 'upload']);
 
 Route::resource('posts', PostController::class);
 
-Route::get('/article', [PostController::class, 'showArticles']);
+Route::get('/articles', [PostController::class, 'showArticles']);
+
+Route::get('/article/{post:slug}', [PostController::class, 'showArticle']);

@@ -31,7 +31,7 @@
                 </button>
                 <div class="pr-4 hidden space-x-6 lg:inline-block">
                     <a href="/" class="font-poppins text-base text-white underline-offset-4">Home</a>
-                    <a href="/article" class="font-poppins text-base text-white no-underline">Articles</a>
+                    <a href="/articles" class="font-poppins text-base text-white no-underline">Articles</a>
                     <!-- <a href="#" class="font-poppins text-base text-white no-underline">Programs</a>
                     <a href="#" class="font-poppins text-base text-white no-underline">Podcasts</a> -->
                 </div>
@@ -41,7 +41,7 @@
                         @click.away=" isOpen = false">
                         <div class="flex flex-col space-y-6">
                             <a href="#" class="font-poppins -sm text-black">Home</a>
-                            <a href="/article" class="font-poppins text-sm text-black">Article</a>
+                            <a href="/articles" class="font-poppins text-sm text-black">Article</a>
                             <!-- <a href="#" class="text-sm text-black">Programs</a>
                             <a href="#" class="text-sm text-black">Podcasts</a> -->
                         </div>
@@ -378,7 +378,7 @@
 
             </div>
             <div class="text-center flex flex-row justify-center items-center my-6">
-            <a class="no-underline" href="/article">
+            <a class="no-underline" href="/articles">
                 <button class="bg-transparent hover:bg-[#021f3a] text-[#021f3a] font-semibold hover:text-white py-2 px-4 border border-[#021f3a] hover:border-transparent rounded">
                 Read More
                 </button>

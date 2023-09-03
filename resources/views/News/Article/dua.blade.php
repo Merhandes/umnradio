@@ -33,7 +33,7 @@
                     <a href="/" class="font-poppins text-base text-white no-underline">Home</a>
                     <!-- <a href="#" class="font-poppins text-base text-white no-underline">About</a>
                     <a href="#" class="font-poppins text-base text-white no-underline">Programs</a> -->
-                    <a href="/article" class="font-poppins text-base text-white underline-offset-4">Articles</a>
+                    <a href="/articles" class="font-poppins text-base text-white underline-offset-4">Articles</a>
                 </div>
 
                 <div class="mobile-navbar">
@@ -42,7 +42,7 @@
                         <div class="flex flex-col space-y-6">
                             <a href="/" class="font-poppins -sm text-black">Home</a>
                             <!-- <a href="#" class="font-poppins text-sm text-black">About</a> -->
-                            <a href="/article" class="text-sm text-black">Articles</a>
+                            <a href="/articles" class="text-sm text-black">Articles</a>
                             <!-- <a href="#" class="text-sm text-black">Podcasts</a> -->
                         </div>
                     </div>

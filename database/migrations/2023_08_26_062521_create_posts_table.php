@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('excerpt')->nullable();
             $table->string('author');
+            $table->string('editor')->nullable();
             $table->string('cover_photo')->nullable();
             $table->text('post_content');
             $table->text('category')->nullable();

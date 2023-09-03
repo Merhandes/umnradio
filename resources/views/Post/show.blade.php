@@ -35,7 +35,7 @@
                 <a href="/" class="font-poppins text-base text-white no-underline">Home</a>
                 <!-- <a href="#" class="font-poppins text-base text-white no-underline">About</a>
                     <a href="#" class="font-poppins text-base text-white no-underline">Programs</a> -->
-                <a href="/article" class="font-poppins text-base text-white underline-offset-4">Articles</a>
+                <a href="/articles" class="font-poppins text-base text-white underline-offset-4">Articles</a>
             </div>
 
             <div class="mobile-navbar">
@@ -44,7 +44,7 @@
                     <div class="flex flex-col space-y-6">
                         <a href="/" class="font-poppins -sm text-black">Home</a>
                         <!-- <a href="#" class="font-poppins text-sm text-black">About</a> -->
-                        <a href="/article" class="text-sm text-black">Articles</a>
+                        <a href="/articles" class="text-sm text-black">Articles</a>
                         <!-- <a href="#" class="text-sm text-black">Podcasts</a> -->
                     </div>
                 </div>
@@ -53,16 +53,24 @@
     </div>
 
     {{-- SHOW ARTICLE --}}
-    <div class="pt-10 mx-6 md:mx-48 font-poppins text-black pb-24">
-        <img src="{{asset('storage/'.$post->cover_photo)}}" alt="" class="my-4 w-full h-80 object-cover mt-16">
-        <h1 class="mt-4 text-3xl text-center font-bold mb-4">
-            <strong>{{$post->title}}</strong>
+    <div class="pt-28 mx-6 md:mx-48 font-poppins text-black pb-24">
+        {{-- <div class="">
+            <a href="/posts/{{ $post->slug }}/edit">
+                <button
+                    class="bg-yellow-500 hover:bg-yellow-400 text-white font-bold py-1 px-2 border-b-4 border-yellow-700 hover:border-yellow-500 rounded">
+                    Edit Article</button>
+            </a>
+        </div> --}}
+        <img src="{{ asset('storage/' . $post->cover_photo) }}" alt=""
+            class="my-4 w-full h-80 object-cover">
+        <h1 class="mt-4 text-3xl text-center font-bold mb-2">
+            <strong>{{ $post->title }}</strong>
         </h1>
-        <h3 class="mt-2 text-start mb-6">
-            By {{$post->author}}. Published {{$post->published}}.
+        <h3 class="mt-2 text-sm text-start mb-3">
+            By {{ $post->author }}. Edited by {{ $post->editor }}. Published {{ $post->published }}.
         </h3>
         <article class="body-content">
-            {!!$post->post_content!!}
+            {!! $post->post_content !!}
         </article>
     </div>
 
@@ -126,11 +134,12 @@
     <script src="{{ asset('js/attachments.js') }}"></script>
 </body>
 <style>
-    .attachment img{
+    .attachment img {
         height: 400px;
-        width:auto;
+        width: auto;
     }
-    .attachment{
+
+    .attachment {
         display: flex;
         justify-content: center;
     }

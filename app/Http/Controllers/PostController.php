@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Http\Requests\UpdatePostRequest;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -40,12 +41,18 @@ class PostController extends Controller
             'title' => 'required|max:255',
             'slug' => 'required|unique:posts',
             'author' => 'required|max:255',
+            'editor'=> 'max:255',
             'post_content' => 'required',
             'cover_photo' => 'required|image|file|max:20480'
         ]);
 
-        $validData['excerpt'] = Str::limit(strip_tags($request->post_content), 100, '...');
+        $string = strip_tags(str_replace('><', '> <', $request->post_content));
+        $str = Str::limit($string, 100, '...');
+        $stringClean = preg_replace('/\s\s+/', ' ', $str);
+
+        $validData['excerpt'] = Str::limit(strip_tags($stringClean), 100, '...');
         $validData['published'] = now()->toFormattedDayDateString();
+        $validData['category'] = strtoupper($request->category);
 
         if ($request->file('cover_photo')) {
             $validData['cover_photo'] = $request->file('cover_photo')->storePublicly('cover_images', 'public');
@@ -94,6 +101,7 @@ class PostController extends Controller
             'title' => 'required|max:255',
             // 'slug' => 'required|max:255|unique:posts',
             'author' => 'required|max:255',
+            'editor' => 'max:255',
             'post_content' => 'required',
             'cover_photo' => 'required|image|file|max:20480'
         ];
@@ -104,9 +112,23 @@ class PostController extends Controller
 
         $validData = $request->validate($rules);
 
-        $validData['excerpt'] = Str::limit(strip_tags($request->post_content), 100, '...');
+        
+
+        $string = strip_tags(str_replace('<', ' <', $request->post_content));
+        $str = Str::limit($string, 100, '...');
+        $stringClean = preg_replace('/\s\s+/', ' ', $str);
+
+        $validData['excerpt'] = $stringClean;
+        $validData['category'] = strtoupper($request->category);
+
+        // if ($request->file('cover_photo')) {
+        //     $validData['cover_photo'] = $request->file('cover_photo')->storePublicly('cover_images', 'public');
+        // }
 
         if ($request->file('cover_photo')) {
+            if ($request->old_cover_photo) {
+                Storage::delete($request->old_cover_photo);
+            }
             $validData['cover_photo'] = $request->file('cover_photo')->storePublicly('cover_images', 'public');
         }
 
@@ -161,5 +183,11 @@ class PostController extends Controller
     public function showArticles(){
         $posts = Post::all();
         return view('News.index', ['posts' => $posts]);
+    }
+
+    public function showArticle(Post $post)
+    {
+        //
+        return view('Post.show', ['post' => $post]);
     }
 }

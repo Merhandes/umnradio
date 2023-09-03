@@ -31,7 +31,7 @@
                 <a href="/" class="font-poppins text-base text-white no-underline">Home</a>
                 <!-- <a href="#" class="font-poppins text-base text-white no-underline">About</a>
                     <a href="#" class="font-poppins text-base text-white no-underline">Programs</a> -->
-                <a href="/article" class="font-poppins text-base text-white underline-offset-4">Articles</a>
+                <a href="/articles" class="font-poppins text-base text-white underline-offset-4">Articles</a>
             </div>
 
             <div class="mobile-navbar">
@@ -40,7 +40,7 @@
                     <div class="flex flex-col space-y-6">
                         <a href="/" class="font-poppins -sm text-black">Home</a>
                         <!-- <a href="#" class="font-poppins text-sm text-black">About</a> -->
-                        <a href="/article" class="text-sm text-black">Articles</a>
+                        <a href="/articles" class="text-sm text-black">Articles</a>
                         <!-- <a href="#" class="text-sm text-black">Podcasts</a> -->
                     </div>
                 </div>
@@ -51,11 +51,11 @@
     {{-- ARTICLE --}}
     <div class="pt-10 mx-6 md:mx-48 font-poppins text-black pb-24">
         <h1 class="pt-12 md:pt-24 text-center font-bold mb-6">Articles</h1>
-        <div class="flex flex-col md:flex-row gap-16 justify-center">
+        <div class="flex flex-wrap gap-8 justify-center">
 
-            <a class="no-underline" href="/article/kepada-yth-maba-apa-kabar-kali-ini">
-                <div class="max-w-sm rounded overflow-hidden shadow-lg no-underline">
-                    <img class="w-full" src="{{ asset('images/artikel2/FEATURED IMAGE MABA.webp') }}"
+            {{-- <a class="no-underline" href="/article/kepada-yth-maba-apa-kabar-kali-ini">
+                <div class="max-w-sm rounded overflow-hidden shadow-lg no-underline w-48">
+                    <img class="w-full object-" src="{{ asset('images/artikel2/FEATURED IMAGE MABA.webp') }}"
                         alt="Featured Image">
                     <div class="px-6 py-4">
                         <div class="font-bold text-xl mb-2 text-[#021f3a]">Kepada Yth. Maba: Apa Kabar Kali Ini?</div>
@@ -73,8 +73,8 @@
             </a>
 
             <a class="no-underline" href="/article/obral-etalase-mimpi">
-                <div class="max-w-sm rounded overflow-hidden shadow-lg no-underline">
-                    <img class="w-full" src="{{ asset('images/artikel1/FEATURED IMAGE.webp') }}" alt="Featured Image">
+                <div class="max-w-sm rounded overflow-hidden shadow-lg no-underline min-w-48">
+                    <img class="w-full object-" src="{{ asset('images/artikel1/FEATURED IMAGE.webp') }}" alt="Featured Image">
                     <div class="px-6 py-4">
                         <div class="font-bold text-xl mb-2 text-[#021f3a]">Obral Etalase Mimpi</div>
                         <p class="text-gray-700 text-base">
@@ -90,21 +90,24 @@
                             OMB</span>
                     </div>
                 </div>
-            </a>
+            </a> --}}
 
             @foreach ($posts as $post)
                 <a class="no-underline" href="/article/{{ $post->slug }}">
-                    <div class="max-w-sm rounded overflow-hidden shadow-lg no-underline">
-                        <img class="w-full h-52 object-cover" src="{{ asset('storage/' . $post->cover_photo) }}" alt="Featured Image">
+                    <div class="rounded overflow-hidden shadow-lg no-underline w-[300px] h-full relative pb-12">
+                        <img class="w-full object- h-52 object-cover" src="{{ asset('storage/' . $post->cover_photo) }}" alt="Featured Image">
                         <div class="px-6 py-4">
                             <div class="font-bold text-xl mb-2 text-[#021f3a]">{{ $post->title }}</div>
                             <p class="text-gray-700 text-base">
                                 {{ $post->excerpt }}
                             </p>
                         </div>
-                        <div class="px-6 pt-4 pb-2">
+                        <div class="px-3 pt-4 absolute bottom-1">
                             <span
-                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Category</span>
+                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{$post->category}}</span>
+                            <span>
+                                {{$post->published}}
+                            </span>
                         </div>
                     </div>
                 </a>

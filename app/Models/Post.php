@@ -12,7 +12,7 @@ class Post extends Model
 
     protected $guarded = ['id'];
 
-    protected $fillable=['title', 'slug', 'excerpt', 'author', 'cover_photo', 'post_content', 'published'];
+    protected $fillable = ['title', 'slug', 'excerpt', 'author', 'cover_photo', 'post_content', 'published', 'category', 'editor'];
 
     /**
      * Return the sluggable configuration array for this model.

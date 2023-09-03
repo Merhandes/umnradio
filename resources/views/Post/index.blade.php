@@ -36,7 +36,7 @@
                 <a href="/" class="font-poppins text-base text-white no-underline">Home</a>
                 <!-- <a href="#" class="font-poppins text-base text-white no-underline">About</a>
                     <a href="#" class="font-poppins text-base text-white no-underline">Programs</a> -->
-                <a href="/article" class="font-poppins text-base text-white underline-offset-4">Articles</a>
+                <a href="/articles" class="font-poppins text-base text-white underline-offset-4">Articles</a>
             </div>
 
             <div class="mobile-navbar">
@@ -45,7 +45,7 @@
                     <div class="flex flex-col space-y-6">
                         <a href="/" class="font-poppins -sm text-black">Home</a>
                         <!-- <a href="#" class="font-poppins text-sm text-black">About</a> -->
-                        <a href="/article" class="text-sm text-black">Articles</a>
+                        <a href="/articles" class="text-sm text-black">Articles</a>
                         <!-- <a href="#" class="text-sm text-black">Podcasts</a> -->
                     </div>
                 </div>
@@ -77,8 +77,9 @@
                         <tr>
                             <th data-priority="1">Title</th>
                             <th data-priority="2">Author</th>
-                            <th data-priority="3">Date</th>
-                            <th data-priority="4">Actions</th>
+                            <th data-priority="3">Editor</th>
+                            <th data-priority="4">Date</th>
+                            <th data-priority="5">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -86,21 +87,20 @@
                             <tr>
                                 <td>{{ $post->title }}</td>
                                 <td>{{ $post->author }}</td>
+                                <td>{{ $post->editor }}</td>
                                 <td>{{ $post->published }}</td>
                                 <td>
                                     <div class="">
                                         <a href="/posts/{{ $post->slug }}">
                                             <button
                                                 class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-1 px-2 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-                                                Show
-                                            </button>
+                                                Show</button>
                                         </a>
 
                                         <a href="/posts/{{ $post->slug }}/edit">
                                             <button
                                                 class="bg-yellow-500 hover:bg-yellow-400 text-white font-bold py-1 px-2 border-b-4 border-yellow-700 hover:border-yellow-500 rounded">
-                                                Edit
-                                            </button>
+                                                Edit</button>
                                         </a>
                                         <form action="/posts/{{ $post->slug }}" method="post" class="inline">
                                             @method('delete')
@@ -108,10 +108,8 @@
                                             <button onclick="return confirm('Are you sure you want to delete article?')"
                                                 type="submit"
                                                 class="bg-red-500 hover:bg-red-400 text-white font-bold py-1 px-2 border-b-4 border-red-700 hover:border-red-500 rounded">
-                                                Delete
-                                            </button>
+                                                Delete</button>
                                         </form>
-
                                     </div>
                                 </td>
                             </tr>
@@ -194,11 +192,11 @@
                     responsive: true,
                     autoWidth: false,
                     columnDefs: [{
-                            width: '400px',
+                            width: '300px',
                             targets: 0
                         },
                         {
-                            width: '400px',
+                            width: '300px',
                             targets: 1
                         },
                         {
