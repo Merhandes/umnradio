@@ -62,13 +62,15 @@
             </a>
         </div> --}}
         <img src="{{ asset('storage/' . $post->cover_photo) }}" alt=""
-            class="my-4 w-full h-80 object-cover">
-        <h1 class="mt-4 text-3xl text-center font-bold mb-2">
+            class="my-1 w-full h-80 object-cover">
+        <h1 class="mt-4 text-3xl text-center font-bold mb-0">
             <strong>{{ $post->title }}</strong>
+            
         </h1>
-        <h3 class="mt-2 text-sm text-start mb-3">
-            By {{ $post->author }}. Edited by {{ $post->editor }}. Published {{ $post->published }}.
-        </h3>
+        <h4 class="text-center">Posted {{ $post->published }}.</h4>
+        <h4 class="mt-1 text-sm text-start mb-3">
+            By {{ $post->author }}. <br>Edited by {{ $post->editor }}. 
+        </h4>
         <article class="body-content">
             {!! $post->post_content !!}
         </article>

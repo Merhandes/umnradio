@@ -9,6 +9,8 @@ use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 
 class PostController extends Controller
 {
@@ -180,9 +182,17 @@ class PostController extends Controller
         }
     }
 
-    public function showArticles(){
-        $posts = Post::all();
-        return view('News.index', ['posts' => $posts]);
+    public function showArticles(Request $request){
+        // dd(request('search'));
+        
+        $posts = Post::latest();
+
+        if(request('search')){
+            $posts = Post::where('title', 'like', '%'.$request->search.'%')->orWhere('post_content', 'like', '%' . $request->search . '%');
+        }
+        
+
+        return view('News.index', ['posts' => $posts->get()]);
     }
 
     public function showArticle(Post $post)

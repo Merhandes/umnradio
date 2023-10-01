@@ -65,7 +65,7 @@
                         <button id="buttonpause" class="hidden"><svg xmlns="http://www.w3.org/2000/svg" height="3em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm224-72V328c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24zm112 0V328c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24z"/></svg></button>
                     </div>
                         <audio id="player">
-                        <source src='https://shoutcast.radio.umn.ac.id/stream.mp.3'/>
+                        <source src='http://127.0.0.1:8000/stream.mp3'/>
                         </audio>
                 </div>
             </div>
@@ -510,9 +510,9 @@
             <div id="utube" class="mx-4 w-[400px] max-w-[90%]">
                 <div id="youtube">
                     <h1 class="font-poppins text-[#021f3a] font-bold text-center my-2">Watch Now!</h1>
-                    <iframe class="my-2" src="https://www.youtube.com/embed/PIkPz_cYj9k" width="100%"
+                    <iframe class="my-2" src="https://www.youtube.com/embed/r_AVZInM4xw" width="100%"
                         height="216"></iframe>
-                    <iframe class="my-2" src="https://www.youtube.com/embed/_dSjGpbD_D0" width="100%"
+                    <iframe class="my-2" src="https://www.youtube.com/embed/FonjYtQwFVI" width="100%"
                         height="216"></iframe>
                 </div>
             </div>

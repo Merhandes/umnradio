@@ -50,12 +50,29 @@
 
     {{-- ARTICLE --}}
     <div class="pt-10 mx-6 md:mx-48 font-poppins text-black pb-24">
-        <h1 class="pt-12 md:pt-24 text-center font-bold mb-6">Articles</h1>
+        <h1 class="pt-12 md:pt-24 text-center font-bold mb-4">Articles</h1>
+        <form action="/articles">
+            <div class='max-w-md mx-auto mb-4'>
+                <div
+                    class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg overflow-hidden bg-white border border-opacity-60 border-slate-500">
+                    <div class="grid place-items-center h-full w-12 text-gray-500 ">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+
+                    <input class="peer h-full w-full outline-none text-sm text-gray-700 pr-2 bg-white" type="text"
+                        id="search" name="search" placeholder="Search something.." />
+                </div>
+            </div>
+        </form>
         <div class="flex flex-wrap gap-8 justify-center">
 
-            {{-- <a class="no-underline" href="/article/kepada-yth-maba-apa-kabar-kali-ini">
-                <div class="max-w-sm rounded overflow-hidden shadow-lg no-underline w-48">
-                    <img class="w-full object-" src="{{ asset('images/artikel2/FEATURED IMAGE MABA.webp') }}"
+            <a class="no-underline" href="/article/kepada-yth-maba-apa-kabar-kali-ini">
+                <div class="rounded overflow-hidden shadow-lg no-underline w-[300px] h-full relative pb-12">
+                    <img class="w-full h-52 object-cover" src="{{ asset('images/artikel2/FEATURED IMAGE MABA.webp') }}"
                         alt="Featured Image">
                     <div class="px-6 py-4">
                         <div class="font-bold text-xl mb-2 text-[#021f3a]">Kepada Yth. Maba: Apa Kabar Kali Ini?</div>
@@ -64,7 +81,7 @@
                             Sepenggal lirik dari lagu “33x”. . .
                         </p>
                     </div>
-                    <div class="px-6 pt-4 pb-2">
+                    <div class="px-3 pt-4 absolute bottom-1">
                         <span
                             class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Lapor
                             OMB</span>
@@ -73,8 +90,8 @@
             </a>
 
             <a class="no-underline" href="/article/obral-etalase-mimpi">
-                <div class="max-w-sm rounded overflow-hidden shadow-lg no-underline min-w-48">
-                    <img class="w-full object-" src="{{ asset('images/artikel1/FEATURED IMAGE.webp') }}" alt="Featured Image">
+                <div class="rounded overflow-hidden shadow-lg no-underline w-[300px] h-full relative pb-12">
+                    <img class="w-full h-52 object-cover" src="{{ asset('images/artikel1/FEATURED IMAGE.webp') }}" alt="Featured Image">
                     <div class="px-6 py-4">
                         <div class="font-bold text-xl mb-2 text-[#021f3a]">Obral Etalase Mimpi</div>
                         <p class="text-gray-700 text-base">
@@ -84,18 +101,19 @@
                             Ultimafriends?. . .
                         </p>
                     </div>
-                    <div class="px-6 pt-4 pb-2">
+                    <div class="px-3 pt-4 absolute bottom-1">
                         <span
                             class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Lapor
                             OMB</span>
                     </div>
                 </div>
-            </a> --}}
+            </a>
 
             @foreach ($posts as $post)
                 <a class="no-underline" href="/article/{{ $post->slug }}">
                     <div class="rounded overflow-hidden shadow-lg no-underline w-[300px] h-full relative pb-12">
-                        <img class="w-full object- h-52 object-cover" src="{{ asset('storage/' . $post->cover_photo) }}" alt="Featured Image">
+                        <img class="w-full h-52 object-cover" src="{{ asset('storage/' . $post->cover_photo) }}"
+                            alt="Featured Image">
                         <div class="px-6 py-4">
                             <div class="font-bold text-xl mb-2 text-[#021f3a]">{{ $post->title }}</div>
                             <p class="text-gray-700 text-base">
@@ -104,9 +122,9 @@
                         </div>
                         <div class="px-3 pt-4 absolute bottom-1">
                             <span
-                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{$post->category}}</span>
+                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{ $post->category }}</span>
                             <span>
-                                {{$post->published}}
+                                {{ $post->published }}
                             </span>
                         </div>
                     </div>
