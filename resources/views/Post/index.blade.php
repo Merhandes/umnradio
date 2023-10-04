@@ -102,7 +102,7 @@
                                                 class="bg-yellow-500 hover:bg-yellow-400 text-white font-bold py-1 px-2 border-b-4 border-yellow-700 hover:border-yellow-500 rounded">
                                                 Edit</button>
                                         </a>
-                                        <form action="/posts/{{ $post->slug }}" method="post" class="inline">
+                                        <form action="/posts/{{ $post->slug }}/destroy" method="post" class="inline">
                                             @method('delete')
                                             @csrf
                                             <button onclick="return confirm('Are you sure you want to delete article?')"
@@ -145,7 +145,7 @@
                     d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z" />
             </svg></button>
         <audio id="player">
-            <source src='https://shoutcast.radio.umn.ac.id/stream.mp.3' />
+            <source src='https://i.klikhost.com/8374/' />
         </audio>
     </footer>
 

@@ -56,7 +56,7 @@
     {{-- POST FORM --}}
     <div class="pt-10 mx-6 md:mx-48 font-poppins text-black pb-24">
         <h1 class="pt-12 md:pt-24 text-center font-bold mb-6">New Article</h1>
-        <form id="postForm" class="w-[90%]" action="/posts" enctype="multipart/form-data" method="post">
+        <form id="postForm" class="w-[90%]" action="/posts/store" enctype="multipart/form-data" method="post">
             @csrf
             <!-- Prevent implicit submission of the form -->
             <button type="submit" disabled style="display: none" aria-hidden="true"></button>
@@ -171,7 +171,7 @@
                     d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z" />
             </svg></button>
         <audio id="player">
-            <source src='https://shoutcast.radio.umn.ac.id/stream.mp.3' />
+            <source src='https://i.klikhost.com/8374/' />
         </audio>
     </footer>
 

@@ -31,16 +31,23 @@ Route::get('/article/kepada-yth-maba-apa-kabar-kali-ini', function () {
     return view('News.Article.dua');
 });
 
-Route::get('/posts', [PostController::class, 'index']);
+Route::controller(PostController::class)->group(
+    function () {
+        Route::get('/posts', 'index');
 
-Route::get('/posts/create', [PostController::class, 'create']);
+        Route::get('/posts/create', 'create');
+        Route::post('/posts/store', 'store');
+        Route::get('/posts/{post:slug}', 'show');
+        Route::get('/posts/{post:slug}/edit', 'edit');
+        Route::put('/posts/{post:slug}/update', 'update');
+        Route::delete('/posts/{post:slug}/destroy', 'destroy');
+        
+        Route::get('/posts/checkSlug', 'checkSlug');
+        Route::post('/posts/upload', 'upload');
 
-Route::get('/posts/checkSlug', [PostController::class, 'checkSlug']);
+        Route::get('/articles', 'showArticles');
+        Route::get('/article/{post:slug}', 'showArticle');
+    }
+);
 
-Route::post('/posts/upload', [PostController::class, 'upload']);
-
-Route::resource('posts', PostController::class);
-
-Route::get('/articles', [PostController::class, 'showArticles']);
-
-Route::get('/article/{post:slug}', [PostController::class, 'showArticle']);
+// Route::resource('posts', PostController::class);

@@ -57,7 +57,8 @@
     {{-- POST FORM --}}
     <div class="pt-10 mx-6 md:mx-48 font-poppins text-black pb-24">
         <h1 class="pt-12 md:pt-24 text-center font-bold mb-6">Edit Article</h1>
-        <form id="postForm" class="w-[90%]" action="/posts/{{ $post->slug }}" enctype="multipart/form-data" method="post">
+        <form id="postForm" class="w-[90%]" action="/posts/{{ $post->slug }}/update" enctype="multipart/form-data"
+            method="post">
             @method('put')
             @csrf
             <button type="submit" disabled style="display: none" aria-hidden="true"></button>
@@ -114,7 +115,8 @@
                 </label>
                 <input data-index='4'
                     class="@error('category') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    name="category" id="category" type="text" placeholder="Category" value="{{ old('category', $post->category) }}">
+                    name="category" id="category" type="text" placeholder="Category"
+                    value="{{ old('category', $post->category) }}">
                 @error('category')
                     <div class="text-sm text-red-600">{{ $message }}</div>
                 @enderror
@@ -124,17 +126,13 @@
                     Cover Photo
                 </label>
 
-                <input type="hidden" name="old_cover_photo" value="{{$post->cover_photo}}">
-                
-                <input type="file" accept="image/*" id="cover_photo" name="cover_photo" onchange="previewImage()"
-                    class="@error('cover_photo') border-red-500 @enderror ">
+                <input type="hidden" name="old_cover_photo" value="{{ $post->cover_photo }}">
 
-                @if ($post->cover_photo)
-                    <img src="{{asset('storage/' . $post->cover_photo)}}" alt="" class="my-4 img-preview w-full h-80 object-cover">
-                @else
-                    <img src="" alt="" class="my-4 img-preview w-full h-80 object-cover hidden">
-                @endif
-                
+                <input type="file" accept="image/*" id="cover_photo" name="cover_photo"
+                    onchange="previewImage()" class="@error('cover_photo') border-red-500 @enderror ">
+
+                <img src="" alt="" class="my-4 img-preview w-full h-80 object-cover hidden">
+
                 @error('cover_photo')
                     <div class="text-sm text-red-600">{{ $message }}</div>
                 @enderror
@@ -184,7 +182,7 @@
                     d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z" />
             </svg></button>
         <audio id="player">
-            <source src='https://shoutcast.radio.umn.ac.id/stream.mp.3' />
+            <source src='https://i.klikhost.com/8374/' />
         </audio>
     </footer>
 
@@ -254,11 +252,12 @@
 </script>
 
 <style>
-    .attachment img{
+    .attachment img {
         height: 400px;
-        width:auto;
+        width: auto;
     }
-    .attachment{
+
+    .attachment {
         display: flex;
         justify-content: center;
     }

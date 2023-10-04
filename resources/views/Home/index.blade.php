@@ -41,7 +41,7 @@
                         @click.away=" isOpen = false">
                         <div class="flex flex-col space-y-6">
                             <a href="#" class="font-poppins -sm text-black">Home</a>
-                            <a href="/articles" class="font-poppins text-sm text-black">Article</a>
+                            <a href="/articles" class="font-poppins text-sm text-black">Articles</a>
                             <!-- <a href="#" class="text-sm text-black">Programs</a>
                             <a href="#" class="text-sm text-black">Podcasts</a> -->
                         </div>
@@ -65,7 +65,7 @@
                         <button id="buttonpause" class="hidden"><svg xmlns="http://www.w3.org/2000/svg" height="3em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm224-72V328c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24zm112 0V328c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24z"/></svg></button>
                     </div>
                         <audio id="player">
-                        <source src='http://127.0.0.1:8000/stream.mp3'/>
+                        <source src='https://i.klikhost.com/8374/'/>
                         </audio>
                 </div>
             </div>
@@ -78,7 +78,7 @@
     </footer>
     
     {{-- ON AIR OFF AIR --}}
-    <div id="section-1" class="w-full my-6 md:mt-12 md:mx-4">
+    <div id="section-1" class="w-full my-6 md:mt-12">
         <h1 class="font-poppins text-[#021f3a] font-bold w-full text-center">Live Broadcast</h1>
         <div id="sign" class="m-6 text-center">
 
@@ -87,8 +87,9 @@
             <?php
                 use Carbon\Carbon;
 
-                $day = Carbon::now()->format('N');
-                $hour = Carbon::now()->format('H');
+                $day = Carbon::now()->dayOfWeek;
+                $hour = Carbon::now()->hour+7;
+                // var_dump($day, $hour);
                 // $day = 1;
                 // $hour = 10;
 
@@ -121,7 +122,7 @@
             </div>
 
             <div class="flex flex-col md:flex-row gap-4 md:gap-16 mt-6 justify-center items-center">
-                <img class="h-80 rounded-lg" src="{{ asset($now->img) }}" alt="ON AIR" /> 
+                <img class="h-80 rounded-lg object-cover" src="{{ asset($now->img) }}" alt="ON AIR" /> 
                 
                 <div>
                     <h3 class="font-poppins mt-3 font-bold text-black">{{ $text }}</h3>
@@ -309,66 +310,10 @@
         </div>
        
     {{-- Section 4 --}}
-    <div id="section-4" class="md:mt-12 w-full my-4 md:mx-4">
-        <h1 class="font-poppins text-[#021f3a] font-bold w-full text-center">Instagram Highlights</h1>
+    <div id="section-4" class="md:mt-12 w-full my-12">
+        <h1 class="font-poppins text-[#021f3a] font-bold w-full text-center">Partnerships</h1>
         <div class="flex justify-center align-middle w-full my-2">
-            <div id="instagram-posts"
-                class="flex justify-center flex-wrap align-middle md:w-fit max-w-[95%] md:py-2 md:px-2">
-                <div class="w-[33%] md:w-[25%] md:mx-2 md:my-2">
-                    <a target="_blank" href="https://www.instagram.com/p/Cv9TA3jPjGv/">
-                        <img class="object-cover w-full aspect-square" src="{{ asset('images/ig_10.webp') }}"
-                            alt="">
-                    </a>
-                </div>
-                <div class="w-[33%] md:w-[25%] md:mx-2 md:my-2">
-                    <a target="_blank" href="https://www.instagram.com/p/Cv_3bGurVw6/">
-                        <img class="object-cover w-full aspect-square" src="{{ asset('images/ig_8.webp') }}"
-                            alt="">
-                    </a>
-                </div>
-                <div class="w-[33%] md:w-[25%] md:mx-2 md:my-2">
-                    <a target="_blank" href="https://www.instagram.com/p/Cv6_iv_NG21/">
-                        <img class="object-cover w-full aspect-square" src="{{ asset('images/ig_9.webp') }}"
-                            alt="">
-                    </a>
-                </div>
-                <div class="w-[33%] md:w-[25%] md:mx-2 md:my-2">
-                    <a target="_blank" href="https://www.instagram.com/p/Cv35eMVOYHp/">
-                        <img class="object-cover w-full aspect-square" src="{{ asset('images/ig_4.webp') }}"
-                            alt="">
-                    </a>
-                </div>
-                <div class="w-[33%] md:w-[25%] md:mx-2 md:my-2">
-                    <a target="_blank" href="https://www.instagram.com/p/CvCy89wRYqb/">
-                        <img class="object-cover w-full aspect-square" src="{{ asset('images/ig_5.webp') }}"
-                            alt="">
-                    </a>
-                </div>
-                <div class="w-[33%] md:w-[25%] md:mx-2 md:my-2">
-                    <a target="_blank" href="https://www.instagram.com/p/Cv6zC8KOkLt/">
-                        <img class="object-cover w-full aspect-square" src="{{ asset('images/ig_7.webp') }}"
-                            alt="">
-                    </a>
-                </div>
-                <div class="w-[33%] md:w-[25%] md:mx-2 md:my-2">
-                    <a target="_blank" href="https://www.instagram.com/p/Cu1GO8WrDni/">
-                        <img class="object-cover w-full aspect-square" src="{{ asset('images/ig_1.webp') }}"
-                            alt="">
-                    </a>
-                </div>
-                <div class="w-[33%] md:w-[25%] md:mx-2 md:my-2">
-                    <a target="_blank" href="https://www.instagram.com/p/Cu04lIju-Zi/">
-                        <img class="object-cover w-full aspect-square" src="{{ asset('images/ig_2.webp') }}"
-                            alt="">
-                    </a>
-                </div>
-                <div class="w-[33%] md:w-[25%] md:mx-2 md:my-2">
-                    <a target="_blank" href="https://www.instagram.com/p/Cu04YVdtYQx/">
-                        <img class="object-cover w-full aspect-square" src="{{ asset('images/ig_3.webp') }}"
-                            alt="">
-                    </a>
-                </div>
-            </div>
+            <img src="{{asset('images/Partnership/DUA-MATA.webp')}}" class="h-80 my-4" alt="">
         </div>
     </div>
 
@@ -624,67 +569,6 @@
             border-radius: 15px
         }
     </style>
-
-        {{-- <div id="chart-carousel" class="flex justify-center align-middle w-full my-4 mx-4">
-            <div class="carousel carousel-center max-w-[60%] p-4 space-x-4 bg-neutral rounded-box">
-                <div class="carousel-item">
-                    <iframe style="border-radius:15px"
-                        src="https://open.spotify.com/embed/playlist/0ygBAAd7ew4LuCg2wYDxs0?utm_source=generator"
-                        width="100%" height="450" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                </div>
-                <div class="carousel-item">
-                    <iframe style="border-radius:15px"
-                        src="https://open.spotify.com/embed/playlist/0bJX6EM2jhGoPebVBmo2WF?utm_source=generator"
-                        width="100%" height="450" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                </div>
-                <div class="carousel-item">
-                    <iframe style="border-radius:15px"
-                        src="https://open.spotify.com/embed/playlist/3vGDg5BKGBCVMp6ZakNtdy?utm_source=generator"
-                        width="100%" height="450" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                </div>
-                <div class="carousel-item">
-                    <iframe style="border-radius:15px"
-                        src="https://open.spotify.com/embed/playlist/6lyWx7VS8sqvQz6qVhowTq?utm_source=generator"
-                        width="100%" height="450" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                </div>
-                <div class="carousel-item">
-                    <iframe style="border-radius:15px"
-                        src="https://open.spotify.com/embed/playlist/7vIo3BQwy24fmZ77AxFMtT?utm_source=generator"
-                        width="100%" height="450" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                </div>
-                <div class="carousel-item">
-                    <iframe style="border-radius:15px"
-                        src="https://open.spotify.com/embed/playlist/2dmVTR6rAaXGiGCLubKY5m?utm_source=generator"
-                        width="100%" height="450" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                </div>
-                <div class="carousel-item">
-                    <iframe style="border-radius:15px"
-                        src="https://open.spotify.com/embed/playlist/5pkN7hYqLwuUszAIQ1ErUa?utm_source=generator"
-                        width="100%" height="450" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                </div>
-                <div class="carousel-item">
-                    <iframe style="border-radius:15px"
-                        src="https://open.spotify.com/embed/playlist/3Av5uQtPEEC3kzk0LlppEw?utm_source=generator"
-                        width="100%" height="450" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                </div>
-            </div>
-        </div> --}}
 
             <footer class="bg-[#021f3a] md:h-24 mb-16 p-4">
                 <div class="flex flex-col items-center text-center space-y-3 md:flex-row md:justify-around md:items-center md:text-left md:space-y-0">
