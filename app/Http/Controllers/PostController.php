@@ -24,6 +24,13 @@ class PostController extends Controller
         return view('Post.index', ['posts' => $posts]);
     }
 
+    public function index_home()
+    {
+        //
+        $posts = Post::all();
+        return view('Home.index', ['posts' => $posts]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */

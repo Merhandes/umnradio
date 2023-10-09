@@ -15,68 +15,104 @@
 
 <body class="composer h-full bg-white">
     {{-- NAVBAR --}}
-     <div x-data="{ isOpen: false }" class="fixed w-full flex justify-between p-3 z-40 bg-[#021f3a] lg:p-4">
-            <div class="flex items-center">
-            <img class="h-10 md:h-16 w-auto" src="{{ asset('images/logowhite.webp') }}"
-            alt="">
+    <div x-data="{ isOpen: false }" class="fixed w-full flex justify-between p-3 z-40 bg-[#021f3a] lg:p-4">
+        <div class="flex items-center">
+            <img class="h-10 md:h-16 w-auto" src="{{ asset('images/logowhite.webp') }}" alt="">
+        </div>
+
+        <div class="flex items-center justify-between">
+            <button @click="isOpen = !isOpen" type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white lg:hidden" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <div class="pr-4 hidden space-x-6 lg:inline-block">
+                <a href="/" class="font-poppins text-base text-white underline-offset-4">Home</a>
+                <a href="/articles" class="font-poppins text-base text-white no-underline">Articles</a>
+                <!-- <a href="#" class="font-poppins text-base text-white no-underline">Programs</a>
+                    <a href="#" class="font-poppins text-base text-white no-underline">Podcasts</a> -->
             </div>
 
-            <div class="flex items-center justify-between">
-                <button @click="isOpen = !isOpen" type="submit">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white lg:hidden" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-                <div class="pr-4 hidden space-x-6 lg:inline-block">
-                    <a href="/" class="font-poppins text-base text-white underline-offset-4">Home</a>
-                    <a href="/articles" class="font-poppins text-base text-white no-underline">Articles</a>
-                    <!-- <a href="#" class="font-poppins text-base text-white no-underline">Programs</a>
-                    <a href="#" class="font-poppins text-base text-white no-underline">Podcasts</a> -->
-                </div>
-
-                <div class="mobile-navbar">
-                    <div class="fixed left-0 w-full h-48 p-5 bg-white rounded-lg shadow-xl top-16" x-show="isOpen"
-                        @click.away=" isOpen = false">
-                        <div class="flex flex-col space-y-6">
-                            <a href="#" class="font-poppins -sm text-black">Home</a>
-                            <a href="/articles" class="font-poppins text-sm text-black">Articles</a>
-                            <!-- <a href="#" class="text-sm text-black">Programs</a>
+            <div class="mobile-navbar">
+                <div class="fixed left-0 w-full h-48 p-5 bg-white rounded-lg shadow-xl top-16" x-show="isOpen"
+                    @click.away=" isOpen = false">
+                    <div class="flex flex-col space-y-6">
+                        <a href="#" class="font-poppins -sm text-black">Home</a>
+                        <a href="/articles" class="font-poppins text-sm text-black">Articles</a>
+                        <!-- <a href="#" class="text-sm text-black">Programs</a>
                             <a href="#" class="text-sm text-black">Podcasts</a> -->
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
+    </div>
+    </div>
     {{-- BACKGROUND --}}
     <!-- <img class="w-screen z-0" src="{{ asset('images/background.webp') }}"
         alt=""> -->
     <div class="relative">
-        <img class="h-screen w-auto md:h-auto md:w-screen z-0 object-cover" src="{{ asset('images/background.webp') }}" alt="" />
-            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-4 py-2">
-                <div class="px-4 text-center">
-                    <p class="font-poppins text-white font-bold">107.7 FM</p>
-                    <h3 class="font-poppins text-md md:text-6xl text-white font-bold">
-                        UMN RADIO</h3>
-                    <div class="mt-4">
-                        <button id="buttonplay"><svg xmlns="http://www.w3.org/2000/svg" height="3em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/></svg></button>
-                        <button id="buttonpause" class="hidden"><svg xmlns="http://www.w3.org/2000/svg" height="3em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm224-72V328c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24zm112 0V328c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24z"/></svg></button>
-                    </div>
-                        <audio id="player">
-                        <source src='https://i.klikhost.com/8374/'/>
-                        </audio>
+        <img class="h-screen w-auto md:h-auto md:w-screen z-0 object-cover" src="{{ asset('images/background.webp') }}"
+            alt="" />
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-4 py-2">
+            <div class="px-4 text-center">
+                <p class="font-poppins text-white font-bold">107.7 FM</p>
+                <h3 class="font-poppins text-md md:text-6xl text-white font-bold">
+                    UMN RADIO</h3>
+                <div class="mt-4">
+                    <button id="buttonplay"><svg xmlns="http://www.w3.org/2000/svg" height="3em"
+                            viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <style>
+                                svg {
+                                    fill: #ffffff
+                                }
+                            </style>
+                            <path
+                                d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z" />
+                        </svg></button>
+                    <button id="buttonpause" class="hidden"><svg xmlns="http://www.w3.org/2000/svg" height="3em"
+                            viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <style>
+                                svg {
+                                    fill: #ffffff
+                                }
+                            </style>
+                            <path
+                                d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm224-72V328c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24zm112 0V328c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24z" />
+                        </svg></button>
                 </div>
+                <audio id="player">
+                    <source src='https://i.klikhost.com/8374/' />
+                </audio>
             </div>
         </div>
+    </div>
 
     {{-- AUDIO --}}
-    <footer id="audiosticky" class="invisible fixed bottom-0 w-full z-40 h-16 bg-[#021f3a] flex flex-row gap-16 justify-center items-center transition-all duration-500">
-        <button id="buttonplay2"><svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></button>
-        <button id="buttonpause2" class="hidden"><svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"/></svg></button>
+    <footer id="audiosticky"
+        class="invisible fixed bottom-0 w-full z-40 h-16 bg-[#021f3a] flex flex-row gap-16 justify-center items-center transition-all duration-500">
+        <button id="buttonplay2"><svg xmlns="http://www.w3.org/2000/svg" height="2em"
+                viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <style>
+                    svg {
+                        fill: #ffffff
+                    }
+                </style>
+                <path
+                    d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
+            </svg></button>
+        <button id="buttonpause2" class="hidden"><svg xmlns="http://www.w3.org/2000/svg" height="2em"
+                viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <style>
+                    svg {
+                        fill: #ffffff
+                    }
+                </style>
+                <path
+                    d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z" />
+            </svg></button>
     </footer>
-    
+
     {{-- ON AIR OFF AIR --}}
     <div id="section-1" class="w-full my-6 md:mt-12">
         <h1 class="font-poppins text-[#021f3a] font-bold w-full text-center">Live Broadcast</h1>
@@ -85,36 +121,36 @@
             {{-- SCHEDULE SYSTEM PHP --}}
 
             <?php
-                use Carbon\Carbon;
-
-                $day = Carbon::now()->dayOfWeek;
-                $hour = Carbon::now()->hour+7;
-                // var_dump($day, $hour);
-                // $day = 1;
-                // $hour = 10;
-
-                foreach ($programs as $program) {
-                    if ($program->broadcast_day == $day && $hour < $programs->where('broadcast_day', $day)->first()->start_hour) {
-                        $text = "Upcoming Program";
-                        $now = $programs->where('broadcast_day', $day)->first();
-                        $onair = "bg-[#dfdfdf]";
-                    } else if ($program->broadcast_day == $day && $hour < 17) {
-                        $text = "You're Listening to";
-                        if ($hour >= $program->start_hour && $hour < $program->end_hour) {
-                            $now = $program;
-                        }
-                        $onair = "bg-[#fc1414]";
-                    } else if ($program->broadcast_day == $day) {
-                        $text = "Upcoming Program";
-                        $now = $programs->where('broadcast_day', $day+1)->first();
-                        $onair = "bg-[#dfdfdf]";
-                    } else if ($day > 5) {
-                        $text = "Upcoming Program";
-                        $now = $programs->where('broadcast_day', 1)->first();
-                        $onair = "bg-[#dfdfdf]";
+            use Carbon\Carbon;
+            
+            $day = Carbon::now()->dayOfWeek;
+            $hour = Carbon::now()->hour + 7;
+            // var_dump($day, $hour);
+            // $day = 1;
+            // $hour = 10;
+            
+            foreach ($programs as $program) {
+                if ($program->broadcast_day == $day && $hour < $programs->where('broadcast_day', $day)->first()->start_hour) {
+                    $text = 'Upcoming Program';
+                    $now = $programs->where('broadcast_day', $day)->first();
+                    $onair = 'bg-[#dfdfdf]';
+                } elseif ($program->broadcast_day == $day && $hour < 17) {
+                    $text = "You're Listening to";
+                    if ($hour >= $program->start_hour && $hour < $program->end_hour) {
+                        $now = $program;
                     }
+                    $onair = 'bg-[#fc1414]';
+                } elseif ($program->broadcast_day == $day) {
+                    $text = 'Upcoming Program';
+                    $now = $programs->where('broadcast_day', $day + 1)->first();
+                    $onair = 'bg-[#dfdfdf]';
+                } elseif ($day > 5) {
+                    $text = 'Upcoming Program';
+                    $now = $programs->where('broadcast_day', 1)->first();
+                    $onair = 'bg-[#dfdfdf]';
                 }
-
+            }
+            
             ?>
 
             <div id="onair" class="border rounded-md {{ $onair }} w-24 p-2 m-auto">
@@ -122,8 +158,8 @@
             </div>
 
             <div class="flex flex-col md:flex-row gap-4 md:gap-16 mt-6 justify-center items-center">
-                <img class="h-80 rounded-lg object-cover" src="{{ asset($now->img) }}" alt="ON AIR" /> 
-                
+                <img class="h-80 rounded-lg object-cover" src="{{ asset($now->img) }}" alt="ON AIR" />
+
                 <div>
                     <h3 class="font-poppins mt-3 font-bold text-black">{{ $text }}</h3>
                     <h3 class="font-poppins mt-3 font-bold text-3xl text-[#021f3a]">{{ $now->name }}</h3>
@@ -133,237 +169,288 @@
         </div>
     </div>
     <div id="schedule" class="my-6 md:mt-12 text-center">
-            <h1 class="font-poppins text-center text-[#021f3a] font-bold">Weekly Schedule</h1>
-            <div class="border-t-2 border-[#021f3a] w-56 mx-auto mt-4"></div>
-            <div class="tabs-group">
-                <div class="tabs-container flex justify-center items-center">
-                    <div class="tabs flex justify-center max-w-[20%]">
-                        <p class="font-semibold text-xs md:text-md font-poppins text-center text-[#021f3a]">Monday</p>
-                    </div>
-                    <div class="tabs flex justify-center max-w-[20%]">
-                        <p class="font-semibold text-xs md:text-md font-poppins text-center text-[#021f3a]">Tuesday</p>
-                    </div>
-                    <div class="tabs flex justify-center max-w-[20%]">
-                        <p class="font-semibold text-xs md:text-md font-poppins text-center text-[#021f3a]">Wednesday</p>
-                    </div>
-                    <div class="tabs flex justify-center max-w-[20%]">
-                        <p class="font-semibold text-xs md:text-md font-poppins text-center text-[#021f3a]">Thursday</p>
-                    </div>
-                    <div class="tabs flex justify-center max-w-[20%]">
-                        <p class="font-semibold text-xs md:text-md font-poppins text-center text-[#021f3a]">Friday</p>
-                    </div>
-
-                    <div class="indicator"></div>
+        <h1 class="font-poppins text-center text-[#021f3a] font-bold">Weekly Schedule</h1>
+        <div class="border-t-2 border-[#021f3a] w-56 mx-auto mt-4"></div>
+        <div class="tabs-group">
+            <div class="tabs-container flex justify-center items-center">
+                <div class="tabs flex justify-center max-w-[20%]">
+                    <p class="font-semibold text-xs md:text-md font-poppins text-center text-[#021f3a]">Monday</p>
+                </div>
+                <div class="tabs flex justify-center max-w-[20%]">
+                    <p class="font-semibold text-xs md:text-md font-poppins text-center text-[#021f3a]">Tuesday</p>
+                </div>
+                <div class="tabs flex justify-center max-w-[20%]">
+                    <p class="font-semibold text-xs md:text-md font-poppins text-center text-[#021f3a]">Wednesday</p>
+                </div>
+                <div class="tabs flex justify-center max-w-[20%]">
+                    <p class="font-semibold text-xs md:text-md font-poppins text-center text-[#021f3a]">Thursday</p>
+                </div>
+                <div class="tabs flex justify-center max-w-[20%]">
+                    <p class="font-semibold text-xs md:text-md font-poppins text-center text-[#021f3a]">Friday</p>
                 </div>
 
-                <div class="tab-content">
-                    <div class="flex justify-around tab-content-item text-center lg:mb-3">
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">NEWS FLASH</div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">10.00 - 11.00</div>
-                            </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/NF.webp') }}"
-                            />
-                        </div>
+                <div class="indicator"></div>
+            </div>
 
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-pink-400/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">SERSAN</div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">11.00 - 14.00</div>
+            <div class="tab-content">
+                <div class="flex justify-around tab-content-item text-center lg:mb-3">
+                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                        <div
+                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out">
+                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">NEWS FLASH
                             </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/SS.webp') }}"
-                            />
-                        </div>
-
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-orange-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">SKOOB</div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">14.00 - 17.00</div>
+                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">10.00 - 11.00
                             </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/SKOOB.webp') }}"
-                            />
                         </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                            src="{{ asset('images/programs/NF.webp') }}" />
                     </div>
-                    <div class="flex justify-around tab-content-item text-center mx-20 md:mx-32 lg:mx-60">
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-blue-800/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">MUSIKALITAS</div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">11.00 - 14.00</div>
-                            </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/M.webp') }}"
-                            />
-                        </div>
 
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-blue-500/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">CAMPUS TROOPS</div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">15.00 - 17.00</div>
+                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                        <div
+                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-pink-400/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">SERSAN</div>
+                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">11.00 - 14.00
                             </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/CT.webp') }}"
-                            />
                         </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                            src="{{ asset('images/programs/SS.webp') }}" />
                     </div>
-                    <div class="flex justify-around tab-content-item text-center lg:mb-3">
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-purple-900/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">SODA</div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">10.00 - 13.00</div>
-                            </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/SODA.webp') }}"
-                            />
-                        </div>
 
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">NEWS FLASH</div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">13.00 - 14.00</div>
+                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                        <div
+                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-orange-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">SKOOB</div>
+                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">14.00 - 17.00
                             </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/NF.webp') }}"
-                            />
                         </div>
-
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-yellow-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">KAJJA</div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">14.00 - 17.00</div>
-                            </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/K.webp') }}"
-                            />
-                        </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                            src="{{ asset('images/programs/SKOOB.webp') }}" />
                     </div>
-                    <div class="flex justify-around tab-content-item text-center mx-20 md:mx-32 lg:mx-60">
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">JERIT MALAM</div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">11.00 - 14.00</div>
+                </div>
+                <div class="flex justify-around tab-content-item text-center mx-20 md:mx-32 lg:mx-60">
+                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                        <div
+                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-blue-800/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">MUSIKALITAS
                             </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/JM.webp') }}"
-                            />
-                        </div>
-
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-blue-500/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">CAMPUS TROOPS</div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">15.00 - 17.00</div>
+                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">11.00 - 14.00
                             </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/CT.webp') }}"
-                            />
                         </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                            src="{{ asset('images/programs/M.webp') }}" />
                     </div>
-                    <div class="flex justify-around tab-content-item text-center lg:mb-3">
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-red-800/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">BILCIN</div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">10.00 - 13.00</div>
-                            </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/BC.webp') }}"
-                            />
-                        </div>
 
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">NEWS FLASH</div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">13.00 - 14.00</div>
+                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                        <div
+                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-blue-500/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">CAMPUS TROOPS
                             </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/NF.webp') }}"
-                            />
+                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">15.00 - 17.00
+                            </div>
                         </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                            src="{{ asset('images/programs/CT.webp') }}" />
+                    </div>
+                </div>
+                <div class="flex justify-around tab-content-item text-center lg:mb-3">
+                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                        <div
+                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-purple-900/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">SODA</div>
+                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">10.00 - 13.00
+                            </div>
+                        </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                            src="{{ asset('images/programs/SODA.webp') }}" />
+                    </div>
 
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-purple-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">CHARTTOPPERS</div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">14.00 - 17.00</div>
+                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                        <div
+                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">NEWS FLASH
                             </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/C.webp') }}"
-                            />
+                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">13.00 - 14.00
+                            </div>
                         </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                            src="{{ asset('images/programs/NF.webp') }}" />
+                    </div>
+
+                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                        <div
+                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-yellow-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">KAJJA</div>
+                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">14.00 - 17.00
+                            </div>
+                        </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                            src="{{ asset('images/programs/K.webp') }}" />
+                    </div>
+                </div>
+                <div class="flex justify-around tab-content-item text-center mx-20 md:mx-32 lg:mx-60">
+                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                        <div
+                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">JERIT MALAM
+                            </div>
+                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">11.00 - 14.00
+                            </div>
+                        </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                            src="{{ asset('images/programs/JM.webp') }}" />
+                    </div>
+
+                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                        <div
+                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-blue-500/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">CAMPUS TROOPS
+                            </div>
+                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">15.00 - 17.00
+                            </div>
+                        </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                            src="{{ asset('images/programs/CT.webp') }}" />
+                    </div>
+                </div>
+                <div class="flex justify-around tab-content-item text-center lg:mb-3">
+                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                        <div
+                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-red-800/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">BILCIN</div>
+                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">10.00 - 13.00
+                            </div>
+                        </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                            src="{{ asset('images/programs/BC.webp') }}" />
+                    </div>
+
+                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                        <div
+                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">NEWS FLASH
+                            </div>
+                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">13.00 - 14.00
+                            </div>
+                        </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                            src="{{ asset('images/programs/NF.webp') }}" />
+                    </div>
+
+                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                        <div
+                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-purple-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">CHARTTOPPERS
+                            </div>
+                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">14.00 - 17.00
+                            </div>
+                        </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                            src="{{ asset('images/programs/C.webp') }}" />
                     </div>
                 </div>
             </div>
         </div>
-       
+    </div>
+
     {{-- Section 4 --}}
     <div id="section-4" class="md:mt-12 w-full my-12">
         <h1 class="font-poppins text-[#021f3a] font-bold w-full text-center">Partnerships</h1>
         <div class="flex justify-center align-middle w-full my-2">
-            <img src="{{asset('images/Partnership/DUA-MATA.webp')}}" class="h-80 my-4" alt="">
+            <img src="{{ asset('images/Partnership/DUA-MATA.webp') }}" class="h-80 my-4" alt="">
         </div>
     </div>
 
     {{-- ARTICLE --}}
-        <div class="mx-12 font-poppins text-black mb-6">
+    <div class="mx-12 font-poppins text-black mb-6">
         <h1 class="font-poppins text-[#021f3a] font-bold text-center my-2 mb-6">News</h1>
-            <div class="flex flex-col md:flex-row gap-16 items-center justify-center">
+        <div class="flex flex-wrap gap-8 justify-center">
 
             <a class="no-underline" href="/article/kepada-yth-maba-apa-kabar-kali-ini">
-                    <div class="max-w-sm rounded overflow-hidden shadow-lg no-underline">
-                    <img class="w-full" src="{{ asset('images/artikel2/FEATURED IMAGE MABA.webp') }}" alt="Featured Image">
+                <div class="rounded overflow-hidden shadow-lg no-underline w-[300px] h-full relative pb-12">
+                    <img class="w-full h-52 object-cover"
+                        src="{{ asset('images/artikel2/FEATURED IMAGE MABA.webp') }}" alt="Featured Image">
                     <div class="px-6 py-4">
-                        <div class="font-bold text-l md:text-xl mb-2 text-[#021f3a]">Kepada Yth. Maba: Apa Kabar Kali Ini?</div>
+                        <div class="font-bold text-xl mb-2 text-[#021f3a]">Kepada Yth. Maba: Apa Kabar Kali Ini?</div>
                         <p class="text-gray-700 text-base">
-                        “Buka lagi visimu, kau tahu mana urutan satu”<br>
-            Sepenggal lirik dari lagu “33x”. . .
+                            “Buka lagi visimu, kau tahu mana urutan satu”<br>
+                            Sepenggal lirik dari lagu “33x”. . .
                         </p>
                     </div>
-                    <div class="px-6 pt-4 pb-2">
-                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Lapor OMB</span>
+                    <div class="px-3 pt-4 absolute bottom-1">
+                        <span
+                            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Lapor
+                            OMB</span>
                     </div>
-                    </div>
-                </a>
-
-                <a class="no-underline" href="/article/obral-etalase-mimpi">
-                    <div class="max-w-sm rounded overflow-hidden shadow-lg no-underline">
-                    <img class="w-full" src="{{ asset('images/artikel1/FEATURED IMAGE.webp') }}" alt="Featured Image">
-                    <div class="px-6 py-4">
-                        <div class="font-bold text-l md:text-xl mb-2 text-[#021f3a]">Obral Etalase Mimpi</div>
-                        <p class="text-gray-700 text-base">
-                        “Dibeli! Dibeli! Diobral <i>nih</i> mimpinya!” <br>
-                    Hah? Dibeli? Diobral? Mimpinya? Apa <i>sih</i> maksudnya? <i>Kinda little bit confusing,</i> ya
-                    Ultimafriends?. . .
-                        </p>
-                    </div>
-                    <div class="px-6 pt-4 pb-2">
-                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Lapor OMB</span>
-                    </div>
-                    </div>
-                </a>
-
-            </div>
-            <div class="text-center flex flex-row justify-center items-center my-6">
-            <a class="no-underline" href="/articles">
-                <button class="bg-transparent hover:bg-[#021f3a] text-[#021f3a] font-semibold hover:text-white py-2 px-4 border border-[#021f3a] hover:border-transparent rounded">
-                Read More
-                </button>
-                </a>
                 </div>
+            </a>
+
+            <a class="no-underline" href="/article/obral-etalase-mimpi">
+                <div class="rounded overflow-hidden shadow-lg no-underline w-[300px] h-full relative pb-12">
+                    <img class="w-full h-52 object-cover" src="{{ asset('images/artikel1/FEATURED IMAGE.webp') }}"
+                        alt="Featured Image">
+                    <div class="px-6 py-4">
+                        <div class="font-bold text-xl mb-2 text-[#021f3a]">Obral Etalase Mimpi</div>
+                        <p class="text-gray-700 text-base">
+                            “Dibeli! Dibeli! Diobral <i>nih</i> mimpinya!” <br>
+                            Hah? Dibeli? Diobral? Mimpinya? Apa <i>sih</i> maksudnya? <i>Kinda little bit confusing,</i>
+                            ya
+                            Ultimafriends?. . .
+                        </p>
+                    </div>
+                    <div class="px-3 pt-4 absolute bottom-1">
+                        <span
+                            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Lapor
+                            OMB</span>
+                    </div>
+                </div>
+            </a>
+
+            @foreach ($posts as $post)
+                <a class="no-underline" href="/article/{{ $post->slug }}">
+                    <div class="rounded overflow-hidden shadow-lg no-underline w-[300px] h-full relative pb-12">
+                        <img class="w-full h-52 object-cover" src="{{ asset('storage/' . $post->cover_photo) }}"
+                            alt="Featured Image">
+                        <div class="px-6 py-4">
+                            <div class="font-bold text-xl mb-2 text-[#021f3a]">{{ $post->title }}</div>
+                            <p class="text-gray-700 text-base">
+                                {{ $post->excerpt }}
+                            </p>
+                        </div>
+                        <div class="px-3 pt-4 absolute bottom-1">
+                            <span
+                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{ $post->category }}</span>
+                            <span>
+                                {{ $post->published }}
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            @endforeach
+
         </div>
+        <div class="text-center flex flex-row justify-center items-center my-6">
+            <a class="no-underline" href="/articles">
+                <button
+                    class="bg-transparent hover:bg-[#021f3a] text-[#021f3a] font-semibold hover:text-white py-2 px-4 border border-[#021f3a] hover:border-transparent rounded">
+                    Read More
+                </button>
+            </a>
+        </div>
+    </div>
 
     {{-- Section 3 --}}
     <div id="section-3" class="mx-4">
@@ -570,62 +657,65 @@
         }
     </style>
 
-            <footer class="bg-[#021f3a] md:h-24 mb-16 p-4">
-                <div class="flex flex-col items-center text-center space-y-3 md:flex-row md:justify-around md:items-center md:text-left md:space-y-0">
-                    <div>
+    <footer class="bg-[#021f3a] md:h-24 mb-16 p-4">
+        <div
+            class="flex flex-col items-center text-center space-y-3 md:flex-row md:justify-around md:items-center md:text-left md:space-y-0">
+            <div>
 
-                    
-                        <img src="{{ asset('assets/umnradio.webp') }}" alt="logo" class="w-20 mt-1">
-                    </div>
-                    <div class="font-poppins text-xs text-white">
-                        <p>Jalan Scientia Boulevard</p>
-                        <p>Universitas Multimedia Nusantara, Gedung B lt. 6</p>
-                        <p>Tangerang, Banten 15811, ID</p>
-                    </div>
-                    <div class="font-poppins text-xs ">
-                        <p class="mb-1 font-popping text-white">Contact Us</p>
-                        <div class="flex-col">
-                            <a href="http://line.me/ti/p/~@umnradio#~" class="text-black no-underline">
-                                <div class="flex">
-                                    <img src="{{ asset('assets/line.webp') }}" alt="line" class="w-4 mb-1 mr-1">
-                                    <p class="font-poppins text-white no-underline">Line@</p>
-                                </div>
-                            </a>
 
-                            <a href="https://twitter.com/UMNRADIO" class="text-black no-underline">
-                                <div class="flex">
-                                    <img src="{{ asset('assets/twitter.webp') }}" alt="line" class="w-4 mb-1 mr-1">
-                                    <p class="font-poppins text-white no-underline">Twitter</p>
-                                </div>
-                            </a>
-
-                            <a href="https://www.youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg" class="text-black no-underline">
-                                <div class="flex">
-                                    <img src="{{ asset('assets/youtube.webp') }}" alt="line" class="w-4 mb-1 mr-1">
-                                    <p class="font-poppins text-white no-underline">Youtube</p>
-                                </div>
-                            </a>
+                <img src="{{ asset('assets/umnradio.webp') }}" alt="logo" class="w-20 mt-1">
+            </div>
+            <div class="font-poppins text-xs text-white">
+                <p>Jalan Scientia Boulevard</p>
+                <p>Universitas Multimedia Nusantara, Gedung B lt. 6</p>
+                <p>Tangerang, Banten 15811, ID</p>
+            </div>
+            <div class="font-poppins text-xs ">
+                <p class="mb-1 font-popping text-white">Contact Us</p>
+                <div class="flex-col">
+                    <a href="http://line.me/ti/p/~@umnradio#~" class="text-black no-underline">
+                        <div class="flex">
+                            <img src="{{ asset('assets/line.webp') }}" alt="line" class="w-4 mb-1 mr-1">
+                            <p class="font-poppins text-white no-underline">Line@</p>
                         </div>
-                    </div>
-                    <div class="text-xs">
-                        <p class="mb-1 font-poppins text-white">Get Our App</p>
-                        <a href="https://play.google.com/store/apps/details?id=com.umnradio.umnradio&pcampaignid=web_share"><img src="{{ asset('assets/playstore.webp') }}" alt="playstore" class="w-20"></a>
-                    </div>
+                    </a>
+
+                    <a href="https://twitter.com/UMNRADIO" class="text-black no-underline">
+                        <div class="flex">
+                            <img src="{{ asset('assets/twitter.webp') }}" alt="line" class="w-4 mb-1 mr-1">
+                            <p class="font-poppins text-white no-underline">Twitter</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg"
+                        class="text-black no-underline">
+                        <div class="flex">
+                            <img src="{{ asset('assets/youtube.webp') }}" alt="line" class="w-4 mb-1 mr-1">
+                            <p class="font-poppins text-white no-underline">Youtube</p>
+                        </div>
+                    </a>
                 </div>
-            </footer>
+            </div>
+            <div class="text-xs">
+                <p class="mb-1 font-poppins text-white">Get Our App</p>
+                <a href="https://play.google.com/store/apps/details?id=com.umnradio.umnradio&pcampaignid=web_share"><img
+                        src="{{ asset('assets/playstore.webp') }}" alt="playstore" class="w-20"></a>
+            </div>
         </div>
+    </footer>
+    </div>
 
 
 
-        <script>
-            var button = document.getElementById("buttonplay");
-            var button2 = document.getElementById("buttonpause");
-            var button3 = document.getElementById("buttonplay2");
-            var button4 = document.getElementById("buttonpause2");
-            var audio = document.getElementById("player");
+    <script>
+        var button = document.getElementById("buttonplay");
+        var button2 = document.getElementById("buttonpause");
+        var button3 = document.getElementById("buttonplay2");
+        var button4 = document.getElementById("buttonpause2");
+        var audio = document.getElementById("player");
 
-            button.addEventListener("click", function(){
-            if(audio.paused){
+        button.addEventListener("click", function() {
+            if (audio.paused) {
                 audio.play();
                 button.classList.add('hidden');
                 button2.classList.remove('hidden');
@@ -638,10 +728,10 @@
                 button4.classList.add('hidden');
                 button3.classList.remove('hidden');
             }
-            });
+        });
 
-            button2.addEventListener("click", function(){
-            if(audio.paused){
+        button2.addEventListener("click", function() {
+            if (audio.paused) {
                 audio.play();
                 button.classList.add('hidden');
                 button2.classList.remove('hidden');
@@ -654,10 +744,10 @@
                 button4.classList.add('hidden');
                 button3.classList.remove('hidden');
             }
-            });
+        });
 
-            button3.addEventListener("click", function(){
-            if(audio.paused){
+        button3.addEventListener("click", function() {
+            if (audio.paused) {
                 audio.play();
                 button.classList.add('hidden');
                 button2.classList.remove('hidden');
@@ -670,10 +760,10 @@
                 button4.classList.add('hidden');
                 button3.classList.remove('hidden');
             }
-            });
+        });
 
-            button4.addEventListener("click", function(){
-            if(audio.paused){
+        button4.addEventListener("click", function() {
+            if (audio.paused) {
                 audio.play();
                 button.classList.add('hidden');
                 button2.classList.remove('hidden');
@@ -686,10 +776,10 @@
                 button4.classList.add('hidden');
                 button3.classList.remove('hidden');
             }
-            });
-
-        </script>
-        <script>window.addEventListener('scroll', function () {
+        });
+    </script>
+    <script>
+        window.addEventListener('scroll', function() {
             var header = document.getElementById('audiosticky');
             if (window.scrollY > 2) {
                 header.classList.remove('invisible');
@@ -697,66 +787,72 @@
                 header.classList.add('invisible');
             }
         });
-        </script>
-        <script>
-            const allTabsGroup = document.querySelectorAll(".tabs-group");
-    
-            allTabsGroup.forEach((tabsGroup) => {
-                for (let i = 0; i < tabsGroup.children.length; i++) {
-                    const tabs = tabsGroup.children[i].querySelectorAll('.tabs');
-                    const tabContent = tabsGroup.children[i].querySelectorAll('.tab-content-item');
-                    const indicator = tabsGroup.children[i].querySelector('.indicator');
-                    const tabsContainer = tabsGroup.children[0];
-                    const content = tabsGroup.children[1].querySelectorAll('.tab-content-item');
-    
-                    if (indicator) {
-                        indicator.classList.add('bg-blue-500', 'h-0.5', 'absolute', 'bottom-0', 'left-0', 'transition-all', 'duration-200');
-                        indicator.style.width = `${100 / tabs.length}%`;
-                    }
-    
-                    if (tabsContainer) {
-                        tabsContainer.classList.add('relative', 'flex', 'flex-row', 'items-center', 'justify-center');
-                    }
-    
-                    if (content) {
-                        content.forEach((item) => {
-                            item.classList.add('hidden', 'relative');
-                        });
-                        content[0].classList.remove('hidden');
-                    }
-    
-                    const updateContent = (old, index) => {
-                        let oldContent = content[old / 100];
-                        let newContent = content[index];
-                        if ((old / 100) === index) return;
-    
-                        if (oldContent && newContent) {
-                            oldContent.classList.add('absolute', 'opacity-0', 'transition-all', 'duration-200');
-                            newContent.classList.add('absolute', 'opacity-0', 'transition-all', 'duration-200');
-    
-                            setTimeout(() => {
-                                oldContent.classList.remove('absolute', 'opacity-0', 'transition-all', 'duration-200');
-                                oldContent.classList.add('hidden');
-    
-                                newContent.classList.add('!opacity-100');
-    
-                                newContent.classList.remove('!left-0', '!opacity-100', 'absolute', 'opacity-0', 'transition-all', 'duration-200');
-                                newContent.classList.remove('hidden');
-                            }, 200);
-                        }
-                    }
-    
-                    tabs.forEach((tab, index) => {
-                        tab.classList.add('p-2', 'text-center', 'w-full', 'cursor-pointer', 'transition-all', 'duration-200', 'hover:bg-gray-200');
-                        tab.addEventListener('click', () => {
-                            let old = (String(indicator.style.transform || 'translateX(0%)').split('translateX(')).filter(Boolean).join('').split('%)')[0];
-                            indicator.style.transform = `translateX(${index * 100}%)`;
-                            updateContent(old, index);
-                        })
-                    });
-    
+    </script>
+    <script>
+        const allTabsGroup = document.querySelectorAll(".tabs-group");
+
+        allTabsGroup.forEach((tabsGroup) => {
+            for (let i = 0; i < tabsGroup.children.length; i++) {
+                const tabs = tabsGroup.children[i].querySelectorAll('.tabs');
+                const tabContent = tabsGroup.children[i].querySelectorAll('.tab-content-item');
+                const indicator = tabsGroup.children[i].querySelector('.indicator');
+                const tabsContainer = tabsGroup.children[0];
+                const content = tabsGroup.children[1].querySelectorAll('.tab-content-item');
+
+                if (indicator) {
+                    indicator.classList.add('bg-blue-500', 'h-0.5', 'absolute', 'bottom-0', 'left-0',
+                        'transition-all', 'duration-200');
+                    indicator.style.width = `${100 / tabs.length}%`;
                 }
-            });
-        </script>
-    </body>
+
+                if (tabsContainer) {
+                    tabsContainer.classList.add('relative', 'flex', 'flex-row', 'items-center', 'justify-center');
+                }
+
+                if (content) {
+                    content.forEach((item) => {
+                        item.classList.add('hidden', 'relative');
+                    });
+                    content[0].classList.remove('hidden');
+                }
+
+                const updateContent = (old, index) => {
+                    let oldContent = content[old / 100];
+                    let newContent = content[index];
+                    if ((old / 100) === index) return;
+
+                    if (oldContent && newContent) {
+                        oldContent.classList.add('absolute', 'opacity-0', 'transition-all', 'duration-200');
+                        newContent.classList.add('absolute', 'opacity-0', 'transition-all', 'duration-200');
+
+                        setTimeout(() => {
+                            oldContent.classList.remove('absolute', 'opacity-0', 'transition-all',
+                                'duration-200');
+                            oldContent.classList.add('hidden');
+
+                            newContent.classList.add('!opacity-100');
+
+                            newContent.classList.remove('!left-0', '!opacity-100', 'absolute',
+                                'opacity-0', 'transition-all', 'duration-200');
+                            newContent.classList.remove('hidden');
+                        }, 200);
+                    }
+                }
+
+                tabs.forEach((tab, index) => {
+                    tab.classList.add('p-2', 'text-center', 'w-full', 'cursor-pointer', 'transition-all',
+                        'duration-200', 'hover:bg-gray-200');
+                    tab.addEventListener('click', () => {
+                        let old = (String(indicator.style.transform || 'translateX(0%)').split(
+                            'translateX(')).filter(Boolean).join('').split('%)')[0];
+                        indicator.style.transform = `translateX(${index * 100}%)`;
+                        updateContent(old, index);
+                    })
+                });
+
+            }
+        });
+    </script>
+</body>
+
 </html>

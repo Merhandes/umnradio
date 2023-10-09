@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
@@ -14,8 +15,9 @@ class Controller extends BaseController
     public function index()
     {
         $programs = Programs::all();
+        $posts = Post::all();
         
-        return view('Home.index', compact('programs'));
+        return view('Home.index', compact(['programs', 'posts']));
     }
 
 }

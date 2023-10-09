@@ -47,6 +47,8 @@ Route::controller(PostController::class)->group(
 
         Route::get('/articles', 'showArticles');
         Route::get('/article/{post:slug}', 'showArticle');
+
+        // Route::get('/', 'index_home');
     }
 );
 
