@@ -369,8 +369,9 @@
     {{-- Section 4 --}}
     <div id="section-4" class="md:mt-12 w-full my-12">
         <h1 class="font-poppins text-[#021f3a] font-bold w-full text-center">Partnerships</h1>
-        <div class="flex justify-center align-middle w-full my-2">
-            <img src="{{ asset('images/Partnership/DUA-MATA.webp') }}" class="h-80 my-4" alt="">
+        <div class="flex justify-center align-middle w-full my-2 flex-wrap">
+            <img src="{{ asset('images/Partnership/DUA-MATA.webp') }}" class="h-36 md:h-80 my-4" alt="">
+            <img src="{{asset('images/Partnership/LOGO COPAS.webp')}}" class="h-36 md:h-80 my-4" alt="">
         </div>
     </div>
 
@@ -381,11 +382,11 @@
 
             <a class="no-underline" href="/article/kepada-yth-maba-apa-kabar-kali-ini">
                 <div class="rounded overflow-hidden shadow-lg no-underline w-[300px] h-full relative pb-12">
-                    <img class="w-full h-52 object-cover"
+                    <img class="w-full h-36 md:h-52 object-cover"
                         src="{{ asset('images/artikel2/FEATURED IMAGE MABA.webp') }}" alt="Featured Image">
                     <div class="px-6 py-4">
                         <div class="font-bold text-xl mb-2 text-[#021f3a]">Kepada Yth. Maba: Apa Kabar Kali Ini?</div>
-                        <p class="text-gray-700 text-base">
+                        <p class="text-gray-700 text-base sm:text-xs">
                             “Buka lagi visimu, kau tahu mana urutan satu”<br>
                             Sepenggal lirik dari lagu “33x”. . .
                         </p>
@@ -400,11 +401,11 @@
 
             <a class="no-underline" href="/article/obral-etalase-mimpi">
                 <div class="rounded overflow-hidden shadow-lg no-underline w-[300px] h-full relative pb-12">
-                    <img class="w-full h-52 object-cover" src="{{ asset('images/artikel1/FEATURED IMAGE.webp') }}"
+                    <img class="w-full h-36 md:h-52 object-cover" src="{{ asset('images/artikel1/FEATURED IMAGE.webp') }}"
                         alt="Featured Image">
                     <div class="px-6 py-4">
                         <div class="font-bold text-xl mb-2 text-[#021f3a]">Obral Etalase Mimpi</div>
-                        <p class="text-gray-700 text-base">
+                        <p class="text-gray-700 text-base sm:text-xs">
                             “Dibeli! Dibeli! Diobral <i>nih</i> mimpinya!” <br>
                             Hah? Dibeli? Diobral? Mimpinya? Apa <i>sih</i> maksudnya? <i>Kinda little bit confusing,</i>
                             ya
@@ -422,11 +423,11 @@
             @foreach ($posts as $post)
                 <a class="no-underline" href="/article/{{ $post->slug }}">
                     <div class="rounded overflow-hidden shadow-lg no-underline w-[300px] h-full relative pb-12">
-                        <img class="w-full h-52 object-cover" src="{{ asset('storage/' . $post->cover_photo) }}"
+                        <img class="w-full h-36 md:h-52 object-cover" src="{{ asset('storage/' . $post->cover_photo) }}"
                             alt="Featured Image">
                         <div class="px-6 py-4">
                             <div class="font-bold text-xl mb-2 text-[#021f3a]">{{ $post->title }}</div>
-                            <p class="text-gray-700 text-base">
+                            <p class="text-gray-700 text-base sm:text-xs">
                                 {{ $post->excerpt }}
                             </p>
                         </div>

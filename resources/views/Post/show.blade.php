@@ -53,7 +53,7 @@
     </div>
 
     {{-- SHOW ARTICLE --}}
-    <div class="pt-28 mx-6 md:mx-48 font-poppins text-black pb-24">
+    <div class="pt-16 md:pt-28 mx-1 md:mx-48 font-poppins text-black pb-24">
         {{-- <div class="">
             <a href="/posts/{{ $post->slug }}/edit">
                 <button
@@ -62,16 +62,16 @@
             </a>
         </div> --}}
         <img src="{{ asset('storage/' . $post->cover_photo) }}" alt=""
-            class="my-1 w-full h-80 object-cover">
+            class="my-1 w-full h-40 md:h-80 object-cover">
         <h1 class="mt-4 text-3xl text-center font-bold mb-0">
             <strong>{{ $post->title }}</strong>
             
         </h1>
         <h4 class="text-center">Posted {{ $post->published }}.</h4>
-        <h4 class="mt-1 text-sm text-start mb-3">
+        <h4 class="mt-1 text-sm text-start mb-3 mx-3">
             By {{ $post->author }}. <br>Edited by {{ $post->editor }}. 
         </h4>
-        <article class="body-content">
+        <article class="body-content mx-3">
             {!! $post->post_content !!}
         </article>
     </div>
