@@ -11,11 +11,9 @@
     @vite('resources/css/app.css')
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
-    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/667eb529ec.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="composer h-full bg-white">
@@ -58,93 +56,91 @@
 
     {{-- POST FORM --}}
     <div class="pt-10 mx-6 md:mx-48 font-poppins text-black pb-24">
-        <h1 class="pt-12 md:pt-24 text-center font-bold mb-6">New Article</h1>
-        <form id="postForm" class="w-[90%]" action="/posts/store" enctype="multipart/form-data" method="post">
+        <h1 class="pt-12 md:pt-24 text-center font-bold mb-6">New Song</h1>
+        <form id="songForm" class="w-[90%]" action="/songs/{{$song->id}}/update" enctype="multipart/form-data" method="post">
             @csrf
             <!-- Prevent implicit submission of the form -->
             <button type="submit" disabled style="display: none" aria-hidden="true"></button>
             <div class="my-2">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
-                    Title
+                    Song Name
                 </label>
                 <input data-index='1'
                     class="@error('title') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    name="title" id="title" type="text" placeholder="Title" value="{{ old('title') }}">
+                    name="title" id="title" type="text" placeholder="Song Title"
+                    value="{{ old('title', $song->title) }}" oninput="previewName(this.value)">
                 @error('title')
                     <div class="text-sm text-red-600">{{ $message }}</div>
                 @enderror
             </div>
             <div class="my-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="slug">
-                    Slug
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="artists">
+                    Artists
                 </label>
-                <input data-index='2'
-                    class="@error('slug') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    name="slug" id="slug" type="text" placeholder="" value="{{ old('slug') }}">
-                @error('slug')
+                <input data-index='1'
+                    class="@error('artists') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    name="artists" id="artists" type="text" placeholder="artist name, artist name, artist name, ..."
+                    value="{{ old('artists', $song->artists) }}" oninput="previewArtist(this.value)">
+                @error('artists')
                     <div class="text-sm text-red-600">{{ $message }}</div>
                 @enderror
             </div>
             <div class="my-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="author">
-                    Author
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="cover_image">
+                    Cover Image
                 </label>
-                <input data-index='3'
-                    class="@error('author') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    name="author" id="author" type="text" placeholder="Author" value="{{ old('author') }}">
-                @error('author')
+                <input type="hidden" name="old_cover_image" value="{{ $song->cover_image }}">
+                <input type="file" accept="image/*" id="cover_image" name="cover_image" onchange="previewImage()"
+                    class="@error('cover_image') border-red-500 @enderror ">
+                @error('cover_image')
                     <div class="text-sm text-red-600">{{ $message }}</div>
                 @enderror
             </div>
-            <div class="my-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="editor">
-                    Editor
-                </label>
-                <input data-index='3'
-                    class="@error('editor') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    name="editor" id="editor" type="text" placeholder="Editor" value="{{ old('editor') }}">
-                @error('editor')
-                    <div class="text-sm text-red-600">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="my-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="author">
-                    Category
-                </label>
-                <input data-index='4'
-                    class="@error('category') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    name="category" id="category" type="text" placeholder="Category"
-                    value="{{ old('category') }}">
-                @error('category')
-                    <div class="text-sm text-red-600">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="my-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="cover_photo">
-                    Cover Photo
-                </label>
-                <input type="file" accept="image/*" id="cover_photo" name="cover_photo"
-                    onchange="previewImage()" class="@error('cover_photo') border-red-500 @enderror ">
-                <img src="" alt="" class="my-4 img-preview w-full h-80 object-cover hidden">
-                @error('cover_photo')
-                    <div class="text-sm text-red-600">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="my-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="post_content">
-                    Content
-                </label>
-                <input id="x" type="hidden" name="post_content" value="{{ old('post_content') }}">
-                <trix-editor class="@error('post_content') border-red-500 @enderror  " input="x"></trix-editor>
-                @error('post_content')
-                    <div class="text-sm text-red-600">{{ $message }}</div>
-                @enderror
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="">Preview</label>
+            {{-- CHART CARD --}}
+            <div
+                class="w-[90vw] md:w-[35vw] md:min-w-[300px] flex flex-col justify-center align-middle items-center rounded-lg bg-white drop-shadow-lg">
+                <div class="w-full h-32 relative rounded-t-lg flex justify-center">
+                    <img class="w-full h-full object-cover rounded-t-lg brightness-50"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png"
+                        alt="">
+
+                    <div class="absolute top-[40%] flex flex-row gap-4">
+                        <p
+                            class="text-3xl text-white font-poppins font-bold text-center">CHART NAME
+                        </p>
+                        <div
+                            class="flex justify-center items-center align-middle hover:cursor-pointer">
+                                <i class="fa-brands fa-spotify fa-2xl" style="color:#1DB954;"></i>
+                        </div>
+                    </div>
+
+                </div>
+                {{-- SONG CONTAINER --}}
+                <div class="song-container flex flex-col gap-2 justify-center p-4 w-full">
+                    {{-- SONG CARD --}}
+                    <div
+                        class="song w-full flex flex-row items-center align-middle bg-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] h-24 md:h-40 p-4 rounded-lg gap-2 md:gap-6 relative">
+                        <div
+                            class="absolute top-0 start-0 bg-[#021f3a] p-3 rounded-tl-lg rounded-br-[30px] drop-shadow-[0_3px_3px_rgba(255,255,255,0.4)]">
+                            <p class="text-sm md:text-md font-poppins text-white">#0</p>
+                        </div>
+                        <img class="h-full aspect-square rounded-lg object-cover img-preview"
+                            src="{{ asset('storage/' . $song->cover_image) }}"
+                            alt="">
+                        <div
+                            class="h-full flex flex-col lg:justify-center flex-grow overflow-scroll md:overflow-auto text-ellipsis">
+                            <p class="text-lg md:text-2xl text-black font-poppins font-bold" id="name_preview">{{$song->title}}</p>
+                            <p class="text-sm md:text-md text-gray-800 font-poppins" id="artist_preview">{{$song->artists}}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="flex items-center justify-between my-4">
                 <button
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                     type="submit">
-                    Publish
+                    Submit
                 </button>
             </div>
         </form>
@@ -211,17 +207,17 @@
 </body>
 
 <script>
-    const title = document.querySelector('#title');
-    const slug = document.querySelector('#slug');
-
-    title.addEventListener('change', function() {
-        fetch('/posts/checkSlug?title=' + title.value)
-            .then(response => response.json())
-            .then(data => slug.value = data.slug)
-    })
+    function previewName(value) {
+        const name_preview = document.getElementById('name_preview')
+        name_preview.innerHTML = value
+    }
+    function previewArtist(value) {
+        const artist_preview = document.getElementById('artist_preview')
+        artist_preview.innerHTML = value
+    }
 
     function previewImage() {
-        const image = document.querySelector('#cover_photo')
+        const image = document.querySelector('#cover_image')
         const imgPreview = document.querySelector(".img-preview")
 
         imgPreview.style.display = 'block'
@@ -233,7 +229,7 @@
         }
     }
 
-    $('#postForm').on('keydown', 'input', function(event) {
+    $('#songForm').on('keydown', 'input', function(event) {
         if (event.which == 13) {
             event.preventDefault();
             var $this = $(event.target);

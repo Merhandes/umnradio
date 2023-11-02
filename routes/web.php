@@ -1,8 +1,14 @@
 <?php
 
+use App\Http\Controllers\ChartController;
+use App\Http\Controllers\ChartJunctionController;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProgramDetailController;
+use App\Http\Controllers\SongController;
+use App\Models\ChartJunction;
+use App\Models\ProgramDetail;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,5 +57,55 @@ Route::controller(PostController::class)->group(
         // Route::get('/', 'index_home');
     }
 );
+
+Route::controller(ProgramDetailController::class)->group(
+    function(){
+        Route::get('/programs/dashboard', 'dashboard');
+        Route::get('/programs/new', 'create');
+        Route::post('/programs/store', 'store');
+        Route::get('/programs/checkSlug', 'checkSlug');
+        Route::get('/programs/{programdetail:slug}/edit', 'edit');
+        Route::delete('/programs/{programdetail:slug}/delete', 'destroy');
+        Route::put('/programs/{programdetail:slug}/update', 'update');
+        Route::get('/programs/{programdetail:slug}', 'show');
+        Route::get('/programs', 'index');
+    }
+);
+
+Route::controller(ChartController::class)->group(
+    function(){
+        Route::get('/charts', 'index');
+        Route::get('/charts/dashboard', 'dashboard');
+        Route::get('/charts/new', 'create');
+        Route::post('/charts/store', 'store');
+        Route::get('/charts/{chart:id}/edit', 'edit');
+        Route::put('/charts/{chart:id}/update', 'update');
+        Route::put('/charts/{chart:id}/publish', 'publish');
+        Route::delete('/charts/{chart:id}/delete', 'destroy');
+    }
+);
+
+Route::controller(SongController::class)->group(
+    function(){
+        Route::get('/songs/dashboard', 'dashboard');
+        Route::get('/songs/new', 'create');
+        Route::post('/songs/store', 'store');
+        Route::get('/songs/{song:id}/edit', 'edit');
+        Route::put('/songs/{song:id}/update', 'update');
+        Route::delete('/songs/{song:id}/delete', 'destroy');
+    }
+);
+
+Route::controller(ChartJunctionController::class)->group(
+    function(){
+        Route::get('/charts/add-song', 'addsong');
+        Route::post('/charts/add-song/store', 'store');
+        Route::delete('/charts/junction/{chart_junction:id}/remove', 'destroy');
+    }
+);
+
+Route::get('/oprec',function(){
+    return view('Oprec.index');
+});
 
 // Route::resource('posts', PostController::class);

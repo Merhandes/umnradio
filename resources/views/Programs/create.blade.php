@@ -58,19 +58,20 @@
 
     {{-- POST FORM --}}
     <div class="pt-10 mx-6 md:mx-48 font-poppins text-black pb-24">
-        <h1 class="pt-12 md:pt-24 text-center font-bold mb-6">New Article</h1>
-        <form id="postForm" class="w-[90%]" action="/posts/store" enctype="multipart/form-data" method="post">
+        <h1 class="pt-12 md:pt-24 text-center font-bold mb-6">New Program</h1>
+        <form id="programForm" class="w-[90%]" action="/programs/store" enctype="multipart/form-data" method="post">
             @csrf
             <!-- Prevent implicit submission of the form -->
             <button type="submit" disabled style="display: none" aria-hidden="true"></button>
             <div class="my-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
-                    Title
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="program_name">
+                    Program Name
                 </label>
                 <input data-index='1'
-                    class="@error('title') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    name="title" id="title" type="text" placeholder="Title" value="{{ old('title') }}">
-                @error('title')
+                    class="@error('program_name') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    name="program_name" id="program_name" type="text" placeholder="e.g. News Flash"
+                    value="{{ old('program_name') }}">
+                @error('program_name')
                     <div class="text-sm text-red-600">{{ $message }}</div>
                 @enderror
             </div>
@@ -86,57 +87,112 @@
                 @enderror
             </div>
             <div class="my-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="author">
-                    Author
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="short_desc">
+                    Short Description
                 </label>
                 <input data-index='3'
-                    class="@error('author') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    name="author" id="author" type="text" placeholder="Author" value="{{ old('author') }}">
-                @error('author')
+                    class="@error('short_desc') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    name="short_desc" id="short_desc" type="text" placeholder="e.g. Mondays, 10.00 - 13.00"
+                    value="{{ old('short_desc') }}">
+                @error('short_desc')
                     <div class="text-sm text-red-600">{{ $message }}</div>
                 @enderror
             </div>
             <div class="my-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="editor">
-                    Editor
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
+                    Description
                 </label>
-                <input data-index='3'
-                    class="@error('editor') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    name="editor" id="editor" type="text" placeholder="Editor" value="{{ old('editor') }}">
-                @error('editor')
+                <textarea data-index='4'
+                    class="@error('description') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    name="description" id="description" type="text" placeholder="Description">{{ old('description') }}</textarea>
+                @error('description')
                     <div class="text-sm text-red-600">{{ $message }}</div>
                 @enderror
             </div>
-            <div class="my-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="author">
-                    Category
-                </label>
-                <input data-index='4'
-                    class="@error('category') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    name="category" id="category" type="text" placeholder="Category"
-                    value="{{ old('category') }}">
-                @error('category')
-                    <div class="text-sm text-red-600">{{ $message }}</div>
-                @enderror
+            <div class="my-2 w-full flex flex-wrap justify-center gap-4">
+                <div class="w-[400px]">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="penyiar">
+                        Penyiar
+                    </label>
+                    <input data-index='5'
+                        class="@error('penyiar') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        name="penyiar" id="penyiar" type="text" placeholder="e.g. John Doe, Jane Doe"
+                        value="{{ old('penyiar') }}">
+                    @error('penyiar')
+                        <div class="text-sm text-red-600">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="w-[400px]">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="producer">
+                        Producer
+                    </label>
+                    <input data-index='6'
+                        class="@error('producer') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        name="producer" id="producer" type="text" placeholder="e.g. John Doe"
+                        value="{{ old('producer') }}">
+                    @error('producer')
+                        <div class="text-sm text-red-600">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="w-[400px]">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="visual_creative">
+                        Visual Creative
+                    </label>
+                    <input data-index='7'
+                        class="@error('visual_creative') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        name="visual_creative" id="visual_creative" type="text" placeholder="e.g. John Doe"
+                        value="{{ old('visual_creative') }}">
+                    @error('visual_creative')
+                        <div class="text-sm text-red-600">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="w-[400px]">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="audio_creative">
+                        Audio Creative
+                    </label>
+                    <input data-index='8'
+                        class="@error('audio_creative') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        name="audio_creative" id="audio_creative" type="text" placeholder="e.g. John Doe"
+                        value="{{ old('audio_creative') }}">
+                    @error('audio_creative')
+                        <div class="text-sm text-red-600">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="w-[400px]">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="media_affairs">
+                        Media Affairs
+                    </label>
+                    <input data-index='9'
+                        class="@error('media_affairs') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        name="media_affairs" id="media_affairs" type="text" placeholder="e.g. John Doe"
+                        value="{{ old('media_affairs') }}">
+                    @error('media_affairs')
+                        <div class="text-sm text-red-600">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="w-[400px]">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="music_director">
+                        Music Director
+                    </label>
+                    <input data-index='10'
+                        class="@error('music_director') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        name="music_director" id="music_director" type="text" placeholder="e.g. John Doe"
+                        value="{{ old('music_director') }}">
+                    @error('music_director')
+                        <div class="text-sm text-red-600">{{ $message }}</div>
+                    @enderror
+                </div>
             </div>
+
+
             <div class="my-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="cover_photo">
-                    Cover Photo
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="image">
+                    Poster Image
                 </label>
-                <input type="file" accept="image/*" id="cover_photo" name="cover_photo"
-                    onchange="previewImage()" class="@error('cover_photo') border-red-500 @enderror ">
-                <img src="" alt="" class="my-4 img-preview w-full h-80 object-cover hidden">
-                @error('cover_photo')
-                    <div class="text-sm text-red-600">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="my-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="post_content">
-                    Content
-                </label>
-                <input id="x" type="hidden" name="post_content" value="{{ old('post_content') }}">
-                <trix-editor class="@error('post_content') border-red-500 @enderror  " input="x"></trix-editor>
-                @error('post_content')
+                <input type="file" accept="image/*" id="image" name="image"
+                    onchange="previewImage()" class="@error('image') border-red-500 @enderror ">
+                <img src="" alt="" class="my-4 img-preview h-80 hidden">
+                @error('image')
                     <div class="text-sm text-red-600">{{ $message }}</div>
                 @enderror
             </div>
@@ -211,17 +267,17 @@
 </body>
 
 <script>
-    const title = document.querySelector('#title');
+    const program_name = document.querySelector('#program_name');
     const slug = document.querySelector('#slug');
 
-    title.addEventListener('change', function() {
-        fetch('/posts/checkSlug?title=' + title.value)
+    program_name.addEventListener('change', function() {
+        fetch('/programs/checkSlug?program_name=' + program_name.value)
             .then(response => response.json())
             .then(data => slug.value = data.slug)
     })
 
     function previewImage() {
-        const image = document.querySelector('#cover_photo')
+        const image = document.querySelector('#image')
         const imgPreview = document.querySelector(".img-preview")
 
         imgPreview.style.display = 'block'
@@ -233,7 +289,7 @@
         }
     }
 
-    $('#postForm').on('keydown', 'input', function(event) {
+    $('#programForm').on('keydown', 'input', function(event) {
         if (event.which == 13) {
             event.preventDefault();
             var $this = $(event.target);

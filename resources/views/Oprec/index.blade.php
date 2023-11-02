@@ -11,13 +11,18 @@
     @vite('resources/css/app.css')
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
-    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        div::-webkit-scrollbar {
+            display: none;
+            /* for Chrome, Safari, and Opera */
+        }
+    </style>
+    {{-- <script src="https://kit.fontawesome.com/667eb529ec.js" crossorigin="anonymous"></script> --}}
 </head>
 
-<body class="composer h-full bg-white">
+<body class="h-full bg-white">
     {{-- NAVBAR --}}
     <div x-data="{ isOpen: false }" class="fixed w-full flex justify-between p-3 z-40 bg-[#021f3a] lg:p-4">
         <a class="flex items-center" href="/">
@@ -55,29 +60,22 @@
         </div>
     </div>
 
-    {{-- SHOW ARTICLE --}}
-    <div class="pt-16 md:pt-28 mx-1 md:mx-48 font-poppins text-black pb-24">
-        {{-- <div class="">
-            <a href="/posts/{{ $post->slug }}/edit">
-                <button
-                    class="bg-yellow-500 hover:bg-yellow-400 text-white font-bold py-1 px-2 border-b-4 border-yellow-700 hover:border-yellow-500 rounded">
-                    Edit Article</button>
-            </a>
-        </div> --}}
-        <img src="{{ asset('storage/' . $post->cover_photo) }}" alt=""
-            class="my-1 w-full h-40 md:h-80 object-cover">
-        <h1 class="mt-4 text-3xl text-center font-bold mb-0">
-            <strong>{{ $post->title }}</strong>
-            
-        </h1>
-        <h4 class="text-center">Posted {{ $post->published }}.</h4>
-        <h4 class="mt-1 text-sm text-start mb-3 mx-3">
-            By {{ $post->author }}. <br>Edited by {{ $post->editor }}. 
-        </h4>
-        <article class="body-content mx-3">
-            {!! $post->post_content !!}
-        </article>
+    {{-- SHOW PROGRAMS --}}
+    <div class="w-screen md:w-full h-full overflow-scroll pt-16 pb-16 flex flex-col justify-center">
+        <div class="pt-16 pb-12 flex justify-center flex-wrap">
+            <img class="drop-shadow-lg object-contain"
+                src="https://store.officesystemsaruba.com/wp-content/uploads/2020/06/3MASH1524-1.jpg" alt="">
+            {{-- <img class="drop-shadow-lg w-[800px] object-contain" src="https://store.officesystemsaruba.com/wp-content/uploads/2020/06/3MASH1524-1.jpg" alt=""> --}}
+        </div>
+        <a href="https://docs.google.com/forms/d/1Q7_Y1rWJbD1rhRI1jv_IWnqvIuCwEwDjb0OpgV8lgdQ/edit" target="_"
+            class="w-full flex justify-center pb-16">
+            <button
+                class="bg-transparent hover:bg-[#021f3a] text-[#021f3a] font-semibold hover:text-white py-2 px-4 border border-[#021f3a] hover:border-transparent rounded">
+                REGISTER HERE
+            </button>
+        </a>
     </div>
+
 
     {{-- AUDIO --}}
     <footer id="audiosticky"
@@ -138,16 +136,5 @@
     </script>
     <script src="{{ asset('js/attachments.js') }}"></script>
 </body>
-<style>
-    .attachment img {
-        height: 400px;
-        width: auto;
-    }
-
-    .attachment {
-        display: flex;
-        justify-content: center;
-    }
-</style>
 
 </html>

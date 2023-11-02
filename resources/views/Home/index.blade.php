@@ -16,9 +16,9 @@
 <body class="composer h-full bg-white">
     {{-- NAVBAR --}}
     <div x-data="{ isOpen: false }" class="fixed w-full flex justify-between p-3 z-40 bg-[#021f3a] lg:p-4">
-        <div class="flex items-center">
+        <a class="flex items-center" href="/">
             <img class="h-10 md:h-16 w-auto" src="{{ asset('images/logowhite.webp') }}" alt="">
-        </div>
+        </a>
 
         <div class="flex items-center justify-between">
             <button @click="isOpen = !isOpen" type="submit">
@@ -28,20 +28,23 @@
                 </svg>
             </button>
             <div class="pr-4 hidden space-x-6 lg:inline-block">
-                <a href="/" class="font-poppins text-base text-white underline-offset-4">Home</a>
-                <a href="/articles" class="font-poppins text-base text-white no-underline">Articles</a>
-                <!-- <a href="#" class="font-poppins text-base text-white no-underline">Programs</a>
-                    <a href="#" class="font-poppins text-base text-white no-underline">Podcasts</a> -->
+                <a href="/" class="font-poppins text-base text-white no-underline">Home</a>
+                <!-- <a href="#" class="font-poppins text-base text-white no-underline">About</a>
+                    <a href="#" class="font-poppins text-base text-white no-underline">Programs</a> -->
+                <a href="/articles" class="font-poppins text-base text-white underline-offset-4">Articles</a>
+                <a href="/oprec" class="font-poppins text-base text-white underline-offset-4" hidden>OPREC</a>
             </div>
 
             <div class="mobile-navbar">
                 <div class="fixed left-0 w-full h-48 p-5 bg-white rounded-lg shadow-xl top-16" x-show="isOpen"
                     @click.away=" isOpen = false">
                     <div class="flex flex-col space-y-6">
-                        <a href="#" class="font-poppins -sm text-black">Home</a>
-                        <a href="/articles" class="font-poppins text-sm text-black">Articles</a>
-                        <!-- <a href="#" class="text-sm text-black">Programs</a>
-                            <a href="#" class="text-sm text-black">Podcasts</a> -->
+                        <a href="/" class="font-poppins -sm text-black">Home</a>
+                        <!-- <a href="#" class="font-poppins text-sm text-black">About</a> -->
+                        <a href="/articles" class="text-sm text-black">Articles</a>
+                        <a href="/oprec" class="text-sm text-black" hidden>OPREC</a>
+                        <!-- <a href="#" class="text-sm text-black">Podcasts</a> -->
+
                     </div>
                 </div>
             </div>
@@ -82,7 +85,7 @@
                         </svg></button>
                 </div>
                 <audio id="player">
-                    <source src='https://i.klikhost.com/8374/' />
+                    <source src='http://icecast.umn.ac.id:8080/live' />
                 </audio>
             </div>
         </div>
@@ -144,7 +147,7 @@
                     $text = 'Upcoming Program';
                     $now = $programs->where('broadcast_day', $day + 1)->first();
                     $onair = 'bg-[#dfdfdf]';
-                } elseif ($day > 5) {
+                } elseif ($day > 5 || $day == 0) {
                     $text = 'Upcoming Program';
                     $now = $programs->where('broadcast_day', 1)->first();
                     $onair = 'bg-[#dfdfdf]';
@@ -158,7 +161,7 @@
             </div>
 
             <div class="flex flex-col md:flex-row gap-4 md:gap-16 mt-6 justify-center items-center">
-                <img class="h-80 rounded-lg object-cover" src="{{ asset($now->img) }}" alt="ON AIR" />
+                <img class="h-54 md:h-80 rounded-lg object-cover" src="{{ asset($now->img) }}" alt="ON AIR" />
 
                 <div>
                     <h3 class="font-poppins mt-3 font-bold text-black">{{ $text }}</h3>

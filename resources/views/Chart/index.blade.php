@@ -11,13 +11,18 @@
     @vite('resources/css/app.css')
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
-    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        div::-webkit-scrollbar {
+            display: none;
+            /* for Chrome, Safari, and Opera */
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/667eb529ec.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="composer h-full bg-white">
+<body class="h-full bg-white">
     {{-- NAVBAR --}}
     <div x-data="{ isOpen: false }" class="fixed w-full flex justify-between p-3 z-40 bg-[#021f3a] lg:p-4">
         <a class="flex items-center" href="/">
@@ -55,29 +60,69 @@
         </div>
     </div>
 
-    {{-- SHOW ARTICLE --}}
-    <div class="pt-16 md:pt-28 mx-1 md:mx-48 font-poppins text-black pb-24">
-        {{-- <div class="">
-            <a href="/posts/{{ $post->slug }}/edit">
-                <button
-                    class="bg-yellow-500 hover:bg-yellow-400 text-white font-bold py-1 px-2 border-b-4 border-yellow-700 hover:border-yellow-500 rounded">
-                    Edit Article</button>
-            </a>
-        </div> --}}
-        <img src="{{ asset('storage/' . $post->cover_photo) }}" alt=""
-            class="my-1 w-full h-40 md:h-80 object-cover">
-        <h1 class="mt-4 text-3xl text-center font-bold mb-0">
-            <strong>{{ $post->title }}</strong>
-            
-        </h1>
-        <h4 class="text-center">Posted {{ $post->published }}.</h4>
-        <h4 class="mt-1 text-sm text-start mb-3 mx-3">
-            By {{ $post->author }}. <br>Edited by {{ $post->editor }}. 
-        </h4>
-        <article class="body-content mx-3">
-            {!! $post->post_content !!}
-        </article>
+    {{-- SHOW PROGRAMS --}}
+    <div class="w-screen md:w-full h-full overflow-scroll pt-16 pb-16 flex justify-center">
+        <div class="container md:w-[90%] flex flex-wrap justify-center pt-8 md:p-16 font-poppins gap-8">
+            @php
+                $count = 0;
+            @endphp
+
+            @foreach ($charts as $chart)
+                @if ($chart->status == 'PUBLISHED')
+                    {{-- CHART CARD --}}
+                    <div
+                        class="w-[90vw] lg:w-[35vw] lg:min-w-[300px] flex flex-col justify-center align-middle items-center rounded-lg bg-white drop-shadow-lg h-fit @if ($count++ % 2 == 0) md:mb-52
+                        @else md:mt-52 @endif">
+                        <div class="w-full h-32 relative rounded-t-lg flex justify-center">
+                            <img class="w-full h-full object-cover rounded-t-lg brightness-50"
+                                src="{{ asset('storage/' . $chart->cover_image) }}" alt="">
+                            <div class="absolute top-[40%] flex flex-row gap-4">
+                                <p id="name_preview" class="text-3xl text-white font-poppins font-bold text-center">
+                                    {{ strtoupper($chart->chart_name) }}
+                                </p>
+                                <a href="{{$chart->link}}" target="_blank" class="flex justify-center items-center align-middle hover:cursor-pointer hover:scale-[120%]">
+                                    <i class="fa-brands fa-spotify fa-2xl" style="color:#1DB954;"></i>
+                                </a>
+                            </div>
+                        </div>
+                        {{-- SONG CONTAINER --}}
+                        <div class="song-container flex flex-col gap-2 justify-center p-4 w-full">
+                            {{-- SONG CARD --}}
+                            @php
+                                $song_count = 1;
+                            @endphp
+                            @foreach ($junctions as $junction)
+                                @foreach ($songs as $song)
+                                    @if ($song->id == $junction->song_id && $chart->id == $junction->chart_id)
+                                        <div
+                                            class="song w-full flex flex-row items-center align-middle bg-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] h-24 md:h-40 p-4 rounded-lg gap-2 md:gap-6 relative">
+                                            <div
+                                                class="absolute top-0 start-0 bg-[#021f3a] p-3 rounded-tl-lg rounded-br-[30px] drop-shadow-[0_3px_3px_rgba(255,255,255,0.4)]">
+                                                <p class="text-sm md:text-md font-poppins text-white">
+                                                    #{{ $song_count++ }}</p>
+                                            </div>
+                                            <img class="h-full aspect-square rounded-lg object-cover"
+                                                src="{{ asset('storage/' . $song->cover_image) }}"
+                                                alt="">
+                                            <div
+                                                class="h-full flex flex-col lg:justify-center flex-grow overflow-scroll md:overflow-auto text-ellipsis">
+                                                <p class="text-lg md:text-2xl text-black font-poppins font-bold">
+                                                    {{ strtoupper($song->title) }}
+                                                </p>
+                                                <p class="text-sm md:text-md text-gray-800 font-poppins">
+                                                    {{ $song->artists }}</p>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+            @endforeach
+        </div>
     </div>
+
 
     {{-- AUDIO --}}
     <footer id="audiosticky"
@@ -138,16 +183,5 @@
     </script>
     <script src="{{ asset('js/attachments.js') }}"></script>
 </body>
-<style>
-    .attachment img {
-        height: 400px;
-        width: auto;
-    }
-
-    .attachment {
-        display: flex;
-        justify-content: center;
-    }
-</style>
 
 </html>

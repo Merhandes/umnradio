@@ -11,13 +11,17 @@
     @vite('resources/css/app.css')
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
-    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        div::-webkit-scrollbar {
+            display: none;
+            /* for Chrome, Safari, and Opera */
+        }
+    </style>
 </head>
 
-<body class="composer h-full bg-white">
+<body class="h-full bg-white">
     {{-- NAVBAR --}}
     <div x-data="{ isOpen: false }" class="fixed w-full flex justify-between p-3 z-40 bg-[#021f3a] lg:p-4">
         <a class="flex items-center" href="/">
@@ -55,29 +59,45 @@
         </div>
     </div>
 
-    {{-- SHOW ARTICLE --}}
-    <div class="pt-16 md:pt-28 mx-1 md:mx-48 font-poppins text-black pb-24">
-        {{-- <div class="">
-            <a href="/posts/{{ $post->slug }}/edit">
-                <button
-                    class="bg-yellow-500 hover:bg-yellow-400 text-white font-bold py-1 px-2 border-b-4 border-yellow-700 hover:border-yellow-500 rounded">
-                    Edit Article</button>
-            </a>
-        </div> --}}
-        <img src="{{ asset('storage/' . $post->cover_photo) }}" alt=""
-            class="my-1 w-full h-40 md:h-80 object-cover">
-        <h1 class="mt-4 text-3xl text-center font-bold mb-0">
-            <strong>{{ $post->title }}</strong>
-            
-        </h1>
-        <h4 class="text-center">Posted {{ $post->published }}.</h4>
-        <h4 class="mt-1 text-sm text-start mb-3 mx-3">
-            By {{ $post->author }}. <br>Edited by {{ $post->editor }}. 
-        </h4>
-        <article class="body-content mx-3">
-            {!! $post->post_content !!}
-        </article>
+    {{-- SHOW PROGRAM DETAILS HERE --}}
+    <div class="w-full h-full overflow-scroll pt-16">
+        <div class="font-poppins text-black relative flex justify-center">
+            <img class="w-full h-40 md:h-80 object-top object-cover brightness-50"
+                src="{{ asset('storage/' . $programdetail->image) }}" alt="">
+            <div class="text-white absolute h-full text-center mt-8 md:mt-32 px-2">
+                <h1 class="text-3xl md:text-[40px] font-bold" style="">
+                    {{ $programdetail->program_name }}
+                </h1>
+                <div class="md:text-xl pt-2">{{$programdetail->short_desc}}</div>
+            </div>
+        </div>
+        <div class="py-8 md:py-16 px-4 md:px-48 pb-24 flex justify-center flex-wrap">
+            <img class="md:h-full md:w-[30%] object-cover pb-8" src="{{ asset('storage/' . $programdetail->image) }}" alt="">
+            <div class="flex flex-col md:px-16 md:w-[60%] justify-center">
+                <h3 class="text-xl">Program</h3>
+                <h2 class="text-3xl font-bold">{{$programdetail->program_name}}</h2>
+                <p class="py-2 text-lg">{{$programdetail->description}}</p>
+                <br>
+                <p class="py-1 text-lg"><strong>U-nnouncers          :</strong> {{$programdetail->penyiar}}</p>
+                @if ($programdetail->producer)
+                    <p class="py-1 text-lg"><strong>Producer         :</strong> {{$programdetail->producer}}</p>
+                @endif
+                @if ($programdetail->visual_creative)
+                    <p class="py-1 text-lg"><strong>Visual Creative  :</strong> {{$programdetail->visual_creative}}</p>
+                @endif
+                @if ($programdetail->audio_creative)
+                    <p class="py-1 text-lg"><strong>Audio Creative   :</strong> {{$programdetail->audio_creative}}</p>
+                @endif
+                @if ($programdetail->media_affairs)
+                    <p class="py-1 text-lg"><strong>Media Affairs    :</strong> {{$programdetail->media_affairs}}</p>
+                @endif
+                @if ($programdetail->music_director)
+                    <p class="py-1 text-lg"><strong>Music Director   :</strong> {{$programdetail->music_director}}</p>
+                @endif
+            </div>
+        </div>
     </div>
+
 
     {{-- AUDIO --}}
     <footer id="audiosticky"
@@ -138,16 +158,5 @@
     </script>
     <script src="{{ asset('js/attachments.js') }}"></script>
 </body>
-<style>
-    .attachment img {
-        height: 400px;
-        width: auto;
-    }
-
-    .attachment {
-        display: flex;
-        justify-content: center;
-    }
-</style>
 
 </html>

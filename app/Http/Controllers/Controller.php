@@ -15,7 +15,7 @@ class Controller extends BaseController
     public function index()
     {
         $programs = Programs::all();
-        $posts = Post::latest()->take(2)->get();
+        $posts = Post::latest()->take(3)->get();
         
         return view('Home.index', compact(['programs', 'posts']));
     }

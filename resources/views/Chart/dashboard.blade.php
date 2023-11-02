@@ -57,11 +57,35 @@
     </div>
 
     <div class="pt-10 mx-6 md:mx-20 font-poppins text-black pb-24">
-        <h1 class="pt-12 md:pt-24 text-center font-bold mb-6">Articles</h1>
-        <a href="/posts/create" class="container w-full mx-auto px-2">
+        <h1 class="pt-12 md:pt-24 text-center font-bold mb-6">Charts</h1>
+        <a href="/charts/dashboard" class="container w-full mx-auto px-2">
             <button
                 class="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-2 border-b-4 border-green-700 hover:border-green-500 rounded">
-                New Article
+                Show Charts
+            </button>
+        </a>
+        <a href="/songs/dashboard" class="container w-full mx-auto px-2">
+            <button
+                class="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-2 border-b-4 border-green-700 hover:border-green-500 rounded">
+                Show Songs
+            </button>
+        </a>
+        <a href="/charts/new" class="container w-full mx-auto px-2">
+            <button
+                class="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-2 border-b-4 border-green-700 hover:border-green-500 rounded">
+                New Chart
+            </button>
+        </a>
+        <a href="/songs/new" class="container w-full mx-auto px-2">
+            <button
+                class="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-2 border-b-4 border-green-700 hover:border-green-500 rounded">
+                New Song
+            </button>
+        </a>
+        <a href="/charts/add-song" class="container w-full mx-auto px-2">
+            <button
+                class="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-2 border-b-4 border-green-700 hover:border-green-500 rounded">
+                Add Song to Chart
             </button>
         </a>
         @if (session()->has('success'))
@@ -78,40 +102,47 @@
                     style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                     <thead>
                         <tr>
-                            <th data-priority="1">Title</th>
-                            <th data-priority="2">Author</th>
-                            <th data-priority="3">Editor</th>
-                            <th data-priority="4">Date</th>
-                            <th data-priority="5">Actions</th>
+                            <th data-priority="0">Chart ID</th>
+                            <th data-priority="1">Name</th>
+                            <th data-priority="2">Cover Image</th>
+                            <th data-priority="3">Link</th>
+                            <th data-priority="4">Status</th>
+                            <th data-priority="5s">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($posts as $post)
+                        @foreach ($charts as $chart)
                             <tr>
-                                <td>{{ $post->title }}</td>
-                                <td>{{ $post->author }}</td>
-                                <td>{{ $post->editor }}</td>
-                                <td>{{ $post->published }}</td>
+                                <td>{{ $chart->id }}</td>
+                                <td>{{ $chart->chart_name }}</td>
+                                <td><img src="{{ asset('storage/' . $chart->cover_image) }}" alt=""
+                                        class="my-1 object-contain h-32"></td>
+                                <td>{{ $chart->link }}</td>
+                                <td>{{ $chart->status }}</td>
                                 <td>
-                                    <div class="">
-                                        <a href="/posts/{{ $post->slug }}">
-                                            <button
-                                                class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-1 px-2 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-                                                Show</button>
-                                        </a>
-
-                                        <a href="/posts/{{ $post->slug }}/edit">
+                                    <div class=" flex flex-wrap">
+                                        <a href="/charts/{{ $chart->id }}/edit">
                                             <button
                                                 class="bg-yellow-500 hover:bg-yellow-400 text-white font-bold py-1 px-2 border-b-4 border-yellow-700 hover:border-yellow-500 rounded">
                                                 Edit</button>
                                         </a>
-                                        <form action="/posts/{{ $post->slug }}/destroy" method="post" class="inline">
+                                        <form action="/charts/{{ $chart->id }}/delete" method="post"
+                                            class="inline">
                                             @method('delete')
                                             @csrf
-                                            <button onclick="return confirm('Are you sure you want to delete article?')"
+                                            <button onclick="return confirm('Are you sure you want to delete chart?')"
                                                 type="submit"
                                                 class="bg-red-500 hover:bg-red-400 text-white font-bold py-1 px-2 border-b-4 border-red-700 hover:border-red-500 rounded">
                                                 Delete</button>
+                                        </form>
+                                        <form action="/charts/{{ $chart->id }}/publish" method="post"
+                                            class="inline">
+                                            @method('put')
+                                            @csrf
+                                            <button onclick="return confirm('Are you sure you want to publish chart?')"
+                                                type="submit"
+                                                class="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-2 border-b-4 border-green-700 hover:border-green-500 rounded">
+                                                Publish</button>
                                         </form>
                                     </div>
                                 </td>
@@ -195,16 +226,28 @@
                     responsive: true,
                     autoWidth: false,
                     columnDefs: [{
-                            width: '300px',
+                            width: '50px',
                             targets: 0
                         },
                         {
-                            width: '300px',
+                            width: '200px',
                             targets: 1
                         },
                         {
                             width: '200px',
                             targets: 2
+                        },
+                        {
+                            width: '200px',
+                            targets: 3
+                        },
+                        {
+                            width: '100px',
+                            targets: 4
+                        },
+                        {
+                            width: '100px',
+                            targets: 5
                         }
                     ]
                 })

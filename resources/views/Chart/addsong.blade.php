@@ -11,10 +11,9 @@
     @vite('resources/css/app.css')
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
-    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    {{-- <script src="https://kit.fontawesome.com/667eb529ec.js" crossorigin="anonymous"></script> --}}
 </head>
 
 <body class="composer h-full bg-white">
@@ -55,28 +54,79 @@
         </div>
     </div>
 
-    {{-- SHOW ARTICLE --}}
-    <div class="pt-16 md:pt-28 mx-1 md:mx-48 font-poppins text-black pb-24">
-        {{-- <div class="">
-            <a href="/posts/{{ $post->slug }}/edit">
+    {{-- POST FORM --}}
+    <div class="pt-10 mx-6 md:mx-48 font-poppins text-black pb-24">
+        <h1 class="pt-12 md:pt-24 text-center font-bold mb-6">Add Song to Chart</h1>
+        <div class="w-full flex justify-center">
+            <a href="/charts/new" class="px-2">
                 <button
-                    class="bg-yellow-500 hover:bg-yellow-400 text-white font-bold py-1 px-2 border-b-4 border-yellow-700 hover:border-yellow-500 rounded">
-                    Edit Article</button>
+                    class="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-2 border-b-4 border-green-700 hover:border-green-500 rounded">
+                    New Chart
+                </button>
             </a>
-        </div> --}}
-        <img src="{{ asset('storage/' . $post->cover_photo) }}" alt=""
-            class="my-1 w-full h-40 md:h-80 object-cover">
-        <h1 class="mt-4 text-3xl text-center font-bold mb-0">
-            <strong>{{ $post->title }}</strong>
-            
-        </h1>
-        <h4 class="text-center">Posted {{ $post->published }}.</h4>
-        <h4 class="mt-1 text-sm text-start mb-3 mx-3">
-            By {{ $post->author }}. <br>Edited by {{ $post->editor }}. 
-        </h4>
-        <article class="body-content mx-3">
-            {!! $post->post_content !!}
-        </article>
+            <a href="/songs/new" class="px-2">
+                <button
+                    class="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-2 border-b-4 border-green-700 hover:border-green-500 rounded">
+                    New Song
+                </button>
+            </a>
+        </div>
+        <div class="w-full flex justify-center">
+
+            <form id="junctionForm" class="w-fit flex justify-center flex-col flex-wrap"
+                action="/charts/add-song/store" enctype="multipart/form-data" method="post">
+                @csrf
+                <!-- Prevent implicit submission of the form -->
+                <button type="submit" disabled style="display: none" aria-hidden="true"></button>
+                <div class="my-2">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="chart_name">
+                        Select Chart
+                    </label>
+                    <select name="chart_id" id="chart_select"
+                        class="py-2 px-3 text-lg font-poppins border rounded-lg mt-1 shadow">
+                        @foreach ($charts as $chart)
+                            <option value="{{ $chart->id }}">{{ $chart->chart_name }}</option>
+                        @endforeach
+                    </select>
+                    @error('chart_id')
+                        <div class="text-sm text-red-600">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="my-2">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="">
+                        Select Song
+                    </label>
+                    <select name="song_id" id="song_select"
+                        class="py-2 px-3 text-lg font-poppins border rounded-lg mt-1 shadow">
+                        @foreach ($songs as $song)
+                            <option value="{{ $song->id }}">{{ $song->title }}</option>
+                        @endforeach
+                    </select>
+                    @error('song_id')
+                        <div class="text-sm text-red-600">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="my-2">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="position">
+                        Song Position in Chart
+                    </label>
+                    <input data-index='3'
+                        class="@error('position') border-red-500 @enderror shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        name="position" id="position" type="number" placeholder="0" value="{{ old('position') }}">
+                    @error('position')
+                        <div class="text-sm text-red-600">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="">
+                    <button
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        type="submit">
+                        Confirm
+                    </button>
+                </div>
+            </form>
+        </div>
+
     </div>
 
     {{-- AUDIO --}}
@@ -138,6 +188,18 @@
     </script>
     <script src="{{ asset('js/attachments.js') }}"></script>
 </body>
+
+<script>
+    $('#junctionForm').on('keydown', 'input', function(event) {
+        if (event.which == 13) {
+            event.preventDefault();
+            var $this = $(event.target);
+            var index = parseFloat($this.attr('data-index'));
+            $('[data-index="' + (index + 1).toString() + '"]').focus();
+        }
+    });
+</script>
+
 <style>
     .attachment img {
         height: 400px;

@@ -11,13 +11,17 @@
     @vite('resources/css/app.css')
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
-    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        div::-webkit-scrollbar {
+            display: none;
+            /* for Chrome, Safari, and Opera */
+        }
+    </style>
 </head>
 
-<body class="composer h-full bg-white">
+<body class="h-full bg-white">
     {{-- NAVBAR --}}
     <div x-data="{ isOpen: false }" class="fixed w-full flex justify-between p-3 z-40 bg-[#021f3a] lg:p-4">
         <a class="flex items-center" href="/">
@@ -55,29 +59,46 @@
         </div>
     </div>
 
-    {{-- SHOW ARTICLE --}}
-    <div class="pt-16 md:pt-28 mx-1 md:mx-48 font-poppins text-black pb-24">
-        {{-- <div class="">
-            <a href="/posts/{{ $post->slug }}/edit">
-                <button
-                    class="bg-yellow-500 hover:bg-yellow-400 text-white font-bold py-1 px-2 border-b-4 border-yellow-700 hover:border-yellow-500 rounded">
-                    Edit Article</button>
-            </a>
-        </div> --}}
-        <img src="{{ asset('storage/' . $post->cover_photo) }}" alt=""
-            class="my-1 w-full h-40 md:h-80 object-cover">
-        <h1 class="mt-4 text-3xl text-center font-bold mb-0">
-            <strong>{{ $post->title }}</strong>
-            
-        </h1>
-        <h4 class="text-center">Posted {{ $post->published }}.</h4>
-        <h4 class="mt-1 text-sm text-start mb-3 mx-3">
-            By {{ $post->author }}. <br>Edited by {{ $post->editor }}. 
-        </h4>
-        <article class="body-content mx-3">
-            {!! $post->post_content !!}
-        </article>
+    {{-- SHOW PROGRAMS --}}
+    <div class="w-screen md:w-full h-full overflow-scroll pt-16 pb-16 flex justify-center">
+        <div class="container md:w-4/5 flex flex-col justify-center pt-8 md:p-16 font-poppins gap-8">
+            @php
+                $count = 0;
+            @endphp
+            @foreach ($programdetails as $programdetail)
+                @if ($count++ % 2 == 0)
+                    <div class="w-full flex flex-wrap justify-center">
+                        <img class="h-[400px] md:w-[45%] px-8 object-center object-cover"
+                            src="{{ asset('storage/' . $programdetail->image) }}" alt="">
+                        <div class="md:w-2/5 p-12 md:mx-8 flex flex-col justify-center gap-4">
+                            <div class="text-4xl font-bold">{{ $programdetail->program_name }}</div>
+                            <div class="text-xl font-light">{{ $programdetail->short_desc }}</div>
+                            <p class="font-light font-sans">{{ $programdetail->description }}</p>
+                            <a href="/programs/{{ $programdetail->slug }}">
+                                <button
+                                    class="bg-transparent hover:bg-[#021f3a] text-[#021f3a] font-semibold hover:text-white py-2 px-4 border border-[#021f3a] hover:border-transparent rounded">DETAILS</button>
+                            </a>
+                        </div>
+                    </div>
+                @else
+                    <div class="w-full flex flex-wrap-reverse justify-center">
+                        <div class="md:w-2/5 p-12 md:mx-8 flex flex-col justify-center gap-4">
+                            <div class="text-4xl font-bold">{{ $programdetail->program_name }}</div>
+                            <div class="text-xl font-light">{{ $programdetail->short_desc }}</div>
+                            <p class="font-light font-sans">{{ $programdetail->description }}</p>
+                            <a href="/programs/{{ $programdetail->slug }}">
+                                <button
+                                    class="bg-transparent hover:bg-[#021f3a] text-[#021f3a] font-semibold hover:text-white py-2 px-4 border border-[#021f3a] hover:border-transparent rounded">DETAILS</button>
+                            </a>
+                        </div>
+                        <img class="h-[400px] md:w-[45%] px-8 object-center object-cover"
+                            src="{{ asset('storage/' . $programdetail->image) }}" alt="">
+                    </div>
+                @endif
+            @endforeach
+        </div>
     </div>
+
 
     {{-- AUDIO --}}
     <footer id="audiosticky"
@@ -138,16 +159,5 @@
     </script>
     <script src="{{ asset('js/attachments.js') }}"></script>
 </body>
-<style>
-    .attachment img {
-        height: 400px;
-        width: auto;
-    }
-
-    .attachment {
-        display: flex;
-        justify-content: center;
-    }
-</style>
 
 </html>
