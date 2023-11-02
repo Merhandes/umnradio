@@ -370,8 +370,14 @@
     <div id="section-4" class="md:mt-12 w-full my-12">
         <h1 class="font-poppins text-[#021f3a] font-bold w-full text-center">Partnerships</h1>
         <div class="flex justify-center align-middle w-full my-2 flex-wrap">
-            <img src="{{ asset('images/Partnership/DUA-MATA.webp') }}" class="h-36 md:h-80 my-4" alt="">
-            <img src="{{asset('images/Partnership/LOGO COPAS.webp')}}" class="h-36 md:h-80 my-4" alt="">
+            @php
+                $imageDirectory = public_path('images/Partnership');
+                $images = File::files($imageDirectory);
+            @endphp
+    
+            @foreach ($images as $image)
+                <img src="{{ asset('images/Partnership/' . $image->getFilename()) }}" class="h-36 md:h-80 my-4" alt="">
+            @endforeach
         </div>
     </div>
 
