@@ -60,9 +60,9 @@
         </div>
     </div>
 
-    {{-- SHOW PROGRAMS --}}
+    {{-- SHOW CHARTSS --}}
     <div class="w-screen md:w-full h-full overflow-scroll pt-16 pb-16 flex justify-center">
-        <div class="container md:w-[90%] flex flex-wrap justify-center pt-8 md:p-16 font-poppins gap-8">
+        <div class="container md:w-[90%] flex flex-wrap justify-center pt-8 pb-8 md:p-16 font-poppins gap-8">
             @php
                 $count = 0;
             @endphp

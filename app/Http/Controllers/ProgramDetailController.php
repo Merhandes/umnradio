@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ProgramDetail;
 use App\Http\Requests\StoreProgramDetailRequest;
 use App\Http\Requests\UpdateProgramDetailRequest;
+use App\Models\Podcast;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -79,7 +80,8 @@ class ProgramDetailController extends Controller
     public function show(ProgramDetail $programdetail)
     {
         //
-        return view('Programs.show', ['programdetail'=>$programdetail]);
+        $podcasts = Podcast::all();
+        return view('Programs.show', ['programdetail'=>$programdetail, 'podcasts'=>$podcasts]);
     }
 
     /**

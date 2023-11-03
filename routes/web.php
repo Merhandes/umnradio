@@ -3,6 +3,7 @@
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\ChartJunctionController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\PodcastController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProgramDetailController;
@@ -101,6 +102,18 @@ Route::controller(ChartJunctionController::class)->group(
         Route::get('/charts/add-song', 'addsong');
         Route::post('/charts/add-song/store', 'store');
         Route::delete('/charts/junction/{chart_junction:id}/remove', 'destroy');
+    }
+);
+
+Route::controller(PodcastController::class)->group(
+    function(){
+        Route::get('/podcasts','index');
+        Route::get('/podcasts/dashboard', 'dashboard');
+        Route::get('/podcasts/new', 'create');
+        Route::post('/podcasts/store', 'store');
+        Route::get('/podcasts/{podcast:id}/edit', 'edit');
+        Route::put('/podcasts/{podcast:id}/update', 'update');
+        Route::delete('/podcasts/{podcast:id}/delete', 'destroy');
     }
 );
 

@@ -13,16 +13,10 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <style>
-        div::-webkit-scrollbar {
-            display: none;
-            /* for Chrome, Safari, and Opera */
-        }
-    </style>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://kit.fontawesome.com/667eb529ec.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="h-full bg-white">
+<body class="composer h-full bg-white">
     {{-- NAVBAR --}}
     <div x-data="{ isOpen: false }" class="fixed w-full flex justify-between p-3 z-40 bg-[#021f3a] lg:p-4">
         <a class="flex items-center" href="/">
@@ -60,63 +54,71 @@
         </div>
     </div>
 
-    {{-- SHOW PROGRAM DETAILS HERE --}}
-    <div class="w-full h-full overflow-scroll pt-16">
-        <div class="font-poppins text-black relative flex justify-center">
-            <img class="w-full h-40 md:h-80 object-top object-cover brightness-50"
-                src="{{ asset('storage/' . $programdetail->image) }}" alt="">
-            <div class="text-white absolute h-full text-center mt-8 md:mt-32 px-2">
-                <h1 class="text-3xl md:text-[40px] font-bold" style="">
-                    {{ $programdetail->program_name }}
-                </h1>
-                <div class="md:text-xl pt-2">{{ $programdetail->short_desc }}</div>
+    {{-- POST FORM --}}
+    <div class="pt-10 mx-6 md:mx-48 font-poppins text-black pb-24">
+        <h1 class="pt-12 md:pt-24 text-center font-bold mb-6">New Podcast</h1>
+        <form id="podcastForm" class="w-[90%]" action="/podcasts/{{$podcast->id}}/update" enctype="multipart/form-data" method="post">
+            @method('put')
+            @csrf
+            <!-- Prevent implicit submission of the form -->
+            <button type="submit" disabled style="display: none" aria-hidden="true"></button>
+            <div class="my-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
+                    Podcast Title
+                </label>
+                <input data-index='1'
+                    class="@error('title') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    name="title" id="title" type="text" placeholder="Podcast Title" value="{{ old('title', $podcast->title) }}"
+                    oninput="previewName(this.value)">
+                @error('title')
+                    <div class="text-sm text-red-600">{{ $message }}</div>
+                @enderror
             </div>
-        </div>
-        <div class="py-4 px-4 md:px-48 flex justify-center flex-wrap">
-            <img class="md:h-full w-[75%] md:w-[30%] object-cover pb-8" src="{{ asset('storage/' . $programdetail->image) }}"
-                alt="">
-            <div class="flex flex-col md:px-16 md:w-fit justify-center">
-                <h3 class="text-xl">Program</h3>
-                <h2 class="text-3xl font-bold">{{ $programdetail->program_name }}</h2>
-                <p class="py-2 text-lg">{{ $programdetail->description }}</p>
-                <br>
-                <p class="py-1 text-lg"><strong>U-nnouncers :</strong> {{ $programdetail->penyiar }}</p>
-                @if ($programdetail->producer)
-                    <p class="py-1 text-lg"><strong>Producer :</strong> {{ $programdetail->producer }}</p>
-                @endif
-                @if ($programdetail->visual_creative)
-                    <p class="py-1 text-lg"><strong>Visual Creative :</strong> {{ $programdetail->visual_creative }}
-                    </p>
-                @endif
-                @if ($programdetail->audio_creative)
-                    <p class="py-1 text-lg"><strong>Audio Creative :</strong> {{ $programdetail->audio_creative }}</p>
-                @endif
-                @if ($programdetail->media_affairs)
-                    <p class="py-1 text-lg"><strong>Media Affairs :</strong> {{ $programdetail->media_affairs }}</p>
-                @endif
-                @if ($programdetail->music_director)
-                    <p class="py-1 text-lg"><strong>Music Director :</strong> {{ $programdetail->music_director }}</p>
-                @endif
+            <div class="my-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="embed_code">
+                    Embed Code (Spotify)
+                </label>
+                <textarea data-index='3' oninput="embedPreview(this.value)"
+                    class="@error('embed_code') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    name="embed_code" id="embed_code" placeholder="Paste Embed Code"
+                    value="{{ old('embed_code') }}">{{ old('embed_code', $podcast->embed_code) }}</textarea>
+                @error('embed_code')
+                    <div class="text-sm text-red-600">{{ $message }}</div>
+                @enderror
             </div>
-        </div>
-        <div class="w-full px-4 md:px-48 pb-24 flex justify-center flex-wrap">
-            <div class="swiper w-full" style= "--swiper-pagination-color: #021f3a; --swiper-pagination-bullet-inactive-color: #999999; --swiper-pagination-bullet-inactive-opacity: 1;--swiper-pagination-bullet-horizontal-gap: 6px;
-            --swiper-theme-color: #ffffff;">
-                <h1 class="font-poppins text-[#021f3a] font-bold text-center my-2 text-xl">Podcasts</h1>
-                <div class="swiper-wrapper">
-                    @foreach ($podcasts as $podcast)
-                        @if ($podcast->program_id == $programdetail->id)
-                            <div class="swiper-slide max-w-[400px]">{!! $podcast->embed_code !!}</div>
-                        @endif
-                    @endforeach
+            <div class="my-2">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="">
+                        Select Assigned Program (Optional)
+                    </label>
+                    <select name="program_id" id="program_id"
+                        class="py-2 px-3 text-lg font-poppins border rounded-lg mt-1 shadow">
+                        <option disabled selected value> -- select an option -- </option>
+                        @foreach ($programs as $program)
+                            <option @if ($podcast->program_id == $program->id)
+                                selected
+                            @endif value="{{ $program->id }}">{{ $program->program_name }}</option>
+                        @endforeach
+                    </select>
+                    @error('program_id')
+                        <div class="text-sm text-red-600">{{ $message }}</div>
+                    @enderror
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
+            
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="">Preview</label>
+            {{-- PODCAST CARD --}}
+            <div
+                class="w-[90vw] md:w-[35vw] md:min-w-[300px] flex flex-col justify-center align-middle items-center rounded-lg drop-shadow-lg" id="embedPreview">
+                {!!$podcast->embed_code!!}
             </div>
-        </div>
+            <div class="flex items-center justify-between my-4">
+                <button
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    type="submit">
+                    Publish
+                </button>
+            </div>
+        </form>
     </div>
-
 
     {{-- AUDIO --}}
     <footer id="audiosticky"
@@ -176,29 +178,34 @@
         });
     </script>
     <script src="{{ asset('js/attachments.js') }}"></script>
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper(".swiper", {
-            slidesPerView: 'auto',
-            spaceBetween: 30,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-        });
-    </script>
-
-    <!-- Demo styles -->
-    <style>
-
-    </style>
 </body>
+
+<script>
+    function embedPreview(value){
+        const embedPreview = document.getElementById('embedPreview')
+        embedPreview.innerHTML = value
+    }
+
+    $('#podcastForm').on('keydown', 'input', function(event) {
+        if (event.which == 13) {
+            event.preventDefault();
+            var $this = $(event.target);
+            var index = parseFloat($this.attr('data-index'));
+            $('[data-index="' + (index + 1).toString() + '"]').focus();
+        }
+    });
+</script>
+
+<style>
+    .attachment img {
+        height: 400px;
+        width: auto;
+    }
+
+    .attachment {
+        display: flex;
+        justify-content: center;
+    }
+</style>
 
 </html>
