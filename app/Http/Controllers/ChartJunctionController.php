@@ -77,9 +77,14 @@ class ChartJunctionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateChartJunctionRequest $request, ChartJunction $chartJunction)
+    public function update(Request $request, ChartJunction $chartJunction)
     {
         //
+        // dd($request);
+        $chartJunction->position = $request->position;
+        $chartJunction->save();
+
+        return redirect('/charts/'.$chartJunction->chart_id.'/edit');
     }
 
     /**

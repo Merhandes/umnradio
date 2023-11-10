@@ -57,6 +57,36 @@
     {{-- POST FORM --}}
     <div class="pt-10 mx-6 md:mx-48 font-poppins text-black pb-24">
         <h1 class="pt-12 md:pt-24 text-center font-bold mb-6">Edit Chart</h1>
+        <a href="/charts/dashboard" class="container w-full mx-auto px-2">
+            <button
+                class="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-2 border-b-4 border-green-700 hover:border-green-500 rounded">
+                Show Charts
+            </button>
+        </a>
+        <a href="/songs/dashboard" class="container w-full mx-auto px-2">
+            <button
+                class="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-2 border-b-4 border-green-700 hover:border-green-500 rounded">
+                Show Songs
+            </button>
+        </a>
+        <a href="/charts/new" class="container w-full mx-auto px-2">
+            <button
+                class="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-2 border-b-4 border-green-700 hover:border-green-500 rounded">
+                New Chart
+            </button>
+        </a>
+        <a href="/songs/new" class="container w-full mx-auto px-2">
+            <button
+                class="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-2 border-b-4 border-green-700 hover:border-green-500 rounded">
+                New Song
+            </button>
+        </a>
+        <a href="/charts/add-song" class="container w-full mx-auto px-2">
+            <button
+                class="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-2 border-b-4 border-green-700 hover:border-green-500 rounded">
+                Add Song to Chart
+            </button>
+        </a>
         @if (session()->has('success'))
             {{-- <div class="text-sm text-green-500" role="alert">{{ session('success') }}</div> --}}
             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 my-4 rounded relative w-fit"
@@ -163,16 +193,31 @@
                                         <p class="text-sm md:text-md text-gray-800 font-poppins">
                                             {{ $song->artists }}</p>
                                     </div>
-                                    <form action="/charts/junction/{{ $junction->id }}/remove" method="post"
-                                        class="inline">
-                                        @method('delete')
-                                        @csrf
-                                        <button
-                                            onclick="return confirm('Are you sure you want to remove song from chart?')"
-                                            type="submit"
-                                            class="bg-red-500 hover:bg-red-400 text-white font-bold py-1 px-2 border-b-4 border-red-700 hover:border-red-500 rounded">
-                                            Delete</button>
-                                    </form>
+
+                                    <div class="flex flex-col justify-center w-24">
+                                        <form action="/charts/junction/{{ $junction->id }}/update" method="post"
+                                            class="">
+                                            @method('put')
+                                            @csrf
+                                            <p class="font-bold">Position</p>
+                                            <input name="position" min="0" class="w-12 shadow border rounded text-gray-700" type="number"
+                                                value="{{ $junction->position }}">
+                                            <button type="submit"
+                                                class="bg-yellow-500 hover:bg-yellow-400 text-white font-bold py-1 px-2 border-b-4 border-yellow-700 hover:border-yellow-500 rounded">
+                                                Update</button>
+                                        </form>
+
+                                        <form action="/charts/junction/{{ $junction->id }}/remove" method="post"
+                                            class="">
+                                            @method('delete')
+                                            @csrf
+                                            <button
+                                                onclick="return confirm('Are you sure you want to remove song from chart?')"
+                                                type="submit"
+                                                class="bg-red-500 hover:bg-red-400 text-white font-bold py-1 px-2 border-b-4 border-red-700 hover:border-red-500 rounded">
+                                                Delete</button>
+                                        </form>
+                                    </div>
                                 @endif
                             @endforeach
 

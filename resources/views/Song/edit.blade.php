@@ -59,6 +59,7 @@
         <h1 class="pt-12 md:pt-24 text-center font-bold mb-6">New Song</h1>
         <form id="songForm" class="w-[90%]" action="/songs/{{$song->id}}/update" enctype="multipart/form-data" method="post">
             @csrf
+            @method('put')
             <!-- Prevent implicit submission of the form -->
             <button type="submit" disabled style="display: none" aria-hidden="true"></button>
             <div class="my-2">

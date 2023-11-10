@@ -102,6 +102,7 @@ Route::controller(ChartJunctionController::class)->group(
         Route::get('/charts/add-song', 'addsong');
         Route::post('/charts/add-song/store', 'store');
         Route::delete('/charts/junction/{chart_junction:id}/remove', 'destroy');
+        Route::put('/charts/junction/{chart_junction:id}/update', 'update');
     }
 );
 

@@ -57,6 +57,36 @@
     {{-- POST FORM --}}
     <div class="pt-10 mx-6 md:mx-48 font-poppins text-black pb-24">
         <h1 class="pt-12 md:pt-24 text-center font-bold mb-6">New Song</h1>
+        <a href="/charts/dashboard" class="container w-full mx-auto px-2">
+            <button
+                class="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-2 border-b-4 border-green-700 hover:border-green-500 rounded">
+                Show Charts
+            </button>
+        </a>
+        <a href="/songs/dashboard" class="container w-full mx-auto px-2">
+            <button
+                class="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-2 border-b-4 border-green-700 hover:border-green-500 rounded">
+                Show Songs
+            </button>
+        </a>
+        <a href="/charts/new" class="container w-full mx-auto px-2">
+            <button
+                class="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-2 border-b-4 border-green-700 hover:border-green-500 rounded">
+                New Chart
+            </button>
+        </a>
+        <a href="/songs/new" class="container w-full mx-auto px-2">
+            <button
+                class="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-2 border-b-4 border-green-700 hover:border-green-500 rounded">
+                New Song
+            </button>
+        </a>
+        <a href="/charts/add-song" class="container w-full mx-auto px-2">
+            <button
+                class="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-2 border-b-4 border-green-700 hover:border-green-500 rounded">
+                Add Song to Chart
+            </button>
+        </a>
         <form id="songForm" class="w-[90%]" action="/songs/store" enctype="multipart/form-data" method="post">
             @csrf
             <!-- Prevent implicit submission of the form -->

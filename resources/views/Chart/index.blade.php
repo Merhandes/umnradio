@@ -62,17 +62,21 @@
 
     {{-- SHOW CHARTSS --}}
     <div class="w-screen md:w-full h-full overflow-scroll pt-16 pb-16 flex justify-center">
-        <div class="container md:w-[90%] flex flex-wrap justify-center pt-8 pb-8 md:p-16 font-poppins gap-8">
+        <div class="container md:w-fit grid grid-flow-row-dense md:grid-cols-2 flex-wrap justify-center pt-8 pb-8 md:p-16 font-poppins gap-8">
             @php
-                $count = 0;
+                $count = 1;
             @endphp
 
             @foreach ($charts as $chart)
                 @if ($chart->status == 'PUBLISHED')
                     {{-- CHART CARD --}}
                     <div
-                        class="w-[90vw] lg:w-[35vw] lg:min-w-[300px] flex flex-col justify-center align-middle items-center rounded-lg bg-white drop-shadow-lg h-fit @if ($count++ % 2 == 0) md:mb-52
-                        @else md:mt-52 @endif">
+                        class="w-[90vw] lg:w-[35vw] lg:min-w-[300px] flex flex-col justify-center align-middle items-center rounded-lg bg-white drop-shadow-lg h-fit row-start-{{$count}} row-end-{{$count+1}}">
+                        @php
+                            $count++;
+                        @endphp
+                        {{-- @if ($count++ % 2 == 0) md:mb-52
+                        @else md:mt-52 @endif --}}
                         <div class="w-full h-32 relative rounded-t-lg flex justify-center">
                             <img class="w-full h-full object-cover rounded-t-lg brightness-50"
                                 src="{{ asset('storage/' . $chart->cover_image) }}" alt="">

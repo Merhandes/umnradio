@@ -78,12 +78,13 @@
                 @csrf
                 <!-- Prevent implicit submission of the form -->
                 <button type="submit" disabled style="display: none" aria-hidden="true"></button>
-                <div class="my-2">
+                <div class="my-2 w-full">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="chart_name">
                         Select Chart
                     </label>
                     <select name="chart_id" id="chart_select"
-                        class="py-2 px-3 text-lg font-poppins border rounded-lg mt-1 shadow">
+                        class="py-2 px-3 text-lg font-poppins border rounded-lg mt-1 shadow w-full">
+                        <option disabled selected value> -- select chart -- </option>
                         @foreach ($charts as $chart)
                             <option value="{{ $chart->id }}">{{ $chart->chart_name }}</option>
                         @endforeach
@@ -92,12 +93,13 @@
                         <div class="text-sm text-red-600">{{ $message }}</div>
                     @enderror
                 </div>
-                <div class="my-2">
+                <div class="my-2 w-full">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="">
                         Select Song
                     </label>
                     <select name="song_id" id="song_select"
-                        class="py-2 px-3 text-lg font-poppins border rounded-lg mt-1 shadow">
+                        class="py-2 px-3 text-lg font-poppins border rounded-lg mt-1 shadow w-full">
+                        <option disabled selected value> -- select song -- </option>
                         @foreach ($songs as $song)
                             <option value="{{ $song->id }}">{{ $song->title }}</option>
                         @endforeach
@@ -106,12 +108,12 @@
                         <div class="text-sm text-red-600">{{ $message }}</div>
                     @enderror
                 </div>
-                <div class="my-2">
+                <div class="my-2 w-full">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="position">
                         Song Position in Chart
                     </label>
-                    <input data-index='3'
-                        class="@error('position') border-red-500 @enderror shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    <input data-index='3' min="0"
+                        class="@error('position') border-red-500 @enderror shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full"
                         name="position" id="position" type="number" placeholder="0" value="{{ old('position') }}">
                     @error('position')
                         <div class="text-sm text-red-600">{{ $message }}</div>
