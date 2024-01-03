@@ -134,7 +134,7 @@
                 <input type="file" accept="image/*" id="cover_photo" name="cover_photo"
                     onchange="previewImage()" class="@error('cover_photo') border-red-500 @enderror ">
 
-                <img src="" alt="" class="my-4 img-preview w-full h-80 object-cover hidden">
+                <img src="{{ asset('storage/' . $post->cover_photo) }}" alt="" class="my-4 img-preview w-full h-80 object-cover">
 
                 @error('cover_photo')
                     <div class="text-sm text-red-600">{{ $message }}</div>

@@ -592,6 +592,20 @@
                         height="216"></iframe>
                 </div>
             </div>
+            <div id="utube" class="mx-4">
+                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7146629724939718656"
+                    height="746" width="504" frameborder="0" allowfullscreen=""
+                    title="Embedded post"></iframe>
+            </div>
+            <div id="utube" class="mx-4">
+                <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@umnradio" data-unique-id="umnradio"
+                    data-embed-from="embed_page" data-embed-type="creator"
+                    style="max-width: 780px; min-width: 400px;">
+                    <section> <a target="_blank"
+                            href="https://www.tiktok.com/@umnradio?refer=creator_embed">@umnradio</a> </section>
+                </blockquote>
+                <script async src="https://www.tiktok.com/embed.js"></script>
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>

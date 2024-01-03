@@ -37,6 +37,21 @@ Route::get('/article/obral-etalase-mimpi', function () {
 Route::get('/article/kepada-yth-maba-apa-kabar-kali-ini', function () {
     return view('News.Article.dua');
 });
+Route::get('/article/synchronize-fest-2022', function () {
+    return view('News.Article.synchronize');
+});
+Route::get('/article/slowly-bersurat-tak-pernah-semenyenangkan-ini', function () {
+    return view('News.Article.slowly');
+});
+Route::get('/article/semoga-sembuh-cerita-jatuh-dan-tumbuh-idgitaf', function () {
+    return view('News.Article.semoga');
+});
+Route::get('/article/koma-berulang-kita-coba-terawang', function () {
+    return view('News.Article.terawang');
+});
+Route::get('/article/koma-berulang-kita-rayakan-menang', function () {
+    return view('News.Article.menang');
+});
 
 Route::controller(PostController::class)->group(
     function () {

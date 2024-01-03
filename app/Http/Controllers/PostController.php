@@ -112,7 +112,7 @@ class PostController extends Controller
             'author' => 'required|max:255',
             'editor' => 'max:255',
             'post_content' => 'required',
-            'cover_photo' => 'required|image|file|max:20480'
+            // 'cover_photo' => 'required|image|file|max:20480'
         ];
 
         if ($request->slug != $post->slug) {

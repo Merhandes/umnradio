@@ -73,6 +73,39 @@
         </form>
         <div class="flex flex-wrap gap-8 justify-center">
 
+            {{-- <a class="no-underline" href="/article/kepada-yth-maba-apa-kabar-kali-ini">
+                    <div class="max-w-sm rounded overflow-hidden shadow-lg no-underline">
+                    <img class="w-full" src="{{ asset('images/artikel2/FEATURED IMAGE MABA.webp') }}" alt="Featured Image">
+                    <div class="px-6 py-4">
+                        <div class="font-bold text-xl mb-2 text-[#021f3a]">Kepada Yth. Maba: Apa Kabar Kali Ini?</div>
+                        <p class="text-gray-700 text-base">
+                        “Buka lagi visimu, kau tahu mana urutan satu”<br>
+            Sepenggal lirik dari lagu “33x”. . .
+                        </p>
+                    </div>
+                    <div class="px-6 pt-4 pb-2">
+                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Lapor OMB</span>
+                    </div>
+                    </div>
+                </a>
+
+                <a class="no-underline" href="/article/obral-etalase-mimpi">
+                    <div class="max-w-sm rounded overflow-hidden shadow-lg no-underline">
+                    <img class="w-full" src="{{ asset('images/artikel1/FEATURED IMAGE.webp') }}" alt="Featured Image">
+                    <div class="px-6 py-4">
+                        <div class="font-bold text-xl mb-2 text-[#021f3a]">Obral Etalase Mimpi</div>
+                        <p class="text-gray-700 text-base">
+                        “Dibeli! Dibeli! Diobral <i>nih</i> mimpinya!” <br>
+                    Hah? Dibeli? Diobral? Mimpinya? Apa <i>sih</i> maksudnya? <i>Kinda little bit confusing,</i> ya
+                    Ultimafriends?. . .
+                        </p>
+                    </div>
+                    <div class="px-6 pt-4 pb-2">
+                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Lapor OMB</span>
+                    </div>
+                    </div>
+                </a> --}}
+
             <a class="no-underline" href="/article/kepada-yth-maba-apa-kabar-kali-ini">
                 <div class="rounded overflow-hidden shadow-lg no-underline w-[300px] h-full relative pb-12">
                     <img class="w-full h-52 object-cover" src="{{ asset('images/artikel2/FEATURED IMAGE MABA.webp') }}"
@@ -94,7 +127,8 @@
 
             <a class="no-underline" href="/article/obral-etalase-mimpi">
                 <div class="rounded overflow-hidden shadow-lg no-underline w-[300px] h-full relative pb-12">
-                    <img class="w-full h-52 object-cover" src="{{ asset('images/artikel1/FEATURED IMAGE.webp') }}" alt="Featured Image">
+                    <img class="w-full h-52 object-cover" src="{{ asset('images/artikel1/FEATURED IMAGE.webp') }}"
+                        alt="Featured Image">
                     <div class="px-6 py-4">
                         <div class="font-bold text-xl mb-2 text-[#021f3a]">Obral Etalase Mimpi</div>
                         <p class="text-gray-700 text-base">
@@ -108,6 +142,25 @@
                         <span
                             class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Lapor
                             OMB</span>
+                    </div>
+                </div>
+            </a>
+
+            <a class="no-underline" href="/article/obral-etalase-mimpi">
+                <div class="rounded overflow-hidden shadow-lg no-underline w-[300px] h-full relative pb-12">
+                    <img class="w-full h-52 object-cover" src="{{ asset('images/synchronize/SYNCHRO (FEATURED).webp') }}"
+                        alt="Featured Image">
+                    <div class="px-6 py-4">
+                        <div class="font-bold text-xl mb-2 text-[#021f3a]">Synchronize Fest 2022, Menggarap Total “Lokal Lebih Vokal”</div>
+                        <p class="text-gray-700 text-base">
+                            <i>“Dibilang enak, ya memang enak
+                                Dibilang asik, ya memang asik”
+                            </i>
+                        </p>
+                    </div>
+                    <div class="px-3 pt-4 absolute bottom-1">
+                        <span
+                            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Liputan</span>
                     </div>
                 </div>
             </a>
