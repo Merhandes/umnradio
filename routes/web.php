@@ -24,6 +24,10 @@ use App\Models\ProgramDetail;
 
 Route::controller(Controller::class)->group(function () {
     Route::get('/', 'index');
+    Route::get('/logo', 'logo');
+    Route::post('/logo/add', 'addLogo');
+    Route::post('/logo/delete', 'deleteLogo');
+
 });
 
 // Route::get('/article', function () {
