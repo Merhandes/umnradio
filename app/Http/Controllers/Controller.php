@@ -8,6 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\Programs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class Controller extends BaseController
 {
@@ -57,7 +58,8 @@ class Controller extends BaseController
         $filePath = public_path('images/Partnership/' . $imageName);
 
         if (file_exists($filePath)) {
-            unlink($filePath); // This will delete the file if it exists
+            File::delete($filePath); // This will delete the file if it exists
+            // unlink($filePath); // This will delete the file if it exists
             return back()->with('deleteSuccess', 'Logo deleted successfully.');
         } else {
             return back()->withErrors(['deleteLogo' => 'Logo not found or already deleted.']);
