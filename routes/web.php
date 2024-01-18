@@ -3,6 +3,8 @@
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\ChartJunctionController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PodcastController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
@@ -10,6 +12,8 @@ use App\Http\Controllers\ProgramDetailController;
 use App\Http\Controllers\SongController;
 use App\Models\ChartJunction;
 use App\Models\ProgramDetail;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,11 +26,27 @@ use App\Models\ProgramDetail;
 |
 */
 
+Route::controller(LoginController::class)->group(function () {
+    Route::get('/login', 'index')->name('login');
+    Route::post('/login', 'authenticate');
+});
+
+Route::get('/logout', function (Request $request) {
+    Auth::logout();
+
+    $request->session()->invalidate();
+
+    $request->session()->regenerateToken();
+
+    return redirect('/');
+});
+
 Route::controller(Controller::class)->group(function () {
     Route::get('/', 'index');
     Route::get('/logo', 'logo');
     Route::post('/logo/add', 'addLogo');
     Route::post('/logo/delete', 'deleteLogo');
+    Route::get('/crews-landing', 'crews')->middleware('auth');
 
 });
 
@@ -134,6 +154,12 @@ Route::controller(PodcastController::class)->group(
         Route::get('/podcasts/{podcast:id}/edit', 'edit');
         Route::put('/podcasts/{podcast:id}/update', 'update');
         Route::delete('/podcasts/{podcast:id}/delete', 'destroy');
+    }
+);
+
+Route::controller(PaymentController::class)->group(
+    function(){
+        Route::get('/uang-kas', 'index')->middleware('auth');
     }
 );
 
