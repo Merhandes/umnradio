@@ -16,9 +16,22 @@
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!--Regular Datatables CSS-->
+    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+    <!--Responsive Extension Datatables CSS-->
+    <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: only light;
+        }
+
+        .dataTables_filter input {
+            border: 1px solid;
+        }
+    </style>
 </head>
 
-<body class="composer h-full bg-white">
+<body class="h-screen bg-white">
     {{-- NAVBAR --}}
     <div x-data="{ isOpen: false }" class="fixed w-full flex justify-between p-3 z-40 bg-[#021f3a] lg:p-4">
         <a class="flex items-center" href="/">
@@ -48,13 +61,41 @@
     </div>
 
     {{-- POST FORM --}}
-    <div class="pt-10 mx-6 md:mx-48 font-poppins text-black pb-24">
-        
+    <div
+        class="pt-20 md:pt-36 px-6 md:mx-12 font-poppins text-black pb-24 flex justify-center flex-wrap gap-10 h-full overflow-scroll">
+        <div class="flex flex-col w-full md:w-[30%] gap-10">
+            <div class="bg-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] h-96 rounded-lg flex justify-center p-6">
+                <h2 class="text-center font-poppins text-2xl font-bold h-fit">Upload Bukti Bayar</h2>
+            </div>
+            <div class="bg-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] h-72 rounded-lg flex justify-center p-6">
+                <h2 class="text-center font-poppins text-2xl font-bold h-fit">Change Password</h2>
+            </div>
+        </div>
+        <div
+            class="bg-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] w-full md:w-[60%] rounded-lg flex flex-wrap justify-center items-baseline align-top p-6">
+            <h2 class="text-center font-poppins text-2xl font-bold h-fit">Transaction History</h2>
+            <div id='table_container' class="p-4 mt-6 lg:mt-0 rounded shadow bg-white w-full">
+                <table id="payment_table" class="stripe hover"
+                    style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
+                    <thead>
+                        <tr>
+                            <th data-priority="0">ID</th>
+                            <th data-priority="1">Date</th>
+                            <th data-priority="2">Image</th>
+                            <th data-priority="3">Description</th>
+                            <th data-priority="4">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </body>
 
 <script>
-
     function previewImage() {
         const image = document.querySelector('#cover_photo')
         const imgPreview = document.querySelector(".img-preview")
@@ -75,6 +116,45 @@
             var index = parseFloat($this.attr('data-index'));
             $('[data-index="' + (index + 1).toString() + '"]').focus();
         }
+    });
+</script>
+
+<!-- jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<!--Datatables -->
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+<script>
+    $(document).ready(function() {
+
+        var table = $('#payment_table').DataTable({
+                responsive: true,
+                autoWidth: false,
+                columnDefs: [{
+                        width: '50px',
+                        targets: 0
+                    },
+                    {
+                        width: '200px',
+                        targets: 1
+                    },
+                    {
+                        width: '200px',
+                        targets: 2
+                    },
+                    {
+                        width: '200px',
+                        targets: 3
+                    },
+                    {
+                        width: '100px',
+                        targets: 4
+                    },
+                ]
+            })
+            .columns.adjust()
+            .responsive.recalc();
     });
 </script>
 
