@@ -66,4 +66,8 @@ class Controller extends BaseController
         }
     }
 
+    public function crews(){
+        return view('Internal.landing');
+    }
+
 }
