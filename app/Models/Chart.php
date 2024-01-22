@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Chart extends Model
+{
+    use HasFactory;
+
+    protected $guarded = ['id'];
+
+    protected $fillable = ['chart_name', 'cover_image', 'link', 'status'];
+}
