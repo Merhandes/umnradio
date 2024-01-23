@@ -377,20 +377,13 @@
 
     {{-- Section 4 --}}
     <div id="section-4" class="md:mt-12 w-full my-12">
+        @if ($partnerships->count() > 0)
         <h1 class="font-poppins text-[#021f3a] font-bold w-full text-center">Partnerships</h1>
+        @endif
         <div class="flex justify-center align-middle w-full my-2 flex-wrap">
             @foreach ($partnerships as $post)
                 <img src="{{ $post->image }}" alt="{{ $post->image }}" class="h-36 md:h-80 my-4">
             @endforeach
-
-            {{-- @php
-                $imageDirectory = public_path('images/Partnership');
-                $images = File::files($imageDirectory);
-            @endphp
-    
-            @foreach ($images as $image)
-                <img src="{{ asset('images/Partnership/' . $image->getFilename()) }}" class="h-36 md:h-80 my-4" alt="">
-            @endforeach --}}
         </div>
     </div>
 

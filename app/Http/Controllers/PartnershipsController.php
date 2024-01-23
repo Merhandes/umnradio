@@ -6,6 +6,7 @@ use App\Models\Partnerships;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class PartnershipsController extends Controller
 {
@@ -36,7 +37,7 @@ class PartnershipsController extends Controller
             'image' => 'required|image|file|max:1024'
         ]);
 
-        $imageName = $request->image->getClientOriginalName();
+        $imageName = Str::random(20) . $request->image->getClientOriginalExtension();
         $fileExtension = $request->image->getClientOriginalExtension();
 
         if ($fileExtension !== 'webp') {
@@ -77,7 +78,7 @@ class PartnershipsController extends Controller
      * Remove the specified resource from storage.
      */
 
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $partnerships = Partnerships::find($id);
 
@@ -86,10 +87,11 @@ class PartnershipsController extends Controller
         }
 
         if ($partnerships->image) {
-            Storage::delete($partnerships->image);
+            $imageName = $partnerships->image;
+            $filePath = public_path($imageName);
+            unlink($filePath);
+            $partnerships->delete();
         }
-
-        $partnerships->delete();
 
         return redirect('/partnerships')->with('success', 'Partnership has been deleted!');
     }
