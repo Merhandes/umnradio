@@ -92,9 +92,10 @@
     </div>
 
     {{-- AUDIO --}}
-    <footer id="audiosticky" class="invisible fixed bottom-0 w-full z-40 h-16 bg-[#021f3a] flex flex-row gap-1 justify-center items-center transition-all duration-500">
-    <button id="buttonplay2"><svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512">
-             <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+    <footer id="audiosticky"
+        class="invisible fixed bottom-0 w-full z-40 h-16 bg-[#021f3a] flex flex-row gap-1 justify-center items-center transition-all duration-500">
+        <button id="buttonplay2"><svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512">
+                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                 <style>
                     svg {
                         fill: #ffffff
@@ -104,8 +105,9 @@
                     d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
             </svg></button>
 
-            <button id="buttonpause2" class="hidden"><svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 320 512">
-               <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+        <button id="buttonpause2" class="hidden"><svg xmlns="http://www.w3.org/2000/svg" height="2em"
+                viewBox="0 0 320 512">
+                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                 <style>
                     svg {
                         fill: #ffffff
@@ -115,22 +117,20 @@
                     d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z" />
             </svg></button>
 
-            <audio id="player">
-                    <source src="{{ asset('audio/stars.mp3') }}" />
-                </audio>
-            <div class="p-4 max-w-md w-full">
-    <div class="flex items-center justify-between">
-        <span class="text-sm" id="currentTime">0:00</span>
-        <input type="range" id="progressBar" min="0" max="100" value="0" class="rounded-full slider w-3/4 mx-4">
-        <span class="text-sm" id="duration">0:00</span>
-    </div>
-</div>
-</footer>
+        <audio id="player">
+            <source src="{{ asset('audio/stars.mp3') }}" />
+        </audio>
+        <div class="p-4 max-w-md w-full">
+            <div class="flex items-center justify-between">
+                <span class="text-sm text-white" id="currentTime">0:00</span>
+                <input type="range" id="progressBar" min="0" max="100" value="0"
+                    class="rounded-full slider w-3/4 mx-4">
+                <span class="text-sm text-white" id="duration">0:00</span>
+            </div>
+        </div>
+    </footer>
 
-<script src="{{ asset('js/attachments.js') }}"></script>
-
-
-
+    <script src="{{ asset('js/attachments.js') }}"></script>
 
     {{-- ON AIR OFF AIR --}}
     <div id="section-1" class="w-full my-6 md:mt-12">
@@ -399,9 +399,10 @@
                 $imageDirectory = public_path('images/Partnership');
                 $images = File::files($imageDirectory);
             @endphp
-    
+
             @foreach ($images as $image)
-                <img src="{{ asset('images/Partnership/' . $image->getFilename()) }}" class="h-36 md:h-80 my-4" alt="">
+                <img src="{{ asset('images/Partnership/' . $image->getFilename()) }}" class="h-36 md:h-80 my-4"
+                    alt="">
             @endforeach
         </div>
     </div>
@@ -751,8 +752,6 @@
     </footer>
     </div>
 
-
-
     <script>
         var button = document.getElementById("buttonplay");
         var button2 = document.getElementById("buttonpause");
@@ -823,6 +822,57 @@
                 button3.classList.remove('hidden');
             }
         });
+
+        var player = document.getElementById("player");
+        const playButton = document.getElementById('buttonplay2');
+        const pauseButton = document.getElementById('buttonpause2');
+        // console.log(player)
+        const progressBar = document.getElementById('progressBar');
+        const currentTimeDisplay = document.getElementById('currentTime');
+        const durationDisplay = document.getElementById('duration');
+
+        playButton.addEventListener('click', () => {
+
+            if (player.paused && player.readyState >= 2) {
+                player.play();
+                playButton.classList.add('hidden');
+                pauseButton.classList.remove('hidden');
+            }
+        });
+
+        pauseButton.addEventListener('click', () => {
+            player.pause();
+            playButton.classList.remove('hidden');
+            pauseButton.classList.add('hidden');
+        });
+
+        player.addEventListener('timeupdate', updateProgressBar);
+
+        player.addEventListener('loadedmetadata', () => {
+            const duration = player.duration;
+            durationDisplay.textContent = formatTime(duration);
+        });
+
+        progressBar.addEventListener('input', () => {
+            const seekTime = player.duration * (progressBar.value / 100);
+            player.currentTime = seekTime;
+        });
+
+        function updateProgressBar() {
+            const currentTime = player.currentTime;
+            const formattedCurrentTime = formatTime(currentTime);
+            console.log(formattedCurrentTime)
+            currentTimeDisplay.textContent = formattedCurrentTime;
+
+            const progressPercentage = (currentTime / player.duration) * 100;
+            progressBar.value = progressPercentage;
+        }
+
+        function formatTime(time) {
+            const minutes = Math.floor(time / 60);
+            const seconds = Math.floor(time % 60);
+            return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }
     </script>
     <script>
         window.addEventListener('scroll', function() {
