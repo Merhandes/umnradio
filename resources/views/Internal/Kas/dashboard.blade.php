@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="bg-white">
 
 <head>
     <meta charset="utf-8">
@@ -62,32 +62,40 @@
 
     {{-- POST FORM --}}
     <div
-        class="pt-20 md:pt-36 px-6 md:mx-12 font-poppins text-black pb-24 flex justify-center flex-wrap gap-10 h-full overflow-scroll">
-        <div class="flex flex-col w-full md:w-[30%] gap-10">
-            <div class="bg-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] h-96 rounded-lg flex justify-center p-6">
-                <h2 class="text-center font-poppins text-2xl font-bold h-fit">Upload Bukti Bayar</h2>
-            </div>
-            <div class="bg-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] h-72 rounded-lg flex justify-center p-6">
-                <h2 class="text-center font-poppins text-2xl font-bold h-fit">Change Password</h2>
-            </div>
+        class="pt-20 md:pt-36 px-6 md:mx-12 font-poppins text-black pb-24 flex justify-center flex-wrap overflow-scroll gap-5">
+        <div class="w-full">
+            <a href="/crews-landing"
+                class="bg-white border-2 border-black text-black rounded-lg px-3 py-2 font-poppins font-bold justify-center align-middle items-center hover:invert hover:cursor-pointer hover:bg-[#fde0c5] transition ease-in-out delay-100 duration-200">Back</a>
+            <a href="/uang-kas/timeline"
+                class="bg-white border-2 border-black text-black rounded-lg px-3 py-2 font-poppins font-bold justify-center align-middle items-center hover:invert hover:cursor-pointer hover:bg-[#fde0c5] transition ease-in-out delay-100 duration-200">Timeline</a>
         </div>
         <div
-            class="bg-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] w-full md:w-[60%] rounded-lg flex flex-wrap justify-center items-baseline align-top p-6">
-            <h2 class="text-center font-poppins text-2xl font-bold h-fit">Transaction History</h2>
+            class="bg-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] w-full rounded-lg flex flex-wrap justify-center items-baseline align-top p-6 h-fit">
+            <h2 class="text-center font-poppins text-2xl font-bold h-fit">Users</h2>
             <div id='table_container' class="p-4 mt-6 lg:mt-0 rounded shadow bg-white w-full">
                 <table id="payment_table" class="stripe hover"
                     style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                     <thead>
                         <tr>
                             <th data-priority="0">ID</th>
-                            <th data-priority="1">Date</th>
-                            <th data-priority="2">Image</th>
-                            <th data-priority="3">Description</th>
-                            <th data-priority="4">Status</th>
+                            <th data-priority="1">Name</th>
+                            <th data-priority="2">Email</th>
+                            <th data-priority="3">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-
+                        @foreach ($users as $user)
+                            <tr>
+                                <td class="text-center">{{ $user->id }}</td>
+                                <td class="text-center">{{ $user->name }}</td>
+                                <td class="text-center">{{ $user->email }}</td>
+                                <td class="text-center">
+                                    <a href="/uang-kas/{{ $user->id }}/details"
+                                        class="font-bold text-white font-poppins bg-blue-600 hover:bg-blue-300 hover:text-black px-2 py-1 rounded">
+                                        Details</a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -97,7 +105,7 @@
 
 <script>
     function previewImage() {
-        const image = document.querySelector('#cover_photo')
+        const image = document.querySelector('#image')
         const imgPreview = document.querySelector(".img-preview")
 
         imgPreview.style.display = 'block'
@@ -109,7 +117,7 @@
         }
     }
 
-    $('#postForm').on('keydown', 'input', function(event) {
+    $('#kasForm').on('keydown', 'input', function(event) {
         if (event.which == 13) {
             event.preventDefault();
             var $this = $(event.target);
@@ -146,10 +154,6 @@
                     {
                         width: '200px',
                         targets: 3
-                    },
-                    {
-                        width: '100px',
-                        targets: 4
                     },
                 ]
             })

@@ -7,7 +7,11 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\Programs;
+use App\Models\Role;
+use App\Models\Roledef;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class Controller extends BaseController
@@ -18,8 +22,8 @@ class Controller extends BaseController
     {
         $programs = Programs::all();
         $posts = Post::latest()->take(3)->get();
-        
-        return view('Home.index', ['programs'=>$programs, 'posts'=>$posts]);
+
+        return view('Home.index', ['programs' => $programs, 'posts' => $posts]);
     }
 
     public function logo()
@@ -66,8 +70,116 @@ class Controller extends BaseController
         }
     }
 
-    public function crews(){
+    public function crews()
+    {
         return view('Internal.landing');
     }
 
+    public function admin()
+    {
+        $users = User::all();
+        $roledefs = Roledef::all();
+        return view('Internal.admin', [
+            'users' => $users,
+            'roledefs' => $roledefs
+        ]);
+    }
+
+    public function new_user(Request $request)
+    {
+        $userData = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email:dns|unique:users',
+            'password' => 'required|min:8|max:20',
+            'nim' => 'required',
+            'birthdate' => 'required',
+            'phone' => 'required',
+            'major' => 'required',
+            'year' => 'required',
+            'address' => 'required'
+        ]);
+
+        $userData['password'] = bcrypt($request->password);
+        $user = User::create($userData);
+
+        $roleData = $request->validate([
+            'role' => 'required'
+        ]);
+
+        $roleData['user_id'] = $user->id;
+        $roleData['username'] = $request->name;
+
+        Role::create($roleData);
+
+        return redirect('/admin/dashboard')->with('success', "User succesfully added.");
+    }
+
+    public function show_user(Request $request, User $user)
+    {
+        $roledefs = Roledef::all();
+        return view('Internal.show', [
+            'user' => $user,
+            'roledefs' => $roledefs
+        ]);
+    }
+
+    public function edit_user(Request $request, User $user)
+    {
+        $userData = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email:dns',
+            'nim' => 'required',
+            'birthdate' => 'required',
+            'phone' => 'required',
+            'major' => 'required',
+            'year' => 'required',
+            'address' => 'required'
+        ]);
+        if ($request->password) {
+            $userData['password'] = bcrypt($request->password);
+        }
+
+        $user->update($userData);
+
+        if ($request->role) {
+            $roleData = $request->validate([
+                'role' => ''
+            ]);
+
+            $roleData['user_id'] = $user->id;
+            $roleData['username'] = $request->name;
+
+            Role::create($roleData);
+        }
+
+        return redirect('/admin/dashboard')->with('success', "User".$user->name." edited.");
+    }
+
+    public function delete_role(Request $request, Role $role){
+        $role->delete();
+        return redirect('/admin/'.$role->user_id.'/details');
+    }
+
+    public function change_password(Request $request, User $user){
+        $credentials = $request->validate([
+            'password' => 'required',
+            'password_new' => 'required',
+        ]);
+
+        $credentials['email'] = $user->email;
+
+        if (Auth::attempt($credentials)) {
+            $user->update([
+                'password' => bcrypt($request->password_new)
+            ]);
+
+            return redirect('/uang-kas')->with('successPass', 'Password changed.');
+        }
+
+        return back()->with('error', 'Password change failed.');
+    }
+
+    public function programs_charts(){
+        return view('Internal.programchart');
+    }
 }

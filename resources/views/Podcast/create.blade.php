@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="bg-white">
 
 <head>
     <meta charset="utf-8">
@@ -66,7 +66,7 @@
                     Podcast Title
                 </label>
                 <input data-index='1'
-                    class="@error('title') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    class="@error('title') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white"
                     name="title" id="title" type="text" placeholder="Podcast Title" value="{{ old('title') }}"
                     oninput="previewName(this.value)">
                 @error('title')
@@ -78,7 +78,7 @@
                     Embed Code (Spotify)
                 </label>
                 <textarea data-index='3' oninput="embedPreview(this.value)"
-                    class="@error('embed_code') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    class="@error('embed_code') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white"
                     name="embed_code" id="embed_code" placeholder="Paste Embed Code"
                     value="{{ old('embed_code') }}">{{ old('embed_code') }}</textarea>
                 @error('embed_code')
@@ -116,63 +116,6 @@
         </form>
     </div>
 
-    {{-- AUDIO --}}
-    <footer id="audiosticky"
-        class="fixed bottom-0 w-full z-40 h-16 bg-[#021f3a] flex flex-row gap-16 justify-center items-center transition-all duration-500">
-        <button id="buttonplay2"><svg xmlns="http://www.w3.org/2000/svg" height="2em"
-                viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                <style>
-                    svg {
-                        fill: #ffffff
-                    }
-                </style>
-                <path
-                    d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
-            </svg></button>
-        <button id="buttonpause2" class="hidden"><svg xmlns="http://www.w3.org/2000/svg" height="2em"
-                viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                <style>
-                    svg {
-                        fill: #ffffff
-                    }
-                </style>
-                <path
-                    d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z" />
-            </svg></button>
-        <audio id="player">
-            <source src='https://i.klikhost.com/8374/' />
-        </audio>
-    </footer>
-
-    <script>
-        var button3 = document.getElementById("buttonplay2");
-        var button4 = document.getElementById("buttonpause2");
-        var audio = document.getElementById("player");
-
-        button3.addEventListener("click", function() {
-            if (audio.paused) {
-                audio.play();
-                button3.classList.add('hidden');
-                button4.classList.remove('hidden');
-            } else {
-                audio.pause();
-                button4.classList.add('hidden');
-                button3.classList.remove('hidden');
-            }
-        });
-
-        button4.addEventListener("click", function() {
-            if (audio.paused) {
-                audio.play();
-                button3.classList.add('hidden');
-                button4.classList.remove('hidden');
-            } else {
-                audio.pause();
-                button4.classList.add('hidden');
-                button3.classList.remove('hidden');
-            }
-        });
-    </script>
     <script src="{{ asset('js/attachments.js') }}"></script>
 </body>
 

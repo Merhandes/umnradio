@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->string('username');
             $table->integer('role');
-            // 0: SUPERADMIN; 1: ADMIN; 2: BENDAHARA; 3:NEWS; 4:ULTIMACREWS;
+            // 1: SUPERADMIN; 2: ADMIN; 3: BENDAHARA; 4:NEWS; 5:ULTIMACREWS;
             $table->timestamps();
         });
     }

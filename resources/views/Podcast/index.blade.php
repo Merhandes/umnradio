@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="bg-white">
 
 <head>
     <meta charset="utf-8">
@@ -62,13 +62,14 @@
 
     {{-- SHOW PROGRAMS --}}
     <div class="w-screen md:w-full h-full overflow-scroll pt-16 pb-16 flex justify-center">
-        <div class="container md:w-[90%] flex flex-wrap justify-center pt-8 md:p-16 font-poppins gap-8">
-            @php
-                $count = 0;
-            @endphp
+        <div class="container md:w-[90%] flex flex-wrap justify-center pt-8 md:p-16 font-poppins gap-5">
+            @foreach ($podcasts as $podcast)
+                <div class="w-[45%]">
+                    {!! $podcast->embed_code !!}
+                </div>
+            @endforeach
         </div>
     </div>
-
 
     {{-- AUDIO --}}
     <footer id="audiosticky"

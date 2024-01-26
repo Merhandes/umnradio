@@ -11,3 +11,11 @@ div::-webkit-scrollbar {
     display: none;
     /* for Chrome, Safari, and Opera */
 }
+
+:root {
+    color-scheme: only light;
+}
+
+.dataTables_filter input {
+    border: 1px solid;
+}

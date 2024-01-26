@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 // use App\Http\Requests\Request;
 use App\Http\Requests\UpdatePostRequest;
+use App\Models\PostAccess;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
@@ -67,7 +69,14 @@ class PostController extends Controller
             $validData['cover_photo'] = $request->file('cover_photo')->storePublicly('cover_images', 'public');
         }
 
-        Post::create($validData);
+        $post=Post::create($validData);
+
+        $user=Auth::user();
+        PostAccess::create([
+            'post_id' => $post->id,
+            'user_id' => $user->id,
+            'action' => 'create'
+        ]);
 
         // Post::create([
         //     'title'=>$request->title,
@@ -142,6 +151,13 @@ class PostController extends Controller
         }
 
         Post::where('id', $post->id)->update($validData);
+
+        $user = Auth::user();
+        PostAccess::create([
+            'post_id' => $post->id,
+            'user_id' => $user->id,
+            'action' => 'update'
+        ]);
 
         return redirect('/posts')->with('success', "Article updated.");
     }

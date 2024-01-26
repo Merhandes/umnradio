@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="bg-white">
 
 <head>
     <meta charset="utf-8">
@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 </head>
 
-<body class="h-full bg-white">
+<body class="h-full bg-white overflow-scroll">
     {{-- NAVBAR --}}
     <div x-data="{ isOpen: false }" class="fixed w-full flex justify-between p-3 z-40 bg-[#021f3a] lg:p-4">
         <a class="flex items-center" href="/">
@@ -61,7 +61,7 @@
     </div>
 
     {{-- SHOW PROGRAM DETAILS HERE --}}
-    <div class="w-full h-full overflow-scroll pt-16">
+    <div class="w-full h-full overflow-scroll pt-16 pb-24 ">
         <div class="font-poppins text-black relative flex justify-center">
             <img class="w-full h-40 md:h-80 object-top object-cover brightness-50"
                 src="{{ asset('storage/' . $programdetail->image) }}" alt="">
@@ -72,10 +72,10 @@
                 <div class="md:text-xl pt-2">{{ $programdetail->short_desc }}</div>
             </div>
         </div>
-        <div class="py-4 px-4 md:px-48 flex justify-center flex-wrap">
-            <img class="md:h-full w-[75%] md:w-[30%] object-cover pb-8" src="{{ asset('storage/' . $programdetail->image) }}"
-                alt="">
-            <div class="flex flex-col md:px-16 md:w-fit justify-center">
+        <div class="py-4 px-4 md:px-[10%] flex justify-center flex-wrap pt-10 text-[#021f3a]">
+            <img class="md:h-full w-[75%] md:w-[30%] object-contain pb-8"
+                src="{{ asset('storage/' . $programdetail->image) }}" alt="">
+            <div class="flex flex-col md:px-16 justify-center md:w-[60%]">
                 <h3 class="text-xl">Program</h3>
                 <h2 class="text-3xl font-bold">{{ $programdetail->program_name }}</h2>
                 <p class="py-2 text-lg">{{ $programdetail->description }}</p>
@@ -99,22 +99,35 @@
                 @endif
             </div>
         </div>
-        <div class="w-full px-4 md:px-48 pb-24 flex justify-center flex-wrap">
-            <div class="swiper w-full" style= "--swiper-pagination-color: #021f3a; --swiper-pagination-bullet-inactive-color: #999999; --swiper-pagination-bullet-inactive-opacity: 1;--swiper-pagination-bullet-horizontal-gap: 6px;
+        @if ($programdetail->episodes->count() > 0)
+            <div class="px-4 md:px-[10%] mt-6 flex justify-center flex-wrap">
+                <div class="swiper w-fit"
+                    style= "--swiper-pagination-color: #021f3a; --swiper-pagination-bullet-inactive-color: #999999; --swiper-pagination-bullet-inactive-opacity: 1;--swiper-pagination-bullet-horizontal-gap: 6px;
             --swiper-theme-color: #ffffff;">
-                <h1 class="font-poppins text-[#021f3a] font-bold text-center my-2 text-xl">Podcasts</h1>
-                <div class="swiper-wrapper">
-                    @foreach ($podcasts as $podcast)
-                        @if ($podcast->program_id == $programdetail->id)
-                            <div class="swiper-slide max-w-[400px]">{!! $podcast->embed_code !!}</div>
-                        @endif
-                    @endforeach
+                    <h1 class="font-poppins text-[#021f3a] font-bold text-center my-2 text-xl">Episodes</h1>
+                    <div class="swiper-wrapper">
+                        @foreach ($podcasts as $podcast)
+                            @if ($podcast->program_id == $programdetail->id)
+                                <div class="swiper-slide max-w-[400px]">{!! $podcast->embed_code !!}</div>
+                            @endif
+                        @endforeach
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                    <style>
+                        .swiper-button-prev {
+                            color: black;
+                        }
+
+                        .swiper-button-next {
+                            color: black;
+                        }
+                    </style>
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
             </div>
-        </div>
+        @endif
+
     </div>
 
 

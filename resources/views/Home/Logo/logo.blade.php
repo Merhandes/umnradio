@@ -14,7 +14,7 @@
                 @csrf
                 <div class="mb-4">
                     <label for="logo" class="block text-gray-700 text-sm font-bold mb-2">Upload Logo:</label>
-                    <input type="file" name="logo" id="logo" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <input type="file" name="logo" id="logo" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white">
                     @error('addLogo')
                         <p class="text-red-500 text-xs italic">{{ $message }}</p>
                     @enderror
@@ -37,7 +37,7 @@
                 @csrf
                 <div class="mb-4">
                     <label for="logo" class="block text-gray-700 text-sm font-bold mb-2">Delete Logo:</label>
-                    <input type="file" name="logo" id="logo" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <input type="file" name="logo" id="logo" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white">
                     @error('errorLogo')
                         <p class="text-red-500 text-xs italic">{{ $message }}</p>
                     @enderror

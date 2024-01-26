@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Payment;
 use App\Http\Requests\StorePaymentRequest;
 use App\Http\Requests\UpdatePaymentRequest;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
@@ -14,7 +17,26 @@ class PaymentController extends Controller
     public function index()
     {
         //
-        return view('Internal.index');
+        $user = Auth::user();
+        $payments = $user->payments;
+        return view('Internal.Kas.index', [
+            'payments' => $payments
+        ]);
+    }
+
+    public function dashboard()
+    {
+        $users = User::all();
+        return view('Internal.Kas.dashboard', [
+            'users' => $users
+        ]);
+    }
+
+    public function timeline(){
+        $payments = Payment::orderBy('created_at', 'desc')->get();
+        return view('Internal.Kas.timeline', [
+            'payments' => $payments
+        ]);
     }
 
     /**
@@ -28,17 +50,55 @@ class PaymentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePaymentRequest $request)
+    public function store(Request $request)
     {
         //
+        $user = Auth::user();
+
+        // dd($request);
+
+        $validData = $request->validate([
+            'keterangan' => 'required',
+            'months' => 'required|array', // Ensure that 'months' is an array
+            'months.*' => 'in:jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec', // Validate each selected month
+            'image' => 'required|image|file|max:20480'
+        ]);
+
+        if ($request->file('image')) {
+            $validData['image'] = $request->file('image')->storePublicly('Payments', 'public');
+        }
+        $validData['month'] = implode(', ', $request->input('months'));
+
+        $validData['user'] = $user->name;
+        $validData['user_id'] = $user->id;
+        $validData['status'] = "PENDING";
+        // dd($validData);
+
+        Payment::create($validData);
+        return redirect('/uang-kas')->with('success', "Payment uploaded.");
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Payment $payment)
+    public function show(User $user)
     {
         //
+        $payments = $user->payments;
+        return view('Internal.Kas.show', [
+            'user'=>$user,
+            'payments'=>$payments
+        ]);
+    }
+
+    public function change_status(Payment $payment, Request $request){
+        $validData = $request->validate([
+            'status' => 'required|in:CONFIRMED,PENDING,REJECTED'
+        ]);
+
+        $payment->update($validData);
+
+        return back();
     }
 
     /**

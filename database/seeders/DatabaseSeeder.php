@@ -26,8 +26,16 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@admin.com',
             'email_verified_at' => now(),
             'password' => '1077UMNRadio',
+            'nim' => '0',
+            'phone' => '0',
+            'address' => 'none',
+            'birthdate' => '2000-01-01',
+            'major' => 'none',
+            'year' => 'none',
             'remember_token' => 'admin'
         ]);
+
+        
 
         $this->call(ProgramsSeeder::class);
     }

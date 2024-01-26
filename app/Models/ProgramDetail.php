@@ -5,6 +5,7 @@ namespace App\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ProgramDetail extends Model
 {
@@ -30,5 +31,10 @@ class ProgramDetail extends Model
     public function getRouteKeyName()
     {
         return "slug";
+    }
+
+    public function episodes(): HasMany
+    {
+        return $this->hasMany(Podcast::class, 'program_id');
     }
 }

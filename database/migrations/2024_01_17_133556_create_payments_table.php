@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('month');
             $table->text('image');
             $table->text('keterangan')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
     }

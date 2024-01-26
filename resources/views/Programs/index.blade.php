@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="bg-white">
 
 <head>
     <meta charset="utf-8">
@@ -21,7 +21,7 @@
     </style>
 </head>
 
-<body class="h-full bg-white">
+<body class="h-full bg-white overflow-scroll">
     {{-- NAVBAR --}}
     <div x-data="{ isOpen: false }" class="fixed w-full flex justify-between p-3 z-40 bg-[#021f3a] lg:p-4">
         <a class="flex items-center" href="/">
@@ -67,7 +67,7 @@
             @endphp
             @foreach ($programdetails as $programdetail)
                 @if ($count++ % 2 == 0)
-                    <div class="w-full flex flex-wrap justify-center">
+                    <div class="w-full flex flex-wrap justify-center text-[#021f3a]">
                         <img class="h-[400px] md:w-[45%] px-8 object-center object-cover"
                             src="{{ asset('storage/' . $programdetail->image) }}" alt="">
                         <div class="md:w-2/5 p-12 md:mx-8 flex flex-col justify-center gap-4">

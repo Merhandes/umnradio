@@ -105,11 +105,15 @@ class SongController extends Controller
     public function destroy(Song $song)
     {
         //
-        if (ChartJunction::where('song_id', '=', $song->id)->exists()) {
-            return redirect('songs/dashboard')->with('error', 'Cannot Delete Song: Song Exists in Chart');
-        } else {
-            $song->delete();
-            return redirect('/songs/dashboard')->with('success', 'Song Deleted');
-        }
+
+        $song->chartjunction()->delete();
+        $song->delete();
+        return redirect('/songs/dashboard')->with('success', 'Song Deleted');
+        // if (ChartJunction::where('song_id', '=', $song->id)->exists()) {
+        //     return redirect('songs/dashboard')->with('error', 'Cannot Delete Song: Song Exists in Chart');
+        // } else {
+        //     $song->delete();
+        //     return redirect('/songs/dashboard')->with('success', 'Song Deleted');
+        // }
     }
 }

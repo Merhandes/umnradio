@@ -15,10 +15,11 @@ class Payment extends Model
         'user_id',
         'month',
         'image',
-        'keterangan'
+        'keterangan',
+        'status'
     ];
 
-    public function user(): BelongsTo{
+    public function uploader(): BelongsTo{
         return $this->belongsTo(User::class, 'user_id');
     }
 }
