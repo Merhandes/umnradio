@@ -85,17 +85,16 @@
                         </svg></button>
                 </div>
                 <audio id="player">
-                    <source src='http://icecast.umn.ac.id:8080/live' />
+                    <source src="{{ asset('audio/stars.mp3') }}" />
                 </audio>
             </div>
         </div>
     </div>
 
     {{-- AUDIO --}}
-    <footer id="audiosticky"
-        class="invisible fixed bottom-0 w-full z-40 h-16 bg-[#021f3a] flex flex-row gap-16 justify-center items-center transition-all duration-500">
-        <button id="buttonplay2"><svg xmlns="http://www.w3.org/2000/svg" height="2em"
-                viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+    <footer id="audiosticky" class="invisible fixed bottom-0 w-full z-40 h-16 bg-[#021f3a] flex flex-row gap-1 justify-center items-center transition-all duration-500">
+    <button id="buttonplay2"><svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512">
+             <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                 <style>
                     svg {
                         fill: #ffffff
@@ -104,8 +103,9 @@
                 <path
                     d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
             </svg></button>
-        <button id="buttonpause2" class="hidden"><svg xmlns="http://www.w3.org/2000/svg" height="2em"
-                viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+
+            <button id="buttonpause2" class="hidden"><svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 320 512">
+               <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                 <style>
                     svg {
                         fill: #ffffff
@@ -114,7 +114,23 @@
                 <path
                     d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z" />
             </svg></button>
-    </footer>
+
+            <audio id="player">
+                    <source src="{{ asset('audio/stars.mp3') }}" />
+                </audio>
+            <div class="p-4 max-w-md w-full">
+    <div class="flex items-center justify-between">
+        <span class="text-sm" id="currentTime">0:00</span>
+        <input type="range" id="progressBar" min="0" max="100" value="0" class="rounded-full slider w-3/4 mx-4">
+        <span class="text-sm" id="duration">0:00</span>
+    </div>
+</div>
+</footer>
+
+<script src="{{ asset('js/attachments.js') }}"></script>
+
+
+
 
     {{-- ON AIR OFF AIR --}}
     <div id="section-1" class="w-full my-6 md:mt-12">
