@@ -53,7 +53,7 @@
 
     {{-- ARTICLE --}}
     <div class="pt-10 mx-6 md:mx-48 font-poppins text-black pb-24">
-        <h1 class="pt-12 md:pt-24 text-center font-bold mb-4">Articles</h1>
+        <h1 class="pt-12 md:pt-24 text-center font-bold mb-4 text-2xl">Articles</h1>
         <form action="/articles">
             <div class='max-w-md mx-auto mb-4'>
                 <div

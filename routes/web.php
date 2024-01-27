@@ -9,6 +9,7 @@ use App\Http\Controllers\PodcastController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProgramDetailController;
+use App\Http\Controllers\SegmentController;
 use App\Http\Controllers\SongController;
 use App\Models\ChartJunction;
 use App\Models\ProgramDetail;
@@ -171,6 +172,18 @@ Route::controller(PaymentController::class)->group(
         Route::get('/uang-kas/{user:id}/details', 'show')->middleware(['auth', 'bendahara']);
         Route::post('/uang-kas/upload', 'store')->middleware('auth');
         Route::put('/uang-kas/{payment:id}/change-status', 'change_status')->middleware(['auth', 'bendahara']);
+    }
+);
+
+Route::controller(SegmentController::class)->group(
+    function(){
+        Route::get('/admin/segments', 'index')->middleware(['auth', 'admin']);
+        Route::get('/admin/segments/{segment:id}/details', 'show')->middleware(['auth', 'admin']);
+        Route::post('/admin/segments/add', 'store')->middleware(['auth', 'admin']);
+        Route::put('/admin/segments/{segment:id}/update', 'update')->middleware(['auth', 'admin']);
+        Route::put('/admin/segments/{segment:id}/publish', 'publish')->middleware(['auth', 'admin']);
+        Route::put('/admin/segments/{segment:id}/remove', 'remove')->middleware(['auth', 'admin']);
+        Route::delete('/admin/segments/{segment:id}/delete', 'destroy')->middleware(['auth', 'admin']);
     }
 );
 

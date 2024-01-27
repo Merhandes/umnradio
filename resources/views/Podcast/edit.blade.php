@@ -17,47 +17,13 @@
 </head>
 
 <body class="composer h-full bg-white">
-    {{-- NAVBAR --}}
-    <div x-data="{ isOpen: false }" class="fixed w-full flex justify-between p-3 z-40 bg-[#021f3a] lg:p-4">
-        <a class="flex items-center" href="/">
-            <img class="h-10 md:h-16 w-auto" src="{{ asset('images/logowhite.webp') }}" alt="">
-        </a>
-
-        <div class="flex items-center justify-between">
-            <button @click="isOpen = !isOpen" type="submit">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white lg:hidden" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-            <div class="pr-4 hidden space-x-6 lg:inline-block">
-                <a href="/" class="font-poppins text-base text-white no-underline">Home</a>
-                <!-- <a href="#" class="font-poppins text-base text-white no-underline">About</a>
-                    <a href="#" class="font-poppins text-base text-white no-underline">Programs</a> -->
-                <a href="/articles" class="font-poppins text-base text-white underline-offset-4">Articles</a>
-                <a href="/oprec" class="font-poppins text-base text-white underline-offset-4" hidden>OPREC</a>
-            </div>
-
-            <div class="mobile-navbar">
-                <div class="fixed left-0 w-full h-48 p-5 bg-white rounded-lg shadow-xl top-16" x-show="isOpen"
-                    @click.away=" isOpen = false">
-                    <div class="flex flex-col space-y-6">
-                        <a href="/" class="font-poppins -sm text-black">Home</a>
-                        <!-- <a href="#" class="font-poppins text-sm text-black">About</a> -->
-                        <a href="/articles" class="text-sm text-black">Articles</a>
-                        <a href="/oprec" class="text-sm text-black" hidden>OPREC</a>
-                        <!-- <a href="#" class="text-sm text-black">Podcasts</a> -->
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <x-internal-nav></x-internal-nav>
 
     {{-- POST FORM --}}
     <div class="pt-10 mx-6 md:mx-48 font-poppins text-black pb-24">
         <h1 class="pt-12 md:pt-24 text-center font-bold mb-6">New Podcast</h1>
-        <form id="podcastForm" class="w-[90%]" action="/podcasts/{{$podcast->id}}/update" enctype="multipart/form-data" method="post">
+        <form id="podcastForm" class="w-[90%]" action="/podcasts/{{ $podcast->id }}/update"
+            enctype="multipart/form-data" method="post">
             @method('put')
             @csrf
             <!-- Prevent implicit submission of the form -->
@@ -68,8 +34,8 @@
                 </label>
                 <input data-index='1'
                     class="@error('title') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white"
-                    name="title" id="title" type="text" placeholder="Podcast Title" value="{{ old('title', $podcast->title) }}"
-                    oninput="previewName(this.value)">
+                    name="title" id="title" type="text" placeholder="Podcast Title"
+                    value="{{ old('title', $podcast->title) }}" oninput="previewName(this.value)">
                 @error('title')
                     <div class="text-sm text-red-600">{{ $message }}</div>
                 @enderror
@@ -80,35 +46,33 @@
                 </label>
                 <textarea data-index='3' oninput="embedPreview(this.value)"
                     class="@error('embed_code') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white"
-                    name="embed_code" id="embed_code" placeholder="Paste Embed Code"
-                    value="{{ old('embed_code') }}">{{ old('embed_code', $podcast->embed_code) }}</textarea>
+                    name="embed_code" id="embed_code" placeholder="Paste Embed Code" value="{{ old('embed_code') }}">{{ old('embed_code', $podcast->embed_code) }}</textarea>
                 @error('embed_code')
                     <div class="text-sm text-red-600">{{ $message }}</div>
                 @enderror
             </div>
             <div class="my-2">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="">
-                        Select Assigned Program (Optional)
-                    </label>
-                    <select name="program_id" id="program_id"
-                        class="py-2 px-3 text-lg font-poppins border rounded-lg mt-1 shadow">
-                        <option disabled selected value> -- select an option -- </option>
-                        @foreach ($programs as $program)
-                            <option @if ($podcast->program_id == $program->id)
-                                selected
-                            @endif value="{{ $program->id }}">{{ $program->program_name }}</option>
-                        @endforeach
-                    </select>
-                    @error('program_id')
-                        <div class="text-sm text-red-600">{{ $message }}</div>
-                    @enderror
-                </div>
-            
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="">
+                    Select Assigned Program (Optional)
+                </label>
+                <select name="program_id" id="program_id"
+                    class="py-2 px-3 text-lg font-poppins border rounded-lg mt-1 shadow">
+                    <option disabled selected value> -- select an option -- </option>
+                    @foreach ($programs as $program)
+                        <option @if ($podcast->program_id == $program->id) selected @endif value="{{ $program->id }}">
+                            {{ $program->program_name }}</option>
+                    @endforeach
+                </select>
+                @error('program_id')
+                    <div class="text-sm text-red-600">{{ $message }}</div>
+                @enderror
+            </div>
+
             <label class="block text-gray-700 text-sm font-bold mb-2" for="">Preview</label>
             {{-- PODCAST CARD --}}
-            <div
-                class="w-[90vw] md:w-[35vw] md:min-w-[300px] flex flex-col justify-center align-middle items-center rounded-lg drop-shadow-lg" id="embedPreview">
-                {!!$podcast->embed_code!!}
+            <div class="w-[90vw] md:w-[35vw] md:min-w-[300px] flex flex-col justify-center align-middle items-center rounded-lg drop-shadow-lg"
+                id="embedPreview">
+                {!! $podcast->embed_code !!}
             </div>
             <div class="flex items-center justify-between my-4">
                 <button
@@ -124,7 +88,7 @@
 </body>
 
 <script>
-    function embedPreview(value){
+    function embedPreview(value) {
         const embedPreview = document.getElementById('embedPreview')
         embedPreview.innerHTML = value
     }

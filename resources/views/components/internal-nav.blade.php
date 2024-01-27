@@ -27,10 +27,36 @@
                     <a href="/admin/dashboard" class="font-poppins text-base text-white no-underline">Admin</a>
                 @endadmin
             </div>
-            <div class="h-10 flex flex-row align-middle justify-center items-center gap-2 bg-white rounded-full p-1 ml-2">
-                <img class="object-cover h-full" src="/images/avatar.webp" alt="Logo">
-                <p class="text-[#021f3a] text-md">{{ auth()->user()->name }}</p>
+            <div class="relative hover:cursor-pointer" id="parent">
+                <div
+                    class="h-10 flex flex-row align-middle justify-center items-center gap-2 bg-white rounded-full p-1 ml-2 hover:scale-110 ease-in-out duration-100">
+                    <img class="object-cover h-full" src="/images/avatar.webp" alt="Logo">
+                    <p class="text-[#021f3a] text-md">{{ auth()->user()->name }}</p>
+                </div>
+                <!-- Dropdown menu -->
+                <div id="logoutDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg hidden hover:bg-gray-200">
+                    <a href="/logout" class="block px-4 py-2 text-[#021f3a]">Logout</a>
+                </div>
             </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const dropdown = document.getElementById('logoutDropdown');
+                    const parentDiv = document.getElementById('parent');
+
+                    // Toggle dropdown visibility
+                    parentDiv.addEventListener('click', function(event) {
+                        event.stopPropagation(); // Prevent dropdown from closing immediately
+                        dropdown.classList.toggle('hidden');
+                    });
+
+                    // Close dropdown when clicking outside
+                    document.addEventListener('click', function(event) {
+                        if (!parentDiv.contains(event.target)) {
+                            dropdown.classList.add('hidden');
+                        }
+                    });
+                });
+            </script>
 
             <div class="mobile-navbar">
                 <div class="fixed left-0 w-full h-fit p-5 bg-white rounded-lg shadow-xl top-16" x-show="isOpen"

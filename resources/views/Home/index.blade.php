@@ -14,42 +14,7 @@
 </head>
 
 <body class="composer h-full bg-white">
-    {{-- NAVBAR --}}
-    <div x-data="{ isOpen: false }" class="fixed w-full flex justify-between p-3 z-40 bg-[#021f3a] lg:p-4">
-        <a class="flex items-center" href="/">
-            <img class="h-10 md:h-16 w-auto" src="{{ asset('images/logowhite.webp') }}" alt="">
-        </a>
-
-        <div class="flex items-center justify-between">
-            <button @click="isOpen = !isOpen" type="submit">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white lg:hidden" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-            <div class="pr-4 hidden space-x-6 lg:inline-block">
-                <a href="/" class="font-poppins text-base text-white no-underline">Home</a>
-                <!-- <a href="#" class="font-poppins text-base text-white no-underline">About</a>
-                    <a href="#" class="font-poppins text-base text-white no-underline">Programs</a> -->
-                <a href="/articles" class="font-poppins text-base text-white underline-offset-4">Articles</a>
-                <a href="/oprec" class="font-poppins text-base text-white underline-offset-4" hidden>OPREC</a>
-            </div>
-
-            <div class="mobile-navbar">
-                <div class="fixed left-0 w-full h-48 p-5 bg-white rounded-lg shadow-xl top-16" x-show="isOpen"
-                    @click.away=" isOpen = false">
-                    <div class="flex flex-col space-y-6">
-                        <a href="/" class="font-poppins -sm text-black">Home</a>
-                        <!-- <a href="#" class="font-poppins text-sm text-black">About</a> -->
-                        <a href="/articles" class="text-sm text-black">Articles</a>
-                        <a href="/oprec" class="text-sm text-black" hidden>OPREC</a>
-                        <!-- <a href="#" class="text-sm text-black">Podcasts</a> -->
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <x-navigation></x-navigation>
     </div>
     {{-- BACKGROUND --}}
     <!-- <img class="w-screen z-0" src="{{ asset('images/background.webp') }}"
@@ -93,7 +58,7 @@
 
     {{-- AUDIO --}}
     <footer id="audiosticky"
-        class="invisible fixed bottom-0 w-full z-40 h-16 bg-[#021f3a] flex flex-row gap-16 justify-center items-center transition-all duration-500">
+        class="invisible fixed bottom-0 w-full z-40 h-16 bg-[#021f3a] flex flex-row gap-16 justify-center items-center transition-all duration-500 drop-shadow-[0_10px_10px_rgba(255,255,255,0.5)]">
         <button id="buttonplay2"><svg xmlns="http://www.w3.org/2000/svg" height="2em"
                 viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                 <style>
@@ -118,7 +83,7 @@
 
     {{-- ON AIR OFF AIR --}}
     <div id="section-1" class="w-full my-6 md:mt-12">
-        <h1 class="font-poppins text-[#021f3a] font-bold w-full text-center">Live Broadcast</h1>
+        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center">Live Broadcast</h1>
         <div id="sign" class="m-6 text-center">
 
             {{-- SCHEDULE SYSTEM PHP --}}
@@ -178,7 +143,7 @@
         </div>
     </div>
     <div id="schedule" class="my-6 md:mt-12 text-center">
-        <h1 class="font-poppins text-center text-[#021f3a] font-bold">Weekly Schedule</h1>
+        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold text-center">Weekly Schedule</h1>
         <div class="border-t-2 border-[#021f3a] w-56 mx-auto mt-4"></div>
         <div class="tabs-group">
             <div class="tabs-container flex justify-center items-center">
@@ -377,22 +342,23 @@
 
     {{-- Section 4 --}}
     <div id="section-4" class="md:mt-12 w-full my-12">
-        <h1 class="font-poppins text-[#021f3a] font-bold w-full text-center">Partnerships</h1>
+        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center">Partnerships</h1>
         <div class="flex justify-center align-middle w-full my-2 flex-wrap">
             @php
                 $imageDirectory = public_path('images/Partnership');
                 $images = File::files($imageDirectory);
             @endphp
-    
+
             @foreach ($images as $image)
-                <img src="{{ asset('images/Partnership/' . $image->getFilename()) }}" class="h-36 md:h-80 my-4" alt="">
+                <img src="{{ asset('images/Partnership/' . $image->getFilename()) }}" class="h-36 md:h-80 my-4"
+                    alt="">
             @endforeach
         </div>
     </div>
 
     {{-- ARTICLE --}}
     <div class="mx-12 font-poppins text-black mb-6">
-        <h1 class="font-poppins text-[#021f3a] font-bold text-center my-2 mb-6">News</h1>
+        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold text-center my-2 mb-6">News</h1>
         <div class="flex flex-wrap gap-8 justify-center">
 
             <a class="no-underline" href="/article/kepada-yth-maba-apa-kabar-kali-ini">
@@ -468,11 +434,19 @@
         </div>
     </div>
 
+    {{-- Segments --}}
+    <div id="segments" class="md:mt-12 w-full my-12">
+        @foreach ($segments as $segment)
+            <h1 class="font-poppins text-[#021f3a] text-2xl font-bold text-center my-2 mb-6">{{$segment->title}}</h1>
+            <div class="w-full">{!!$segment->content!!}</div>
+        @endforeach
+    </div>
+
     {{-- Section 3 --}}
     <div id="section-3" class="mx-4">
         <!-- Swiper -->
         <div class="swiper">
-            <h1 class="font-poppins text-[#021f3a] font-bold text-center my-2">Playlists</h1>
+            <h1 class="font-poppins text-[#021f3a] text-2xl font-bold text-center my-2">Playlists</h1>
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <iframe style="border-radius:15px"
@@ -568,6 +542,7 @@
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
         </div>
+
         <div id="additional-embeds" class="flex justify-center flex-wrap align-middle w-full my-4">
             <div id="u-podcast" class="mx-4 w-[400px] max-w-[90%]">
                 <h1 class="font-poppins text-[#021f3a] font-bold text-center my-2">U-Podcast</h1>
@@ -583,12 +558,6 @@
                     loading="lazy"></iframe>
 
             </div>
-            <div id="twitter" class="mx-4 w-[400px] max-w-[90%]">
-                <h1 class="font-poppins text-[#021f3a] font-bold text-center my-2">Tweets</h1>
-                <a class="twitter-timeline" data-width="400" data-height="440"
-                    href="https://twitter.com/UMNRADIO?ref_src=twsrc%5Etfw">Tweets by UMNRADIO</a>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </div>
             <div id="utube" class="mx-4 w-[400px] max-w-[90%]">
                 <div id="youtube">
                     <h1 class="font-poppins text-[#021f3a] font-bold text-center my-2">Watch Now!</h1>
@@ -598,15 +567,11 @@
                         height="216"></iframe>
                 </div>
             </div>
-            <div id="utube" class="mx-4">
-                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7146629724939718656"
-                    height="746" width="504" frameborder="0" allowfullscreen=""
-                    title="Embedded post"></iframe>
-            </div>
-            <div id="utube" class="mx-4">
+
+            <div id="tiktok" class="mx-4 w-[400px] max-w-[90%]">
+                <h1 class="font-poppins text-[#021f3a] font-bold text-center my-2">Tiktok</h1>
                 <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@umnradio" data-unique-id="umnradio"
-                    data-embed-from="embed_page" data-embed-type="creator"
-                    style="max-width: 780px; min-width: 400px;">
+                    data-embed-from="embed_page" data-embed-type="creator" class="">
                     <section> <a target="_blank"
                             href="https://www.tiktok.com/@umnradio?refer=creator_embed">@umnradio</a> </section>
                 </blockquote>
@@ -686,57 +651,7 @@
             border-radius: 15px
         }
     </style>
-
-    <footer class="bg-[#021f3a] md:h-24 mb-16 p-4">
-        <div
-            class="flex flex-col items-center text-center space-y-3 md:flex-row md:justify-around md:items-center md:text-left md:space-y-0">
-            <div>
-
-
-                <img src="{{ asset('assets/umnradio.webp') }}" alt="logo" class="w-20 mt-1">
-            </div>
-            <div class="font-poppins text-xs text-white">
-                <p>Jalan Scientia Boulevard</p>
-                <p>Universitas Multimedia Nusantara, Gedung B lt. 6</p>
-                <p>Tangerang, Banten 15811, ID</p>
-            </div>
-            <div class="font-poppins text-xs ">
-                <p class="mb-1 font-popping text-white">Contact Us</p>
-                <div class="flex-col">
-                    <a href="http://line.me/ti/p/~@umnradio#~" class="text-black no-underline">
-                        <div class="flex">
-                            <img src="{{ asset('assets/line.webp') }}" alt="line" class="w-4 mb-1 mr-1">
-                            <p class="font-poppins text-white no-underline">Line@</p>
-                        </div>
-                    </a>
-
-                    <a href="https://twitter.com/UMNRADIO" class="text-black no-underline">
-                        <div class="flex">
-                            <img src="{{ asset('assets/twitter.webp') }}" alt="line" class="w-4 mb-1 mr-1">
-                            <p class="font-poppins text-white no-underline">Twitter</p>
-                        </div>
-                    </a>
-
-                    <a href="https://www.youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg"
-                        class="text-black no-underline">
-                        <div class="flex">
-                            <img src="{{ asset('assets/youtube.webp') }}" alt="line" class="w-4 mb-1 mr-1">
-                            <p class="font-poppins text-white no-underline">Youtube</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="text-xs">
-                <p class="mb-1 font-poppins text-white">Get Our App</p>
-                <a href="https://play.google.com/store/apps/details?id=com.umnradio.umnradio&pcampaignid=web_share"><img
-                        src="{{ asset('assets/playstore.webp') }}" alt="playstore" class="w-20"></a>
-            </div>
-        </div>
-    </footer>
-    </div>
-
-
-
+    <x-footer></x-footer>
     <script>
         var button = document.getElementById("buttonplay");
         var button2 = document.getElementById("buttonpause");

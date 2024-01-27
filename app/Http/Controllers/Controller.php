@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller as BaseController;
 use App\Models\Programs;
 use App\Models\Role;
 use App\Models\Roledef;
+use App\Models\Segment;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,8 +23,9 @@ class Controller extends BaseController
     {
         $programs = Programs::all();
         $posts = Post::latest()->take(3)->get();
+        $segments = Segment::where('status', 'PUBLISHED')->get();
 
-        return view('Home.index', ['programs' => $programs, 'posts' => $posts]);
+        return view('Home.index', ['programs' => $programs, 'posts' => $posts, 'segments' => $segments]);
     }
 
     public function logo()
@@ -152,15 +154,17 @@ class Controller extends BaseController
             Role::create($roleData);
         }
 
-        return redirect('/admin/dashboard')->with('success', "User".$user->name." edited.");
+        return redirect('/admin/dashboard')->with('success', "User" . $user->name . " edited.");
     }
 
-    public function delete_role(Request $request, Role $role){
+    public function delete_role(Request $request, Role $role)
+    {
         $role->delete();
-        return redirect('/admin/'.$role->user_id.'/details');
+        return redirect('/admin/' . $role->user_id . '/details');
     }
 
-    public function change_password(Request $request, User $user){
+    public function change_password(Request $request, User $user)
+    {
         $credentials = $request->validate([
             'password' => 'required',
             'password_new' => 'required',
@@ -179,7 +183,8 @@ class Controller extends BaseController
         return back()->with('error', 'Password change failed.');
     }
 
-    public function programs_charts(){
+    public function programs_charts()
+    {
         return view('Internal.programchart');
     }
 }
