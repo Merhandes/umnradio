@@ -754,126 +754,113 @@
 
     <script>
         var button = document.getElementById("buttonplay");
-        var button2 = document.getElementById("buttonpause");
-        var button3 = document.getElementById("buttonplay2");
-        var button4 = document.getElementById("buttonpause2");
-        var audio = document.getElementById("player");
+var button2 = document.getElementById("buttonpause");
+var button3 = document.getElementById("buttonplay2");
+var button4 = document.getElementById("buttonpause2");
+var audio = document.getElementById("player");
 
-        button.addEventListener("click", function() {
-            if (audio.paused) {
-                audio.play();
-                button.classList.add('hidden');
-                button2.classList.remove('hidden');
-                button3.classList.add('hidden');
-                button4.classList.remove('hidden');
-            } else {
-                audio.pause();
-                button2.classList.add('hidden');
-                button.classList.remove('hidden');
-                button4.classList.add('hidden');
-                button3.classList.remove('hidden');
-            }
-        });
+var player = document.getElementById("player");
+const playButton = document.getElementById('buttonplay2');
+const pauseButton = document.getElementById('buttonpause2');
+const progressBar = document.getElementById('progressBar');
+const currentTimeDisplay = document.getElementById('currentTime');
+const durationDisplay = document.getElementById('duration');
 
-        button2.addEventListener("click", function() {
-            if (audio.paused) {
-                audio.play();
-                button.classList.add('hidden');
-                button2.classList.remove('hidden');
-                button3.classList.add('hidden');
-                button4.classList.remove('hidden');
-            } else {
-                audio.pause();
-                button2.classList.add('hidden');
-                button.classList.remove('hidden');
-                button4.classList.add('hidden');
-                button3.classList.remove('hidden');
-            }
-        });
+let isDragging = false;
 
-        button3.addEventListener("click", function() {
-            if (audio.paused) {
-                audio.play();
-                button.classList.add('hidden');
-                button2.classList.remove('hidden');
-                button3.classList.add('hidden');
-                button4.classList.remove('hidden');
-            } else {
-                audio.pause();
-                button2.classList.add('hidden');
-                button.classList.remove('hidden');
-                button4.classList.add('hidden');
-                button3.classList.remove('hidden');
-            }
-        });
+button.addEventListener("click", togglePlayPause);
+button2.addEventListener("click", togglePlayPause);
+button3.addEventListener("click", togglePlayPause);
+button4.addEventListener("click", togglePlayPause);
+   
+playButton.addEventListener('click', togglePlayPause);
 
-        button4.addEventListener("click", function() {
-            if (audio.paused) {
-                audio.play();
-                button.classList.add('hidden');
-                button2.classList.remove('hidden');
-                button3.classList.add('hidden');
-                button4.classList.remove('hidden');
-            } else {
-                audio.pause();
-                button2.classList.add('hidden');
-                button.classList.remove('hidden');
-                button4.classList.add('hidden');
-                button3.classList.remove('hidden');
-            }
-        });
+pauseButton.addEventListener('click', () => {
+    player.pause();
+    playButton.classList.remove('hidden');
+    pauseButton.classList.add('hidden');
+});
 
-        var player = document.getElementById("player");
-        const playButton = document.getElementById('buttonplay2');
-        const pauseButton = document.getElementById('buttonpause2');
-        // console.log(player)
-        const progressBar = document.getElementById('progressBar');
-        const currentTimeDisplay = document.getElementById('currentTime');
-        const durationDisplay = document.getElementById('duration');
+progressBar.addEventListener('input', () => {
+    const seekTime = player.duration * (progressBar.value / 100);
+    currentTimeDisplay.textContent = formatTime(seekTime);
+});
 
-        playButton.addEventListener('click', () => {
+progressBar.addEventListener('mousedown', () => {
+    isDragging = true;
+    player.pause(); // Pause the audio when dragging starts
+});
 
-            if (player.paused && player.readyState >= 2) {
-                player.play();
-                playButton.classList.add('hidden');
-                pauseButton.classList.remove('hidden');
-            }
-        });
 
-        pauseButton.addEventListener('click', () => {
-            player.pause();
-            playButton.classList.remove('hidden');
-            pauseButton.classList.add('hidden');
-        });
+progressBar.addEventListener('mouseup', () => {
+    isDragging = false;
+});
 
-        player.addEventListener('timeupdate', updateProgressBar);
+player.addEventListener('timeupdate', () => {
+    if (!isDragging) {
+        updateProgressBar();
+        const currentTime = player.currentTime;
+        currentTimeDisplay.textContent = formatTime(currentTime);
+    }
+});
 
-        player.addEventListener('loadedmetadata', () => {
-            const duration = player.duration;
-            durationDisplay.textContent = formatTime(duration);
-        });
 
-        progressBar.addEventListener('input', () => {
-            const seekTime = player.duration * (progressBar.value / 100);
-            player.currentTime = seekTime;
-        });
 
-        function updateProgressBar() {
-            const currentTime = player.currentTime;
-            const formattedCurrentTime = formatTime(currentTime);
-            console.log(formattedCurrentTime)
-            currentTimeDisplay.textContent = formattedCurrentTime;
 
-            const progressPercentage = (currentTime / player.duration) * 100;
-            progressBar.value = progressPercentage;
-        }
+progressBar.addEventListener('mousemove', (event) => {
+    if (isDragging) {
+        const boundingRect = progressBar.getBoundingClientRect();
+        const mouseX = event.clientX - boundingRect.left;
+        const percentage = Math.min(100, Math.max(0, (mouseX / boundingRect.width) * 100));
+        progressBar.value = percentage;
+        const seekTime = player.duration * (percentage / 100);
+        currentTimeDisplay.textContent = formatTime(seekTime);
+    }
+});
 
-        function formatTime(time) {
-            const minutes = Math.floor(time / 60);
-            const seconds = Math.floor(time % 60);
-            return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-        }
+player.addEventListener('timeupdate', () => {
+    if (!isDragging) {
+        updateProgressBar();
+        const currentTime = player.currentTime;
+        currentTimeDisplay.textContent = formatTime(currentTime);
+    }
+});
+
+player.addEventListener('loadedmetadata', () => {
+    const duration = player.duration;
+    durationDisplay.textContent = formatTime(duration);
+});
+
+function togglePlayPause() {
+    if (audio.paused) {
+        audio.play();
+        button.classList.add('hidden');
+        button2.classList.remove('hidden');
+        button3.classList.add('hidden');
+        button4.classList.remove('hidden');
+    } else {
+        audio.pause();
+        button2.classList.add('hidden');
+        button.classList.remove('hidden');
+        button4.classList.add('hidden');
+        button3.classList.remove('hidden');
+    }
+}
+
+function updateProgressBar() {
+    const currentTime = player.currentTime;
+    const progressPercentage = (currentTime / player.duration) * 100;
+    progressBar.value = progressPercentage;
+}
+
+function formatTime(time) {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+}
+
     </script>
+    
     <script>
         window.addEventListener('scroll', function() {
             var header = document.getElementById('audiosticky');
