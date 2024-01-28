@@ -22,12 +22,12 @@
     <div class="relative">
         <img class="h-screen w-auto md:h-auto md:w-screen z-0 object-cover" src="{{ asset('images/background.webp') }}"
             alt="" />
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-4 py-2">
-            <div class="px-4 text-center">
-                <p class="font-poppins text-white font-bold">107.7 FM</p>
-                <h3 class="font-poppins text-md md:text-6xl text-white font-bold">
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-4 py-2 w-full">
+            <div class="px-4 text-center w-full flex justify-center flex-col relative">
+                <p class="font-poppins z-10 text-white font-bold md:text-2xl">107.7 FM</p>
+                <h3 class="font-poppins z-10 text-2xl md:text-6xl text-white font-bold w-full">
                     UMN RADIO</h3>
-                <div class="mt-4">
+                <div class="mt-4 z-10">
                     <button id="buttonplay"><svg xmlns="http://www.w3.org/2000/svg" height="3em"
                             viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                             <style>
@@ -340,22 +340,6 @@
         </div>
     </div>
 
-    {{-- Section 4 --}}
-    <div id="section-4" class="md:mt-12 w-full my-12">
-        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center">Partnerships</h1>
-        <div class="flex justify-center align-middle w-full my-2 flex-wrap">
-            @php
-                $imageDirectory = public_path('images/Partnership');
-                $images = File::files($imageDirectory);
-            @endphp
-
-            @foreach ($images as $image)
-                <img src="{{ asset('images/Partnership/' . $image->getFilename()) }}" class="h-36 md:h-80 my-4"
-                    alt="">
-            @endforeach
-        </div>
-    </div>
-
     {{-- ARTICLE --}}
     <div class="mx-12 font-poppins text-black mb-6">
         <h1 class="font-poppins text-[#021f3a] text-2xl font-bold text-center my-2 mb-6">News</h1>
@@ -431,6 +415,18 @@
                     Read More
                 </button>
             </a>
+        </div>
+    </div>
+
+    {{-- Section 4 --}}
+    <div id="section-4" class="md:mt-12 w-full my-12">
+        @if ($partnerships->count() > 0)
+        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center">Partnerships</h1>
+        @endif
+        <div class="flex justify-center align-middle w-full my-2 flex-wrap">
+            @foreach ($partnerships as $post)
+                <img src="{{ $post->image }}" alt="{{ $post->image }}" class="h-36 md:h-80 my-4">
+            @endforeach
         </div>
     </div>
 

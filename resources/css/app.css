@@ -6,6 +6,10 @@
     font-family: "Poppins";
     src: url("fonts/Poppins-Regular.ttf") format("truetype");
 }
+@font-face {
+    font-family: "NexaRust";
+    src: url("fonts/NexaRustHandmade-Extended.otf") format("opentype");
+}
 
 div::-webkit-scrollbar {
     display: none;

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Partnerships;
 use App\Models\Post;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -24,8 +25,9 @@ class Controller extends BaseController
         $programs = Programs::all();
         $posts = Post::latest()->take(3)->get();
         $segments = Segment::where('status', 'PUBLISHED')->get();
+        $partnerships = Partnerships::all();
 
-        return view('Home.index', ['programs' => $programs, 'posts' => $posts, 'segments' => $segments]);
+        return view('Home.index', ['programs' => $programs, 'posts' => $posts, 'segments' => $segments, 'partnerships' => $partnerships]);
     }
 
     public function logo()

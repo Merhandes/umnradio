@@ -4,6 +4,7 @@ use App\Http\Controllers\ChartController;
 use App\Http\Controllers\ChartJunctionController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PartnershipsController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PodcastController;
 use Illuminate\Support\Facades\Route;
@@ -184,6 +185,15 @@ Route::controller(SegmentController::class)->group(
         Route::put('/admin/segments/{segment:id}/publish', 'publish')->middleware(['auth', 'admin']);
         Route::put('/admin/segments/{segment:id}/remove', 'remove')->middleware(['auth', 'admin']);
         Route::delete('/admin/segments/{segment:id}/delete', 'destroy')->middleware(['auth', 'admin']);
+    }
+);
+
+Route::controller(PartnershipsController::class)->middleware(['admin', 'auth'])->group(
+    function () {
+        Route::get('/partnerships', 'index');
+        Route::get('/partnerships/create', 'create');
+        Route::post('/partnerships/add', 'store');
+        Route::delete('/partnerships/{id}/delete', 'destroy');
     }
 );
 
