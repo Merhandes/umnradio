@@ -25,7 +25,6 @@ use App\Http\Controllers\PartnershipsController;
 
 Route::controller(Controller::class)->group(function () {
     Route::get('/', 'index');
-    Route::post('/subscribe', 'store');
     Route::get('/logo', 'logo');
     Route::post('/logo/add', 'addLogo');
     Route::post('/logo/delete', 'deleteLogo');

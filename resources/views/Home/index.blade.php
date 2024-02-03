@@ -773,6 +773,7 @@
         </div>
     </div>
 </footer>
+
     <script>
         var button = document.getElementById("buttonplay");
         var button2 = document.getElementById("buttonpause");
