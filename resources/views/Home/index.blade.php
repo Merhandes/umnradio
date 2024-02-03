@@ -11,6 +11,11 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <style>
+          /* *{
+            border: 1px solid red;
+        } */
+    </style>
 </head>
 
 <body class="composer h-full bg-white">
@@ -294,8 +299,7 @@
                     </div>
 
                     <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                        <div
-                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-yellow-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                        <div class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-yellow-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
                             <div class="font-bold text-l md:text-xl font-poppins text-center text-white">KAJJA</div>
                             <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">14.00 - 17.00
                             </div>
@@ -382,7 +386,7 @@
         @endif
         <div class="flex justify-center align-middle w-full my-2 flex-wrap">
             @foreach ($partnerships as $post)
-                <img src="{{ $post->image }}" alt="{{ $post->image }}" class="h-36 md:h-80 my-4">
+                <img src="{{ $post->image }}" alt="Partnership" class="h-36 md:h-80 my-4">
             @endforeach
         </div>
     </div>
@@ -684,56 +688,91 @@
         }
     </style>
 
-    <footer class="bg-[#021f3a] md:h-24 mb-16 p-4">
-        <div
-            class="flex flex-col items-center text-center space-y-3 md:flex-row md:justify-around md:items-center md:text-left md:space-y-0">
-            <div>
+{{-- footer 1 --}}
+<footer class="bg-[#021f3a] mb-4 p-4 pt-4 pb-12">
+    <div class="mt-5 md:mb-16 flex flex-col md:items-center md:flex-row md:justify-around md:text-left md:space-y-0  xl:flex-row xl:items-center justify-between mx-auto">
+        <div class="mb-4 px-4 md:px-0 md:mb-0">
+            <img src="{{ asset('assets/umnradio.webp') }}" alt="logo" class="w-20 mt-1 mx-auto">
+                <div class="mt-2 hidden md:block lg:hidden">
+                    <p class="text-[#ffffff] font-poppins text-xs text-center">Jalan Scientia Boulevard</p>
+                    <p class="text-[#ffffff] font-poppins text-xs text-center">Universitas Multimedia Nusantara, Gedung B lt. 6</p>
+                    <p class="text-[#ffffff] font-poppins text-xs text-center">Tangerang, Banten 15811, ID</p>
+                </div>
+        </div>
 
+        <div class="mb-4 px-4 md:px-0 md:mb-0 md:hidden lg:block">
+            <div class="mb-4">
+                <p class="text-[#ffffff] font-poppins text-xs">Jalan Scientia Boulevard</p>
+                <p class="text-[#ffffff] font-poppins text-xs">Universitas Multimedia Nusantara, Gedung B lt. 6</p>
+                <p class="text-[#ffffff] font-poppins text-xs">Tangerang, Banten 15811, ID</p>
+            </div>
+            <div class="lg:hidden">
+                <h5 class="font-bold text-[#ffffff] font-poppins text-xs">Partner With Us</h5>
+                <a href="mailto: umnradio.partnership@gmail.com" class="text-black no-underline">
+                    <div class="flex">
+                        <img src="{{ asset('assets/gmail.webp') }}" alt="line" class="w-4 mb-1 mr-1">
+                            <p class="font-poppins text-[#ffffff] no-underline hover:text-[#a0a0a0] text-xs">umnradio.partnership@gmail.com</p>
+                    </div>
+                </a>
+            </div>
+        </div>
 
-                <img src="{{ asset('assets/umnradio.webp') }}" alt="logo" class="w-20 mt-1">
-            </div>
-            <div class="font-poppins text-xs text-white">
-                <p>Jalan Scientia Boulevard</p>
-                <p>Universitas Multimedia Nusantara, Gedung B lt. 6</p>
-                <p>Tangerang, Banten 15811, ID</p>
-            </div>
-            <div class="font-poppins text-xs ">
-                <p class="mb-1 font-popping text-white">Contact Us</p>
-                <div class="flex-col">
+        <div class="mb-4 px-4 md:px-0 md:mb-0">
+            <h5 class="font-bold text-[#ffffff] font-poppins text-xs">Menu</h5>
+            <a href="#" class="text-[#ffffff] font-poppins text-xs hover:text-[#a0a0a0]">About Us</a>
+                <div class="mt-2 hidden md:block lg:hidden">
+                    <p class="mb-1 font-poppins text-[#ffffff] font-bold text-xs">Get Our App</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.umnradio.umnradio&pcampaignid=web_share">
+                        <img src="{{ asset('assets/playstore.webp') }}" alt="playstore" class="w-24">
+                    </a>
+                </div>
+        </div>
+
+        <div class="mb-4 px-4 md:px-0 md:mb-0">
+            <p class="mb-1 font-poppins font-bold text-[#ffffff] text-sm">Contact Us</p>
+                <div class="">
                     <a href="http://line.me/ti/p/~@umnradio#~" class="text-black no-underline">
                         <div class="flex">
-                            <img src="{{ asset('assets/line.webp') }}" alt="line" class="w-4 mb-1 mr-1">
-                            <p class="font-poppins text-white no-underline">Line@</p>
+                            <img src="{{ asset('assets/line.webp') }}" alt="line" class="w-4 mb-1 mr-1 hover:text-[#a0a0a0]">
+                            <p class="font-poppins text-[#ffffff] no-underline hover:text-[#a0a0a0] text-xs">Line@</p>
                         </div>
                     </a>
 
                     <a href="https://twitter.com/UMNRADIO" class="text-black no-underline">
                         <div class="flex">
                             <img src="{{ asset('assets/twitter.webp') }}" alt="line" class="w-4 mb-1 mr-1">
-                            <p class="font-poppins text-white no-underline">Twitter</p>
+                                <p class="font-poppins text-[#ffffff] no-underline hover:text-[#a0a0a0] text-xs">Twitter</p>
                         </div>
                     </a>
 
-                    <a href="https://www.youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg"
-                        class="text-black no-underline">
+                    <a href="https://www.youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg" class="text-black no-underline">
                         <div class="flex">
                             <img src="{{ asset('assets/youtube.webp') }}" alt="line" class="w-4 mb-1 mr-1">
-                            <p class="font-poppins text-white no-underline">Youtube</p>
+                                <p class="font-poppins text-[#ffffff] no-underline hover:text-[#a0a0a0] text-xs">Youtube</p>
                         </div>
                     </a>
-                </div>
+
+            <div class="hidden md:block">
+                <h5 class="mt-2 font-bold text-[#ffffff] font-poppins text-xs">Partner With Us</h5>
+                    <a href="mailto: umnradio.partnership@gmail.com" class="text-black no-underline">
+                        <div class="flex">
+                            <img src="{{ asset('assets/gmail.webp') }}" alt="line" class="w-4 mb-1 mr-1">
+                                <p class="font-poppins text-[#ffffff] no-underline hover:text-[#a0a0a0] text-xs">umnradio.partnership@gmail.com</p>
+                        </div>
+                    </a>
             </div>
+                    </div>
+        </div>
+
+        <div class="mb-4 px-4 md:px-0 md:mb-0 md:hidden lg:block">
             <div class="text-xs">
-                <p class="mb-1 font-poppins text-white">Get Our App</p>
-                <a href="https://play.google.com/store/apps/details?id=com.umnradio.umnradio&pcampaignid=web_share"><img
-                        src="{{ asset('assets/playstore.webp') }}" alt="playstore" class="w-20"></a>
+                <p class="mb-1 font-poppins text-[#ffffff] font-bold text-xs">Get Our App</p>
+                <a href="https://play.google.com/store/apps/details?id=com.umnradio.umnradio&pcampaignid=web_share">
+                    <img src="{{ asset('assets/playstore.webp') }}" alt="playstore" class="w-24"></a>
             </div>
         </div>
-    </footer>
     </div>
-
-
-
+</footer>
     <script>
         var button = document.getElementById("buttonplay");
         var button2 = document.getElementById("buttonpause");

@@ -65,4 +65,13 @@ class Controller extends BaseController
             return back()->withErrors(['deleteLogo' => 'Logo not found or already deleted.']);
         }
     }
+
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'email' => 'required|email:dns'
+        ]);
+
+        return redirect('/');
+    }
 }
