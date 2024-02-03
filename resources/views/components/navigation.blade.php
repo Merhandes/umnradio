@@ -55,7 +55,7 @@
                         <a href="/" class="font-poppins text-sm text-black">Home</a>
                         <a href="/articles" class="font-poppins text-sm text-black">Articles</a>
                         <a href="/programs" class="font-poppins text-sm text-black">Programs</a>
-                        <a href="https://open.spotify.com/show/6ytg0qKpDz9ehq2fjklepU?si=2e339706e5754214" target="_" class="font-poppins text-sm text-black">U-PODCAST</a>
+                        <a href="https://open.spotify.com/show/6ytg0qKpDz9ehq2fjklepU?si=2e339706e5754214" target="_" class="font-poppins text-sm text-black">Podcasts</a>
                         <a href="/charts" class="font-poppins text-sm text-black">Charts</a>
                         <a href="/about" class="font-poppins text-sm text-black">About</a>
                     </div>

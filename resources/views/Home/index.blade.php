@@ -11,9 +11,10 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://kit.fontawesome.com/667eb529ec.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="composer h-full bg-white">
+<body class="composer">
     <x-navigation></x-navigation>
     </div>
     {{-- BACKGROUND --}}
@@ -50,7 +51,7 @@
                         </svg></button>
                 </div>
                 <audio id="player">
-                    <source src='http://icecast.umn.ac.id:8080/live' />
+                    <source src='http://icecast.umn.ac.id:8000/live' />
                 </audio>
             </div>
         </div>
@@ -82,9 +83,16 @@
     </footer>
 
     {{-- ON AIR OFF AIR --}}
-    <div id="section-1" class="w-full my-6 md:mt-12">
-        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center">Live Broadcast</h1>
-        <div id="sign" class="m-6 text-center">
+    <div id="section-1" class="w-full">
+        <div class="w-full relative h-fit">
+            <img src="{{ asset('assets/paper/1.webp') }}" class="absolute object-cover object-top w-full h-12 md:h-36 rotate-180 -z-20"
+                alt="">
+            <div
+                class="absolute w-full top-0 bg-gradient-to-b from-white  via-transparent to-transparent h-12 md:h-36 -z-10">
+            </div>
+        </div>
+        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center pt-12 md:pt-40">Live Broadcast</h1>
+        <div id="sign" class="m-3 md:m-6 text-center">
 
             {{-- SCHEDULE SYSTEM PHP --}}
 
@@ -141,211 +149,245 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div id="schedule" class="my-6 md:mt-12 text-center">
-        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold text-center">Weekly Schedule</h1>
-        <div class="border-t-2 border-[#021f3a] w-56 mx-auto mt-4"></div>
-        <div class="tabs-group">
-            <div class="tabs-container flex justify-center items-center">
-                <div class="tabs flex justify-center max-w-[20%]">
-                    <p class="font-semibold text-xs md:text-md font-poppins text-center text-[#021f3a]">Monday</p>
+        <div id="schedule" class="my-6 md:mt-20 md:pt-10 text-center">
+            <h1 class="font-poppins text-[#021f3a] text-2xl font-bold text-center mt-6">Weekly Schedule</h1>
+            <div class="border-t-2 border-[#021f3a] w-56 mx-auto mt-4"></div>
+            <div class="tabs-group">
+                <div class="tabs-container flex justify-center items-center">
+                    <div class="tabs flex justify-center max-w-[20%]">
+                        <p class="font-semibold text-xs md:text-lg font-poppins text-center text-[#021f3a]">Monday</p>
+                    </div>
+                    <div class="tabs flex justify-center max-w-[20%]">
+                        <p class="font-semibold text-xs md:text-lg font-poppins text-center text-[#021f3a]">Tuesday</p>
+                    </div>
+                    <div class="tabs flex justify-center max-w-[20%]">
+                        <p class="font-semibold text-xs md:text-lg font-poppins text-center text-[#021f3a]">Wednesday
+                        </p>
+                    </div>
+                    <div class="tabs flex justify-center max-w-[20%]">
+                        <p class="font-semibold text-xs md:text-lg font-poppins text-center text-[#021f3a]">Thursday</p>
+                    </div>
+                    <div class="tabs flex justify-center max-w-[20%]">
+                        <p class="font-semibold text-xs md:text-lg font-poppins text-center text-[#021f3a]">Friday</p>
+                    </div>
+
+                    <div class="indicator"></div>
                 </div>
-                <div class="tabs flex justify-center max-w-[20%]">
-                    <p class="font-semibold text-xs md:text-md font-poppins text-center text-[#021f3a]">Tuesday</p>
-                </div>
-                <div class="tabs flex justify-center max-w-[20%]">
-                    <p class="font-semibold text-xs md:text-md font-poppins text-center text-[#021f3a]">Wednesday</p>
-                </div>
-                <div class="tabs flex justify-center max-w-[20%]">
-                    <p class="font-semibold text-xs md:text-md font-poppins text-center text-[#021f3a]">Thursday</p>
-                </div>
-                <div class="tabs flex justify-center max-w-[20%]">
-                    <p class="font-semibold text-xs md:text-md font-poppins text-center text-[#021f3a]">Friday</p>
-                </div>
 
-                <div class="indicator"></div>
-            </div>
+                <div class="tab-content">
+                    <div class="flex justify-around tab-content-item text-center lg:mb-3">
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div
+                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out">
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">NEWS FLASH
+                                </div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">10.00 -
+                                    11.00
+                                </div>
+                            </div>
+                            <img alt=""
+                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                                src="{{ asset('images/programs/NF.webp') }}" />
+                        </div>
 
-            <div class="tab-content">
-                <div class="flex justify-around tab-content-item text-center lg:mb-3">
-                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                        <div
-                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out">
-                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">NEWS FLASH
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div
+                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-pink-400/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">SERSAN
+                                </div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">11.00 -
+                                    14.00
+                                </div>
                             </div>
-                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">10.00 - 11.00
-                            </div>
+                            <img alt=""
+                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                                src="{{ asset('images/programs/SS.webp') }}" />
                         </div>
-                        <img alt=""
-                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                            src="{{ asset('images/programs/NF.webp') }}" />
-                    </div>
 
-                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                        <div
-                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-pink-400/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">SERSAN</div>
-                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">11.00 - 14.00
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div
+                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-orange-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">SKOOB
+                                </div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">14.00 -
+                                    17.00
+                                </div>
                             </div>
+                            <img alt=""
+                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                                src="{{ asset('images/programs/SKOOB.webp') }}" />
                         </div>
-                        <img alt=""
-                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                            src="{{ asset('images/programs/SS.webp') }}" />
                     </div>
+                    <div class="flex justify-around tab-content-item text-center mx-20 md:mx-32 lg:mx-60">
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div
+                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-blue-800/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">
+                                    MUSIKALITAS
+                                </div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">11.00 -
+                                    14.00
+                                </div>
+                            </div>
+                            <img alt=""
+                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                                src="{{ asset('images/programs/M.webp') }}" />
+                        </div>
 
-                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                        <div
-                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-orange-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">SKOOB</div>
-                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">14.00 - 17.00
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div
+                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-blue-500/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">CAMPUS
+                                    TROOPS
+                                </div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">15.00 -
+                                    17.00
+                                </div>
                             </div>
+                            <img alt=""
+                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                                src="{{ asset('images/programs/CT.webp') }}" />
                         </div>
-                        <img alt=""
-                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                            src="{{ asset('images/programs/SKOOB.webp') }}" />
                     </div>
-                </div>
-                <div class="flex justify-around tab-content-item text-center mx-20 md:mx-32 lg:mx-60">
-                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                        <div
-                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-blue-800/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">MUSIKALITAS
+                    <div class="flex justify-around tab-content-item text-center lg:mb-3">
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div
+                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-purple-900/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">SODA</div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">10.00 -
+                                    13.00
+                                </div>
                             </div>
-                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">11.00 - 14.00
-                            </div>
+                            <img alt=""
+                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                                src="{{ asset('images/programs/SODA.webp') }}" />
                         </div>
-                        <img alt=""
-                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                            src="{{ asset('images/programs/M.webp') }}" />
-                    </div>
 
-                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                        <div
-                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-blue-500/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">CAMPUS TROOPS
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div
+                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">NEWS FLASH
+                                </div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">13.00 -
+                                    14.00
+                                </div>
                             </div>
-                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">15.00 - 17.00
-                            </div>
+                            <img alt=""
+                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                                src="{{ asset('images/programs/NF.webp') }}" />
                         </div>
-                        <img alt=""
-                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                            src="{{ asset('images/programs/CT.webp') }}" />
-                    </div>
-                </div>
-                <div class="flex justify-around tab-content-item text-center lg:mb-3">
-                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                        <div
-                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-purple-900/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">SODA</div>
-                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">10.00 - 13.00
-                            </div>
-                        </div>
-                        <img alt=""
-                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                            src="{{ asset('images/programs/SODA.webp') }}" />
-                    </div>
 
-                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                        <div
-                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">NEWS FLASH
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div
+                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-yellow-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">KAJJA
+                                </div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">14.00 -
+                                    17.00
+                                </div>
                             </div>
-                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">13.00 - 14.00
-                            </div>
+                            <img alt=""
+                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                                src="{{ asset('images/programs/K.webp') }}" />
                         </div>
-                        <img alt=""
-                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                            src="{{ asset('images/programs/NF.webp') }}" />
                     </div>
+                    <div class="flex justify-around tab-content-item text-center mx-20 md:mx-32 lg:mx-60">
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div
+                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">JERIT
+                                    MALAM
+                                </div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">11.00 -
+                                    14.00
+                                </div>
+                            </div>
+                            <img alt=""
+                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                                src="{{ asset('images/programs/JM.webp') }}" />
+                        </div>
 
-                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                        <div
-                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-yellow-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">KAJJA</div>
-                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">14.00 - 17.00
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div
+                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-blue-500/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">CAMPUS
+                                    TROOPS
+                                </div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">15.00 -
+                                    17.00
+                                </div>
                             </div>
+                            <img alt=""
+                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                                src="{{ asset('images/programs/CT.webp') }}" />
                         </div>
-                        <img alt=""
-                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                            src="{{ asset('images/programs/K.webp') }}" />
                     </div>
-                </div>
-                <div class="flex justify-around tab-content-item text-center mx-20 md:mx-32 lg:mx-60">
-                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                        <div
-                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">JERIT MALAM
+                    <div class="flex justify-around tab-content-item text-center lg:mb-3">
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div
+                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-red-800/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">BILCIN
+                                </div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">10.00 -
+                                    13.00
+                                </div>
                             </div>
-                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">11.00 - 14.00
-                            </div>
+                            <img alt=""
+                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                                src="{{ asset('images/programs/BC.webp') }}" />
                         </div>
-                        <img alt=""
-                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                            src="{{ asset('images/programs/JM.webp') }}" />
-                    </div>
 
-                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                        <div
-                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-blue-500/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">CAMPUS TROOPS
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div
+                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">NEWS FLASH
+                                </div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">13.00 -
+                                    14.00
+                                </div>
                             </div>
-                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">15.00 - 17.00
-                            </div>
+                            <img alt=""
+                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                                src="{{ asset('images/programs/NF.webp') }}" />
                         </div>
-                        <img alt=""
-                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                            src="{{ asset('images/programs/CT.webp') }}" />
-                    </div>
-                </div>
-                <div class="flex justify-around tab-content-item text-center lg:mb-3">
-                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                        <div
-                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-red-800/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">BILCIN</div>
-                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">10.00 - 13.00
-                            </div>
-                        </div>
-                        <img alt=""
-                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                            src="{{ asset('images/programs/BC.webp') }}" />
-                    </div>
 
-                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                        <div
-                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">NEWS FLASH
+                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
+                            <div
+                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-purple-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
+                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">
+                                    CHARTTOPPERS
+                                </div>
+                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">14.00 -
+                                    17.00
+                                </div>
                             </div>
-                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">13.00 - 14.00
-                            </div>
+                            <img alt=""
+                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
+                                src="{{ asset('images/programs/C.webp') }}" />
                         </div>
-                        <img alt=""
-                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                            src="{{ asset('images/programs/NF.webp') }}" />
-                    </div>
-
-                    <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                        <div
-                            class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-purple-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                            <div class="font-bold text-l md:text-xl font-poppins text-center text-white">CHARTTOPPERS
-                            </div>
-                            <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">14.00 - 17.00
-                            </div>
-                        </div>
-                        <img alt=""
-                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                            src="{{ asset('images/programs/C.webp') }}" />
                     </div>
                 </div>
             </div>
         </div>
+        <div class="w-full relative h-fit">
+            <img src="{{ asset('assets/paper/10.webp') }}" class="absolute h-[500px] md:h-[700px] object-cover bottom-0 -z-10" alt="">
+        </div>
     </div>
 
     {{-- ARTICLE --}}
-    <div class="mx-12 font-poppins text-black mb-6">
-        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold text-center my-2 mb-6">News</h1>
-        <div class="flex flex-wrap gap-8 justify-center">
+    <div class=" font-poppins text-black mb-6 bg-[#103069] shadow-inner relative"
+        style="box-shadow: inset 4px 4px 4px 0 rgb(0 0 0 / 0.05);">
+        <img src="{{ asset('assets/others/papertexture.webp') }}" alt=""
+            class="absolute w-full h-full opacity-20 z-0">
+        <img src="{{ asset('assets/others/notebook.webp') }}" alt=""
+            class="absolute top-12 w-64 md:w-[30%] md:end-24 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] rotate-12 md:-rotate-12 brightness-[90%]">
+        <img src="{{ asset('assets/others/penmerah.webp') }}" alt=""
+            class="absolute top-12 w-32 md:w-[20%] drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] brightness-[90%]">
+        <div class="w-full h-full p-4 md:p-8 relative">
+            <h1 class="font-poppins text-white text-2xl font-bold text-center my-2 mb-6 z-40">Latest Posts</h1>
+            <div class="flex flex-wrap gap-8 justify-center">
 
-            <a class="no-underline" href="/article/kepada-yth-maba-apa-kabar-kali-ini">
+                {{-- <a class="no-underline" href="/article/kepada-yth-maba-apa-kabar-kali-ini">
                 <div class="rounded overflow-hidden shadow-lg no-underline w-[300px] h-full relative pb-12">
                     <img class="w-full h-36 md:h-52 object-cover"
                         src="{{ asset('images/artikel2/FEATURED IMAGE MABA.webp') }}" alt="Featured Image">
@@ -383,45 +425,169 @@
                             OMB</span>
                     </div>
                 </div>
-            </a>
+            </a> --}}
+                @php
+                    $count = 0;
+                @endphp
 
-            @foreach ($posts as $post)
-                <a class="no-underline" href="/article/{{ $post->slug }}">
-                    <div class="rounded overflow-hidden shadow-lg no-underline w-[300px] h-full relative pb-12">
-                        <img class="w-full h-36 md:h-52 object-cover"
-                            src="{{ asset('storage/' . $post->cover_photo) }}" alt="Featured Image">
-                        <div class="px-6 py-4">
-                            <div class="font-bold text-xl mb-2 text-[#021f3a]">{{ $post->title }}</div>
-                            <p class="text-gray-700 text-base sm:text-xs">
-                                {{ $post->excerpt }}
-                            </p>
+                @foreach ($posts as $post)
+                    @if ($count == 0)
+                        <a class="no-underline" href="/article/{{ $post->slug }}">
+                            <div
+                                class="rounded overflow-hidden drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] no-underline w-[300px] md:w-[600px] h-full relative pb-12 bg-white hover:scale-105 ease-in-out duration-100 md:flex md:flex-row md:p-4">
+                                <img class="w-full h-36 md:h-full md:w-1/2 object-cover rounded"
+                                    src="{{ asset('storage/' . $post->cover_photo) }}" alt="Featured Image">
+                                <div class="px-6 py-4">
+                                    <div class="font-bold text-xl md:text-3xl mb-2 text-[#021f3a]">{{ $post->title }}
+                                    </div>
+                                    <p class="text-gray-700 text-xs md:text-base">
+                                        {{ $post->excerpt }}
+                                    </p>
+                                </div>
+                                <div class="px-3 pt-4 absolute bottom-1 md:end-2">
+                                    <span
+                                        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{ $post->category }}</span>
+                                    <span>
+                                        {{ $post->published }}
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    @else
+                        <a class="no-underline" href="/article/{{ $post->slug }}">
+                            <div
+                                class="rounded overflow-hidden drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] no-underline w-[300px] h-full relative pb-12 bg-white hover:scale-105 ease-in-out duration-100">
+                                <img class="w-full h-36 md:h-52 object-cover"
+                                    src="{{ asset('storage/' . $post->cover_photo) }}" alt="Featured Image">
+                                <div class="px-6 py-4">
+                                    <div class="font-bold text-xl mb-2 text-[#021f3a]">{{ $post->title }}</div>
+                                    <p class="text-gray-700 md:text-base text-xs">
+                                        {{ $post->excerpt }}
+                                    </p>
+                                </div>
+                                <div class="px-3 pt-4 absolute bottom-1">
+                                    <span
+                                        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{ $post->category }}</span>
+                                    <span>
+                                        {{ $post->published }}
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    @endif
+                    @php
+                        $count++;
+                    @endphp
+                @endforeach
+
+            </div>
+            <div class="text-center flex flex-row justify-center items-center my-6 z-40">
+                <a class="no-underline" href="/articles">
+                    <button
+                        class="bg-white hover:bg-[#021f3a] text-[#021f3a] font-semibold hover:text-white py-2 px-4 border border-[#021f3a] hover:border-transparent rounded ease-in-out duration-100">
+                        Read More
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    {{-- Charts --}}
+    <div id="section-4" class="md:mt-12 w-full my-12">
+        @if ($charts->count() > 0)
+            <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center">Charts</h1>
+        @endif
+        <div class="flex justify-center align-middle w-full my-2 flex-wrap gap-5">
+            @php
+                $count = 1;
+            @endphp
+
+            @foreach ($charts as $chart)
+                @if ($chart->status == 'PUBLISHED')
+                    {{-- CHART CARD --}}
+                    <div
+                        class="w-[90vw] lg:w-[35vw] lg:min-w-[300px] flex flex-col justify-center align-middle items-center rounded-lg bg-white drop-shadow-lg h-fit row-start-{{ $count }} row-end-{{ $count + 1 }}">
+                        @php
+                            $count++;
+                        @endphp
+                        {{-- @if ($count++ % 2 == 0) md:mb-52
+                        @else md:mt-52 @endif --}}
+                        <div class="w-full h-32 relative rounded-t-lg flex justify-center align-middle">
+                            <img class="absolute w-full h-full object-cover rounded-t-lg -z-0 brightness-50"
+                                src="{{ asset('storage/' . $chart->cover_image) }}" alt="">
+                            <div class="flex flex-row gap-2 justify-center align-middle items-center z-40 w-[75%]">
+                                <p id="name_preview"
+                                    class="text-2xl md:text-3xl text-white font-poppins font-bold text-center w-fit">
+                                    {{ strtoupper($chart->chart_name) }}
+                                </p>
+                                <a href="{{ $chart->link }}" target="_blank"
+                                    class="hover:cursor-pointer hover:scale-[120%]">
+                                    <i class="fa-brands fa-spotify fa-2xl" style="color:#1DB954;"></i>
+                                </a>
+                            </div>
                         </div>
-                        <div class="px-3 pt-4 absolute bottom-1">
-                            <span
-                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{ $post->category }}</span>
-                            <span>
-                                {{ $post->published }}
-                            </span>
+                        {{-- SONG CONTAINER --}}
+                        <div
+                            class="song-container flex flex-col gap-2 p-2 md:p-4 w-full overflow-scroll max-h-56 md:max-h-fit">
+                            {{-- SONG CARD --}}
+                            @php
+                                $song_count = 1;
+                            @endphp
+                            @foreach ($chart->songs as $song)
+                                <div
+                                    class="song w-full flex flex-row items-center align-middle bg-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] h-10 md:h-16 rounded md:rounded-lg">
+                                    <div
+                                        class="bg-[#021f3a] p-3 rounded-l md:rounded-l-lg h-full aspect-square flex justify-center align-middle items-center">
+                                        <p class="text-lg font-poppins text-white">
+                                            #{{ $song_count++ }}</p>
+                                    </div>
+                                    <img class="h-full aspect-square rounded-r md:rounded-r-lg object-cover"
+                                        src="{{ asset('storage/' . $song->cover_image) }}" alt="">
+                                    <div
+                                        class="h-full flex flex-col lg:justify-center flex-grow overflow-scroll md:overflow-auto text-ellipsis ml-5">
+                                        <p class="text-base md:text-2xl text-black font-poppins font-bold">
+                                            {{ strtoupper($song->title) }}
+                                        </p>
+                                        <p class="text-xs md:text-md text-gray-800 font-poppins">
+                                            {{ $song->artists }}</p>
+                                    </div>
+                                </div>
+                            @endforeach
+                            {{-- @foreach ($junctions as $junction)
+                                @foreach ($songs as $song)
+                                    @if ($song->id == $junction->song_id && $chart->id == $junction->chart_id)
+                                        <div
+                                            class="song w-full flex flex-row items-center align-middle bg-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] h-24 md:h-40 p-4 rounded-lg gap-2 md:gap-6 relative">
+                                            <div
+                                                class="absolute top-0 start-0 bg-[#021f3a] p-3 rounded-tl-lg rounded-br-[30px] drop-shadow-[0_3px_3px_rgba(255,255,255,0.4)]">
+                                                <p class="text-sm md:text-md font-poppins text-white">
+                                                    #{{ $song_count++ }}</p>
+                                            </div>
+                                            <img class="h-full aspect-square rounded-lg object-cover"
+                                                src="{{ asset('storage/' . $song->cover_image) }}" alt="">
+                                            <div
+                                                class="h-full flex flex-col lg:justify-center flex-grow overflow-scroll md:overflow-auto text-ellipsis">
+                                                <p class="text-lg md:text-2xl text-black font-poppins font-bold">
+                                                    {{ strtoupper($song->title) }}
+                                                </p>
+                                                <p class="text-sm md:text-md text-gray-800 font-poppins">
+                                                    {{ $song->artists }}</p>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            @endforeach --}}
                         </div>
                     </div>
-                </a>
+                @endif
             @endforeach
-
-        </div>
-        <div class="text-center flex flex-row justify-center items-center my-6">
-            <a class="no-underline" href="/articles">
-                <button
-                    class="bg-transparent hover:bg-[#021f3a] text-[#021f3a] font-semibold hover:text-white py-2 px-4 border border-[#021f3a] hover:border-transparent rounded">
-                    Read More
-                </button>
-            </a>
         </div>
     </div>
 
     {{-- Section 4 --}}
     <div id="section-4" class="md:mt-12 w-full my-12">
         @if ($partnerships->count() > 0)
-        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center">Partnerships</h1>
+            <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center">Partnerships</h1>
         @endif
         <div class="flex justify-center align-middle w-full my-2 flex-wrap">
             @foreach ($partnerships as $post)
@@ -433,111 +599,14 @@
     {{-- Segments --}}
     <div id="segments" class="md:mt-12 w-full my-12">
         @foreach ($segments as $segment)
-            <h1 class="font-poppins text-[#021f3a] text-2xl font-bold text-center my-2 mb-6">{{$segment->title}}</h1>
-            <div class="w-full">{!!$segment->content!!}</div>
+            <h1 class="font-poppins text-[#021f3a] text-2xl font-bold text-center my-2 mb-6">{{ $segment->title }}
+            </h1>
+            <div class="w-full">{!! $segment->content !!}</div>
         @endforeach
     </div>
 
     {{-- Section 3 --}}
     <div id="section-3" class="mx-4">
-        <!-- Swiper -->
-        <div class="swiper">
-            <h1 class="font-poppins text-[#021f3a] text-2xl font-bold text-center my-2">Playlists</h1>
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <iframe style="border-radius:15px"
-                        src="https://open.spotify.com/embed/playlist/0ygBAAd7ew4LuCg2wYDxs0?utm_source=generator"
-                        width="300" height="450" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                    <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-                    <div class="invis_layer md:hidden"></div>
-                    <h3 class="swipe_here md:hidden w-full absolute bottom-0.5 text-neutral-400 text-center">Swipe Here
-                    </h3>
-                </div>
-                <div class="swiper-slide">
-                    <iframe style="border-radius:15px"
-                        src="https://open.spotify.com/embed/playlist/0bJX6EM2jhGoPebVBmo2WF?utm_source=generator"
-                        width="300" height="450" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                    <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-                    <div class="invis_layer md:hidden"></div>
-                    <h3 class="swipe_here md:hidden w-full absolute bottom-0.5 text-neutral-400 text-center">Swipe Here
-                    </h3>
-                </div>
-                <div class="swiper-slide">
-                    <iframe style="border-radius:15px"
-                        src="https://open.spotify.com/embed/playlist/3vGDg5BKGBCVMp6ZakNtdy?utm_source=generator"
-                        width="300" height="450" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                    <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-                    <div class="invis_layer md:hidden"></div>
-                    <h3 class="swipe_here md:hidden w-full absolute bottom-0.5 text-neutral-400 text-center">Swipe Here
-                    </h3>
-                </div>
-                <div class="swiper-slide">
-                    <iframe style="border-radius:15px"
-                        src="https://open.spotify.com/embed/playlist/6lyWx7VS8sqvQz6qVhowTq?utm_source=generator"
-                        width="300" height="450" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                    <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-                    <div class="invis_layer md:hidden"></div>
-                    <h3 class="swipe_here md:hidden w-full absolute bottom-0.5 text-neutral-400 text-center">Swipe Here
-                    </h3>
-                </div>
-                <div class="swiper-slide">
-                    <iframe style="border-radius:15px"
-                        src="https://open.spotify.com/embed/playlist/7vIo3BQwy24fmZ77AxFMtT?utm_source=generator"
-                        width="300" height="450" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                    <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-                    <div class="invis_layer md:hidden"></div>
-                    <h3 class="swipe_here md:hidden w-full absolute bottom-0.5 text-neutral-400 text-center">Swipe Here
-                    </h3>
-                </div>
-                <div class="swiper-slide">
-                    <iframe style="border-radius:15px"
-                        src="https://open.spotify.com/embed/playlist/2dmVTR6rAaXGiGCLubKY5m?utm_source=generator"
-                        width="300" height="450" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                    <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-                    <div class="invis_layer md:hidden"></div>
-                    <h3 class="swipe_here md:hidden w-full absolute bottom-0.5 text-neutral-400 text-center">Swipe Here
-                    </h3>
-                </div>
-                <div class="swiper-slide">
-                    <iframe style="border-radius:15px"
-                        src="https://open.spotify.com/embed/playlist/5pkN7hYqLwuUszAIQ1ErUa?utm_source=generator"
-                        width="300" height="450" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                    <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-                    <div class="invis_layer md:hidden"></div>
-                    <h3 class="swipe_here md:hidden w-full absolute bottom-0.5 text-neutral-400 text-center">Swipe Here
-                    </h3>
-                </div>
-                <div class="swiper-slide">
-                    <iframe style="border-radius:15px"
-                        src="https://open.spotify.com/embed/playlist/3Av5uQtPEEC3kzk0LlppEw?utm_source=generator"
-                        width="300" height="450" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                    <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-                    <div class="invis_layer md:hidden"></div>
-                    <h3 class="swipe_here md:hidden w-full absolute bottom-0.5 text-neutral-400 text-center">Swipe Here
-                    </h3>
-                </div>
-            </div>
-            <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div>
 
         <div id="additional-embeds" class="flex justify-center flex-wrap align-middle w-full my-4">
             <div id="u-podcast" class="mx-4 w-[400px] max-w-[90%]">
@@ -575,78 +644,7 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <!-- Initialize Swiper -->
-    <script type="module">
-        var swiper = new Swiper('.swiper', {
-            effect: 'coverflow',
-            grabCursor: false,
-            centeredSlides: true,
-            slidesPerView: 'auto',
-            mousewheel: true,
-            // cubeEffect: {
-            //     shadow: true,
-            //     slideShadows: true,
-            //     shadowOffset: 20,
-            //     shadowScale: 0.94,
-            // },
-            coverflowEffect: {
-                rotate: 0,
-                stretch: 50,
-                depth: 200,
-                modifier: 1,
-            },
-            autoplay: {
-                delay: 3000,
-                pauseOnMouseEnter: true,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-            // loop: true,
-            lazy: true,
-            lazyPreloadPrevNext: 0,
-        });
-    </script>
 
-    <!-- Demo styles -->
-    <style>
-        .swiper {
-            width: 1600px;
-            max-width: 95%;
-            padding-top: 5px;
-            padding-bottom: 30px;
-        }
-
-        .swiper-slide {
-            background-position: center;
-            background-size: cover;
-            width: 300px;
-            position: relative;
-        }
-
-        @media only screen and (max-width:768px) {
-            .swiper-slide {
-                height: 475px;
-            }
-        }
-
-        .swiper-slide .invis_layer {
-            background-color: rgba(202, 202, 202, 0.9);
-            position: absolute;
-            top: 0;
-            z-index: -1;
-            width: 100%;
-            height: 475px;
-            border-radius: 15px
-        }
-    </style>
     <x-footer></x-footer>
     <script>
         var button = document.getElementById("buttonplay");

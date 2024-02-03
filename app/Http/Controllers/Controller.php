@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chart;
 use App\Models\Partnerships;
 use App\Models\Post;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -26,8 +27,9 @@ class Controller extends BaseController
         $posts = Post::latest()->take(3)->get();
         $segments = Segment::where('status', 'PUBLISHED')->get();
         $partnerships = Partnerships::all();
+        $charts = Chart::where('status', 'PUBLISHED')->get()->random(2);
 
-        return view('Home.index', ['programs' => $programs, 'posts' => $posts, 'segments' => $segments, 'partnerships' => $partnerships]);
+        return view('Home.index', ['programs' => $programs, 'posts' => $posts, 'segments' => $segments, 'partnerships' => $partnerships, 'charts' => $charts]);
     }
 
     public function logo()
