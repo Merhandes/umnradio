@@ -1,6 +1,6 @@
 <div>
     {{-- footer 1 --}}
-    <footer class="bg-[#021f3a] mb-4 p-4 pt-4 pb-12 md:pb-4">
+    <div class="bg-[#021f3a] mb-4 p-4 pt-4 pb-12 md:pb-4">
         <div
             class="mt-5 md:mb-16 flex flex-col md:items-center md:flex-row md:justify-around md:text-left md:space-y-0  xl:flex-row xl:items-center justify-between mx-auto">
             <div class="mb-4 px-4 md:px-0 md:mb-0">
@@ -31,7 +31,7 @@
                 </div> --}}
             </div>
 
-            <div class="mb-4 px-4 md:px-0 md:mb-0">
+            <div class="mb-4 px-4 md:px-0 md:mb-0 md:flex md:flex-col gap-4 md:gap-0">
                 <h5 class="font-bold text-[#ffffff] font-poppins text-base md:text-lg">Menu</h5>
                 <a href="/" class="text-[#ffffff] font-poppins text-sm md:text-base hover:text-[#a0a0a0]">Home</a>
                 <a href="/articles" class="text-[#ffffff] font-poppins text-sm md:text-base hover:text-[#a0a0a0]">Articles</a>
@@ -93,5 +93,5 @@
                 </div>
             </div> --}}
         </div>
-    </footer>
+    </div>
 </div>
