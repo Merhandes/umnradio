@@ -38,5 +38,7 @@ class DatabaseSeeder extends Seeder
         
 
         $this->call(ProgramsSeeder::class);
+        $this->call(RoledefSeeder::class);
+        $this->call(RoleSeeder::class);
     }
 }

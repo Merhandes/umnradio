@@ -52,7 +52,7 @@ class PostController extends Controller
             'title' => 'required|max:255',
             'slug' => 'required|unique:posts',
             'author' => 'required|max:255',
-            'editor'=> 'max:255',
+            'editor' => 'max:255',
             'post_content' => 'required',
             'cover_photo' => 'required|image|file|max:20480'
         ]);
@@ -69,9 +69,9 @@ class PostController extends Controller
             $validData['cover_photo'] = $request->file('cover_photo')->storePublicly('cover_images', 'public');
         }
 
-        $post=Post::create($validData);
+        $post = Post::create($validData);
 
-        $user=Auth::user();
+        $user = Auth::user();
         PostAccess::create([
             'post_id' => $post->id,
             'user_id' => $user->id,
@@ -97,7 +97,8 @@ class PostController extends Controller
     public function show(Post $post)
     {
         //
-        return view('Post.show', ['post' => $post]);
+        $articles = Post::latest()->where('id', '!=', $post->id)->take(5)->get();
+        return view('Post.show', ['post' => $post, 'articles' => $articles]);
     }
 
     /**
@@ -130,7 +131,7 @@ class PostController extends Controller
 
         $validData = $request->validate($rules);
 
-        
+
 
         $string = strip_tags(str_replace('<', ' <', $request->post_content));
         $str = Str::limit($string, 100, '...');
@@ -205,15 +206,16 @@ class PostController extends Controller
         }
     }
 
-    public function showArticles(Request $request){
+    public function showArticles(Request $request)
+    {
         // dd(request('search'));
-        
+
         $posts = Post::latest();
 
-        if(request('search')){
-            $posts = Post::where('title', 'like', '%'.$request->search.'%')->orWhere('post_content', 'like', '%' . $request->search . '%');
+        if (request('search')) {
+            $posts = Post::where('title', 'like', '%' . $request->search . '%')->orWhere('post_content', 'like', '%' . $request->search . '%');
         }
-        
+
 
         return view('News.index', ['posts' => $posts->get()]);
     }
@@ -221,6 +223,22 @@ class PostController extends Controller
     public function showArticle(Post $post)
     {
         //
-        return view('Post.show', ['post' => $post]);
+        $title = $post->title;
+        $category = $post->category;
+
+        // Find posts with similar titles or from the same category
+        $suggestions = Post::where(function ($query) use ($title, $category) {
+            $query->where('title', 'like', "%$title%")
+                ->orWhere('category', 'like', "%$category%");
+        })
+            ->where('id', '!=', $post->id) // Exclude the current post
+            ->latest()
+            ->take(3)
+            ->get();
+
+        // dd($suggestions);
+
+        $articles = Post::latest()->where('id', '!=', $post->id)->take(5)->get();
+        return view('Post.show', ['post' => $post, 'articles' => $articles, 'suggestions' => $suggestions]);
     }
 }

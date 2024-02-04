@@ -27,7 +27,12 @@ class Controller extends BaseController
         $posts = Post::latest()->take(3)->get();
         $segments = Segment::where('status', 'PUBLISHED')->get();
         $partnerships = Partnerships::all();
-        $charts = Chart::where('status', 'PUBLISHED')->get()->random(2);
+        $chartcount = Chart::count();
+        if ($chartcount>0) {
+            $charts = Chart::where('status', 'PUBLISHED')->get()->random(2);
+        }else{
+            $charts = Chart::all();
+        }
 
         return view('Home.index', ['programs' => $programs, 'posts' => $posts, 'segments' => $segments, 'partnerships' => $partnerships, 'charts' => $charts]);
     }

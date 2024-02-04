@@ -83,15 +83,15 @@
     </footer>
 
     {{-- ON AIR OFF AIR --}}
-    <div id="section-1" class="w-full">
+    <div id="section-1" class="w-full mb-16">
         <div class="w-full relative h-fit">
-            <img src="{{ asset('assets/paper/1.webp') }}" class="absolute object-cover object-top w-full h-12 md:h-36 rotate-180 -z-20"
-                alt="">
+            <img src="{{ asset('assets/paper/1.webp') }}"
+                class="absolute object-cover object-top w-full h-24 md:h-36 rotate-180 -z-20" alt="">
             <div
-                class="absolute w-full top-0 bg-gradient-to-b from-white  via-transparent to-transparent h-12 md:h-36 -z-10">
+                class="absolute w-full top-0 bg-gradient-to-b from-white via-transparent to-transparent h-12 md:h-36 -z-10">
             </div>
         </div>
-        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center pt-12 md:pt-40">Live Broadcast</h1>
+        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center pt-24 md:pt-36">Live Broadcast</h1>
         <div id="sign" class="m-3 md:m-6 text-center">
 
             {{-- SCHEDULE SYSTEM PHP --}}
@@ -149,233 +149,401 @@
                 </div>
             </div>
         </div>
-        <div id="schedule" class="my-6 md:mt-20 md:pt-10 text-center">
-            <h1 class="font-poppins text-[#021f3a] text-2xl font-bold text-center mt-6">Weekly Schedule</h1>
-            <div class="border-t-2 border-[#021f3a] w-56 mx-auto mt-4"></div>
-            <div class="tabs-group">
-                <div class="tabs-container flex justify-center items-center">
-                    <div class="tabs flex justify-center max-w-[20%]">
-                        <p class="font-semibold text-xs md:text-lg font-poppins text-center text-[#021f3a]">Monday</p>
-                    </div>
-                    <div class="tabs flex justify-center max-w-[20%]">
-                        <p class="font-semibold text-xs md:text-lg font-poppins text-center text-[#021f3a]">Tuesday</p>
-                    </div>
-                    <div class="tabs flex justify-center max-w-[20%]">
-                        <p class="font-semibold text-xs md:text-lg font-poppins text-center text-[#021f3a]">Wednesday
-                        </p>
-                    </div>
-                    <div class="tabs flex justify-center max-w-[20%]">
-                        <p class="font-semibold text-xs md:text-lg font-poppins text-center text-[#021f3a]">Thursday</p>
-                    </div>
-                    <div class="tabs flex justify-center max-w-[20%]">
-                        <p class="font-semibold text-xs md:text-lg font-poppins text-center text-[#021f3a]">Friday</p>
-                    </div>
+    </div>
 
-                    <div class="indicator"></div>
+    <div id="schedule" class="md:mt-20 md:pt-10 text-center relative">
+        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold text-center mt-8 pt-4">Weekly Schedule</h1>
+        <div class="border-t-2 border-[#021f3a] w-56 mx-auto mt-4"></div>
+        <div class="tabs-group pb-12">
+            <div class="tabs-container flex justify-center items-center">
+                <div class="tabs flex justify-center max-w-[20%]">
+                    <p class="font-semibold text-xs md:text-lg font-poppins text-center text-[#021f3a]">Monday</p>
+                </div>
+                <div class="tabs flex justify-center max-w-[20%]">
+                    <p class="font-semibold text-xs md:text-lg font-poppins text-center text-[#021f3a]">Tuesday</p>
+                </div>
+                <div class="tabs flex justify-center max-w-[20%]">
+                    <p class="font-semibold text-xs md:text-lg font-poppins text-center text-[#021f3a]">Wednesday
+                    </p>
+                </div>
+                <div class="tabs flex justify-center max-w-[20%]">
+                    <p class="font-semibold text-xs md:text-lg font-poppins text-center text-[#021f3a]">Thursday</p>
+                </div>
+                <div class="tabs flex justify-center max-w-[20%]">
+                    <p class="font-semibold text-xs md:text-lg font-poppins text-center text-[#021f3a]">Friday</p>
                 </div>
 
-                <div class="tab-content">
-                    <div class="flex justify-around tab-content-item text-center lg:mb-3">
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div
-                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">NEWS FLASH
-                                </div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">10.00 -
-                                    11.00
-                                </div>
-                            </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/NF.webp') }}" />
-                        </div>
+                <div class="indicator"></div>
+            </div>
 
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div
-                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-pink-400/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">SERSAN
+            <div class="tab-content">
+                <div class="flex justify-around tab-content-item text-center flex-wrap md:flex-nowrap p-2 gap-4 md:gap-0">
+                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                        <div
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            <img alt="" class="object-contain rounded-xl h-full"
+                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                            <div class="w-full flex flex-col container h-full">
+                                <div class="font-bold md:text-2xl font-poppins text-center">NEWS FLASH
                                 </div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">11.00 -
-                                    14.00
-                                </div>
-                            </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/SS.webp') }}" />
-                        </div>
-
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div
-                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-orange-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">SKOOB
-                                </div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">14.00 -
-                                    17.00
-                                </div>
-                            </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/SKOOB.webp') }}" />
-                        </div>
-                    </div>
-                    <div class="flex justify-around tab-content-item text-center mx-20 md:mx-32 lg:mx-60">
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div
-                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-blue-800/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">
-                                    MUSIKALITAS
-                                </div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">11.00 -
-                                    14.00
-                                </div>
-                            </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/M.webp') }}" />
-                        </div>
-
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div
-                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-blue-500/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">CAMPUS
-                                    TROOPS
-                                </div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">15.00 -
-                                    17.00
-                                </div>
-                            </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/CT.webp') }}" />
-                        </div>
-                    </div>
-                    <div class="flex justify-around tab-content-item text-center lg:mb-3">
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div
-                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-purple-900/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">SODA</div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">10.00 -
+                                <div class="md:text-xl font-poppins text-center">12.00 -
                                     13.00
                                 </div>
+                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
+                                    adipisicing
+                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
+                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
+                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
                             </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/SODA.webp') }}" />
                         </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
+                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                    </div>
 
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div
-                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">NEWS FLASH
+                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                        <div
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            <img alt="" class="object-contain rounded-xl h-full"
+                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                            <div class="w-full flex flex-col container h-full">
+                                <div class="font-bold md:text-2xl font-poppins text-center">DICE
                                 </div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">13.00 -
+                                <div class="md:text-xl font-poppins text-center">13.00 -
                                     14.00
                                 </div>
+                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
+                                    adipisicing
+                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
+                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
+                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
                             </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/NF.webp') }}" />
                         </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
+                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                    </div>
 
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div
-                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-yellow-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">KAJJA
+                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                        <div
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            <img alt="" class="object-contain rounded-xl h-full"
+                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                            <div class="w-full flex flex-col container h-full">
+                                <div class="font-bold md:text-2xl font-poppins text-center">SERSAN
                                 </div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">14.00 -
+                                <div class="md:text-xl font-poppins text-center">14.00 -
                                     17.00
                                 </div>
+                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
+                                    adipisicing
+                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
+                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
+                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
                             </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/K.webp') }}" />
                         </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
+                            src="{{ asset('images/programs/placeholder.webp') }}" />
                     </div>
-                    <div class="flex justify-around tab-content-item text-center mx-20 md:mx-32 lg:mx-60">
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div
-                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">JERIT
-                                    MALAM
-                                </div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">11.00 -
-                                    14.00
-                                </div>
-                            </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/JM.webp') }}" />
-                        </div>
+                </div>
 
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div
-                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-blue-500/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">CAMPUS
-                                    TROOPS
+                <div class="flex justify-around tab-content-item text-center flex-wrap md:flex-nowrap p-2 gap-4 md:gap-0">
+                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                        <div
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            <img alt="" class="object-contain rounded-xl h-full"
+                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                            <div class="w-full flex flex-col container h-full">
+                                <div class="font-bold md:text-2xl font-poppins text-center">UMN HIGHLIGHTS
                                 </div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">15.00 -
-                                    17.00
-                                </div>
-                            </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/CT.webp') }}" />
-                        </div>
-                    </div>
-                    <div class="flex justify-around tab-content-item text-center lg:mb-3">
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div
-                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-red-800/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">BILCIN
-                                </div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">10.00 -
+                                <div class="md:text-xl font-poppins text-center">12.00 -
                                     13.00
                                 </div>
+                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
+                                    adipisicing
+                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
+                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
+                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
                             </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/BC.webp') }}" />
                         </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
+                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                    </div>
 
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div
-                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-black/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">NEWS FLASH
+                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                        <div
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            <img alt="" class="object-contain rounded-xl h-full"
+                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                            <div class="w-full flex flex-col container h-full">
+                                <div class="font-bold md:text-2xl font-poppins text-center">DICE
                                 </div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">13.00 -
+                                <div class="md:text-xl font-poppins text-center">13.00 -
                                     14.00
                                 </div>
+                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
+                                    adipisicing
+                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
+                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
+                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
                             </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/NF.webp') }}" />
                         </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
+                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                    </div>
 
-                        <div class="relative group cursor-pointer lg:p-10 md:p-5 p-2">
-                            <div
-                                class="flex flex-col justify-center absolute h-5/6 w-full group-hover:scale-100 top-2 md:top-3 lg:top-6 -left-0 rounded-xl z-50 opacity-0 cursor-pointer bg-purple-300/50 text-white transform-gpu  group-hover:opacity-100 transition duration-300 ease-in-out">
-                                <div class="font-bold text-l md:text-xl font-poppins text-center text-white">
-                                    CHARTTOPPERS
+                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                        <div
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            <img alt="" class="object-contain rounded-xl h-full"
+                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                            <div class="w-full flex flex-col container h-full">
+                                <div class="font-bold md:text-2xl font-poppins text-center">BILCIN
                                 </div>
-                                <div class="opacity-80 text-md md:text-l font-poppins text-center text-white">14.00 -
+                                <div class="md:text-xl font-poppins text-center">14.00 -
                                     17.00
                                 </div>
+                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
+                                    adipisicing
+                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
+                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
+                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
                             </div>
-                            <img alt=""
-                                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl h-full w-full"
-                                src="{{ asset('images/programs/C.webp') }}" />
                         </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
+                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                    </div>
+                </div>
+
+                <div class="flex justify-around tab-content-item text-center flex-wrap md:flex-nowrap p-2 gap-4 md:gap-0">
+                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                        <div
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            <img alt="" class="object-contain rounded-xl h-full"
+                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                            <div class="w-full flex flex-col container h-full">
+                                <div class="font-bold md:text-2xl font-poppins text-center">SODA
+                                </div>
+                                <div class="md:text-xl font-poppins text-center">12.00 -
+                                    15.00
+                                </div>
+                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
+                                    adipisicing
+                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
+                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
+                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                            </div>
+                        </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
+                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                    </div>
+
+                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                        <div
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            <img alt="" class="object-contain rounded-xl h-full"
+                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                            <div class="w-full flex flex-col container h-full">
+                                <div class="font-bold md:text-2xl font-poppins text-center">NEWS FLASH
+                                </div>
+                                <div class="md:text-xl font-poppins text-center">15.00 -
+                                    16.00
+                                </div>
+                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
+                                    adipisicing
+                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
+                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
+                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                            </div>
+                        </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
+                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                    </div>
+
+                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                        <div
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            <img alt="" class="object-contain rounded-xl h-full"
+                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                            <div class="w-full flex flex-col container h-full">
+                                <div class="font-bold md:text-2xl font-poppins text-center">DICE
+                                </div>
+                                <div class="md:text-xl font-poppins text-center">16.00 -
+                                    17.00
+                                </div>
+                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
+                                    adipisicing
+                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
+                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
+                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                            </div>
+                        </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
+                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                    </div>
+                </div>
+
+                <div class="flex justify-around tab-content-item text-center flex-wrap md:flex-nowrap p-2 gap-4 md:gap-0">
+                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                        <div
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            <img alt="" class="object-contain rounded-xl h-full"
+                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                            <div class="w-full flex flex-col container h-full">
+                                <div class="font-bold md:text-2xl font-poppins text-center">UMN HIGHLIGHTS
+                                </div>
+                                <div class="md:text-xl font-poppins text-center">12.00 -
+                                    13.00
+                                </div>
+                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
+                                    adipisicing
+                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
+                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
+                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                            </div>
+                        </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
+                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                    </div>
+
+                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                        <div
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            <img alt="" class="object-contain rounded-xl h-full"
+                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                            <div class="w-full flex flex-col container h-full">
+                                <div class="font-bold md:text-2xl font-poppins text-center">DICE
+                                </div>
+                                <div class="md:text-xl font-poppins text-center">13.00 -
+                                    14.00
+                                </div>
+                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
+                                    adipisicing
+                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
+                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
+                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                            </div>
+                        </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
+                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                    </div>
+
+                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                        <div
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            <img alt="" class="object-contain rounded-xl h-full"
+                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                            <div class="w-full flex flex-col container h-full">
+                                <div class="font-bold md:text-2xl font-poppins text-center">MUSIKALITAS
+                                </div>
+                                <div class="md:text-xl font-poppins text-center">14.00 -
+                                    17.00
+                                </div>
+                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
+                                    adipisicing
+                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
+                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
+                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                            </div>
+                        </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
+                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                    </div>
+                </div>
+
+                <div class="flex justify-around tab-content-item text-center flex-wrap md:flex-nowrap p-2 gap-4 md:gap-0">
+                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                        <div
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            <img alt="" class="object-contain rounded-xl h-full"
+                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                            <div class="w-full flex flex-col container h-full">
+                                <div class="font-bold md:text-2xl font-poppins text-center">CHARTTOPPERS
+                                </div>
+                                <div class="md:text-xl font-poppins text-center">12.00 -
+                                    15.00
+                                </div>
+                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
+                                    adipisicing
+                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
+                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
+                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                            </div>
+                        </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
+                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                    </div>
+
+                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                        <div
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            <img alt="" class="object-contain rounded-xl h-full"
+                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                            <div class="w-full flex flex-col container h-full">
+                                <div class="font-bold md:text-2xl font-poppins text-center">NEWS FLASH
+                                </div>
+                                <div class="md:text-xl font-poppins text-center">15.00 -
+                                    16.00
+                                </div>
+                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
+                                    adipisicing
+                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
+                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
+                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                            </div>
+                        </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
+                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                    </div>
+
+                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                        <div
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            <img alt="" class="object-contain rounded-xl h-full"
+                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                            <div class="w-full flex flex-col container h-full">
+                                <div class="font-bold md:text-2xl font-poppins text-center">DICE
+                                </div>
+                                <div class="md:text-xl font-poppins text-center">16.00 -
+                                    17.00
+                                </div>
+                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
+                                    adipisicing
+                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
+                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
+                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                            </div>
+                        </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
+                            src="{{ asset('images/programs/placeholder.webp') }}" />
                     </div>
                 </div>
             </div>
         </div>
-        <div class="w-full relative h-fit">
-            <img src="{{ asset('assets/paper/10.webp') }}" class="absolute h-[500px] md:h-[700px] object-cover bottom-0 -z-10" alt="">
-        </div>
+
+        <img src="{{ asset('assets/paper/10.webp') }}"
+            class="absolute h-[160%] md:h-[140%] object-cover bottom-0 -z-10" alt="">
     </div>
 
     {{-- ARTICLE --}}
-    <div class=" font-poppins text-black mb-6 bg-[#103069] shadow-inner relative"
+    <div class="font-poppins text-black mb-6 bg-[#103069] shadow-inner relative @if ($posts->count()>0)
+        block
+        @else
+        hidden
+    @endif"
         style="box-shadow: inset 4px 4px 4px 0 rgb(0 0 0 / 0.05);">
         <img src="{{ asset('assets/others/papertexture.webp') }}" alt=""
             class="absolute w-full h-full opacity-20 z-0">

@@ -67,46 +67,46 @@ Route::controller(Controller::class)->group(function () {
 //     return view('News.Article.satu');
 // });
 
-Route::get('/article/kepada-yth-maba-apa-kabar-kali-ini', function () {
-    return view('News.Article.dua');
-});
-Route::get('/article/synchronize-fest-2022', function () {
-    return view('News.Article.synchronize');
-});
-Route::get('/article/slowly-bersurat-tak-pernah-semenyenangkan-ini', function () {
-    return view('News.Article.slowly');
-});
-Route::get('/article/semoga-sembuh-cerita-jatuh-dan-tumbuh-idgitaf', function () {
-    return view('News.Article.semoga');
-});
-Route::get('/article/koma-berulang-kita-coba-terawang', function () {
-    return view('News.Article.terawang');
-});
-Route::get('/article/koma-berulang-kita-rayakan-menang', function () {
-    return view('News.Article.menang');
-});
+// Route::get('/article/kepada-yth-maba-apa-kabar-kali-ini', function () {
+//     return view('News.Article.dua');
+// });
+// Route::get('/article/synchronize-fest-2022', function () {
+//     return view('News.Article.synchronize');
+// });
+// Route::get('/article/slowly-bersurat-tak-pernah-semenyenangkan-ini', function () {
+//     return view('News.Article.slowly');
+// });
+// Route::get('/article/semoga-sembuh-cerita-jatuh-dan-tumbuh-idgitaf', function () {
+//     return view('News.Article.semoga');
+// });
+// Route::get('/article/koma-berulang-kita-coba-terawang', function () {
+//     return view('News.Article.terawang');
+// });
+// Route::get('/article/koma-berulang-kita-rayakan-menang', function () {
+//     return view('News.Article.menang');
+// });
 
 // Route::get('/posts/checkSlug', [PostController::class, 'checkSlug']);
 
-Route::controller(PostController::class)->middleware(['news', 'auth'])->group(
+Route::controller(PostController::class)->middleware(['auth', 'news'])->group(
     function () {
-        Route::get('/posts', 'index')->withoutMiddleware(['news', 'auth']);
+        Route::get('/posts', 'index')->withoutMiddleware(['auth', 'news']);
         Route::get('/posts/checkSlug', 'checkSlug');
         Route::get('/posts/create', 'create');
         Route::post('/posts/store', 'store');
-        Route::get('/posts/{post:slug}', 'show');
+        Route::get('/posts/{post:slug}', 'showArticle');
         Route::get('/posts/{post:slug}/edit', 'edit');
         Route::put('/posts/{post:slug}/update', 'update');
         Route::delete('/posts/{post:slug}/destroy', 'destroy');
         Route::post('/posts/upload', 'upload');
-        Route::get('/articles', 'showArticles')->withoutMiddleware(['news', 'auth']);
-        Route::get('/article/{post:slug}', 'showArticle')->withoutMiddleware(['news', 'auth']);
+        Route::get('/articles', 'showArticles')->withoutMiddleware(['auth', 'news']);
+        Route::get('/article/{post:slug}', 'showArticle')->withoutMiddleware(['auth', 'news']);
 
         // Route::get('/', 'index_home');
     }
 );
 
-Route::controller(ProgramDetailController::class)->middleware(['admin', 'auth'])->group(
+Route::controller(ProgramDetailController::class)->middleware(['auth', 'admin'])->group(
     function(){
         Route::get('/programs/dashboard', 'dashboard');
         Route::get('/programs/new', 'create');
@@ -115,14 +115,14 @@ Route::controller(ProgramDetailController::class)->middleware(['admin', 'auth'])
         Route::get('/programs/{programdetail:slug}/edit', 'edit');
         Route::delete('/programs/{programdetail:slug}/delete', 'destroy');
         Route::put('/programs/{programdetail:slug}/update', 'update');
-        Route::get('/programs/{programdetail:slug}', 'show')->withoutMiddleware(['admin', 'auth']);
-        Route::get('/programs', 'index')->withoutMiddleware(['admin', 'auth']);
+        Route::get('/programs/{programdetail:slug}', 'show')->withoutMiddleware(['auth', 'admin']);
+        Route::get('/programs', 'index')->withoutMiddleware(['auth', 'admin']);
     }
 );
 
-Route::controller(ChartController::class)->middleware(['admin', 'auth'])->group(
+Route::controller(ChartController::class)->middleware(['auth', 'admin'])->group(
     function(){
-        Route::get('/charts', 'index')->withoutMiddleware(['admin', 'auth']);
+        Route::get('/charts', 'index')->withoutMiddleware(['auth', 'admin']);
         Route::get('/charts/dashboard', 'dashboard');
         Route::get('/charts/new', 'create');
         Route::post('/charts/store', 'store');
@@ -133,7 +133,7 @@ Route::controller(ChartController::class)->middleware(['admin', 'auth'])->group(
     }
 );
 
-Route::controller(SongController::class)->middleware(['admin', 'auth'])->group(
+Route::controller(SongController::class)->middleware(['auth', 'admin'])->group(
     function(){
         Route::get('/songs/dashboard', 'dashboard');
         Route::get('/songs/new', 'create');
@@ -144,7 +144,7 @@ Route::controller(SongController::class)->middleware(['admin', 'auth'])->group(
     }
 );
 
-Route::controller(ChartJunctionController::class)->middleware(['admin', 'auth'])->group(
+Route::controller(ChartJunctionController::class)->middleware(['auth', 'admin'])->group(
     function(){
         Route::get('/charts/add-song', 'addsong');
         Route::post('/charts/add-song/store', 'store');
@@ -153,9 +153,9 @@ Route::controller(ChartJunctionController::class)->middleware(['admin', 'auth'])
     }
 );
 
-Route::controller(PodcastController::class)->middleware(['admin', 'auth'])->group(
+Route::controller(PodcastController::class)->middleware(['auth', 'admin'])->group(
     function(){
-        Route::get('/podcasts','index')->withoutMiddleware(['admin', 'auth']);
+        Route::get('/podcasts','index')->withoutMiddleware(['auth', 'admin']);
         Route::get('/podcasts/dashboard', 'dashboard');
         Route::get('/podcasts/new', 'create');
         Route::post('/podcasts/store', 'store');
@@ -188,7 +188,7 @@ Route::controller(SegmentController::class)->group(
     }
 );
 
-Route::controller(PartnershipsController::class)->middleware(['admin', 'auth'])->group(
+Route::controller(PartnershipsController::class)->middleware(['auth', 'admin'])->group(
     function () {
         Route::get('/partnerships', 'index');
         Route::get('/partnerships/create', 'create');
@@ -197,8 +197,8 @@ Route::controller(PartnershipsController::class)->middleware(['admin', 'auth'])-
     }
 );
 
-Route::get('/oprec',function(){
-    return view('Oprec.index');
-});
+// Route::get('/oprec',function(){
+//     return view('Oprec.index');
+// });
 
 // Route::resource('posts', PostController::class);

@@ -16,25 +16,25 @@ class ProgramsSeeder extends Seeder
         //
 
         Programs::create([
-            'name' => "SERSAN",
-            'desc' => "Monday (12:00-15:00)",
+            'name' => "NEWS FLASH",
+            'desc' => "Monday (12:00-13:00)",
             'start_hour' => 12,
-            'end_hour' => 15,
+            'end_hour' => 13,
             'broadcast_day' => 1,
             'img' => "images/programs/placeholder.webp"
         ]);
         Programs::create([
             'name' => "DICE",
-            'desc' => "Monday (15:00-16:00)",
-            'start_hour' => 15,
-            'end_hour' => 16,
+            'desc' => "Monday (13:00-14:00)",
+            'start_hour' => 13,
+            'end_hour' => 14,
             'broadcast_day' => 1,
             'img' => "images/programs/placeholder.webp"
         ]);
         Programs::create([
-            'name' => "NEWS FLASH",
-            'desc' => "Monday (16:00-17:00)",
-            'start_hour' => 16,
+            'name' => "SERSAN",
+            'desc' => "Monday (14:00-17:00)",
+            'start_hour' => 14,
             'end_hour' => 17,
             'broadcast_day' => 1,
             'img' => "images/programs/placeholder.webp"
@@ -42,25 +42,25 @@ class ProgramsSeeder extends Seeder
 
 
         Programs::create([
-            'name' => "MUSIKALITAS",
-            'desc' => "Tuesday (12:00-15:00)",
+            'name' => "UMN Highlights",
+            'desc' => "Tuesday (12:00-13:00)",
             'start_hour' => 12,
-            'end_hour' => 15,
-            'broadcast_day' => 2,
-            'img' => "images/programs/placeholder.webp"
-        ]);
-        Programs::create([
-            'name' => "UMN Highlight",
-            'desc' => "Tuesday (15:00-16:00)",
-            'start_hour' => 15,
-            'end_hour' => 16,
+            'end_hour' => 13,
             'broadcast_day' => 2,
             'img' => "images/programs/placeholder.webp"
         ]);
         Programs::create([
             'name' => "DICE",
-            'desc' => "Tuesday (16:00-17:00)",
-            'start_hour' => 16,
+            'desc' => "Tuesday (13:00-14:00)",
+            'start_hour' => 13,
+            'end_hour' => 14,
+            'broadcast_day' => 2,
+            'img' => "images/programs/placeholder.webp"
+        ]);
+        Programs::create([
+            'name' => "BILCIN",
+            'desc' => "Tuesday (14:00-17:00)",
+            'start_hour' => 14,
             'end_hour' => 17,
             'broadcast_day' => 2,
             'img' => "images/programs/placeholder.webp"
@@ -102,15 +102,15 @@ class ProgramsSeeder extends Seeder
             'img' => "images/programs/placeholder.webp"
         ]);
         Programs::create([
-            'name' => "NEWS FLASH",
+            'name' => "DICE",
             'desc' => "Thursday (13:00-14:00)",
-            'start_hour' => 15,
-            'end_hour' => 16,
+            'start_hour' => 13,
+            'end_hour' => 14,
             'broadcast_day' => 4,
             'img' => "images/programs/placeholder.webp"
         ]);
         Programs::create([
-            'name' => "DICE",
+            'name' => "MUSIKALITAS",
             'desc' => "Thursday (14:00-17:00)",
             'start_hour' => 14,
             'end_hour' => 17,
