@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UMN Radio</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
@@ -13,7 +13,46 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     
     <script src="https://kit.fontawesome.com/667eb529ec.js" crossorigin="anonymous"></script>
+    
+    <style>
+    footer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
 
+        .footer-logo {
+            max-width: 100%;
+            margin-bottom: 20px; 
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        @media (max-width: 767px) {
+    .footer-logo {
+        width: 80%; 
+        max-width: none; 
+    }
+
+    .footer-links {
+        width: 100%; 
+    }
+}
+    </style>
+</head>
 </head>
 
 <body class="composer h-full bg-white">
@@ -150,6 +189,9 @@
 </div>
 
 </footer>
+
+
+
 
 <script src="{{ asset('js/attachments.js') }}"></script>
 
