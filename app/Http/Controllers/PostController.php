@@ -197,6 +197,7 @@ class PostController extends Controller
 
             //Upload File
             $request->file('file')->storeAs('public/uploads', $filenametostore);
+            // $request->file('file')->storeAs('uploads', $filenametostore);
 
             // you can save image path below in database
             $path = asset('storage/uploads/' . $filenametostore);

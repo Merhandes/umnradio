@@ -52,6 +52,7 @@
                 <form action="/uang-kas/upload" id="kasForm" method="POST" enctype="multipart/form-data"
                     class="gap-4 w-full">
                     @csrf
+                    <p class="text-base">BCA 4380205501 a/n Irene Zanetha</p>
                     <input type="file" accept="image/*" name="image" id="image" class="py-2 max-w-full"
                         onchange="previewImage()">
                     <img class="h-72 object-cover img-preview hidden" alt="">
@@ -75,7 +76,7 @@
                     @enderror
                     <p class="font-bold font-poppins text-xl">Keterangan</p>
                     <textarea class="border border-black border-1 rounded-sm w-full p-2 max-w-full" name="keterangan"
-                        placeholder="e.g. Uang Kas Feb/Uang Kas Feb-Apr/Uang Kas Apr + Denda/dsb"></textarea>
+                        placeholder="e.g. Uang Kas Feb/Uang Kas Feb-Apr/Uang Kas Apr dsb"></textarea>
                     @error('keterangan')
                         <div class="text-sm text-red-600">{{ $message }}</div>
                     @enderror
