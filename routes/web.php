@@ -191,4 +191,8 @@ Route::get('/oprec',function(){
     return view('Oprec.index');
 });
 
+Route::get('/about',function(){
+    return view('About.index');
+});
+
 // Route::resource('posts', PostController::class);
