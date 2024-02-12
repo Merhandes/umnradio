@@ -207,3 +207,8 @@ Route::controller(PartnershipsController::class)->middleware(['auth', 'admin'])-
 Route::get('/linkstorage', function () {
     Artisan::call('storage:link');
 });
+Route::get('/about',function(){
+    return view('About.index');
+});
+
+// Route::resource('posts', PostController::class);

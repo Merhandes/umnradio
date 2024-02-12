@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        biru: "#021f3a",
+      },
       fontFamily: {
         poppins: ['Poppins'],
         nexarust: ['NexaRust']
