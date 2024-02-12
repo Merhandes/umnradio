@@ -88,69 +88,14 @@
                                 d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm224-72V328c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24zm112 0V328c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24z" />
                         </svg></button>
                 </div>
-                <audio id="player">
+                {{-- <audio id="player">
                     <source src='http://icecast.umn.ac.id:8000/live' />
-                </audio>
+                </audio> --}}
             </div>
         </div>
     </div>
 
-    {{-- AUDIO --}}
-    <link rel="stylesheet" href="{{ asset('path/to/font-awesome/css/all.min.css') }}">
-    <footer id="audiosticky"
-        class="invisible fixed bottom-0 w-full z-40 h-16 bg-[#021f3a] flex flex-row gap-1 justify-center items-center transition-all duration-500">
-        <button id="buttonplay2"><svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512">
-                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                <style>
-                    svg {
-                        fill: #ffffff
-                    }
-                </style>
-                <path
-                    d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
-            </svg></button>
-
-        <button id="buttonpause2" class="hidden"><svg xmlns="http://www.w3.org/2000/svg" height="2em"
-                viewBox="0 0 320 512">
-                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                <style>
-                    svg {
-                        fill: #ffffff
-                    }
-                </style>
-                <path
-                    d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z" />
-            </svg></button>
-
-        <audio id="player">
-            <source src="http://icecast.umn.ac.id:8000/live" />
-        </audio>
-        <div class="p-4 max-w-md w-full hidden md:block">
-            <div class="flex items-center justify-center">
-                <span class="text-sm text-white" id="currentTime">0:00</span>
-                <input type="range" id="progressBar" min="0" max="100" value="0"
-                    class="slider mx-4 w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
-                {{-- <span class="text-sm text-white" id="duration">0:00</span> --}}
-            </div>
-        </div>
-
-        {{-- Volume Control Section --}}
-
-        <div class="flex items-center absolute end-5 md:static">
-            <div class="flex items-center gap-2">
-                <button id="volumeIcon" class="text-white">
-                    <!-- Font Awesome volume icon -->
-                    <i class="fas fa-volume-up"></i>
-                </button>
-                <!-- Updated: Wrap volume controls in a container div -->
-                <div id="volumeControls" class="hidden flex items-center">
-                    <input type="range" id="volume" class="w-16 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer" min="0" max="100" value="50">
-                    <span id="volumeValue" class="text-gray-300 ml-2">50%</span>
-                </div>
-            </div>
-        </div>
-
-    </footer>
+    <x-audioplayer></x-audioplayer>
 
     {{-- ON AIR OFF AIR --}}
     <div id="section-1" class="w-full mb-16">
