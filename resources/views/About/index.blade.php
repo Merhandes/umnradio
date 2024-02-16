@@ -23,53 +23,17 @@
 </head>
 
 <body class="h-full bg-white">
-    {{-- NAVBAR --}}
-    <div x-data="{ isOpen: false }" class="fixed w-full flex justify-between p-3 z-40 bg-[#021f3a] lg:p-4">
-        <a class="flex items-center" href="/">
-            <img class="h-10 md:h-16 w-auto" src="{{ asset('images/logowhite.webp') }}" alt="">
-        </a>
+    <x-navigation></x-navigation>
 
-        <div class="flex items-center justify-between">
-            <button @click="isOpen = !isOpen" type="submit">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white lg:hidden" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-            <div class="pr-4 hidden space-x-6 lg:inline-block">
-                <a href="/" class="font-poppins text-base text-white no-underline">Home</a>
-                <!-- <a href="#" class="font-poppins text-base text-white no-underline">About</a>
-                    <a href="#" class="font-poppins text-base text-white no-underline">Programs</a> -->
-                <a href="/articles" class="font-poppins text-base text-white underline-offset-4">Articles</a>
-                <a href="/oprec" class="font-poppins text-base text-white underline-offset-4" hidden>OPREC</a>
-            </div>
-
-            <div class="mobile-navbar">
-                <div class="fixed left-0 w-full h-48 p-5 bg-white rounded-lg shadow-xl top-16" x-show="isOpen"
-                    @click.away=" isOpen = false">
-                    <div class="flex flex-col space-y-6">
-                        <a href="/" class="font-poppins -sm text-black">Home</a>
-                        <!-- <a href="#" class="font-poppins text-sm text-black">About</a> -->
-                        <a href="/articles" class="text-sm text-black">Articles</a>
-                        <a href="/oprec" class="text-sm text-black" hidden>OPREC</a>
-                        <!-- <a href="#" class="text-sm text-black">Podcasts</a> -->
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {{-- SHOW PROGRAMS --}}
     <div class="w-screen md:w-full h-full overflow-scroll pt-16 pb-16 flex flex-col justify-center">
         <div class="relative">
-            <img class="h-screen w-auto md:h-auto md:w-screen z-0 object-cover" src="{{ asset('images/About/BANNERABOUT.webp') }}"
+            <img class="h-96 md:w-screen z-0 object-cover brightness-[30%]" src="{{ asset('images/backgroundnew.webp') }}"
                 alt="" />
             <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-2 py-2">
                 <div class="px-4 py-4 text-center">
-                    <h3 class="py-2 font-poppins text-3xl md:text-6xl text-white font-bold">
+                    <h3 class="py-2 font-poppins text-3xl md:text-[70px] text-white font-bold">
                         ABOUT US</h3>
-                    <p class="py-2 font-poppins text-xs md:text-base text-white font-bold">"It's U, It's Music, It's News, It's UMN Radio"</p>
+                    <p class="py-2 font-poppins text-base md:text-3xl text-white font-bold">"It's U, It's Music, It's News, It's UMN Radio"</p>
                 </div>
             </div>
         </div>
@@ -160,64 +124,7 @@
 
 
 
-    {{-- AUDIO --}}
-    <footer id="audiosticky"
-        class="fixed bottom-0 w-full z-40 h-16 bg-[#021f3a] flex flex-row gap-16 justify-center items-center transition-all duration-500">
-        <button id="buttonplay2"><svg xmlns="http://www.w3.org/2000/svg" height="2em"
-                viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                <style>
-                    svg {
-                        fill: #ffffff
-                    }
-                </style>
-                <path
-                    d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
-            </svg></button>
-        <button id="buttonpause2" class="hidden"><svg xmlns="http://www.w3.org/2000/svg" height="2em"
-                viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                <style>
-                    svg {
-                        fill: #ffffff
-                    }
-                </style>
-                <path
-                    d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z" />
-            </svg></button>
-        <audio id="player">
-            <source src='https://i.klikhost.com/8374/' />
-        </audio>
-    </footer>
-
-    <script>
-        var button3 = document.getElementById("buttonplay2");
-        var button4 = document.getElementById("buttonpause2");
-        var audio = document.getElementById("player");
-
-        button3.addEventListener("click", function() {
-            if (audio.paused) {
-                audio.play();
-                button3.classList.add('hidden');
-                button4.classList.remove('hidden');
-            } else {
-                audio.pause();
-                button4.classList.add('hidden');
-                button3.classList.remove('hidden');
-            }
-        });
-
-        button4.addEventListener("click", function() {
-            if (audio.paused) {
-                audio.play();
-                button3.classList.add('hidden');
-                button4.classList.remove('hidden');
-            } else {
-                audio.pause();
-                button4.classList.add('hidden');
-                button3.classList.remove('hidden');
-            }
-        });
-    </script>
-    <script src="{{ asset('js/attachments.js') }}"></script>
+    <x-audiodefault></x-audiodefault>
 </body>
 
 </html>
