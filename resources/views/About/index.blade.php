@@ -120,6 +120,37 @@
                 <a href="mailto:umnradio.partnership@gmail.com" class="text-black font-bold underline">umnradio.partnership@gmail.com</a>
             </h1>
         </div>
+        
+        <div class="font-poppins w-full md:w-4/5 md:px-6 py-2 grid grid-flex-rows mx-auto text-center">
+            <div class="px-8">
+                <ul class="text-xs md:text-base text-black">
+                    <li class="py-2">Public Relations/PR ->
+                        <a href="mailto:umnradio.pr@gmail.com" class="text-black font-bold underline">umnradio.pr@gmail.com</a>
+                        <br>Acara public relations, seperti company visit, study banding, dan lainnya.
+                    </li>
+                    <li class="py-2">
+                        Media Affairs -> 
+                        <a href="mailto:media.umnradio@gmail.com" class="text-black font-bold underline">media.umnradio@gmail.com</a>
+                        <br>Kerjasama media partner, seperti konser musik, lomba, seminar, dan acara lainnya.
+                    </li>
+                </ul>
+            </div>
+            <div class="px-8">
+                <ul class="text-xs md:text-base text-black">
+                    <li class="py-2">
+                        Partnership ->
+                        <a href="mailto:partnership@gmail.com" class="text-black font-bold underline">partnership@gmail.com</a>
+                        <br>Kerjasama brand & sponsorship.
+                    </li>
+                    <li class="py-2">
+                        Music Director -> 
+                        <a href="mailto:md.umnradio@gmail.com" class="text-black font-bold underline">md.umnradio@gmail.com</a>
+                        <br>Informasi press release atau new music updates.
+                    </li>
+                </ul>
+            </div>
+                
+        </div>
     </div>
 
 
