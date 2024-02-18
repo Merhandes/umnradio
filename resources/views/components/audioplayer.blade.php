@@ -26,7 +26,7 @@
             </svg></button>
 
         <audio id="player">
-            <source src="http://icecast.umn.ac.id:8000/live" />
+            <source src="https://icecast.umn.ac.id/live" />
             <source src="{{ asset('assets/audio/tes.mp3') }}" />
         </audio>
         <div class="p-4 max-w-md w-full hidden md:block">
