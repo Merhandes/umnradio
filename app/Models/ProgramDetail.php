@@ -12,7 +12,7 @@ class ProgramDetail extends Model
     use HasFactory, Sluggable;
     protected $guarded = ['id'];
 
-    protected $fillable = ['program_name', 'slug', 'description', 'short_desc', 'image', 'penyiar', 'producer', 'visual_creative', 'audio_creative', 'media_affairs', 'music_director'];
+    protected $fillable = ['program_name', 'slug', 'description', 'short_desc', 'image', 'banner_image', 'penyiar', 'producer', 'visual_creative', 'audio_creative', 'media_affairs', 'music_director', 'operator'];
 
     /**
      * Return the sluggable configuration array for this model.

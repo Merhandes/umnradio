@@ -87,6 +87,16 @@
                         </div>
                     </a>
 
+                    <a target="_" href="https://www.linkedin.com/company/umn-radio/"
+                        class="text-black no-underline">
+                        <div class="flex">
+                            <img src="{{ asset('assets/linkedin.webp') }}" alt="linkedin"
+                                class="w-8 mb-1 mr-1 object-contain">
+                            <p class="font-poppins text-[#ffffff] no-underline hover:text-[#a0a0a0] text-base">Linkedin
+                            </p>
+                        </div>
+                    </a>
+
                     <a target="_" href="mailto: daniel.nicholas@umn.ac.id" class="text-black no-underline">
                         <div class="flex">
                             <img src="{{ asset('assets/gmail.webp') }}" alt="line"
@@ -161,6 +171,11 @@
                     </div>
                 </a>
             </div>
+        </div>
+
+        <div class="w-full mt-8">
+            <h1 class="text-center font-poppins text-base">© 2024 UMN Radio</h1>
+            <h1 class="text-center font-poppins text-base">Dikelola oleh IT & Software Development UMN Radio</h1>
         </div>
     </div>
 </div>
