@@ -143,11 +143,11 @@
             </div>
             <div class="mx-2 md:mx-6">
                 <h5 class="mt-2 font-bold text-[#ffffff] font-poppins text-base md:text-lg">Media Affairs</h5>
-                <a target="_" href="mailto: media.umnradio@gmail.com" class="text-black no-underline">
+                <a target="_" href="mailto: media.umnradio@umn.ac.id" class="text-black no-underline">
                     <div class="flex">
                         <img src="{{ asset('assets/gmail.webp') }}" alt="line" class="w-8 mb-1 mr-1 object-contain">
                         <p class="font-poppins text-[#ffffff] no-underline hover:text-[#a0a0a0] text-base">
-                            media.umnradio@gmail.com</p>
+                            media.umnradio@umn.ac.id</p>
                     </div>
                 </a>
             </div>

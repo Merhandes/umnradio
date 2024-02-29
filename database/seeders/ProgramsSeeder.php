@@ -16,6 +16,14 @@ class ProgramsSeeder extends Seeder
         //
 
         Programs::create([
+            'name' => "Daily Music",
+            'desc' => "Everyday (10:00-12:00)",
+            'start_hour' => 10,
+            'end_hour' => 12,
+            'broadcast_day' => 1,
+            'img' => "images/programs/DM.webp"
+        ]);
+        Programs::create([
             'name' => "NEWS FLASH",
             'desc' => "Monday (12:00-13:00)",
             'start_hour' => 12,
@@ -40,7 +48,14 @@ class ProgramsSeeder extends Seeder
             'img' => "images/programs/placeholder.webp"
         ]);
 
-
+        Programs::create([
+            'name' => "Daily Music",
+            'desc' => "Everyday (10:00-12:00)",
+            'start_hour' => 10,
+            'end_hour' => 12,
+            'broadcast_day' => 2,
+            'img' => "images/programs/DM.webp"
+        ]);
         Programs::create([
             'name' => "UMN Highlights",
             'desc' => "Tuesday (12:00-13:00)",
@@ -66,7 +81,14 @@ class ProgramsSeeder extends Seeder
             'img' => "images/programs/placeholder.webp"
         ]);
 
-
+        Programs::create([
+            'name' => "Daily Music",
+            'desc' => "Everyday (10:00-12:00)",
+            'start_hour' => 10,
+            'end_hour' => 12,
+            'broadcast_day' => 3,
+            'img' => "images/programs/DM.webp"
+        ]);
         Programs::create([
             'name' => "SODA",
             'desc' => "Wednesday (12:00-15:00)",
@@ -92,7 +114,14 @@ class ProgramsSeeder extends Seeder
             'img' => "images/programs/placeholder.webp"
         ]);
 
-
+        Programs::create([
+            'name' => "Daily Music",
+            'desc' => "Everyday (10:00-12:00)",
+            'start_hour' => 10,
+            'end_hour' => 12,
+            'broadcast_day' => 4,
+            'img' => "images/programs/DM.webp"
+        ]);
         Programs::create([
             'name' => "UMN Highlights",
             'desc' => "Thursday (12:00-13:00)",
@@ -118,7 +147,14 @@ class ProgramsSeeder extends Seeder
             'img' => "images/programs/placeholder.webp"
         ]);
 
-
+        Programs::create([
+            'name' => "Daily Music",
+            'desc' => "Everyday (10:00-12:00)",
+            'start_hour' => 10,
+            'end_hour' => 12,
+            'broadcast_day' => 5,
+            'img' => "images/programs/DM.webp"
+        ]);
         Programs::create([
             'name' => "CHARTTOPPERS",
             'desc' => "Friday (12:00-15:00)",

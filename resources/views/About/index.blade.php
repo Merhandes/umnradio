@@ -157,9 +157,9 @@
             </div>
             <div class="flex justify-start align-middle items-center flex-col w-96 flex-wrap">
                 <h1 class="text-lg font-bold font-poppins">Media Affairs</h1>
-                <a target="_" href="mailto:media.umnradio@gmail.com" class="">
+                <a target="_" href="mailto:media.umnradio@umn.ac.id" class="">
                     <button
-                        class="text-black font-bold underline bg-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] rounded px-2 py-1 hover:scale-105 ease-in-out duration-75">media.umnradio@gmail.com</button>
+                        class="text-black font-bold underline bg-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.25)] rounded px-2 py-1 hover:scale-105 ease-in-out duration-75">media.umnradio@umn.ac.id</button>
                 </a>
                 <p class="w-full text-center">Kerjasama media partner, seperti konser musik, lomba, seminar, dan acara lainnya.</p>
             </div>
