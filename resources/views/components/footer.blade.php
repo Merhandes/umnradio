@@ -1,6 +1,6 @@
 <div>
     {{-- footer 1 --}}
-    <div class="bg-[#021f3a] mb-4 p-4 pt-4 pb-12 md:pb-16">
+    <div class="bg-[#0a1f63] mb-4 p-4 pt-4 pb-12 md:pb-16">
         <div
             class="mt-5 flex flex-col md:items-center md:flex-row md:justify-around md:text-left md:space-y-0  xl:flex-row xl:items-center justify-between mx-auto">
             <div class="mb-4 px-4 md:px-0 md:mb-0">

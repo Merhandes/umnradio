@@ -656,14 +656,15 @@
     {{-- ARTICLE --}}
     <div class="font-poppins text-black mb-6 bg-[#103069] shadow-inner relative @if ($posts->count() > 0) block
         @else
-        hidden @endif"
+        hidden
+        @endif"
         style="box-shadow: inset 4px 4px 4px 0 rgb(0 0 0 / 0.05);">
         <img src="{{ asset('assets/others/papertexture.webp') }}" alt=""
             class="absolute w-full h-full opacity-20 z-0">
         <img src="{{ asset('assets/others/notebook.webp') }}" alt=""
-            class="absolute top-12 w-64 md:w-[30%] md:end-24 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] rotate-12 md:-rotate-12 brightness-[90%]">
-        <img src="{{ asset('assets/others/penmerah.webp') }}" alt=""
-            class="absolute top-12 w-32 md:w-[20%] drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] brightness-[90%]">
+            class="absolute top-12 w-64 md:w-[30%] md:end-24 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] rotate-12 md:-rotate-12 brightness-75">
+        <img src="{{ asset('assets/others/penungu.webp') }}" alt=""
+            class="absolute top-12 w-32 md:w-[20%] drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] brightness-75">
         <div class="w-full h-full p-4 md:p-8 relative">
             <h1 class="font-poppins text-white text-2xl font-bold text-center my-2 mb-6 z-40">Latest Posts</h1>
             <div class="flex flex-wrap gap-8 justify-center">
