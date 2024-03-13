@@ -12,7 +12,84 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <script src="https://kit.fontawesome.com/667eb529ec.js" crossorigin="anonymous"></script>
-   <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+
+    <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      width: 90%;
+      height: 70%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #3C678F; 
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; 
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%; 
+      margin-top: 0; 
+      object-fit: cover;
+      max-height: 75%; 
+      object-position: center top; 
+    }
+
+    .text {
+      position: absolute; 
+      bottom: 60px; 
+      left: 0; 
+      right: 0;
+      color: white ; 
+      font-size: 18px; 
+      font-family: 'Georgia';
+      font-weight: bold;
+    }
+
+    .social-media {
+        position: absolute; 
+      bottom: 30px; 
+      left: 0; 
+      right: 0;
+      color: white ; 
+    }
+
+    .social-media a {
+  color: #fff; 
+  text-decoration: none; 
+ 
+}
+
+.social-media a:hover {
+  color: #EADCC6; 
+}
+
+.icon-space {
+  display: inline-block;
+  width: 10px; 
+}
+</style>
 
 
     <style>
@@ -655,117 +732,117 @@
             class="absolute h-[160%] md:h-[140%] object-cover bottom-0 -z-10" alt="">
     </div>
 
-    {{--ANNOUNCER}}
-   
-    <div class="flex w-full">
-        <div class="w-2/12 flex items-center">
-            <div class="w-full text-right">     
-                <button class="p-3 rounded-full bg-white border border-gray-100 shadow-lg mr-5">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
-                    </svg>
-                </button>
-            </div>
-        </div>
+    {{--ANNOUNCER--}}
+   <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="{{ asset('images/announcers/helena.jpg') }}">
+        <div class="text">Helena Haryadi</div>
+        <div class="social-media">
+        <a href="https://www.instagram.com/peipeihelenaa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+      <i class="fab fa-instagram"></i> 
+    </a>
+    <span class="icon-space"></span>
+    <a href="https://www.tiktok.com/@luvnalena__?_t=8keEcYzBQiw&_r=1" target="_blank">
+      <i class="fab fa-tiktok"></i> 
+    </a></div>
+      </div>
 
-        <div id="sliderContainer" class="w-full">
-            <ul id="slider" class="flex w-full border border-red-500">
-                <li class="w-96 p-5">
-                    <div class="border rounded-lg p-5">
-                    <img class="h-50 w-full object-cover rounded-md" src="{{ asset('images/announcers/helena.JPG') }}" alt="">
-                    <h2 class="mt-2 text-2xl font-bold text-gray-700">Helena Haryadi</h2>
-                    <p class="mt-2 text-gray-500">
-                        "Aku suka semua tentang langit"
-                    </p>
-                    <button class="mt-4 px-6 py-3 rounded-md bg-green-600 text-white font-bold">Read more</button>
-                </li>
-                <li class="w-96 p-5">
-                    <div class="border rounded-lg p-5">
-                    <img class="h-50 w-full object-cover rounded-md" src="{{ asset('images/announcers/khaira.JPG') }}" alt="">
-                    <h2 class="mt-2 text-2xl font-bold text-gray-700">Khaira Khansa</h2>
-                    <p class="mt-2 text-gray-500">
-                        "Alone or not, you gotta walk forward"
-                    </p>
-                    <button class="mt-4 px-6 py-3 rounded-md bg-green-600 text-white font-bold">Read more</button>
-                </li>
-                <li class="w-96 p-5">
-                    <div class="border rounded-lg p-5">
-                    <img class="h-50 w-full object-cover rounded-md" src="{{ asset('images/announcers/delbert.JPG') }}" alt="">
-                    <h2 class="mt-2 text-2xl font-bold text-gray-700">Delbert Go</h2>
-                    <p class="mt-2 text-gray-500">
-                        "Nikmati setiap halaman"
-                    </p>
-                    <button class="mt-4 px-6 py-3 rounded-md bg-green-600 text-white font-bold">Read more</button>
-                </li>
-                <li class="w-96 p-5">
-                    <div class="border rounded-lg p-5">
-                    <img class="h-50 w-full object-cover rounded-md" src="{{ asset('images/announcers/christabell.JPG') }}" alt="">
-                    <h2 class="mt-2 text-2xl font-bold text-gray-700">Christabell Chalin</h2>
-                    <p class="mt-2 text-gray-500">
-                        "Never be so kind, you forget to be clever"
-                    </p>
-                    <button class="mt-4 px-6 py-3 rounded-md bg-green-600 text-white font-bold">Read more</button>
-                </li>
-                <li class="w-96 p-5">
-                    <div class="border rounded-lg p-5">
-                    <img class="h-50 w-full object-cover rounded-md" src="{{ asset('images/announcers/hanif.JPG') }}" alt="">
-                    <h2 class="mt-2 text-2xl font-bold text-gray-700">M Hanief Alif</h2>
-                    <p class="mt-2 text-gray-500">
-                        "2 3 AYAM BERLARI, ADA HANIF JANGAN LARI"
-                    </p>
-                    <button class="mt-4 px-6 py-3 rounded-md bg-green-600 text-white font-bold">Read more</button>
-                </li>
-                <li class="w-96 p-5">
-                    <div class="border rounded-lg p-5">
-                    <img class="h-50 w-full object-cover rounded-md" src="{{ asset('images/announcers/carla.JPG') }}" alt="">
-                    <h2 class="mt-2 text-2xl font-bold text-gray-700">Carla Kaditha</h2>
-                    <p class="mt-2 text-gray-500">
-                        "-"
-                    </p>
-                    <button class="mt-4 px-6 py-3 rounded-md bg-green-600 text-white font-bold">Read more</button>
-                </li>
-                <li class="w-96 p-5">
-                    <div class="border rounded-lg p-5">
-                    <img class="h-50 w-full object-cover rounded-md" src="{{ asset('images/announcers/bella.JPG') }}" alt="">
-                    <h2 class="mt-2 text-2xl font-bold text-gray-700">Bella Felisha</h2>
-                    <p class="mt-2 text-gray-500">
-                        "Aku sebenernya 2 orang"
-                    </p>
-                    <button class="mt-4 px-6 py-3 rounded-md bg-green-600 text-white font-bold">Read more</button>
-                </li>
-                <li class="w-96 p-5">
-                    <div class="border rounded-lg p-5">
-                    <img class="h-50 w-full object-cover rounded-md" src="{{ asset('images/announcers/serenata.JPG') }}" alt="">
-                    <h2 class="mt-2 text-2xl font-bold text-gray-700">Serenata Silvestra Sadikin</h2>
-                    <p class="mt-2 text-gray-500">
-                        "BISAAAA, HARUS BISAAAA HARUS BISAAAAA -Desta"
-                    </p>
-                    <button class="mt-4 px-6 py-3 rounded-md bg-green-600 text-white font-bold">Read more</button>
-                </li>
-                <li class="w-96 p-5">
-                    <div class="border rounded-lg p-5">
-                    <img class="h-50 w-full object-cover rounded-md" src="{{ asset('images/announcers/joce.JPG') }}" alt="">
-                    <h2 class="mt-2 text-2xl font-bold text-gray-700">Jocelyn Ancylla</h2>
-                    <p class="mt-2 text-gray-500">
-                        "blubup blubup blubup"
-                    </p>
-                    <button class="mt-4 px-6 py-3 rounded-md bg-green-600 text-white font-bold">Read more</button>
-                </li>
-            </ul>
-        </div>
 
-        <div class="w-2/12 flex items-center"> 
-            <div class="w-full text-right">
-                <button class="p-3 rounded-full bg-white border border-gray-100 shadow-lg mr-5">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
-                    </svg>
-                 </button>
-            </div>
-        </div>
+      <div class="swiper-slide">
+      <img src="{{ asset('images/announcers/khaira.jpg') }}">
+      <div class="text">Khaira Khansa</div>
+      <div class="social-media">
+        <a href="https://www.instagram.com/khairarnld?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+      <i class="fab fa-instagram"></i> 
+    </a> <span class="icon-space"></span>
+    <a href="https://www.tiktok.com/@keyyrras?_t=8keEdfucVpy&_r=1" target="_blank">
+      <i class="fab fa-tiktok"></i> 
+    </a></div>
+      </div>
+
+
+      <div class="swiper-slide">
+      <img src="{{ asset('images/announcers/christabell.jpg') }}">
+      <div class="text">Christabell Chalin</div>
+      <div class="social-media">
+        <a href="https://www.instagram.com/christabellchalin?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+      <i class="fab fa-instagram"></i> 
+    </a></div>
+      </div>
+
+
+      <div class="swiper-slide">
+      <img src="{{ asset('images/announcers/delbert.jpg') }}">
+      <div class="text">Delbert Go</div>
+      <div class="social-media">
+        <a href="https://www.instagram.com/delbertgo?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+      <i class="fab fa-instagram"></i> 
+    </a> <span class="icon-space"></span>
+    <a href="https://www.tiktok.com/@delbertgo7?_t=8keEms0nDbV&_r=1" target="_blank">
+      <i class="fab fa-tiktok"></i> 
+    </a></div>
+      </div>
+
+
+      <div class="swiper-slide">
+      <img src="{{ asset('images/announcers/carla.jpg') }}">
+      <div class="text">Carla Kaditha</div>
+      <div class="social-media">
+        <a href="https://www.instagram.com/kadithacarla_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a></div>
+      </div>
+
+
+      <div class="swiper-slide">
+      <img src="{{ asset('images/announcers/hanif.jpg') }}">
+      <div class="text">M Hanief Alif</div>
+      <div class="social-media">
+        <a href="https://www.instagram.com/hanifffalif?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+      <i class="fab fa-instagram"></i> 
+    </a></div>
+      </div>
+
+
+      <div class="swiper-slide">
+      <img src="{{ asset('images/announcers/bella.jpg') }}">
+      <div class="text">Bella Felisha</div> 
+      <div class="social-media">
+        <a href="https://www.instagram.com/bellafelisha?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+      <i class="fab fa-instagram"></i> 
+    </a></div>
+      </div>
+
+
+      <div class="swiper-slide">
+      <img src="{{ asset('images/announcers/serenata.jpg') }}">
+      <div class="text">Serenata Silvestra Sadikin</div> 
+      <div class="social-media">
+        <a href="https://www.instagram.com/serenata_05?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+      <i class="fab fa-instagram"></i> 
+    </a> <span class="icon-space"></span>
+    <a href="https://www.tiktok.com/@serenatasylvestra?_t=8keEtZeNrCU&_r=1" target="_blank">
+      <i class="fab fa-tiktok"></i> 
+    </a></div>
+      </div>
+
+
+      <div class="swiper-slide">
+      <img src="{{ asset('images/announcers/joce.jpg') }}">
+      <div class="text">Jocelyn Ancylla</div> 
+      <div class="social-media">
+        <a href="https://www.instagram.com/ancyllaas?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a> <span class="icon-space"></span>
+    <a href="https://www.tiktok.com/@ancyrawr?_t=8keEwGAfpQI&_r=1" target="_blank">
+      <i class="fab fa-tiktok"></i> 
+    </a></div>
+      </div>
     </div>
-
-                    src="{{ asset('images/announcers/5.jpg') }}"
+    <div class="swiper-pagination"></div>
+  </div>
+   
 
     {{-- ARTICLE --}}
     <div class="font-poppins text-black mb-6 bg-[#103069] shadow-inner relative @if ($posts->count() > 0) block
@@ -1291,26 +1368,18 @@
     </script>
     <script src="{{ asset('js/flowbite/dist/flowbite.min.js') }}"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        const config = {
-  type: 'carousel',
-  startAt: 0,
-  perView: 4,
-  gap: 32,
-  breakpoints: {
-    1280: {
-      perView: 3,
-    },
-    1024: {
-      perView: 2,
-    },
-    768: {
-      perView: 1,
-    }
-  }
-}
-new Glide('.glide', config).mount()
-        </script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      freeMode: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  </script>
 </body>
 
 </html>
