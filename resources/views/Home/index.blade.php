@@ -886,6 +886,32 @@
         @endforeach
     </div>
 
+    {{-- URD section --}}
+    <h1 class="font-poppins text-[#021f3a] text-2xl font-bold text-center my-2 mb-6">URD</h1>
+    <div class="sm:block 2xl:hidden mx-auto bg-[#87CFE8] border-2 border-[#3C67BF] rounded-lg shadow-lg justify-center p-4 max-w-[90%]">
+        <div class="mx-auto xl:gap-6 xl:h-auto sm:columns-2">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/5DXYA0JA4Fi0YsfM0jYsRo?utm_source=generator" width="100%" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1Uft943OA80Om5PjNq2B0t?utm_source=generator" width="100%" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/2iL0YXad47shWo7GyEWZrL?utm_source=generator" width="100%" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/3W509D52azNRxhkM8cwqNj?utm_source=generator" width="100%" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <div class="hidden 2xl:flex mx-auto bg-[#87CFE8] border-2 border-[#3C67BF] rounded-lg shadow-lg justify-center px-4 max-w-[90%]">
+        <div class="my-4 p-4 w-[450px] mx-auto">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/5DXYA0JA4Fi0YsfM0jYsRo?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="my-4 p-4 w-[450px] mx-auto">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1Uft943OA80Om5PjNq2B0t?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="my-4 p-4 w-[450px] mx-auto">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/2iL0YXad47shWo7GyEWZrL?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="my-4 p-4 w-[450px] mx-auto">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/3W509D52azNRxhkM8cwqNj?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+    </div>
+
     {{-- Section 3 --}}
     <div id="section-3" class="mx-4">
 
