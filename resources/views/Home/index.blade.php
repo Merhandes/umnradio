@@ -231,7 +231,7 @@
                         <div
                             class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                                src="{{ asset('images/programs/DICE.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">DICE
                                 </div>
@@ -255,7 +255,7 @@
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                            src="{{ asset('images/programs/DICE_BANNER.webp') }}" />
                     </div>
 
                     <div class="relative group md:p-5 md:max-w-[33.3%]">
@@ -296,7 +296,7 @@
                         <div
                             class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                                src="{{ asset('images/programs/UH.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">UMN HIGHLIGHTS
                                 </div>
@@ -312,14 +312,14 @@
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                            src="{{ asset('images/programs/UH.webp') }}" />
                     </div>
 
                     <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
                             class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                                src="{{ asset('images/programs/DICE.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">DICE
                                 </div>
@@ -343,7 +343,7 @@
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                            src="{{ asset('images/programs/DICE_BANNER.webp') }}" />
                     </div>
 
                     <div class="relative group md:p-5 md:max-w-[33.3%]">
@@ -441,7 +441,7 @@
                         <div
                             class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                                src="{{ asset('images/programs/DICE.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">DICE
                                 </div>
@@ -465,7 +465,7 @@
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                            src="{{ asset('images/programs/DICE_BANNER.webp') }}" />
                     </div>
                 </div>
 
@@ -475,7 +475,7 @@
                         <div
                             class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                                src="{{ asset('images/programs/UH.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">UMN HIGHLIGHTS
                                 </div>
@@ -491,14 +491,14 @@
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                            src="{{ asset('images/programs/UH.webp') }}" />
                     </div>
 
                     <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
                             class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                                src="{{ asset('images/programs/DICE.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">DICE
                                 </div>
@@ -522,7 +522,7 @@
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                            src="{{ asset('images/programs/DICE_BANNER.webp') }}" />
                     </div>
 
                     <div class="relative group md:p-5 md:max-w-[33.3%]">
@@ -619,7 +619,7 @@
                         <div
                             class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                                src="{{ asset('images/programs/DICE.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">DICE
                                 </div>
@@ -643,7 +643,7 @@
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                            src="{{ asset('images/programs/DICE_BANNER.webp') }}" />
                     </div>
                 </div>
             </div>
