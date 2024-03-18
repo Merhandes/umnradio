@@ -656,7 +656,7 @@
             class="absolute h-[160%] md:h-[140%] object-cover bottom-0 -z-10" alt="">
     </div>
 
-    <div class="w-full my-10 md:px-32">
+    <div class="w-full my-10 lg:px-32">
         <h1 class="font-poppins text-2xl font-bold text-center my-2 mb-6 text-[#021f3a]">U-NNOUNCERS</h1>
         <div class="swiper mySwiper my-5 flex justify-center">
             <div class="swiper-wrapper">
@@ -664,15 +664,15 @@
                     <div class="w-80 bg-[#fff6e7] pt-5 px-5 mb-10 h-[450px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2">
                         <img class="w-full h-2/3 object-cover"
                             src="{{ asset('images/announcers/helena.jpg') }}">
-                        <div class="p-3 gap-1 relative h-1/3 align-top items-start font-nexarust">
-                            <h1 class="font-bold text-xl text-black">Helena Haryadi</h1>
-                            <h1 class="text-base text-black">"Aku suka semua tentang langit"</h1>
-                            <div class="text-black flex justify-center flex-wrap gap-5 absolute bottom-5 start-0 w-full">
-                                <a class="hover:text-[#EADCC6]" href="https://www.instagram.com/peipeihelenaa"
+                        <div class="p-3 gap-1 relative h-1/3 align-top items-start">
+                            <h1 class=" font-love text-3xl text-black">Helena Haryadi</h1>
+                            <h1 class="text-xl font-emilyolivia text-black ">"Aku suka semua tentang langit"</h1>
+                            <div class="text-black flex justify-center flex-wrap gap-5 absolute bottom-8 start-0 w-full">
+                                <a class="hover:text-biru" href="https://www.instagram.com/peipeihelenaa"
                                     target="_blank">
                                     <i class="fab fa-instagram"></i>
                                 </a>
-                                <a class="hover:text-[#EADCC6]" href="https://www.tiktok.com/@luvnalena__" target="_blank">
+                                <a class="hover:text-biru" href="https://www.tiktok.com/@luvnalena__" target="_blank">
                                     <i class="fab fa-tiktok"></i>
                                 </a>
                             </div>
@@ -680,18 +680,18 @@
                     </div>
                 </div>
                 <div class="swiper-slide font-poppins text-center">
-                    <div class="w-80 bg-[#3C678F] rounded-lg mb-10 h-[450px]">
-                        <img class="rounded-t-lg w-full h-2/3 object-cover"
+                    <div class="w-80 bg-[#fff6e7] pt-5 px-5 mb-10 h-[450px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2">
+                        <img class="w-full h-2/3 object-cover"
                             src="{{ asset('images/announcers/khaira.jpg') }}">
                         <div class="p-3 gap-1 relative h-1/3 align-top items-start">
-                            <h1 class="font-poppins font-bold text-xl text-white">Khaira Khansa</h1>
-                            <h1 class="text-base text-white">"alone or not, you gotta walk forward"</h1>
-                            <div class="text-white flex justify-center flex-wrap gap-5 absolute bottom-5 start-0 w-full">
-                                <a class="hover:text-[#EADCC6]" href="https://www.instagram.com/khairarnld"
+                            <h1 class=" font-haveidea text-3xl text-black">Khaira Khansa</h1>
+                            <h1 class="text-sm font-hellomickeys text-black ">"alone or not, you gotta walk forward"</h1>
+                            <div class="text-black flex justify-center flex-wrap gap-5 absolute bottom-8 start-0 w-full">
+                                <a class="hover:text-biru" href="https://www.instagram.com/khairarnld"
                                     target="_blank">
                                     <i class="fab fa-instagram"></i>
                                 </a>
-                                <a class="hover:text-[#EADCC6]" href="https://www.tiktok.com/@keyyrras" target="_blank">
+                                <a class="hover:text-biru" href="https://www.tiktok.com/@keyyrras" target="_blank">
                                     <i class="fab fa-tiktok"></i>
                                 </a>
                             </div>
@@ -699,14 +699,14 @@
                     </div>
                 </div>
                 <div class="swiper-slide font-poppins text-center">
-                    <div class="w-80 bg-[#3C678F] rounded-lg mb-10 h-[450px]">
-                        <img class="rounded-t-lg w-full h-2/3 object-cover"
+                    <div class="w-80 bg-[#fff6e7] pt-5 px-5 mb-10 h-[450px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2">
+                        <img class="w-full h-2/3 object-cover"
                             src="{{ asset('images/announcers/christabell.jpg') }}">
                         <div class="p-3 gap-1 relative h-1/3 align-top items-start">
-                            <h1 class="font-poppins font-bold text-xl text-white">Christabell Chalin</h1>
-                            <h1 class="text-base text-white">"Never be so kind, you forget to be clever"</h1>
-                            <div class="text-white flex justify-center flex-wrap gap-5 absolute bottom-5 start-0 w-full">
-                                <a class="hover:text-[#EADCC6]" href="https://www.instagram.com/christabellchalin"
+                            <h1 class="font-bold font-hellomickeys text-3xl text-black">Christabell Chalin</h1>
+                            <h1 class="text-sm font-haveidea text-black ">"Never be so kind, you forget to be clever"</h1>
+                            <div class="text-black flex justify-center flex-wrap gap-5 absolute bottom-8 start-0 w-full">
+                                <a class="hover:text-biru" href="https://www.instagram.com/christabellchalin"
                                     target="_blank">
                                     <i class="fab fa-instagram"></i>
                                 </a>
@@ -715,18 +715,18 @@
                     </div>
                 </div>
                 <div class="swiper-slide font-poppins text-center">
-                    <div class="w-80 bg-[#3C678F] rounded-lg mb-10 h-[450px]">
-                        <img class="rounded-t-lg w-full h-2/3 object-cover"
+                    <div class="w-80 bg-[#fff6e7] pt-5 px-5 mb-10 h-[450px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2">
+                        <img class="w-full h-2/3 object-cover"
                             src="{{ asset('images/announcers/delbert.jpg') }}">
                         <div class="p-3 gap-1 relative h-1/3 align-top items-start">
-                            <h1 class="font-poppins font-bold text-xl text-white">Delbert Go</h1>
-                            <h1 class="text-base text-white">"nikmati setiap halaman."</h1>
-                            <div class="text-white flex justify-center flex-wrap gap-5 absolute bottom-5 start-0 w-full">
-                                <a class="hover:text-[#EADCC6]" href="https://www.instagram.com/delbertgo"
+                            <h1 class="font-emilyolivia font-bold text-3xl text-black">Delbert Go</h1>
+                            <h1 class="text-base font-love text-black">"nikmati setiap halaman."</h1>
+                            <div class="text-black flex justify-center flex-wrap gap-5 absolute bottom-5 start-0 w-full">
+                                <a class="hover:text-biru" href="https://www.instagram.com/delbertgo"
                                     target="_blank">
                                     <i class="fab fa-instagram"></i>
                                 </a>
-                                <a class="hover:text-[#EADCC6]" href="https://www.tiktok.com/@delbertgo7" target="_blank">
+                                <a class="hover:text-biru" href="https://www.tiktok.com/@delbertgo7" target="_blank">
                                     <i class="fab fa-tiktok"></i>
                                 </a>
                             </div>
