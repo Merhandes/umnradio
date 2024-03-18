@@ -661,13 +661,13 @@
         <div class="swiper mySwiper my-5 flex justify-center">
             <div class="swiper-wrapper">
                 <div class="swiper-slide font-poppins text-center">
-                    <div class="w-80 bg-[#3C678F] rounded-lg mb-10 h-[450px]">
-                        <img class="rounded-t-lg w-full h-2/3 object-cover"
+                    <div class="w-80 bg-[#fff6e7] pt-5 px-5 mb-10 h-[450px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2">
+                        <img class="w-full h-2/3 object-cover"
                             src="{{ asset('images/announcers/helena.jpg') }}">
-                        <div class="p-3 gap-1 relative h-1/3 align-top items-start">
-                            <h1 class="font-poppins font-bold text-xl text-white">Helena Haryadi</h1>
-                            <h1 class="text-base text-white">"Aku suka semua tentang langit"</h1>
-                            <div class="text-white flex justify-center flex-wrap gap-5 absolute bottom-5 start-0 w-full">
+                        <div class="p-3 gap-1 relative h-1/3 align-top items-start font-nexarust">
+                            <h1 class="font-bold text-xl text-black">Helena Haryadi</h1>
+                            <h1 class="text-base text-black">"Aku suka semua tentang langit"</h1>
+                            <div class="text-black flex justify-center flex-wrap gap-5 absolute bottom-5 start-0 w-full">
                                 <a class="hover:text-[#EADCC6]" href="https://www.instagram.com/peipeihelenaa"
                                     target="_blank">
                                     <i class="fab fa-instagram"></i>
@@ -1357,11 +1357,11 @@
             slidesPerView: "auto",
             spaceBetween: 40,
             freeMode: true,
-            autoplay: {
-                delay: 3000,
-                pauseOnMouseEnter: true,
-                disableOnInteraction: false,
-            },
+            // autoplay: {
+            //     delay: 3000,
+            //     pauseOnMouseEnter: true,
+            //     disableOnInteraction: false,
+            // },
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
