@@ -215,11 +215,13 @@
                                 <div class="md:text-xl font-poppins text-center">12.00 -
                                     13.00
                                 </div>
-                                {{-- <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Lorem ipsum dolor sit amet consectetur
-                                    adipisicing
-                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
-                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
-                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Takut
+                                    ketinggalan berita terkini?🤔
+                                    Di sini, kamu bisa dapetin berita paling up to date dengan NO BOSENIN!🤩
+
+                                    Mulai dari berita metropolitan, olahraga, sampai entertainment yang dijamin FUN!🪅
+                                    Mengudara setiap Senin, Rabu, dan Jumat hanya di 107.7 FM atau streaming di
+                                    radio.umn.ac.id!✨</p>
                             </div>
                         </div>
                         <img alt=""
@@ -238,19 +240,18 @@
                                 <div class="md:text-xl font-poppins text-center">13.00 -
                                     14.00
                                 </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Ultimafriends
-                                    yakin kalian anak kampus
-                                    banget?! atau masih bingung anak kampus biasanya ngapain sih????
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Yakin kalo lo
+                                    anak kampus banget?! Atau masih banyak yang bingung anak kampus biasanya ngapain?🤔
 
-                                    Tenang DICE akan hadir temani ultimafriends di UMN Radio!! DICE APASIH? DICE itu Day
-                                    In Campus Life 👀. Lo bakal amaze deh sama obrolan yang ada di DICE, karena disini
-                                    bakal bahas hal yang pastinya related banget sama anak kampus zaman sekarang 😱🫵🏻
+                                    Tenang! DICE bakal hadir buat nemenin kehidupan kampusnya Ultimafriends! Lo bakal
+                                    happy deh sama obrolan yang pastinya relate banget sama anak kampus zaman
+                                    sekarang😱🫵🏻
 
-                                    Nah penasaran gasih?!!! Seberapa randomnya anak kampus sekarang?. Makanya stay tuned
-                                    aja terus setiap hari Senin sampai Jumat hanya di 107.7 FM atau radio.umn.ac.id
-                                    bareng U-nnouncer kesayangan lo! Hayoo siapa yakk dia 🫢
+                                    Nah, penasaran nggak, sih?🤪 Makanya stay tuned terus setiap hari Senin sampai Jumat
+                                    hanya di 107.7 FM atau radio.umn.ac.id bareng U-nnouncers kesayangan lo! Hayo, siapa
+                                    aja ya mereka?🤭
 
-                                    DICE, Roll The Dice, Spill The Spice!!! 🎲 </p>
+                                    DICE, Roll the Dice, Spill the Spice!🎲 </p>
                             </div>
                         </div>
                         <img alt=""
@@ -270,18 +271,18 @@
                                     17.00
                                 </div>
                                 <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Aloha,
-                                    Ultimafriends! 🌆
+                                    Ultimafriends!🌆
 
                                     “Foolish one, stop ngerasa kalau hari Senin itu nyebelin!”
 
-                                    Bener banget! Kalian harus stop ngerasa Senin itu nyebelin karena Sersan siap
-                                    nemenin Ultimafriends, barengan sama Pei 🤩 dan Rara 😍 tiap jam 2-5 sore!
+                                    Betul banget! Kalian harus stop ngerasa Senin itu nyebelin karena Pei dan Rara bakal
+                                    nemenin Ultimafriends di SERSAN setiap jam 2-5 sore!🙌🏼
 
-                                    Bareng Sersan kita bakal usut tuntas kehidupan para lelaki di luar sana! 🫣
-                                    Ultimafriends bisa dengerin Pei 🤩 dan Rara 😍 santai-santai di hari Senin lewat
-                                    radio.umn.ac.id atau 107.7 FM 📻
+                                    Pokoknya, kita bakal usut tuntas kehidupan Mr. Lucky yang berbeda setiap minggunya
+                                    cuma di radio.umn.ac.id atau 107.7 FM!👀
 
-                                    Don’t forget listen to Sersan, cuz the good things are coming ✨ </p>
+                                    Jangan lupa buat stay tuned terus di SERSAN because the good things are coming!✨
+                                </p>
                             </div>
                         </div>
                         <img alt=""
@@ -326,19 +327,18 @@
                                 <div class="md:text-xl font-poppins text-center">13.00 -
                                     14.00
                                 </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Ultimafriends
-                                    yakin kalian anak kampus
-                                    banget?! atau masih bingung anak kampus biasanya ngapain sih????
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Yakin kalo lo
+                                    anak kampus banget?! Atau masih banyak yang bingung anak kampus biasanya ngapain?🤔
 
-                                    Tenang DICE akan hadir temani ultimafriends di UMN Radio!! DICE APASIH? DICE itu Day
-                                    In Campus Life 👀. Lo bakal amaze deh sama obrolan yang ada di DICE, karena disini
-                                    bakal bahas hal yang pastinya related banget sama anak kampus zaman sekarang 😱🫵🏻
+                                    Tenang! DICE bakal hadir buat nemenin kehidupan kampusnya Ultimafriends! Lo bakal
+                                    happy deh sama obrolan yang pastinya relate banget sama anak kampus zaman
+                                    sekarang😱🫵🏻
 
-                                    Nah penasaran gasih?!!! Seberapa randomnya anak kampus sekarang?. Makanya stay tuned
-                                    aja terus setiap hari Senin sampai Jumat hanya di 107.7 FM atau radio.umn.ac.id
-                                    bareng U-nnouncer kesayangan lo! Hayoo siapa yakk dia 🫢
+                                    Nah, penasaran nggak, sih?🤪 Makanya stay tuned terus setiap hari Senin sampai Jumat
+                                    hanya di 107.7 FM atau radio.umn.ac.id bareng U-nnouncers kesayangan lo! Hayo, siapa
+                                    aja ya mereka?🤭
 
-                                    DICE, Roll The Dice, Spill The Spice!!! 🎲 </p>
+                                    DICE, Roll the Dice, Spill the Spice!🎲</p>
                             </div>
                         </div>
                         <img alt=""
@@ -357,20 +357,21 @@
                                 <div class="md:text-xl font-poppins text-center">14.00 -
                                     17.00
                                 </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Hi
-                                    ultimafriends, yuk tebak-tebakan! 🤫
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Hey,
+                                    Ultimafriends! Main tebak-tebakan, yuk!🤫
 
-                                    kalo permen rasanya apa?👀
-                                    selain manis pasti ada juga kan rasa lainnya? ✨
-                                    Nah, sama aja cinta juga gitu, selain bentuknya yang beragam, rasa yang dikasih juga
-                                    tentunya macem-macem, tapi pastinya semua pengalamannya bisa membuat hidup lo jadi
-                                    lebih berwarna 🌈
+                                    Kalo permen rasanya apa?👀🍬
+                                    Selain manis, pasti ada juga kan rasa lainnya?✨
 
-                                    Masih bingung maksudnya gimana? Kalo gitu langsung aja dengerin Bilcin di 107.7 FM
-                                    atau radio.umn.ac.id bareng Delgo sama Abel yang bakal nemenin lu menjelajah
-                                    berbagai macam rasa cinta di sekitar kita 🤗
+                                    Nah, sama kayak cinta! Selain bentuknya yang beragam, rasa yang dikasih juga
+                                    bermacam-macam, tapi semua pengalamannya pasti bisa bikin hidup lo jadi lebih
+                                    berwarna!🌈💫
 
-                                    Bilcin, Giving you every bit of love’s taste 💕</p>
+                                    Masih bingung maksudnya gimana?🤔 Kalo gitu langsung aja dengerin Bilcin di 107.7 FM
+                                    atau di radio.umn.ac.id bareng Delgo dan Abel yang bakal nemenin lo menjelajahi
+                                    berbagai rasa cinta setiap hari Selasa jam 2-5 sore!😚
+
+                                    Bilcin, giving you every bit of love’s taste💕</p>
                             </div>
                         </div>
                         <img alt=""
@@ -392,21 +393,22 @@
                                 <div class="md:text-xl font-poppins text-center">12.00 -
                                     15.00
                                 </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">WOI
-                                    ULTIMAFRIENDS!! CAKEP-CAKEP AMAT SIH PADAHAL BARU MAU PANTUN🤪
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Woy,
+                                    Ultimafriends! Pada cakep-cakep amat sih, padahal baru mau pantun🤪
 
-                                    Beli permen yang jual si Marwan
-                                    Si Marwan punya patung kuda
+                                    Beli permen yang jual si Marwan, CAKEP!
+                                    Si Marwan punya patung kuda!
+                                    Ultimafriends yang syantik dan rupawan,
+                                    Yuk, mari dengerin SODA!🔥
 
-                                    Ultimafriends yang syantik dan rupawan
-                                    Jangan lupa terus dengerin SODA!🔥
+                                    Ahay, dari pantunnya aja udah ciamik, apalagi nanti pembahasan di dalamnya🤭👀
+                                    Makanya, pantengin terus SODA tiap hari Rabu jam 12-3 siang bareng duet HARLA
+                                    (Hanif-Carla) yang udah pasti asik, tapi nggak asik sendiri, dong!🤙🏻
 
-                                    Ahay, dari pantunnya aja udah ciamik apalagi nanti pembahasan di dalamnya🤭👀
-                                    Makanya, jangan takut jangan khawatir! SODA bisa didengerin di 107.7 FM atau
-                                    radio.umn.ac.id bareng duet HARLA (Hanif-Carla) yang udah pasti asik, tapi ngga asik
-                                    sendiri!🤩
+                                    Nggak lupa, mereka juga bakal ditemenin bareng para Nona yang pastinya uhuy banget!
+                                    Udah deh, langsung aja gas ke 107.7 FM atau radio.umn.ac.id, yak!😎
 
-                                    SODA, VIBE UP YOUR DAY WITH US!🕺🏻</p>
+                                    SODA, vibe up your day with us!🍻</p>
                             </div>
                         </div>
                         <img alt=""
@@ -425,11 +427,13 @@
                                 <div class="md:text-xl font-poppins text-center">15.00 -
                                     16.00
                                 </div>
-                                {{-- <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Lorem ipsum dolor sit amet consectetur
-                                    adipisicing
-                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
-                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
-                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Takut
+                                    ketinggalan berita terkini?🤔
+                                    Di sini, kamu bisa dapetin berita paling up to date dengan NO BOSENIN!🤩
+
+                                    Mulai dari berita metropolitan, olahraga, sampai entertainment yang dijamin FUN!🪅
+                                    Mengudara setiap Senin, Rabu, dan Jumat hanya di 107.7 FM atau streaming di
+                                    radio.umn.ac.id!✨</p>
                             </div>
                         </div>
                         <img alt=""
@@ -448,19 +452,18 @@
                                 <div class="md:text-xl font-poppins text-center">16.00 -
                                     17.00
                                 </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Ultimafriends
-                                    yakin kalian anak kampus
-                                    banget?! atau masih bingung anak kampus biasanya ngapain sih????
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Yakin kalo lo
+                                    anak kampus banget?! Atau masih banyak yang bingung anak kampus biasanya ngapain?🤔
 
-                                    Tenang DICE akan hadir temani ultimafriends di UMN Radio!! DICE APASIH? DICE itu Day
-                                    In Campus Life 👀. Lo bakal amaze deh sama obrolan yang ada di DICE, karena disini
-                                    bakal bahas hal yang pastinya related banget sama anak kampus zaman sekarang 😱🫵🏻
+                                    Tenang! DICE bakal hadir buat nemenin kehidupan kampusnya Ultimafriends! Lo bakal
+                                    happy deh sama obrolan yang pastinya relate banget sama anak kampus zaman
+                                    sekarang😱🫵🏻
 
-                                    Nah penasaran gasih?!!! Seberapa randomnya anak kampus sekarang?. Makanya stay tuned
-                                    aja terus setiap hari Senin sampai Jumat hanya di 107.7 FM atau radio.umn.ac.id
-                                    bareng U-nnouncer kesayangan lo! Hayoo siapa yakk dia 🫢
+                                    Nah, penasaran nggak, sih?🤪 Makanya stay tuned terus setiap hari Senin sampai Jumat
+                                    hanya di 107.7 FM atau radio.umn.ac.id bareng U-nnouncers kesayangan lo! Hayo, siapa
+                                    aja ya mereka?🤭
 
-                                    DICE, Roll The Dice, Spill The Spice!!! 🎲 </p>
+                                    DICE, Roll the Dice, Spill the Spice!🎲</p>
                             </div>
                         </div>
                         <img alt=""
@@ -505,19 +508,18 @@
                                 <div class="md:text-xl font-poppins text-center">13.00 -
                                     14.00
                                 </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Ultimafriends
-                                    yakin kalian anak kampus
-                                    banget?! atau masih bingung anak kampus biasanya ngapain sih????
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Yakin kalo lo
+                                    anak kampus banget?! Atau masih banyak yang bingung anak kampus biasanya ngapain?🤔
 
-                                    Tenang DICE akan hadir temani ultimafriends di UMN Radio!! DICE APASIH? DICE itu Day
-                                    In Campus Life 👀. Lo bakal amaze deh sama obrolan yang ada di DICE, karena disini
-                                    bakal bahas hal yang pastinya related banget sama anak kampus zaman sekarang 😱🫵🏻
+                                    Tenang! DICE bakal hadir buat nemenin kehidupan kampusnya Ultimafriends! Lo bakal
+                                    happy deh sama obrolan yang pastinya relate banget sama anak kampus zaman
+                                    sekarang😱🫵🏻
 
-                                    Nah penasaran gasih?!!! Seberapa randomnya anak kampus sekarang?. Makanya stay tuned
-                                    aja terus setiap hari Senin sampai Jumat hanya di 107.7 FM atau radio.umn.ac.id
-                                    bareng U-nnouncer kesayangan lo! Hayoo siapa yakk dia 🫢
+                                    Nah, penasaran nggak, sih?🤪 Makanya stay tuned terus setiap hari Senin sampai Jumat
+                                    hanya di 107.7 FM atau radio.umn.ac.id bareng U-nnouncers kesayangan lo! Hayo, siapa
+                                    aja ya mereka?🤭
 
-                                    DICE, Roll The Dice, Spill The Spice!!! 🎲 </p>
+                                    DICE, Roll the Dice, Spill the Spice!🎲</p>
                             </div>
                         </div>
                         <img alt=""
@@ -536,22 +538,23 @@
                                 <div class="md:text-xl font-poppins text-center">14.00 -
                                     17.00
                                 </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">🎷MUSIKALITAS:
-                                    Musik Anak Lokal Berkualitas🎷
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Yakin masih
+                                    muterin lagu yang itu-itu aja? Ah, ini dia sasarannya!
 
-                                    Yakin masih muterin lagu yang itu-itu aja? Akh, ini dia sasarannya.
+                                    Penasaran nggak sih sama perkembangan musik Indonesia? Atau lo nggak tau harus cari
+                                    akarnya dari mana?😅
 
-                                    Penasaran ga sih sama perkembangan musik Indonesia? Atau lo ga tau harus cari
-                                    akarnya darimana?😅
+                                    Makanya sini-sini Ultimafriends! Daripada kebingungan sendiri, mending dengerin
+                                    keseruan duo cewek cantik ini yaitu Sis Bella dan Sis Nata!😚😍
 
-                                    Mengudara di 107.7 FM atau streaming di radio.umn.ac.id hari Kamis jam 14.00 - 17.00
-                                    WIB, wajib hukumnya buat dengerin Musikalitas!🎷
+                                    Mengudara di 107.7 FM atau streaming di radio.umn.ac.id setiap hari Kamis jam 2-5
+                                    siang, wajib hukumnya buat dengerin Musikalitas!🎷
 
                                     😱Makin tau
                                     🧐Banyak tau
                                     😬Paling tau
 
-                                    Musik Indonesia setiap minggunya, karena musik Indonesia ga ada abisnya!🤪</p>
+                                    Musik Indonesia setiap minggunya, karena musik Indonesia nggak ada abisnya!🤪</p>
                             </div>
                         </div>
                         <img alt=""
@@ -562,29 +565,27 @@
 
                 <div
                     class="flex justify-around tab-content-item text-center flex-wrap md:flex-nowrap p-2 gap-4 md:gap-0">
+
                     <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
                             class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
                                 src="{{ asset('images/programs/CHART.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
-                                <div class="font-bold md:text-2xl font-poppins text-center">CHARTTOPPERS
+                                <div class="font-bold md:text-2xl font-poppins text-center">SUPERB CHARTTOPPERS
                                 </div>
                                 <div class="md:text-xl font-poppins text-center">12.00 -
                                     15.00
                                 </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">What up!!!
-                                    ultimafriends👋🏻, Wanna know about🤔, hot song🎶, hot news🔥 and new album💿 from
-                                    your fav artist!!!
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Ay-yo what’s
+                                    up, Ultimafriends‼️ Wanna know about hot songs, news, and new albums from your
+                                    favorite artists?🤩 SUPERB CHARTTOPPERS is back only for Ultimafriends🫵🏻
 
-                                    YOU KNOW WHERE IT IS!!!
+                                    Tune in to SUPERB CHARTTOPPERS with Jocelyn every Friday from 12-3 PM only on 107.7
+                                    FM or radio.umn.ac.id 📻
 
-                                    Let’s go tune!!! on Superb Charttopers with Jocelyn only on Friday from 12.00 pm to
-                                    15.00 pm on 107.7 fm or radio.umn.ac.id
-
-                                    Don’t Forget to Listen 🎧🎶
-
-                                    Epic Hits Music For Your Friday!!!🎶🔥</p>
+                                    SUPERB CHARTTOPPERS,
+                                    Epic Hits Music for Your Friday!🎶🔥</p>
                             </div>
                         </div>
                         <img alt=""
@@ -603,11 +604,13 @@
                                 <div class="md:text-xl font-poppins text-center">15.00 -
                                     16.00
                                 </div>
-                                {{-- <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Lorem ipsum dolor sit amet consectetur
-                                    adipisicing
-                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
-                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
-                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Takut
+                                    ketinggalan berita terkini?🤔
+                                    Di sini, kamu bisa dapetin berita paling up to date dengan NO BOSENIN!🤩
+
+                                    Mulai dari berita metropolitan, olahraga, sampai entertainment yang dijamin FUN!🪅
+                                    Mengudara setiap Senin, Rabu, dan Jumat hanya di 107.7 FM atau streaming di
+                                    radio.umn.ac.id!✨</p>
                             </div>
                         </div>
                         <img alt=""
@@ -626,19 +629,18 @@
                                 <div class="md:text-xl font-poppins text-center">16.00 -
                                     17.00
                                 </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Ultimafriends
-                                    yakin kalian anak kampus
-                                    banget?! atau masih bingung anak kampus biasanya ngapain sih????
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Yakin kalo lo
+                                    anak kampus banget?! Atau masih banyak yang bingung anak kampus biasanya ngapain?🤔
 
-                                    Tenang DICE akan hadir temani ultimafriends di UMN Radio!! DICE APASIH? DICE itu Day
-                                    In Campus Life 👀. Lo bakal amaze deh sama obrolan yang ada di DICE, karena disini
-                                    bakal bahas hal yang pastinya related banget sama anak kampus zaman sekarang 😱🫵🏻
+                                    Tenang! DICE bakal hadir buat nemenin kehidupan kampusnya Ultimafriends! Lo bakal
+                                    happy deh sama obrolan yang pastinya relate banget sama anak kampus zaman
+                                    sekarang😱🫵🏻
 
-                                    Nah penasaran gasih?!!! Seberapa randomnya anak kampus sekarang?. Makanya stay tuned
-                                    aja terus setiap hari Senin sampai Jumat hanya di 107.7 FM atau radio.umn.ac.id
-                                    bareng U-nnouncer kesayangan lo! Hayoo siapa yakk dia 🫢
+                                    Nah, penasaran nggak, sih?🤪 Makanya stay tuned terus setiap hari Senin sampai Jumat
+                                    hanya di 107.7 FM atau radio.umn.ac.id bareng U-nnouncers kesayangan lo! Hayo, siapa
+                                    aja ya mereka?🤭
 
-                                    DICE, Roll The Dice, Spill The Spice!!! 🎲 </p>
+                                    DICE, Roll the Dice, Spill the Spice!🎲</p>
                             </div>
                         </div>
                         <img alt=""
@@ -656,13 +658,12 @@
     {{-- ARTICLE --}}
     <div class="font-poppins text-black mb-6 bg-[#103069] shadow-inner relative @if ($posts->count() > 0) block
         @else
-        hidden
-        @endif"
+        hidden @endif"
         style="box-shadow: inset 4px 4px 4px 0 rgb(0 0 0 / 0.05);">
         <img src="{{ asset('assets/others/papertexture.webp') }}" alt=""
             class="absolute w-full h-full opacity-20 z-0">
         <img src="{{ asset('assets/others/notebook.webp') }}" alt=""
-            class="absolute top-12 w-64 md:w-[30%] md:end-24 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] rotate-12 md:-rotate-12 brightness-75">
+            class="absolute top-12 w-64 md:w-auto md:h-full md:end-24 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] rotate-12 md:-rotate-12 brightness-75">
         <img src="{{ asset('assets/others/penungu.webp') }}" alt=""
             class="absolute top-12 w-32 md:w-[20%] drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] brightness-75">
         <div class="w-full h-full p-4 md:p-8 relative">
@@ -775,7 +776,7 @@
     </div>
 
     {{-- Charts --}}
-    <div id="section-4" class="md:mt-12 w-full my-12">
+    <div id="section-4" class="md:mt-12 w-full my-12 @if ($charts->count() < 1) hidden @endif">
         @if ($charts->count() > 0)
             <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center">Charts</h1>
         @endif
@@ -863,11 +864,19 @@
                     </div>
                 @endif
             @endforeach
+            <div class="text-center flex flex-row justify-center items-center my-6 z-40">
+                <a class="no-underline" href="/charts">
+                    <button
+                        class="bg-white hover:bg-[#021f3a] text-[#021f3a] font-semibold hover:text-white py-2 px-4 border border-[#021f3a] hover:border-transparent rounded ease-in-out duration-100">
+                        Show More
+                    </button>
+                </a>
+            </div>
         </div>
     </div>
 
     {{-- Section 4 --}}
-    <div id="section-4" class="md:mt-12 w-full my-12">
+    <div id="section-5" class="md:mt-12 w-full my-12 @if ($partnerships->count() < 1) hidden @endif">
         @if ($partnerships->count() > 0)
             <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center">Partnerships</h1>
         @endif
@@ -889,29 +898,29 @@
 
     {{-- URD section --}}
     <div class="mb-10">
-        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold text-center my-2 mb-6">URD</h1>
+        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold text-center my-2 mb-6">UMN RADIO DRAMA</h1>
         <div
             class="block xl:hidden mx-auto bg-gradient-to-br from-[#87cfe8] to-[#875fd3] rounded-2xl shadow-lg justify-center p-2 max-w-[90%]">
             <div
-                class="block xl:hidden mx-auto bg-gradient-to-br from-[#875fd3] to-[#87cfe8] rounded-2xl shadow-lg justify-center p-4 w-full">
+                class="block xl:hidden mx-auto bg-gradient-to-br from-[#875fd3] to-[#87cfe8] rounded-2xl shadow-lg justify-center p-4 w-full drop-shadow-[0_5px_100px_rgba(231,220,200,0.9)]">
                 <div class="mx-auto xl:gap-6 xl:h-auto sm:columns-2">
-                    <iframe style="border-radius:12px"
-                        src="https://open.spotify.com/embed/episode/5DXYA0JA4Fi0YsfM0jYsRo?utm_source=generator"
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                        src="https://open.spotify.com/embed/episode/3AegQ4CNGrCfXN1xs4sStY?utm_source=generator"
                         width="100%" frameBorder="0" allowfullscreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"></iframe>
-                    <iframe style="border-radius:12px"
-                        src="https://open.spotify.com/embed/episode/1Uft943OA80Om5PjNq2B0t?utm_source=generator"
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                        src="https://open.spotify.com/embed/episode/5imzP6eW3OT1qdRKloRHjV?utm_source=generator"
                         width="100%" frameBorder="0" allowfullscreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"></iframe>
-                    <iframe style="border-radius:12px"
-                        src="https://open.spotify.com/embed/episode/2iL0YXad47shWo7GyEWZrL?utm_source=generator"
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                        src="https://open.spotify.com/embed/episode/19BbKE5zB4GMAi6n8FvXt0?utm_source=generator"
                         width="100%" frameBorder="0" allowfullscreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"></iframe>
-                    <iframe style="border-radius:12px"
-                        src="https://open.spotify.com/embed/episode/3W509D52azNRxhkM8cwqNj?utm_source=generator"
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                        src="https://open.spotify.com/embed/episode/3NFFsFZecbUG8rxfUTIKV8?utm_source=generator"
                         width="100%" frameBorder="0" allowfullscreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"></iframe>
@@ -922,31 +931,31 @@
         <div
             class="hidden xl:flex mx-auto bg-gradient-to-r from-[#87cfe8] to-[#875fd3] rounded-2xl shadow-lg justify-center p-2 max-w-[90%]">
             <div
-                class="hidden xl:flex mx-auto bg-gradient-to-r from-[#875fd3] to-[#87cfe8] rounded-2xl shadow-lg justify-center px-4 w-full">
+                class="hidden xl:flex mx-auto bg-gradient-to-r from-[#875fd3] to-[#87cfe8] rounded-2xl shadow-lg justify-center px-4 w-full drop-shadow-[0_5px_100px_rgba(231,220,200,0.9)]">
                 <div class="my-4 p-4 w-[450px] mx-auto">
-                    <iframe style="border-radius:12px"
-                        src="https://open.spotify.com/embed/episode/5DXYA0JA4Fi0YsfM0jYsRo?utm_source=generator"
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                        src="https://open.spotify.com/embed/episode/3AegQ4CNGrCfXN1xs4sStY?utm_source=generator"
                         width="100%" height="352" frameBorder="0" allowfullscreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"></iframe>
                 </div>
                 <div class="my-4 p-4 w-[450px] mx-auto">
-                    <iframe style="border-radius:12px"
-                        src="https://open.spotify.com/embed/episode/1Uft943OA80Om5PjNq2B0t?utm_source=generator"
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                        src="https://open.spotify.com/embed/episode/5imzP6eW3OT1qdRKloRHjV?utm_source=generator"
                         width="100%" height="352" frameBorder="0" allowfullscreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"></iframe>
                 </div>
                 <div class="my-4 p-4 w-[450px] mx-auto">
-                    <iframe style="border-radius:12px"
-                        src="https://open.spotify.com/embed/episode/2iL0YXad47shWo7GyEWZrL?utm_source=generator"
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                        src="https://open.spotify.com/embed/episode/19BbKE5zB4GMAi6n8FvXt0?utm_source=generator"
                         width="100%" height="352" frameBorder="0" allowfullscreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"></iframe>
                 </div>
                 <div class="my-4 p-4 w-[450px] mx-auto">
-                    <iframe style="border-radius:12px"
-                        src="https://open.spotify.com/embed/episode/3W509D52azNRxhkM8cwqNj?utm_source=generator"
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                        src="https://open.spotify.com/embed/episode/3NFFsFZecbUG8rxfUTIKV8?utm_source=generator"
                         width="100%" height="352" frameBorder="0" allowfullscreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"></iframe>
