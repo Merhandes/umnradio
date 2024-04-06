@@ -10,6 +10,22 @@
     font-family: "NexaRust";
     src: url("fonts/NexaRustHandmade-Extended.otf") format("opentype");
 }
+@font-face {
+    font-family: "EmilyOlivia";
+    src: url("fonts/Emily\ Olivia.otf") format("opentype");
+}
+@font-face {
+    font-family: "HaveIdea";
+    src: url("fonts/Have\ Idea.ttf") format("truetype");
+}
+@font-face {
+    font-family: "HelloMickeys";
+    src: url("fonts/Hello\ Mickeys.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Love";
+    src: url("fonts/Love.ttf") format("truetype");
+}
 
 div::-webkit-scrollbar {
     display: none;

@@ -12,6 +12,10 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <script src="https://kit.fontawesome.com/667eb529ec.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
         footer {
             display: flex;
@@ -52,14 +56,13 @@
 
         div::-webkit-scrollbar {
             display: none;
-            /* for Chrome, Safari, and Opera */
         }
 
         p::-webkit-scrollbar {
             display: none;
-            /* for Chrome, Safari, and Opera */
         }
     </style>
+
 </head>
 
 <body class="composer">
@@ -654,6 +657,229 @@
         <img src="{{ asset('assets/paper/10.webp') }}"
             class="absolute h-[160%] md:h-[140%] object-cover bottom-0 -z-10" alt="">
     </div>
+
+    <div class="w-full my-10 lg:px-32">
+        <h1 class="font-poppins text-2xl font-bold text-center my-2 mb-6 text-[#021f3a]">U-NNOUNCERS</h1>
+        <div class="swiper mySwiper my-5 flex justify-center">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide font-poppins text-center">
+                    <div
+                        class="w-80 bg-[#fff6e7] pt-5 px-5 mb-10 h-[450px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2">
+                        <img class="w-full h-2/3 object-cover" src="{{ asset('images/announcers/helena.jpg') }}">
+                        <div class="p-3 gap-1 relative h-1/3 align-top items-start">
+                            <h1 class=" font-love text-3xl text-black">Helena Haryadi</h1>
+                            <h1 class="text-xl font-emilyolivia text-black ">"Aku suka semua tentang langit"</h1>
+                            <div
+                                class="text-black flex justify-center flex-wrap gap-5 absolute bottom-8 start-0 w-full">
+                                <a class="hover:text-biru" href="https://www.instagram.com/peipeihelenaa"
+                                    target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a class="hover:text-biru" href="https://www.tiktok.com/@luvnalena__"
+                                    target="_blank">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a class="hover:text-biru" href="https://open.spotify.com/user/peipeihelenaa?si=5e2cb20d99c04002"
+                                    target="_blank">
+                                    <i class="fab fa-spotify"></i>
+                                </a>
+                                <a class="hover:text-biru" href="https://x.com/luvnalena__?t=zrVkuERPC4HXEpgZBKavMQ&s=09"
+                                    target="_blank">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide font-poppins text-center">
+                    <div
+                        class="w-80 bg-[#fff6e7] pt-5 px-5 mb-10 h-[450px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2">
+                        <img class="w-full h-2/3 object-cover" src="{{ asset('images/announcers/khaira.jpg') }}">
+                        <div class="p-3 gap-1 relative h-1/3 align-top items-start">
+                            <h1 class="  font-love text-3xl text-black">Khaira Khansa</h1>
+                            <h1 class="text-xl font-emilyolivia text-black ">"alone or not, you gotta walk forward"
+                            </h1>
+                            <div
+                                class="text-black flex justify-center flex-wrap gap-5 absolute bottom-8 start-0 w-full">
+                                <a class="hover:text-biru" href="https://www.instagram.com/khairarnld"
+                                    target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a class="hover:text-biru" href="https://www.tiktok.com/@keyyrras" target="_blank">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a class="hover:text-biru" href="https://open.spotify.com/user/khairakhansa?si=3a5d17b54c424805" target="_blank">
+                                    <i class="fab fa-spotify"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide font-poppins text-center">
+                    <div
+                        class="w-80 bg-[#fff6e7] pt-5 px-5 mb-10 h-[450px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2">
+                        <img class="w-full h-2/3 object-cover"
+                            src="{{ asset('images/announcers/christabell.jpg') }}">
+                        <div class="p-3 gap-1 relative h-1/3 align-top items-start">
+                            <h1 class=" font-love text-3xl text-black">Christabell Chalin</h1>
+                            <h1 class="text-l font-emilyolivia text-black">"Never be so kind, you forget to be clever"
+                            </h1>
+                            <div
+                                class="text-black flex justify-center flex-wrap gap-5 absolute bottom-8 start-0 w-full">
+                                <a class="hover:text-biru" href="https://www.instagram.com/christabellchalin"
+                                    target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a class="hover:text-biru" href="https://open.spotify.com/user/31npp2u7iinwrhbajoyd37ofzmwi?si=5e9a00c74dba48b3"
+                                    target="_blank">
+                                    <i class="fab fa-spotify"></i>
+                                </a>
+                                <a class="hover:text-biru" href="https://medium.com/@multatulou?source=---two_column_layout_sidebar----------------------------------"
+                                    target="_blank">
+                                    <i class="fab fa-medium"></i>
+                                </a>
+                                <a class="hover:text-biru" href="https://pin.it/5kKQOii7A"
+                                    target="_blank">
+                                    <i class="fab fa-pinterest"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide font-poppins text-center">
+                    <div
+                        class="w-80 bg-[#fff6e7] pt-5 px-5 mb-10 h-[450px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2">
+                        <img class="w-full h-2/3 object-cover" src="{{ asset('images/announcers/delbert.jpg') }}">
+                        <div class="p-3 gap-1 relative h-1/3 align-top items-start">
+                            <h1 class=" font-love text-3xl text-black">Delbert Go</h1>
+                            <h1 class="text-xl font-emilyolivia text-black">"nikmati setiap halaman."</h1>
+                            <div
+                                class="text-black flex justify-center flex-wrap gap-5 absolute bottom-5 start-0 w-full">
+                                <a class="hover:text-biru" href="https://www.instagram.com/delbertgo"
+                                    target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a class="hover:text-biru" href="https://www.tiktok.com/@delbertgo7" target="_blank">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a class="hover:text-biru" href="https://youtube.com/@delbertgo484?si=j9JwcvRuipm98uKG" target="_blank">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a class="hover:text-biru" href="https://open.spotify.com/user/313iyybteuv66cu7zhywbzkyi5je?si=f267130a731341e9" target="_blank">
+                                    <i class="fab fa-spotify"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide font-poppins text-center">
+                    <div
+                        class="w-80 bg-[#fff6e7] pt-5 px-5 mb-10 h-[450px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2">
+                        <img class="w-full h-2/3 object-cover" src="{{ asset('images/announcers/carla.jpg') }}">
+                        <div class="p-3 gap-1 relative h-1/3 align-top items-start">
+                            <h1 class=" font-love text-3xl text-black">Carla Kaditha</h1>
+                            {{-- <h1 class="text-base text-white">"Never be so kind, you forget to be clever"</h1> --}}
+                            <div
+                                class="text-black flex justify-center flex-wrap gap-5 absolute bottom-5 start-0 w-full">
+                                <a class="hover:text-biru" href="https://www.instagram.com/kadithacarla_"
+                                    target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide font-poppins text-center">
+                    <div
+                        class="w-80 bg-[#fff6e7] pt-5 px-5 mb-10 h-[450px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2">
+                        <img class="w-full h-2/3 object-cover" src="{{ asset('images/announcers/hanif.jpg') }}">
+                        <div class="p-3 gap-1 relative h-1/3 align-top items-start">
+                            <h1 class="font-love text-3xl text-black">M Hanief Alif</h1>
+                            <h1 class="text-l font-emilyolivia text-black">"2 3 AYAM BERLARI, ADA HANIF JANGAN LARI "</h1>
+                            <div
+                                class="text-black flex justify-center flex-wrap gap-5 absolute bottom-5 start-0 w-full">
+                                <a class="hover:text-biru" href="https://www.instagram.com/hanifffalif"
+                                    target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide font-poppins text-center">
+                    <div
+                        class="w-80 bg-[#fff6e7] pt-5 px-5 mb-10 h-[450px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2">
+                        <img class="w-full h-2/3 object-cover" src="{{ asset('images/announcers/bella.jpg') }}">
+                        <div class="p-3 gap-1 relative h-1/3 align-top items-start">
+                            <h1 class="font-love text-3xl text-black">Bella Felisha</h1>
+                            <h1 class="text-xl font-emilyolivia text-black">"Aku sebenernya dua orang."</h1>
+                            <div
+                            class="text-black flex justify-center flex-wrap gap-5 absolute bottom-5 start-0 w-full">
+                                <a class="hover:text-biru" href="https://www.instagram.com/bellafelisha"
+                                    target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide font-poppins text-center">
+                    <div
+                        class="w-80 bg-[#fff6e7] pt-5 px-5 mb-10 h-[450px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2">
+                        <img class="w-full h-2/3 object-cover" src="{{ asset('images/announcers/serenata.jpg') }}">
+                        <div class="p-3 gap-1 relative h-1/3 align-top items-start">
+                            <h1 class="font-love text-2xl text-black">Serenata Silvestra</h1>
+                            <h1 class="text-l font-emilyolivia text-black">"BISAAAA, HARUS BISAAAA HARUS BISAAAAA -Desta"</h1>
+                            <div
+                            class="text-black flex justify-center flex-wrap gap-5 absolute bottom-5 start-0 w-full">
+                                <a class="hover:text-biru" href="https://www.instagram.com/serenata_05"
+                                target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a class="hover:text-biru" href="https://www.tiktok.com/@serenatasylvestra"
+                                    target="_blank">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a class="hover:text-biru" href="https://open.spotify.com/user/31vu75imzk747zzbykmpnsq7jvcy?si=aaf77db3cd9440a0"
+                                    target="_blank">
+                                    <i class="fab fa-spotify"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide font-poppins text-center">
+                    <div
+                        class="w-80 bg-[#fff6e7] pt-5 px-5 mb-10 h-[450px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2">
+                        <img class="w-full h-2/3 object-cover" src="{{ asset('images/announcers/joce.jpg') }}">
+                        <div class="p-3 gap-1 relative h-1/3 align-top items-start">
+                            <h1 class="font-love text-3xl text-black">Jocelyn Ancylla</h1>
+                            <h1 class="text-xl font-emilyolivia text-black">"blubup blubup blubup"</h1>
+                            <div
+                            class="text-black flex justify-center flex-wrap gap-5 absolute bottom-5 start-0 w-full">
+                                <a class="hover:text-biru" href="https://www.instagram.com/ancyllaas"
+                                target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a class="hover:text-biru" href="https://www.tiktok.com/@ancyrawr"
+                                    target="_blank">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a class="hover:text-biru" href="https://open.spotify.com/user/qd51npytlhuoreaalj9svrm5r?si=bcbae1f1f1da4c1d"
+                                    target="_blank">
+                                    <i class="fab fa-spotify"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+
 
     {{-- ARTICLE --}}
     <div class="font-poppins text-black mb-6 bg-[#103069] shadow-inner relative @if ($posts->count() > 0) block
@@ -1254,6 +1480,51 @@
         });
     </script>
     <script src="{{ asset('js/flowbite/dist/flowbite.min.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: "auto",
+            spaceBetween: 40,
+            freeMode: false,
+            autoplay: {
+                delay: 3000,
+                pauseOnMouseEnter: true,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+
+    <style>
+        .swiper {
+            width: 90%;
+            height: 70%;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            position: relative;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            margin-top: 0;
+            object-fit: cover;
+            max-height: 75%;
+            object-position: center top;
+        }
+    </style>
 </body>
 
 </html>
