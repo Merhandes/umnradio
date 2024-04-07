@@ -149,6 +149,18 @@
                         <div class="text-sm text-red-600">{{ $message }}</div>
                     @enderror
                 </div>
+                <div class="w-[400px]">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="operator">
+                        Operator
+                    </label>
+                    <input data-index='10'
+                        class="@error('operator') border-red-500 @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white"
+                        name="operator" id="operator" type="text" placeholder="e.g. John Doe"
+                        value="{{ old('operator', $programdetail->operator) }}">
+                    @error('operator')
+                        <div class="text-sm text-red-600">{{ $message }}</div>
+                    @enderror
+                </div>
             </div>
 
 
@@ -160,8 +172,20 @@
                 <input type="file" accept="image/*" id="image" name="image" onchange="previewImage()"
                     class="@error('image') border-red-500 @enderror ">
                 <img src="{{ asset('storage/' . $programdetail->image) }}" alt=""
-                    class="my-4 img-preview w-full h-80 object-cover">
+                    class="my-4 img-preview h-80 object-cover">
                 @error('image')
+                    <div class="text-sm text-red-600">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="my-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="image">
+                    Banner Image
+                </label>
+                <input type="hidden" name="old_banner" value="{{ $programdetail->banner_image }}">
+                <input type="file" accept="image/*" id="banner_image" name="banner_image"
+                    onchange="previewBanner()" class="@error('banner_image') border-red-500 @enderror ">
+                <img src="{{ asset('storage/' . $programdetail->banner_image) }}" alt="" class="my-4 banner-preview h-80">
+                @error('banner_image')
                     <div class="text-sm text-red-600">{{ $message }}</div>
                 @enderror
             </div>
@@ -191,6 +215,19 @@
     function previewImage() {
         const image = document.querySelector('#image')
         const imgPreview = document.querySelector(".img-preview")
+
+        imgPreview.style.display = 'block'
+        const oFReader = new FileReader()
+
+        oFReader.readAsDataURL(image.files[0])
+        oFReader.onload = function(oFREvent) {
+            imgPreview.src = oFREvent.target.result;
+        }
+    }
+
+    function previewBanner() {
+        const image = document.querySelector('#banner_image')
+        const imgPreview = document.querySelector(".banner-preview")
 
         imgPreview.style.display = 'block'
         const oFReader = new FileReader()

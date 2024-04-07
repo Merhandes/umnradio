@@ -12,6 +12,10 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <script src="https://kit.fontawesome.com/667eb529ec.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
         footer {
             display: flex;
@@ -49,7 +53,16 @@
                 width: 100%;
             }
         }
+
+        div::-webkit-scrollbar {
+            display: none;
+        }
+
+        p::-webkit-scrollbar {
+            display: none;
+        }
     </style>
+
 </head>
 
 <body class="composer">
@@ -88,69 +101,14 @@
                                 d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm224-72V328c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24zm112 0V328c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24z" />
                         </svg></button>
                 </div>
-                <audio id="player">
+                {{-- <audio id="player">
                     <source src='http://icecast.umn.ac.id:8000/live' />
-                </audio>
+                </audio> --}}
             </div>
         </div>
     </div>
 
-    {{-- AUDIO --}}
-    <link rel="stylesheet" href="{{ asset('path/to/font-awesome/css/all.min.css') }}">
-    <footer id="audiosticky"
-        class="invisible fixed bottom-0 w-full z-40 h-16 bg-[#021f3a] flex flex-row gap-1 justify-center items-center transition-all duration-500">
-        <button id="buttonplay2"><svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512">
-                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                <style>
-                    svg {
-                        fill: #ffffff
-                    }
-                </style>
-                <path
-                    d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
-            </svg></button>
-
-        <button id="buttonpause2" class="hidden"><svg xmlns="http://www.w3.org/2000/svg" height="2em"
-                viewBox="0 0 320 512">
-                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                <style>
-                    svg {
-                        fill: #ffffff
-                    }
-                </style>
-                <path
-                    d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z" />
-            </svg></button>
-
-        <audio id="player">
-            <source src="http://icecast.umn.ac.id:8000/live" />
-        </audio>
-        <div class="p-4 max-w-md w-full hidden md:block">
-            <div class="flex items-center justify-center">
-                <span class="text-sm text-white" id="currentTime">0:00</span>
-                <input type="range" id="progressBar" min="0" max="100" value="0"
-                    class="slider mx-4 w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
-                {{-- <span class="text-sm text-white" id="duration">0:00</span> --}}
-            </div>
-        </div>
-
-        {{-- Volume Control Section --}}
-
-        <div class="flex items-center absolute end-5 md:static">
-            <div class="flex items-center gap-2">
-                <button id="volumeIcon" class="text-white">
-                    <!-- Font Awesome volume icon -->
-                    <i class="fas fa-volume-up"></i>
-                </button>
-                <!-- Updated: Wrap volume controls in a container div -->
-                <div id="volumeControls" class="hidden flex items-center">
-                    <input type="range" id="volume" class="w-16 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer" min="0" max="100" value="50">
-                    <span id="volumeValue" class="text-gray-300 ml-2">50%</span>
-                </div>
-            </div>
-        </div>
-
-    </footer>
+    <x-audioplayer></x-audioplayer>
 
     {{-- ON AIR OFF AIR --}}
     <div id="section-1" class="w-full mb-16">
@@ -172,7 +130,7 @@
             $day = Carbon::now()->dayOfWeek;
             $hour = Carbon::now()->hour + 7;
             // var_dump($day, $hour);
-            // $day = 4;
+            // $day = 1;
             // $hour = 12;
             
             foreach ($programs as $program) {
@@ -197,7 +155,7 @@
                 }
             }
             
-            if ($day >= 5 || $day == 0) {
+            if (($day >= 5 && $hour >= 17) || $day == 0) {
                 $text = 'Upcoming Program';
                 $now = $programs->where('broadcast_day', 1)->first();
                 $onair = 'bg-[#dfdfdf]';
@@ -210,7 +168,7 @@
             </div>
 
             <div class="flex flex-col md:flex-row gap-4 md:gap-16 mt-6 justify-center items-center">
-                <img class="h-54 md:h-80 rounded-lg object-cover" src="{{ asset($now->img) }}" alt="ON AIR" />
+                <img class="h-54 md:h-[400px] rounded-lg object-cover" src="{{ asset($now->img) }}" alt="ON AIR" />
 
                 <div>
                     <h3 class="font-poppins mt-3 font-bold text-black">{{ $text }}</h3>
@@ -249,90 +207,107 @@
             <div class="tab-content">
                 <div
                     class="flex justify-around tab-content-item text-center flex-wrap md:flex-nowrap p-2 gap-4 md:gap-0">
-                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                    <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
-                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                                src="{{ asset('images/programs/NEWSFLASH.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">NEWS FLASH
                                 </div>
                                 <div class="md:text-xl font-poppins text-center">12.00 -
                                     13.00
                                 </div>
-                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
-                                    adipisicing
-                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
-                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
-                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Takut
+                                    ketinggalan berita terkini?🤔
+                                    Di sini, kamu bisa dapetin berita paling up to date dengan NO BOSENIN!🤩
+
+                                    Mulai dari berita metropolitan, olahraga, sampai entertainment yang dijamin FUN!🪅
+                                    Mengudara setiap Senin, Rabu, dan Jumat hanya di 107.7 FM atau streaming di
+                                    radio.umn.ac.id!✨</p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                            src="{{ asset('images/programs/NEWSFLASH_BANNER.webp') }}" />
                     </div>
 
-                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                    <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
-                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                                src="{{ asset('images/programs/DICE.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">DICE
                                 </div>
                                 <div class="md:text-xl font-poppins text-center">13.00 -
                                     14.00
                                 </div>
-                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
-                                    adipisicing
-                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
-                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
-                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Yakin kalo lo
+                                    anak kampus banget?! Atau masih banyak yang bingung anak kampus biasanya ngapain?🤔
+
+                                    Tenang! DICE bakal hadir buat nemenin kehidupan kampusnya Ultimafriends! Lo bakal
+                                    happy deh sama obrolan yang pastinya relate banget sama anak kampus zaman
+                                    sekarang😱🫵🏻
+
+                                    Nah, penasaran nggak, sih?🤪 Makanya stay tuned terus setiap hari Senin sampai Jumat
+                                    hanya di 107.7 FM atau radio.umn.ac.id bareng U-nnouncers kesayangan lo! Hayo, siapa
+                                    aja ya mereka?🤭
+
+                                    DICE, Roll the Dice, Spill the Spice!🎲 </p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                            src="{{ asset('images/programs/DICE_BANNER.webp') }}" />
                     </div>
 
-                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                    <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
-                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                                src="{{ asset('images/programs/SERSAN.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">SERSAN
                                 </div>
                                 <div class="md:text-xl font-poppins text-center">14.00 -
                                     17.00
                                 </div>
-                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
-                                    adipisicing
-                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
-                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
-                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Aloha,
+                                    Ultimafriends!🌆
+
+                                    “Foolish one, stop ngerasa kalau hari Senin itu nyebelin!”
+
+                                    Betul banget! Kalian harus stop ngerasa Senin itu nyebelin karena Pei dan Rara bakal
+                                    nemenin Ultimafriends di SERSAN setiap jam 2-5 sore!🙌🏼
+
+                                    Pokoknya, kita bakal usut tuntas kehidupan Mr. Lucky yang berbeda setiap minggunya
+                                    cuma di radio.umn.ac.id atau 107.7 FM!👀
+
+                                    Jangan lupa buat stay tuned terus di SERSAN because the good things are coming!✨
+                                </p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                            src="{{ asset('images/programs/SERSAN_BANNER.webp') }}" />
                     </div>
                 </div>
 
                 <div
                     class="flex justify-around tab-content-item text-center flex-wrap md:flex-nowrap p-2 gap-4 md:gap-0">
-                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                    <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
-                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                                src="{{ asset('images/programs/UH.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">UMN HIGHLIGHTS
                                 </div>
                                 <div class="md:text-xl font-poppins text-center">12.00 -
                                     13.00
                                 </div>
-                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
+                                {{-- <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Lorem ipsum dolor sit amet consectetur
                                     adipisicing
                                     elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
                                     voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
@@ -341,142 +316,179 @@
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                            src="{{ asset('images/programs/UH.webp') }}" />
                     </div>
 
-                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                    <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
-                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                                src="{{ asset('images/programs/DICE.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">DICE
                                 </div>
                                 <div class="md:text-xl font-poppins text-center">13.00 -
                                     14.00
                                 </div>
-                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
-                                    adipisicing
-                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
-                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
-                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Yakin kalo lo
+                                    anak kampus banget?! Atau masih banyak yang bingung anak kampus biasanya ngapain?🤔
+
+                                    Tenang! DICE bakal hadir buat nemenin kehidupan kampusnya Ultimafriends! Lo bakal
+                                    happy deh sama obrolan yang pastinya relate banget sama anak kampus zaman
+                                    sekarang😱🫵🏻
+
+                                    Nah, penasaran nggak, sih?🤪 Makanya stay tuned terus setiap hari Senin sampai Jumat
+                                    hanya di 107.7 FM atau radio.umn.ac.id bareng U-nnouncers kesayangan lo! Hayo, siapa
+                                    aja ya mereka?🤭
+
+                                    DICE, Roll the Dice, Spill the Spice!🎲</p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                            src="{{ asset('images/programs/DICE_BANNER.webp') }}" />
                     </div>
 
-                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                    <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
-                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                                src="{{ asset('images/programs/BILCIN.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">BILCIN
                                 </div>
                                 <div class="md:text-xl font-poppins text-center">14.00 -
                                     17.00
                                 </div>
-                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
-                                    adipisicing
-                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
-                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
-                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Hey,
+                                    Ultimafriends! Main tebak-tebakan, yuk!🤫
+
+                                    Kalo permen rasanya apa?👀🍬
+                                    Selain manis, pasti ada juga kan rasa lainnya?✨
+
+                                    Nah, sama kayak cinta! Selain bentuknya yang beragam, rasa yang dikasih juga
+                                    bermacam-macam, tapi semua pengalamannya pasti bisa bikin hidup lo jadi lebih
+                                    berwarna!🌈💫
+
+                                    Masih bingung maksudnya gimana?🤔 Kalo gitu langsung aja dengerin Bilcin di 107.7 FM
+                                    atau di radio.umn.ac.id bareng Delgo dan Abel yang bakal nemenin lo menjelajahi
+                                    berbagai rasa cinta setiap hari Selasa jam 2-5 sore!😚
+
+                                    Bilcin, giving you every bit of love’s taste💕</p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                            src="{{ asset('images/programs/BILCIN_BANNER.webp') }}" />
                     </div>
                 </div>
 
                 <div
                     class="flex justify-around tab-content-item text-center flex-wrap md:flex-nowrap p-2 gap-4 md:gap-0">
-                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                    <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
-                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                                src="{{ asset('images/programs/SODA.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">SODA
                                 </div>
                                 <div class="md:text-xl font-poppins text-center">12.00 -
                                     15.00
                                 </div>
-                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
-                                    adipisicing
-                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
-                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
-                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Woy,
+                                    Ultimafriends! Pada cakep-cakep amat sih, padahal baru mau pantun🤪
+
+                                    Beli permen yang jual si Marwan, CAKEP!
+                                    Si Marwan punya patung kuda!
+                                    Ultimafriends yang syantik dan rupawan,
+                                    Yuk, mari dengerin SODA!🔥
+
+                                    Ahay, dari pantunnya aja udah ciamik, apalagi nanti pembahasan di dalamnya🤭👀
+                                    Makanya, pantengin terus SODA tiap hari Rabu jam 12-3 siang bareng duet HARLA
+                                    (Hanif-Carla) yang udah pasti asik, tapi nggak asik sendiri, dong!🤙🏻
+
+                                    Nggak lupa, mereka juga bakal ditemenin bareng para Nona yang pastinya uhuy banget!
+                                    Udah deh, langsung aja gas ke 107.7 FM atau radio.umn.ac.id, yak!😎
+
+                                    SODA, vibe up your day with us!🍻</p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                            src="{{ asset('images/programs/SODA_BANNER.webp') }}" />
                     </div>
 
-                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                    <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
-                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                                src="{{ asset('images/programs/NEWSFLASH.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">NEWS FLASH
                                 </div>
                                 <div class="md:text-xl font-poppins text-center">15.00 -
                                     16.00
                                 </div>
-                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
-                                    adipisicing
-                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
-                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
-                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Takut
+                                    ketinggalan berita terkini?🤔
+                                    Di sini, kamu bisa dapetin berita paling up to date dengan NO BOSENIN!🤩
+
+                                    Mulai dari berita metropolitan, olahraga, sampai entertainment yang dijamin FUN!🪅
+                                    Mengudara setiap Senin, Rabu, dan Jumat hanya di 107.7 FM atau streaming di
+                                    radio.umn.ac.id!✨</p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                            src="{{ asset('images/programs/NEWSFLASH_BANNER.webp') }}" />
                     </div>
 
-                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                    <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
-                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                                src="{{ asset('images/programs/DICE.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">DICE
                                 </div>
                                 <div class="md:text-xl font-poppins text-center">16.00 -
                                     17.00
                                 </div>
-                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
-                                    adipisicing
-                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
-                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
-                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Yakin kalo lo
+                                    anak kampus banget?! Atau masih banyak yang bingung anak kampus biasanya ngapain?🤔
+
+                                    Tenang! DICE bakal hadir buat nemenin kehidupan kampusnya Ultimafriends! Lo bakal
+                                    happy deh sama obrolan yang pastinya relate banget sama anak kampus zaman
+                                    sekarang😱🫵🏻
+
+                                    Nah, penasaran nggak, sih?🤪 Makanya stay tuned terus setiap hari Senin sampai Jumat
+                                    hanya di 107.7 FM atau radio.umn.ac.id bareng U-nnouncers kesayangan lo! Hayo, siapa
+                                    aja ya mereka?🤭
+
+                                    DICE, Roll the Dice, Spill the Spice!🎲</p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                            src="{{ asset('images/programs/DICE_BANNER.webp') }}" />
                     </div>
                 </div>
 
                 <div
                     class="flex justify-around tab-content-item text-center flex-wrap md:flex-nowrap p-2 gap-4 md:gap-0">
-                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                    <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
-                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                                src="{{ asset('images/programs/UH.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">UMN HIGHLIGHTS
                                 </div>
                                 <div class="md:text-xl font-poppins text-center">12.00 -
                                     13.00
                                 </div>
-                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
+                                {{-- <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Lorem ipsum dolor sit amet consectetur
                                     adipisicing
                                     elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
                                     voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
@@ -485,125 +497,158 @@
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                            src="{{ asset('images/programs/UH.webp') }}" />
                     </div>
 
-                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                    <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
-                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                                src="{{ asset('images/programs/DICE.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">DICE
                                 </div>
                                 <div class="md:text-xl font-poppins text-center">13.00 -
                                     14.00
                                 </div>
-                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
-                                    adipisicing
-                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
-                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
-                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Yakin kalo lo
+                                    anak kampus banget?! Atau masih banyak yang bingung anak kampus biasanya ngapain?🤔
+
+                                    Tenang! DICE bakal hadir buat nemenin kehidupan kampusnya Ultimafriends! Lo bakal
+                                    happy deh sama obrolan yang pastinya relate banget sama anak kampus zaman
+                                    sekarang😱🫵🏻
+
+                                    Nah, penasaran nggak, sih?🤪 Makanya stay tuned terus setiap hari Senin sampai Jumat
+                                    hanya di 107.7 FM atau radio.umn.ac.id bareng U-nnouncers kesayangan lo! Hayo, siapa
+                                    aja ya mereka?🤭
+
+                                    DICE, Roll the Dice, Spill the Spice!🎲</p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                            src="{{ asset('images/programs/DICE_BANNER.webp') }}" />
                     </div>
 
-                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                    <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
-                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                                src="{{ asset('images/programs/MUSIKALITAS.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">MUSIKALITAS
                                 </div>
                                 <div class="md:text-xl font-poppins text-center">14.00 -
                                     17.00
                                 </div>
-                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
-                                    adipisicing
-                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
-                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
-                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Yakin masih
+                                    muterin lagu yang itu-itu aja? Ah, ini dia sasarannya!
+
+                                    Penasaran nggak sih sama perkembangan musik Indonesia? Atau lo nggak tau harus cari
+                                    akarnya dari mana?😅
+
+                                    Makanya sini-sini Ultimafriends! Daripada kebingungan sendiri, mending dengerin
+                                    keseruan duo cewek cantik ini yaitu Sis Bella dan Sis Nata!😚😍
+
+                                    Mengudara di 107.7 FM atau streaming di radio.umn.ac.id setiap hari Kamis jam 2-5
+                                    siang, wajib hukumnya buat dengerin Musikalitas!🎷
+
+                                    😱Makin tau
+                                    🧐Banyak tau
+                                    😬Paling tau
+
+                                    Musik Indonesia setiap minggunya, karena musik Indonesia nggak ada abisnya!🤪</p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                            src="{{ asset('images/programs/MUSIKALITAS_BANNER.webp') }}" />
                     </div>
                 </div>
 
                 <div
                     class="flex justify-around tab-content-item text-center flex-wrap md:flex-nowrap p-2 gap-4 md:gap-0">
-                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+
+                    <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
-                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                                src="{{ asset('images/programs/CHART.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
-                                <div class="font-bold md:text-2xl font-poppins text-center">CHARTTOPPERS
+                                <div class="font-bold md:text-2xl font-poppins text-center">SUPERB CHARTTOPPERS
                                 </div>
                                 <div class="md:text-xl font-poppins text-center">12.00 -
                                     15.00
                                 </div>
-                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
-                                    adipisicing
-                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
-                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
-                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Ay-yo what’s
+                                    up, Ultimafriends‼️ Wanna know about hot songs, news, and new albums from your
+                                    favorite artists?🤩 SUPERB CHARTTOPPERS is back only for Ultimafriends🫵🏻
+
+                                    Tune in to SUPERB CHARTTOPPERS with Jocelyn every Friday from 12-3 PM only on 107.7
+                                    FM or radio.umn.ac.id 📻
+
+                                    SUPERB CHARTTOPPERS,
+                                    Epic Hits Music for Your Friday!🎶🔥</p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                            src="{{ asset('images/programs/CHART_BANNER.webp') }}" />
                     </div>
 
-                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                    <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
-                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                                src="{{ asset('images/programs/NEWSFLASH.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">NEWS FLASH
                                 </div>
                                 <div class="md:text-xl font-poppins text-center">15.00 -
                                     16.00
                                 </div>
-                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
-                                    adipisicing
-                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
-                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
-                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Takut
+                                    ketinggalan berita terkini?🤔
+                                    Di sini, kamu bisa dapetin berita paling up to date dengan NO BOSENIN!🤩
+
+                                    Mulai dari berita metropolitan, olahraga, sampai entertainment yang dijamin FUN!🪅
+                                    Mengudara setiap Senin, Rabu, dan Jumat hanya di 107.7 FM atau streaming di
+                                    radio.umn.ac.id!✨</p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                            src="{{ asset('images/programs/NEWSFLASH_BANNER.webp') }}" />
                     </div>
 
-                    <div class="relative group cursor-pointer md:p-5 md:max-w-[33.3%]">
+                    <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
-                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 cursor-pointer bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/placeholder.webp') }}" />
+                                src="{{ asset('images/programs/DICE.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">DICE
                                 </div>
                                 <div class="md:text-xl font-poppins text-center">16.00 -
                                     17.00
                                 </div>
-                                {{-- <p class="text-xs md:text-lg text-left px-4">Lorem ipsum dolor sit amet consectetur
-                                    adipisicing
-                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
-                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
-                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Yakin kalo lo
+                                    anak kampus banget?! Atau masih banyak yang bingung anak kampus biasanya ngapain?🤔
+
+                                    Tenang! DICE bakal hadir buat nemenin kehidupan kampusnya Ultimafriends! Lo bakal
+                                    happy deh sama obrolan yang pastinya relate banget sama anak kampus zaman
+                                    sekarang😱🫵🏻
+
+                                    Nah, penasaran nggak, sih?🤪 Makanya stay tuned terus setiap hari Senin sampai Jumat
+                                    hanya di 107.7 FM atau radio.umn.ac.id bareng U-nnouncers kesayangan lo! Hayo, siapa
+                                    aja ya mereka?🤭
+
+                                    DICE, Roll the Dice, Spill the Spice!🎲</p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/placeholder.webp') }}" />
+                            src="{{ asset('images/programs/DICE_BANNER.webp') }}" />
                     </div>
                 </div>
             </div>
@@ -613,6 +658,232 @@
             class="absolute h-[160%] md:h-[140%] object-cover bottom-0 -z-10" alt="">
     </div>
 
+    <div class="w-full my-10 lg:px-32">
+        <h1 class="font-poppins text-2xl font-bold text-center my-2 mb-6 text-[#021f3a]">U-NNOUNCERS</h1>
+        <div class="swiper mySwiper my-5 flex justify-center">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide font-poppins text-center">
+                    <div
+                        class="w-80 bg-[#fff6e7] relative pt-5 px-3 mb-10 h-[475px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2">
+                        <img class="w-full h-2/3 object-cover" src="{{ asset('images/announcers/helena.webp') }}">
+                        <div class="pt-2 gap-6 relative h-1/3 align-top items-start">
+                            <h1 class=" font-love text-3xl text-black font-semibold mb-1">Helena Haryadi</h1>
+                            <h1 class="text-xl font-hellomickeys text-black ">"Aku suka semua tentang langit"</h1>
+                        </div>
+                        <div class="text-black flex justify-center flex-wrap gap-5 absolute bottom-2 start-0 w-full">
+                            <a class="hover:text-biru" href="https://www.instagram.com/peipeihelenaa"
+                                target="_blank">
+                                <i class="fa-brands fa-lg fa-instagram"></i>
+                            </a>
+                            <a class="hover:text-biru" href="https://www.tiktok.com/@luvnalena__" target="_blank">
+                                <i class="fa-brands fa-lg fa-tiktok"></i>
+                            </a>
+                            <a class="hover:text-biru"
+                                href="https://open.spotify.com/user/peipeihelenaa"
+                                target="_blank">
+                                <i class="fa-brands fa-lg fa-spotify"></i>
+                            </a>
+                            <a class="hover:text-biru" href="https://x.com/luvnalena__"
+                                target="_blank">
+                                <i class="fa-brands fa-lg fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide font-poppins text-center">
+                    <div
+                        class="w-80 bg-[#fff6e7] relative pt-5 px-3 mb-10 h-[475px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2">
+                        <img class="w-full h-2/3 object-cover" src="{{ asset('images/announcers/khaira.webp') }}">
+                        <div class="pt-2 gap-6 relative h-1/3 align-top items-start">
+                            <h1 class="  font-love text-3xl text-black font-semibold mb-1">Khaira Khansa</h1>
+                            <h1 class="text-xl font-hellomickeys text-black ">"alone or not, you gotta walk forward"
+                            </h1>
+                        </div>
+                        <div class="text-black flex justify-center flex-wrap gap-5 absolute bottom-2 start-0 w-full">
+                            <a class="hover:text-biru" href="https://www.instagram.com/khairarnld" target="_blank">
+                                <i class="fa-brands fa-lg fa-instagram"></i>
+                            </a>
+                            <a class="hover:text-biru" href="https://www.tiktok.com/@keyyrras" target="_blank">
+                                <i class="fa-brands fa-lg fa-tiktok"></i>
+                            </a>
+                            <a class="hover:text-biru"
+                                href="https://open.spotify.com/user/khairakhansa" target="_blank">
+                                <i class="fa-brands fa-lg fa-spotify"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide font-poppins text-center">
+                    <div
+                        class="w-80 bg-[#fff6e7] relative pt-5 px-3 mb-10 h-[475px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2">
+                        <img class="w-full h-2/3 object-cover"
+                            src="{{ asset('images/announcers/christabell.webp') }}">
+                        <div class="pt-2 gap-6 relative h-1/3 align-top items-start">
+                            <h1 class=" font-love text-3xl text-black font-semibold mb-1">Christabell Chalin</h1>
+                            <h1 class="text-xl font-hellomickeys text-black">"Never be so kind, you forget to be clever"
+                            </h1>
+
+                        </div>
+                        <div class="text-black flex justify-center flex-wrap gap-5 absolute bottom-2 start-0 w-full">
+                            <a class="hover:text-biru" href="https://www.instagram.com/christabellchalin"
+                                target="_blank">
+                                <i class="fa-brands fa-lg fa-instagram"></i>
+                            </a>
+                            <a class="hover:text-biru"
+                                href="https://open.spotify.com/user/31npp2u7iinwrhbajoyd37ofzmwi"
+                                target="_blank">
+                                <i class="fa-brands fa-lg fa-spotify"></i>
+                            </a>
+                            <a class="hover:text-biru"
+                                href="https://medium.com/@multatulou"
+                                target="_blank">
+                                <i class="fa-brands fa-lg fa-medium"></i>
+                            </a>
+                            <a class="hover:text-biru" href="https://pin.it/5kKQOii7A" target="_blank">
+                                <i class="fa-brands fa-lg fa-pinterest"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide font-poppins text-center">
+                    <div
+                        class="w-80 bg-[#fff6e7] relative pt-5 px-3 mb-10 h-[475px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2">
+                        <img class="w-full h-2/3 object-cover" src="{{ asset('images/announcers/delbert.webp') }}">
+                        <div class="pt-2 gap-6 relative h-1/3 align-top items-start">
+                            <h1 class=" font-love text-3xl text-black font-semibold mb-1">Delbert Go</h1>
+                            <h1 class="text-xl font-hellomickeys text-black">"nikmati setiap halaman."</h1>
+                        </div>
+                        <div class="text-black flex justify-center flex-wrap gap-5 absolute bottom-2 start-0 w-full">
+                            <a class="hover:text-biru" href="https://www.instagram.com/delbertgo" target="_blank">
+                                <i class="fa-brands fa-lg fa-instagram"></i>
+                            </a>
+                            <a class="hover:text-biru" href="https://www.tiktok.com/@delbertgo7" target="_blank">
+                                <i class="fa-brands fa-lg fa-tiktok"></i>
+                            </a>
+                            <a class="hover:text-biru" href="https://youtube.com/@delbertgo484"
+                                target="_blank">
+                                <i class="fa-brands fa-lg fa-youtube"></i>
+                            </a>
+                            <a class="hover:text-biru"
+                                href="https://open.spotify.com/user/313iyybteuv66cu7zhywbzkyi5je"
+                                target="_blank">
+                                <i class="fa-brands fa-lg fa-spotify"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide font-poppins text-center">
+                    <div
+                        class="w-80 bg-[#fff6e7] relative pt-5 px-3 mb-10 h-[475px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2">
+                        <img class="w-full h-2/3 object-cover" src="{{ asset('images/announcers/carla.webp') }}">
+                        <div class="pt-2 gap-6 relative h-1/3 align-top items-start">
+                            <h1 class=" font-love text-3xl text-black font-semibold mb-1">Carla Kaditha</h1>
+                            <h1 class="text-xl font-hellomickeys text-black ">“It is never too late, I'm halfway there”</h1>
+                        </div>
+                        <div class="text-black flex justify-center flex-wrap gap-5 absolute bottom-2 start-0 w-full">
+                            <a class="hover:text-biru" href="https://www.instagram.com/kadithacarla_"
+                                target="_blank">
+                                <i class="fa-brands fa-lg fa-instagram"></i>
+                            </a>
+                            <a class="hover:text-biru" href="https://www.linkedin.com/in/carla-kaditha-71a445255"
+                                target="_blank">
+                                <i class="fa-brands fa-lg fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide font-poppins text-center">
+                    <div
+                        class="w-80 bg-[#fff6e7] relative pt-5 px-3 mb-10 h-[475px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2">
+                        <img class="w-full h-2/3 object-cover" src="{{ asset('images/announcers/hanif.webp') }}">
+                        <div class="pt-2 gap-6 relative h-1/3 align-top items-start">
+                            <h1 class="font-love text-3xl text-black font-semibold mb-1">M Hanief Alif</h1>
+                            <h1 class="text-lg font-hellomickeys text-black">"2 3 AYAM BERLARI, ADA HANIF JANGAN LARI "
+                            </h1>
+                        </div>
+                        <div class="text-black flex justify-center flex-wrap gap-5 absolute bottom-2 start-0 w-full">
+                            <a class="hover:text-biru" href="https://www.instagram.com/hanifffalif" target="_blank">
+                                <i class="fa-brands fa-lg fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide font-poppins text-center">
+                    <div
+                        class="w-80 bg-[#fff6e7] relative pt-5 px-3 mb-10 h-[475px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2">
+                        <img class="w-full h-2/3 object-cover" src="{{ asset('images/announcers/bella.webp') }}">
+                        <div class="pt-2 gap-6 relative h-1/3 align-top items-start">
+                            <h1 class="font-love text-3xl text-black font-semibold mb-1">Bella Felisha</h1>
+                            <h1 class="text-xl font-hellomickeys text-black">"Aku sebenernya dua orang."</h1>
+
+                        </div>
+                        <div class="text-black flex justify-center flex-wrap gap-5 absolute bottom-2 start-0 w-full">
+                            <a class="hover:text-biru" href="https://www.instagram.com/bellafelisha" target="_blank">
+                                <i class="fa-brands fa-lg fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide font-poppins text-center">
+                    <div
+                        class="w-80 bg-[#fff6e7] relative pt-5 px-3 mb-10 h-[475px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2">
+                        <img class="w-full h-2/3 object-cover" src="{{ asset('images/announcers/serenata.webp') }}">
+                        <div class="pt-2 gap-6 relative h-1/3 align-top items-start">
+                            <h1 class="font-love text-3xl text-black font-semibold mb-1">Serenata Silvestra</h1>
+                            <h1 class="text-xl font-hellomickeys text-black">"BISAAAA, HARUS BISAAAA HARUS BISAAAAA
+                                -Desta"</h1>
+
+                        </div>
+                        <div class="text-black flex justify-center flex-wrap gap-5 absolute bottom-2 start-0 w-full">
+                            <a class="hover:text-biru" href="https://www.instagram.com/serenata_05" target="_blank">
+                                <i class="fa-brands fa-lg fa-instagram"></i>
+                            </a>
+                            <a class="hover:text-biru" href="https://www.tiktok.com/@serenatasylvestra"
+                                target="_blank">
+                                <i class="fa-brands fa-lg fa-tiktok"></i>
+                            </a>
+                            <a class="hover:text-biru"
+                                href="https://open.spotify.com/user/31vu75imzk747zzbykmpnsq7jvcy"
+                                target="_blank">
+                                <i class="fa-brands fa-lg fa-spotify"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide font-poppins text-center">
+                    <div
+                        class="w-80 bg-[#fff6e7] relative pt-5 px-3 mb-10 h-[475px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2">
+                        <img class="w-full h-2/3 object-cover" src="{{ asset('images/announcers/joce.webp') }}">
+                        <div class="pt-2 gap-6 relative h-1/3 align-top items-start">
+                            <h1 class="font-love text-3xl text-black font-semibold mb-1">Jocelyn Ancylla</h1>
+                            <h1 class="text-xl font-hellomickeys text-black">"blubup blubup blubup"</h1>
+
+                        </div>
+                        <div class="text-black flex justify-center flex-wrap gap-5 absolute bottom-2 start-0 w-full">
+                            <a class="hover:text-biru" href="https://www.instagram.com/ancyllaas" target="_blank">
+                                <i class="fa-brands fa-lg fa-instagram"></i>
+                            </a>
+                            <a class="hover:text-biru" href="https://www.tiktok.com/@ancyrawr" target="_blank">
+                                <i class="fa-brands fa-lg fa-tiktok"></i>
+                            </a>
+                            <a class="hover:text-biru"
+                                href="https://open.spotify.com/user/qd51npytlhuoreaalj9svrm5r"
+                                target="_blank">
+                                <i class="fa-brands fa-lg fa-spotify"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide font-poppins text-center" style="width: 5px">
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+
+
     {{-- ARTICLE --}}
     <div class="font-poppins text-black mb-6 bg-[#103069] shadow-inner relative @if ($posts->count() > 0) block
         @else
@@ -621,9 +892,9 @@
         <img src="{{ asset('assets/others/papertexture.webp') }}" alt=""
             class="absolute w-full h-full opacity-20 z-0">
         <img src="{{ asset('assets/others/notebook.webp') }}" alt=""
-            class="absolute top-12 w-64 md:w-[30%] md:end-24 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] rotate-12 md:-rotate-12 brightness-[90%]">
-        <img src="{{ asset('assets/others/penmerah.webp') }}" alt=""
-            class="absolute top-12 w-32 md:w-[20%] drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] brightness-[90%]">
+            class="absolute top-12 w-64 md:w-auto md:h-full md:end-24 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] rotate-12 md:-rotate-12 brightness-75">
+        <img src="{{ asset('assets/others/penungu.webp') }}" alt=""
+            class="absolute top-12 w-32 md:w-[20%] drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] brightness-75">
         <div class="w-full h-full p-4 md:p-8 relative">
             <h1 class="font-poppins text-white text-2xl font-bold text-center my-2 mb-6 z-40">Latest Posts</h1>
             <div class="flex flex-wrap gap-8 justify-center">
@@ -734,7 +1005,7 @@
     </div>
 
     {{-- Charts --}}
-    <div id="section-4" class="md:mt-12 w-full my-12">
+    <div id="section-4" class="md:mt-12 w-full my-12 @if ($charts->count() < 1) hidden @endif">
         @if ($charts->count() > 0)
             <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center">Charts</h1>
         @endif
@@ -822,11 +1093,19 @@
                     </div>
                 @endif
             @endforeach
+            <div class="text-center flex flex-row justify-center items-center my-6 z-40">
+                <a class="no-underline" href="/charts">
+                    <button
+                        class="bg-white hover:bg-[#021f3a] text-[#021f3a] font-semibold hover:text-white py-2 px-4 border border-[#021f3a] hover:border-transparent rounded ease-in-out duration-100">
+                        Show More
+                    </button>
+                </a>
+            </div>
         </div>
     </div>
 
     {{-- Section 4 --}}
-    <div id="section-4" class="md:mt-12 w-full my-12">
+    <div id="section-5" class="md:mt-12 w-full my-12 @if ($partnerships->count() < 1) hidden @endif">
         @if ($partnerships->count() > 0)
             <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center">Partnerships</h1>
         @endif
@@ -844,6 +1123,74 @@
             </h1>
             <div class="w-full">{!! $segment->content !!}</div>
         @endforeach
+    </div>
+
+    {{-- URD section --}}
+    <div class="mb-10">
+        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold text-center my-2 mb-6">UMN RADIO DRAMA</h1>
+        <div
+            class="block xl:hidden mx-auto bg-gradient-to-br from-[#87cfe8] to-[#875fd3] rounded-2xl shadow-lg justify-center p-2 max-w-[90%]">
+            <div
+                class="block xl:hidden mx-auto bg-gradient-to-br from-[#875fd3] to-[#87cfe8] rounded-2xl shadow-lg justify-center p-4 w-full drop-shadow-[0_5px_100px_rgba(231,220,200,0.9)]">
+                <div class="mx-auto xl:gap-6 xl:h-auto sm:columns-2">
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                        src="https://open.spotify.com/embed/episode/3AegQ4CNGrCfXN1xs4sStY?utm_source=generator"
+                        width="100%" frameBorder="0" allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe>
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                        src="https://open.spotify.com/embed/episode/5imzP6eW3OT1qdRKloRHjV?utm_source=generator"
+                        width="100%" frameBorder="0" allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe>
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                        src="https://open.spotify.com/embed/episode/19BbKE5zB4GMAi6n8FvXt0?utm_source=generator"
+                        width="100%" frameBorder="0" allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe>
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                        src="https://open.spotify.com/embed/episode/3NFFsFZecbUG8rxfUTIKV8?utm_source=generator"
+                        width="100%" frameBorder="0" allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="hidden xl:flex mx-auto bg-gradient-to-r from-[#87cfe8] to-[#875fd3] rounded-2xl shadow-lg justify-center p-2 max-w-[90%]">
+            <div
+                class="hidden xl:flex mx-auto bg-gradient-to-r from-[#875fd3] to-[#87cfe8] rounded-2xl shadow-lg justify-center px-4 w-full drop-shadow-[0_5px_100px_rgba(231,220,200,0.9)]">
+                <div class="my-4 p-4 w-[450px] mx-auto">
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                        src="https://open.spotify.com/embed/episode/3AegQ4CNGrCfXN1xs4sStY?utm_source=generator"
+                        width="100%" height="352" frameBorder="0" allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe>
+                </div>
+                <div class="my-4 p-4 w-[450px] mx-auto">
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                        src="https://open.spotify.com/embed/episode/5imzP6eW3OT1qdRKloRHjV?utm_source=generator"
+                        width="100%" height="352" frameBorder="0" allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe>
+                </div>
+                <div class="my-4 p-4 w-[450px] mx-auto">
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                        src="https://open.spotify.com/embed/episode/19BbKE5zB4GMAi6n8FvXt0?utm_source=generator"
+                        width="100%" height="352" frameBorder="0" allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe>
+                </div>
+                <div class="my-4 p-4 w-[450px] mx-auto">
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                        src="https://open.spotify.com/embed/episode/3NFFsFZecbUG8rxfUTIKV8?utm_source=generator"
+                        width="100%" height="352" frameBorder="0" allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
     </div>
 
     {{-- Section 3 --}}
@@ -867,9 +1214,9 @@
             <div id="utube" class="mx-4 w-[400px] max-w-[90%]">
                 <div id="youtube">
                     <h1 class="font-poppins text-[#021f3a] font-bold text-center my-2">Watch Now!</h1>
-                    <iframe class="my-2" src="https://www.youtube.com/embed/r_AVZInM4xw" width="100%"
+                    <iframe class="my-2" src="https://www.youtube.com/embed/r1VPMTU8R5M" width="100%"
                         height="216"></iframe>
-                    <iframe class="my-2" src="https://www.youtube.com/embed/FonjYtQwFVI" width="100%"
+                    <iframe class="my-2" src="https://www.youtube.com/embed/DofupqKP4KE" width="100%"
                         height="216"></iframe>
                 </div>
             </div>
@@ -1135,7 +1482,58 @@
             }
         });
     </script>
-    <script src="{{asset('js/flowbite/dist/flowbite.min.js')}}"></script>
+    <script src="{{ asset('js/flowbite/dist/flowbite.min.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: "auto",
+            spaceBetween: 40,
+            // centeredSlides: true,
+            freeMode: true,
+            autoplay: {
+                delay: 3000,
+                pauseOnMouseEnter: true,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+
+    <style>
+        .swiper {
+            width: 90%;
+            height: 70%;
+        }
+
+        /* .swiper-wrapper{
+            margin-right: 50px;
+            margin-left: 50px;
+        } */
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            position: relative;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            margin-top: 0;
+            object-fit: cover;
+            max-height: 75%;
+            object-position: center top;
+        }
+    </style>
 </body>
 
 </html>

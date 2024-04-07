@@ -18,12 +18,14 @@ return new class extends Migration
             $table->text('description');
             $table->string('short_desc');
             $table->string('image');
-            $table->string('penyiar');
+            $table->string('banner_image')->nullable();
+            $table->string('penyiar')->nullable();
             $table->string('producer')->nullable();
             $table->string('visual_creative')->nullable();
             $table->string('audio_creative')->nullable();
             $table->string('media_affairs')->nullable();
             $table->string('music_director')->nullable();
+            $table->string('operator')->nullable();
             $table->timestamps();
         });
     }

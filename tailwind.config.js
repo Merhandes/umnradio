@@ -8,9 +8,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        biru: "#021f3a",
+      },
       fontFamily: {
         poppins: ['Poppins'],
-        nexarust: ['NexaRust']
+        nexarust: ['NexaRust'],
+        emilyolivia: ['EmilyOlivia'],
+        haveidea: ['HaveIdea'],
+        hellomickeys: ['HelloMickeys'],
+        love: ['Love'],
       }
     },
   },

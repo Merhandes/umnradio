@@ -31,7 +31,7 @@
                 <div
                     class="h-10 flex flex-row align-middle justify-center items-center gap-2 bg-white rounded-full p-1 ml-2 hover:scale-110 ease-in-out duration-100">
                     <img class="object-cover h-full" src="/images/avatar.webp" alt="Logo">
-                    <p class="text-[#021f3a] text-md">{{ auth()->user()->name }}</p>
+                    <p class="text-[#021f3a] text-xs md:text-md">{{ auth()->user()->name }}</p>
                 </div>
                 <!-- Dropdown menu -->
                 <div id="logoutDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg hidden hover:bg-gray-200">

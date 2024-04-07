@@ -15,6 +15,7 @@ use App\Http\Controllers\SongController;
 use App\Models\ChartJunction;
 use App\Models\ProgramDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -90,7 +91,7 @@ Route::controller(Controller::class)->group(function () {
 
 Route::controller(PostController::class)->middleware(['auth', 'news'])->group(
     function () {
-        Route::get('/posts', 'index')->withoutMiddleware(['auth', 'news']);
+        Route::get('/posts', 'index');
         Route::get('/posts/checkSlug', 'checkSlug');
         Route::get('/posts/create', 'create');
         Route::post('/posts/store', 'store');
@@ -200,5 +201,14 @@ Route::controller(PartnershipsController::class)->middleware(['auth', 'admin'])-
 // Route::get('/oprec',function(){
 //     return view('Oprec.index');
 // });
+
+// Route::resource('posts', PostController::class);
+
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});
+Route::get('/about',function(){
+    return view('About.index');
+});
 
 // Route::resource('posts', PostController::class);

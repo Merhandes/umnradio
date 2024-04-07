@@ -22,23 +22,28 @@
 </head>
 
 <body class="h-full bg-white overflow-scroll">
+    <img src="{{asset('assets/others/papertexture.webp')}}" class="fixed w-screen h-screen object-cover opacity-20" alt="">
     <x-navigation></x-navigation>
 
     {{-- SHOW PROGRAMS --}}
-    <div class="w-screen md:w-full h-full overflow-scroll pt-16 pb-16 flex justify-center">
-        <div class="container md:w-4/5 flex flex-col justify-center pt-8 md:p-16 font-poppins gap-8">
+    <div class="w-screen md:w-full h-full overflow-scroll pt-16 pb-24 md:pb-16 flex justify-center">
+        <div class="container w-[95%] md:w-4/5 flex flex-col justify-center pt-8 md:p-16 font-poppins gap-6">
             @php
                 $count = 0;
             @endphp
             @foreach ($programdetails as $programdetail)
                 @if ($count++ % 2 == 0)
-                    <div class="w-full flex flex-wrap justify-center text-[#021f3a]">
-                        <img class="h-[400px] md:w-[45%] px-8 object-center object-cover"
+                    <div
+                        class="w-full flex align-middle items-center flex-wrap justify-center text-[#021f3a] bg-white drop-shadow-[0_3px_3px_rgba(0,0,0,0.4)] rounded-xl py-4">
+                        <img class="absolute w-full h-full top-0 object-center object-cover rounded-xl -z-20 opacity-10"
                             src="{{ asset('storage/' . $programdetail->image) }}" alt="">
-                        <div class="md:w-2/5 p-12 md:mx-8 flex flex-col justify-center gap-4">
+                        <img class="h-[400px] md:w-[45%] object-center object-cover rounded-xl"
+                            src="{{ asset('storage/' . $programdetail->image) }}" alt="">
+                        <div class="md:w-2/5 p-8 md:mx-8 flex flex-col justify-center gap-4">
                             <div class="text-4xl font-bold">{{ $programdetail->program_name }}</div>
                             <div class="text-xl font-light">{{ $programdetail->short_desc }}</div>
-                            <p class="font-light font-sans">{{ $programdetail->description }}</p>
+                            <p class="font-light font-sans max-h-48 text-ellipsis overflow-hidden ...">
+                                {!! $programdetail->description !!}</p>
                             <a href="/programs/{{ $programdetail->slug }}">
                                 <button
                                     class="bg-transparent hover:bg-[#021f3a] text-[#021f3a] font-semibold hover:text-white py-2 px-4 border border-[#021f3a] hover:border-transparent rounded">DETAILS</button>
@@ -46,17 +51,21 @@
                         </div>
                     </div>
                 @else
-                    <div class="w-full flex flex-wrap-reverse justify-center">
-                        <div class="md:w-2/5 p-12 md:mx-8 flex flex-col justify-center gap-4">
+                    <div
+                        class="w-full flex align-middle items-center flex-wrap-reverse justify-center text-white bg-[#021f3a] drop-shadow-[0_3px_3px_rgba(0,0,0,0.4)] rounded-xl py-4">
+                        <img class="absolute w-full h-full top-0 object-center object-cover rounded-xl -z-20 opacity-10"
+                            src="{{ asset('storage/' . $programdetail->image) }}" alt="">
+                        <div class="md:w-2/5 p-8 md:mx-8 flex flex-col justify-center gap-4">
                             <div class="text-4xl font-bold">{{ $programdetail->program_name }}</div>
                             <div class="text-xl font-light">{{ $programdetail->short_desc }}</div>
-                            <p class="font-light font-sans">{{ $programdetail->description }}</p>
+                            <p class="font-light font-sans max-h-48 text-ellipsis overflow-hidden ...">
+                                {!! $programdetail->description !!}</p>
                             <a href="/programs/{{ $programdetail->slug }}">
                                 <button
-                                    class="bg-transparent hover:bg-[#021f3a] text-[#021f3a] font-semibold hover:text-white py-2 px-4 border border-[#021f3a] hover:border-transparent rounded">DETAILS</button>
+                                    class="bg-transparent hover:bg-white text-white font-semibold hover:text-[#021f3a] py-2 px-4 border border-white hover:border-transparent rounded">DETAILS</button>
                             </a>
                         </div>
-                        <img class="h-[400px] md:w-[45%] px-8 object-center object-cover"
+                        <img class="h-[400px] md:w-[45%] object-center object-cover rounded-xl"
                             src="{{ asset('storage/' . $programdetail->image) }}" alt="">
                     </div>
                 @endif
@@ -65,63 +74,7 @@
     </div>
 
 
-    {{-- AUDIO --}}
-    <footer id="audiosticky"
-        class="fixed bottom-0 w-full z-40 h-16 bg-[#021f3a] flex flex-row gap-16 justify-center items-center transition-all duration-500">
-        <button id="buttonplay2"><svg xmlns="http://www.w3.org/2000/svg" height="2em"
-                viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                <style>
-                    svg {
-                        fill: #ffffff
-                    }
-                </style>
-                <path
-                    d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
-            </svg></button>
-        <button id="buttonpause2" class="hidden"><svg xmlns="http://www.w3.org/2000/svg" height="2em"
-                viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                <style>
-                    svg {
-                        fill: #ffffff
-                    }
-                </style>
-                <path
-                    d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z" />
-            </svg></button>
-        <audio id="player">
-            <source src='https://i.klikhost.com/8374/' />
-        </audio>
-    </footer>
-
-    <script>
-        var button3 = document.getElementById("buttonplay2");
-        var button4 = document.getElementById("buttonpause2");
-        var audio = document.getElementById("player");
-
-        button3.addEventListener("click", function() {
-            if (audio.paused) {
-                audio.play();
-                button3.classList.add('hidden');
-                button4.classList.remove('hidden');
-            } else {
-                audio.pause();
-                button4.classList.add('hidden');
-                button3.classList.remove('hidden');
-            }
-        });
-
-        button4.addEventListener("click", function() {
-            if (audio.paused) {
-                audio.play();
-                button3.classList.add('hidden');
-                button4.classList.remove('hidden');
-            } else {
-                audio.pause();
-                button4.classList.add('hidden');
-                button3.classList.remove('hidden');
-            }
-        });
-    </script>
+    <x-audiodefault></x-audiodefault>
     <script src="{{ asset('js/attachments.js') }}"></script>
 </body>
 

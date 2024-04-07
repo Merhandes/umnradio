@@ -50,17 +50,22 @@ class ProgramDetailController extends Controller
             'slug' => 'required|unique:program_details',
             'description' => 'required',
             'short_desc' => 'required|max:255',
-            'penyiar' => 'required|max:255',
+            'penyiar' => 'max:255',
             'producer' => 'max:255',
             'visual_creative' => 'max:255',
             'audio_creative' => 'max:255',
             'media_affairs' => 'max:255',
             'music_director' => 'max:255',
-            'image' => 'required|image|file|max:20480'
+            'operator' => 'max:255',
+            'image' => 'required|image|file|max:20480',
+            'banner_image' => 'image|file|max:20480'
         ]);
 
         if ($request->file('image')) {
             $validData['image'] = $request->file('image')->storePublicly('program_posters', 'public');
+        }
+        if ($request->file('banner_image')) {
+            $validData['banner_image'] = $request->file('banner_image')->storePublicly('program_banners', 'public');
         }
 
         ProgramDetail::create($validData);
@@ -80,7 +85,7 @@ class ProgramDetailController extends Controller
     public function show(ProgramDetail $programdetail)
     {
         //
-        $podcasts = Podcast::all();
+        $podcasts = $programdetail->episodes()->take(6)->get();
         return view('Programs.show', ['programdetail'=>$programdetail, 'podcasts'=>$podcasts]);
     }
 
@@ -111,7 +116,9 @@ class ProgramDetailController extends Controller
             'audio_creative' => 'max:255',
             'media_affairs' => 'max:255',
             'music_director' => 'max:255',
-            'image' => 'image|file|max:20480'
+            'operator' => 'max:255',
+            'image' => 'image|file|max:20480',
+            'banner_image' => 'image|file|max:20480'
         ];
 
         if ($request->slug != $programdetail->slug) {
@@ -125,6 +132,12 @@ class ProgramDetailController extends Controller
                 Storage::delete($request->old_image);
             }
             $validData['image'] = $request->file('image')->storePublicly('program_posters', 'public');
+        }
+        if ($request->file('banner_image')) {
+            if ($request->old_banner) {
+                Storage::delete($request->old_banner);
+            }
+            $validData['banner_image'] = $request->file('banner_image')->storePublicly('program_banners', 'public');
         }
 
         ProgramDetail::where('id', $programdetail->id)->update($validData);
