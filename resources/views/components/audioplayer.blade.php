@@ -4,7 +4,7 @@
         class="fixed bottom-0 w-full z-40 h-16 bg-[#0a1f63] flex flex-row gap-1 justify-center items-center transition-all duration-500">
 
         <div class="absolute start-0 w-2/5 md:w-1/4 px-2 overflow-hidden">
-            <h1 class="text-md font-hellomickeys font-bold">Currently Playing: </h1>
+            <h1 id="currently-header" class="text-md font-hellomickeys font-bold">Currently Playing: </h1>
             <marquee width="100%" direction="left" height="100%" id="track-title"
                 class="text-md text-start align-middle font-hellomickeys whitespace-nowrap block md:hidden">
                 Loading...</marquee>
@@ -78,8 +78,10 @@
                 document.getElementById('track-title').innerText = title;
                 document.getElementById('track-title-md').innerText = title;
             } catch (error) {
-                console.error('Error fetching track title:', error);
-                document.getElementById('track-title').innerText = 'Error fetching track title';
+                // console.error('Error fetching track title:', error);
+                document.getElementById('track-title').innerText = '';
+                document.getElementById('track-title-md').innerText = '';
+                document.getElementById('currently-header').innerText = '';
             }
         }
 
