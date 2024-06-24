@@ -10,10 +10,11 @@
     @vite('resources/css/app.css')
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <script src="https://kit.fontawesome.com/667eb529ec.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/axios/dist/axios.min.js') }}"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{{ asset('css/swiper-bundle.min.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
@@ -119,8 +120,23 @@
                 class="absolute w-full top-0 bg-gradient-to-b from-white via-transparent to-transparent h-12 md:h-36 -z-10">
             </div>
         </div>
-        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center pt-24 md:pt-36">Live Broadcast</h1>
-        <div id="sign" class="m-3 md:m-6 text-center">
+
+        <div class="flex w-full justify-center pt-36 md:pt-48">
+            <img class="h-24 md:h-48 w-fit object-cover" src="{{ asset('assets/04. ULTIMO HALO.webp') }}" alt="">
+            <div>
+                <h1 class="text-[#021f3a] font-nexarust text-4xl md:text-7xl font-bold w-full text-center">UMN Radio Is
+                    OFF
+                    AIR</h1>
+                <h1 class="text-[#021f3a] font-emilyolivia text-2xl md:text-5xl font-bold w-full text-center pt-6">See
+                    you
+                    soon, Ultimafriends!</h1>
+            </div>
+            <img class="h-32 md:h-64 w-fit object-cover" src="{{ asset('assets/07. PAN PAN HALO.webp') }}" alt="">
+        </div>
+
+        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center pt-24 md:pt-36 hidden">Live
+            Broadcast</h1>
+        <div id="sign" class="m-3 md:m-6 text-center hidden">
 
             {{-- SCHEDULE SYSTEM PHP --}}
 
@@ -678,13 +694,11 @@
                             <a class="hover:text-biru" href="https://www.tiktok.com/@luvnalena__" target="_blank">
                                 <i class="fa-brands fa-lg fa-tiktok"></i>
                             </a>
-                            <a class="hover:text-biru"
-                                href="https://open.spotify.com/user/peipeihelenaa"
+                            <a class="hover:text-biru" href="https://open.spotify.com/user/peipeihelenaa"
                                 target="_blank">
                                 <i class="fa-brands fa-lg fa-spotify"></i>
                             </a>
-                            <a class="hover:text-biru" href="https://x.com/luvnalena__"
-                                target="_blank">
+                            <a class="hover:text-biru" href="https://x.com/luvnalena__" target="_blank">
                                 <i class="fa-brands fa-lg fa-twitter"></i>
                             </a>
                         </div>
@@ -706,8 +720,8 @@
                             <a class="hover:text-biru" href="https://www.tiktok.com/@keyyrras" target="_blank">
                                 <i class="fa-brands fa-lg fa-tiktok"></i>
                             </a>
-                            <a class="hover:text-biru"
-                                href="https://open.spotify.com/user/khairakhansa" target="_blank">
+                            <a class="hover:text-biru" href="https://open.spotify.com/user/khairakhansa"
+                                target="_blank">
                                 <i class="fa-brands fa-lg fa-spotify"></i>
                             </a>
                         </div>
@@ -720,7 +734,8 @@
                             src="{{ asset('images/announcers/christabell.webp') }}">
                         <div class="pt-2 gap-6 relative h-1/3 align-top items-start">
                             <h1 class=" font-love text-3xl text-black font-semibold mb-1">Christabell Chalin</h1>
-                            <h1 class="text-xl font-hellomickeys text-black">"Never be so kind, you forget to be clever"
+                            <h1 class="text-xl font-hellomickeys text-black">"Never be so kind, you forget to be
+                                clever"
                             </h1>
 
                         </div>
@@ -730,13 +745,10 @@
                                 <i class="fa-brands fa-lg fa-instagram"></i>
                             </a>
                             <a class="hover:text-biru"
-                                href="https://open.spotify.com/user/31npp2u7iinwrhbajoyd37ofzmwi"
-                                target="_blank">
+                                href="https://open.spotify.com/user/31npp2u7iinwrhbajoyd37ofzmwi" target="_blank">
                                 <i class="fa-brands fa-lg fa-spotify"></i>
                             </a>
-                            <a class="hover:text-biru"
-                                href="https://medium.com/@multatulou"
-                                target="_blank">
+                            <a class="hover:text-biru" href="https://medium.com/@multatulou" target="_blank">
                                 <i class="fa-brands fa-lg fa-medium"></i>
                             </a>
                             <a class="hover:text-biru" href="https://pin.it/5kKQOii7A" target="_blank">
@@ -760,13 +772,11 @@
                             <a class="hover:text-biru" href="https://www.tiktok.com/@delbertgo7" target="_blank">
                                 <i class="fa-brands fa-lg fa-tiktok"></i>
                             </a>
-                            <a class="hover:text-biru" href="https://youtube.com/@delbertgo484"
-                                target="_blank">
+                            <a class="hover:text-biru" href="https://youtube.com/@delbertgo484" target="_blank">
                                 <i class="fa-brands fa-lg fa-youtube"></i>
                             </a>
                             <a class="hover:text-biru"
-                                href="https://open.spotify.com/user/313iyybteuv66cu7zhywbzkyi5je"
-                                target="_blank">
+                                href="https://open.spotify.com/user/313iyybteuv66cu7zhywbzkyi5je" target="_blank">
                                 <i class="fa-brands fa-lg fa-spotify"></i>
                             </a>
                         </div>
@@ -778,7 +788,8 @@
                         <img class="w-full h-2/3 object-cover" src="{{ asset('images/announcers/carla.webp') }}">
                         <div class="pt-2 gap-6 relative h-1/3 align-top items-start">
                             <h1 class=" font-love text-3xl text-black font-semibold mb-1">Carla Kaditha</h1>
-                            <h1 class="text-xl font-hellomickeys text-black ">“It is never too late, I'm halfway there”</h1>
+                            <h1 class="text-xl font-hellomickeys text-black ">“It is never too late, I'm halfway there”
+                            </h1>
                         </div>
                         <div class="text-black flex justify-center flex-wrap gap-5 absolute bottom-2 start-0 w-full">
                             <a class="hover:text-biru" href="https://www.instagram.com/kadithacarla_"
@@ -843,8 +854,7 @@
                                 <i class="fa-brands fa-lg fa-tiktok"></i>
                             </a>
                             <a class="hover:text-biru"
-                                href="https://open.spotify.com/user/31vu75imzk747zzbykmpnsq7jvcy"
-                                target="_blank">
+                                href="https://open.spotify.com/user/31vu75imzk747zzbykmpnsq7jvcy" target="_blank">
                                 <i class="fa-brands fa-lg fa-spotify"></i>
                             </a>
                         </div>
@@ -866,8 +876,7 @@
                             <a class="hover:text-biru" href="https://www.tiktok.com/@ancyrawr" target="_blank">
                                 <i class="fa-brands fa-lg fa-tiktok"></i>
                             </a>
-                            <a class="hover:text-biru"
-                                href="https://open.spotify.com/user/qd51npytlhuoreaalj9svrm5r"
+                            <a class="hover:text-biru" href="https://open.spotify.com/user/qd51npytlhuoreaalj9svrm5r"
                                 target="_blank">
                                 <i class="fa-brands fa-lg fa-spotify"></i>
                             </a>
@@ -1484,7 +1493,8 @@
     </script>
     <script src="{{ asset('js/flowbite/dist/flowbite.min.js') }}"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> --}}
+    <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
     <script>
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: "auto",

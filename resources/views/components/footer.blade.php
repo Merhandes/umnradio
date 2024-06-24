@@ -68,6 +68,15 @@
                         </div>
                     </a>
 
+                    <a target="_" href="https://www.instagram.com/umnradio"
+                        class="text-black no-underline">
+                        <div class="flex">
+                            <img src="{{ asset('assets/instagram.webp') }}" alt="line"
+                                class="w-8 mb-1 mr-1 object-contain hover:text-[#a0a0a0]">
+                            <p class="font-poppins text-[#ffffff] no-underline hover:text-[#a0a0a0] text-base">Instagram</p>
+                        </div>
+                    </a>
+
                     <a target="_" href="https://twitter.com/UMNRADIO" class="text-black no-underline">
                         <div class="flex">
                             <img src="{{ asset('assets/twitter.webp') }}" alt="line"

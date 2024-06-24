@@ -29,7 +29,7 @@ class Controller extends BaseController
         $partnerships = Partnerships::all();
         $chartcount = Chart::count();
         if ($chartcount>0) {
-            $charts = Chart::where('status', 'PUBLISHED')->get()->random(2);
+            $charts = Chart::where('status', 'PUBLISHED')->get()->random(1);
         }else{
             $charts = Chart::all();
         }

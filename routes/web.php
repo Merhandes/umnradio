@@ -12,6 +12,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProgramDetailController;
 use App\Http\Controllers\SegmentController;
 use App\Http\Controllers\SongController;
+use App\Http\Controllers\StreamController;
 use App\Models\ChartJunction;
 use App\Models\ProgramDetail;
 use Illuminate\Http\Request;
@@ -210,5 +211,11 @@ Route::get('/linkstorage', function () {
 Route::get('/about',function(){
     return view('About.index');
 });
+
+Route::get('/tes', function () {
+    return view('Home.test');
+});
+
+Route::get('/proxy-track-title', [StreamController::class, 'proxyTrackTitle']);
 
 // Route::resource('posts', PostController::class);
