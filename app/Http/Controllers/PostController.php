@@ -104,15 +104,29 @@ class PostController extends Controller
 
     public function showApi(Request $request)
     {
-        $posts = Post::paginate(10);
-        return PostResource::collection($posts);
+        try {$posts = Post::paginate(10);
+            return PostResource::collection($posts);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Something went wrong.'], 500);
+        }
     }
 
     public function showByIdApi($id)
     {
-        $post = Post::findOrFail($id);
-        return new PostResource($post);
+        try {
+            if (!is_numeric($id)) {
+                return response()->json(['error' => 'Invalid ID. ID must be a number.'], 400);
+            }
+            $post = Post::findOrFail($id);
+
+            return new PostResource($post);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return response()->json(['error' => 'Post not found.'], 404);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Something went wrong.'], 500);
+        }
     }
+
     /**
      * Show the form for editing the specified resource.
      */
