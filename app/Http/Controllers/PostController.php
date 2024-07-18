@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use App\Http\Resources\PostResource;
 
 class PostController extends Controller
 {
@@ -101,6 +102,17 @@ class PostController extends Controller
         return view('Post.show', ['post' => $post, 'articles' => $articles]);
     }
 
+    public function showApi()
+    {
+        $posts = Post::all();
+        return PostResource::collection($posts);
+    }
+
+    public function showByIdApi($id)
+    {
+        $post = Post::findOrFail($id);
+        return new PostResource($post);
+    }
     /**
      * Show the form for editing the specified resource.
      */
