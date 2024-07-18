@@ -102,9 +102,9 @@ class PostController extends Controller
         return view('Post.show', ['post' => $post, 'articles' => $articles]);
     }
 
-    public function showApi()
+    public function showApi(Request $request)
     {
-        $posts = Post::all();
+        $posts = Post::paginate(10);
         return PostResource::collection($posts);
     }
 
