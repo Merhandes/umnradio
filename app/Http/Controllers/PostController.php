@@ -104,7 +104,18 @@ class PostController extends Controller
 
     public function showApi(Request $request)
     {
-        try {$posts = Post::paginate(10);
+        try {
+        $search = $request->query('q');
+        $category = $request->query('category');
+
+        $posts = Post::when($search, function ($query, $search) {
+                    $query->where('title', 'like', '%'.$search.'%')
+                          ->orWhere('excerpt', 'like', '%'.$search.'%');
+                })
+                ->when($category, function ($query, $category) {
+                    $query->where('category', $category);
+                })
+                ->paginate(10);
             return PostResource::collection($posts);
         } catch (\Exception $e) {
             return response()->json(['error' => 'Something went wrong.'], 500);
