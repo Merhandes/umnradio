@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use App\Http\Resources\PostResource;
 
 class PostController extends Controller
 {
@@ -99,6 +100,42 @@ class PostController extends Controller
         //
         $articles = Post::latest()->where('id', '!=', $post->id)->take(5)->get();
         return view('Post.show', ['post' => $post, 'articles' => $articles]);
+    }
+
+    public function showApi(Request $request)
+    {
+        try {
+        $search = $request->query('q');
+        $category = $request->query('category');
+
+        $posts = Post::when($search, function ($query, $search) {
+                    $query->where('title', 'like', '%'.$search.'%')
+                          ->orWhere('excerpt', 'like', '%'.$search.'%');
+                })
+                ->when($category, function ($query, $category) {
+                    $query->where('category', $category);
+                })
+                ->paginate(10);
+            return PostResource::collection($posts);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Something went wrong.'], 500);
+        }
+    }
+
+    public function showByIdApi($id)
+    {
+        try {
+            if (!is_numeric($id)) {
+                return response()->json(['error' => 'Invalid ID. ID must be a number.'], 400);
+            }
+            $post = Post::findOrFail($id);
+
+            return new PostResource($post);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return response()->json(['error' => 'Post not found.'], 404);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Something went wrong.'], 500);
+        }
     }
 
     /**
