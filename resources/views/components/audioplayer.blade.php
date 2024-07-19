@@ -36,8 +36,11 @@
                 </svg></button>
 
             <audio id="player">
-                <source src="https://icecast.umn.ac.id/live" />
-                <source src="{{ asset('assets/audio/tes.mp3') }}" />
+                @foreach ($streams as $stream)
+                    <source src="{{$stream->content}}" />
+                @endforeach
+                {{-- <source src="https://icecast.umn.ac.id/live" />
+                <source src="{{ asset('assets/audio/tes.mp3') }}" /> --}}
             </audio>
             <div class="p-4 max-w-md w-full hidden md:block">
                 <div class="flex items-center justify-center">

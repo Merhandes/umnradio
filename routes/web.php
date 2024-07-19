@@ -13,6 +13,7 @@ use App\Http\Controllers\ProgramDetailController;
 use App\Http\Controllers\SegmentController;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\StreamController;
+use App\Http\Controllers\VariableController;
 use App\Models\ChartJunction;
 use App\Models\ProgramDetail;
 use Illuminate\Http\Request;
@@ -196,6 +197,15 @@ Route::controller(PartnershipsController::class)->middleware(['auth', 'admin'])-
         Route::get('/partnerships/create', 'create');
         Route::post('/partnerships/add', 'store');
         Route::delete('/partnerships/{id}/delete', 'destroy');
+    }
+);
+
+Route::controller(VariableController::class)->middleware(['auth', 'admin'])->group(
+    function () {
+        Route::get('/admin/variables', 'index');
+        Route::post('/admin/variables/new', 'store');
+        Route::put('/admin/variables/{variable:id}/update', 'update');
+        Route::delete('/admin/variables/{variable:id}/remove', 'destroy');
     }
 );
 
