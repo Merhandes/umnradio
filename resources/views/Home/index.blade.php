@@ -121,7 +121,7 @@
             </div>
         </div>
 
-        <div class="flex w-full justify-center pt-36 md:pt-48">
+        <div class="flex w-full justify-center pt-36 md:pt-48 hidden">
             <img class="h-24 md:h-48 w-fit object-cover" src="{{ asset('assets/04. ULTIMO HALO.webp') }}" alt="">
             <div>
                 <h1 class="text-[#021f3a] font-nexarust text-4xl md:text-7xl font-bold w-full text-center">UMN Radio Is
@@ -134,9 +134,9 @@
             <img class="h-32 md:h-64 w-fit object-cover" src="{{ asset('assets/07. PAN PAN HALO.webp') }}" alt="">
         </div>
 
-        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center pt-24 md:pt-36 hidden">Live
+        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center pt-24 md:pt-36">Live
             Broadcast</h1>
-        <div id="sign" class="m-3 md:m-6 text-center hidden">
+        <div id="sign" class="m-3 md:m-6 text-center">
 
             {{-- SCHEDULE SYSTEM PHP --}}
 
