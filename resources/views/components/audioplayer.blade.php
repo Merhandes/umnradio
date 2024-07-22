@@ -1,7 +1,7 @@
 <div>
     {{-- AUDIO --}}
     <footer id="audiosticky"
-        class="fixed bottom-0 w-full z-40 h-16 bg-[#0a1f63] flex flex-row gap-1 justify-center items-center transition-all duration-500">
+        class="fixed bottom-0 w-full z-40 h-16 md:h-12 bg-[#0a1f63] flex flex-row gap-1 justify-center items-center transition-all duration-500">
 
         <div class="absolute start-0 w-2/5 md:w-1/4 px-2 overflow-hidden">
             <h1 id="currently-header" class="text-md font-hellomickeys font-bold">Currently Playing: </h1>

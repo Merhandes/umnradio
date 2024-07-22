@@ -2,9 +2,9 @@
     {{-- NAVBAR --}}
     <div x-data="{ isOpen: false }"
         class="fixed w-full flex justify-between z-40 drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] px-3 pt-3 pb-3 lg:px-4 lg:pt-2">
-        <img src="{{asset('assets/paper/4-blue.webp')}}" class="absolute top-0 start-0 w-full h-20 lg:h-28 -z-20" alt="">
+        <img src="{{asset('assets/paper/4-blue.webp')}}" class="absolute top-0 start-0 w-full h-20 lg:h-20 -z-20" alt="">
         <a class="flex items-center" href="/">
-            <img class="h-10 md:h-16 w-auto" src="{{ asset('images/logowhite.webp') }}" alt="">
+            <img class="h-10 md:h-12 w-auto" src="{{ asset('images/logowhite.webp') }}" alt="">
         </a>
 
         <div class="flex items-center justify-between">
@@ -17,28 +17,28 @@
             <div class="pr-4 hidden space-x-6 w-fit lg:flex flex-row">
                 <a href="/" class="relative flex justify-center items-center align-middle w-fit hover:scale-110 hover:rotate-3">
                     <img class="absolute -z-10 h-full w-full" src="{{ asset('assets/tapes/15.webp') }}" alt="">
-                    <p class="font-nexarust font-bold text-black no-underline z-20 text-xl mx-4 my-3">Home</p>
+                    <p class="font-nexarust font-bold text-black no-underline z-20 text-base mx-4 my-3">Home</p>
                 </a>
                 <a href="/articles" class="relative flex justify-center items-center align-middle w-fit hover:scale-110 hover:rotate-3">
                     <img class="absolute -z-10 h-full w-full" src="{{ asset('assets/tapes/34.webp') }}" alt="">
-                    <p class="font-nexarust font-bold text-black no-underline z-20 text-xl mx-4 my-3">Articles</p>
+                    <p class="font-nexarust font-bold text-black no-underline z-20 text-base mx-4 my-3">Articles</p>
                 </a>
                 <a href="/programs" class="relative flex justify-center items-center align-middle w-fit hover:scale-110 hover:rotate-3">
                     <img class="absolute -z-10 h-full w-full" src="{{ asset('assets/tapes/14.webp') }}" alt="">
-                    <p class="font-nexarust font-bold text-black no-underline z-20 text-xl mx-4 my-3">Programs</p>
+                    <p class="font-nexarust font-bold text-black no-underline z-20 text-base mx-4 my-3">Programs</p>
                 </a>
                 <a href="https://open.spotify.com/show/6ytg0qKpDz9ehq2fjklepU?si=2e339706e5754214" target="_" class="relative flex justify-center items-center align-middle w-fit hover:scale-110 hover:rotate-3">
                     <img class="absolute -z-10 h-full w-full" src="{{ asset('assets/tapes/34.webp') }}" alt="">
-                    <p class="font-nexarust font-bold text-black no-underline z-20 text-xl mx-4 my-3">U PODCAST</p>
+                    <p class="font-nexarust font-bold text-black no-underline z-20 text-base mx-4 my-3">U PODCAST</p>
                 </a>
                 <a href="/charts" class="relative flex justify-center items-center align-middle w-fit hover:scale-110   hover:rotate-3">
                     <img class="absolute -z-10 h-full w-full" src="{{ asset('assets/tapes/65.webp') }}" alt="">
-                    <p class="font-nexarust font-bold text-black no-underline z-20 text-xl mx-4 my-3">Charts</p>
+                    <p class="font-nexarust font-bold text-black no-underline z-20 text-base mx-4 my-3">Charts</p>
                 </a>
                 <a href="/about" class="relative flex justify-center items-center align-middle w-fit hover:scale-110    hover:rotate-3">
                     <img class="absolute -z-10 h-full w-full rotate-180" src="{{ asset('assets/tapes/15.webp') }}"
                         alt="">
-                    <p class="font-nexarust font-bold text-black no-underline z-20 text-xl mx-4 my-3">About</p>
+                    <p class="font-nexarust font-bold text-black no-underline z-20 text-base mx-4 my-3">About</p>
                 </a>
                 {{-- <a href="/" class="font-poppins text-base text-white no-underline">Home</a> 
                     <a href="/programs" class="font-poppins text-base text-white no-underline">Programs</a>
