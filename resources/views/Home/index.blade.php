@@ -194,6 +194,28 @@
     </div>
 
     <div class="mb-10">
+        <h1 class="font-poppins text-[#021f3a] text-3xl font-bold text-left md:mx-16 md:px-4 mx-6 my-2">Podcasts</h1>
+        <div class="block mx-auto rounded-2xl justify-center p-2 h-auto max-w-[90%]">
+            <div class="block mx-auto rounded-2xl justify-center pb-2 w-full">
+                <div class="mx-auto xl:gap-6 xl:h-auto sm:columns-2 flex items-center">
+                    <div class="my-4 p-4 w-[450px] mx-auto">
+                        <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                            src="https://open.spotify.com/embed/episode/3AegQ4CNGrCfXN1xs4sStY?utm_source=generator"
+                            width="100%" height="352" frameBorder="0" allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
+                    </div>
+                    <div class="ml-4">
+                        <h2 class="text-xl font-bold text-black">Judul Podcast</h2>
+                        <p class="text-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus est ipsum, efficitur a consectetur in, vulputate a enim. Aliquam bibendum dapibus mi, eget accumsan metus tempus egestas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="mb-10">
         <h1 class="font-poppins text-[#021f3a] text-3xl font-bold text-left md:mx-16 md:px-4 mx-6 my-2 mb-6">Episodes</h1>
         <div
             class="block xl:hidden mx-auto bg-gradient-to-br from-[#87cfe8] to-[#875fd3] rounded-2xl shadow-lg justify-center p-2 max-w-[90%]">
