@@ -18,6 +18,11 @@ module.exports = {
         haveidea: ['HaveIdea'],
         hellomickeys: ['HelloMickeys'],
         love: ['Love'],
+        badoney: ['Badoney', 'sans-serif'],
+        misterHoney: ['MISTERHONEY', 'cursive'],
+        moxyRush: ['MoxyRush', 'sans-serif'],
+        requiem: ['Requiem', 'serif'],
+        timelessMemories: ['Timeless Memories', 'serif'],
       }
     },
   },

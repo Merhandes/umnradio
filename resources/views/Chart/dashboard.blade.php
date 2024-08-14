@@ -72,7 +72,7 @@
                             <th data-priority="2">Cover Image</th>
                             <th data-priority="3">Link</th>
                             <th data-priority="4">Status</th>
-                            <th data-priority="5s">Actions</th>
+                            <th data-priority="5">Actions</th>
                         </tr>
                     </thead>
                     <tbody>

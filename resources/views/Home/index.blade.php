@@ -111,95 +111,10 @@
 
     <x-audioplayer></x-audioplayer>
 
-    <div id="simb" class="w-full relative hidden lg:flex flex-wrap justify-center">
-        <div class="w-full h-full p-4 md:p-16 flex flex-wrap justify-center">
-            <h1 class="w-full text-center font-poppins text-lg md:text-4xl font-bold text-white">MEET THE U-NNOUNCERS
-            </h1>
-
-            <div class="w-1/2 grid grid-cols-2 group relative overflow-visible">
-                <p
-                    class="text-right row-span-2 flex justify-center items-center align-middle transform translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition duration-500 ease-in-out">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium eos accusamus vitae inventore
-                    minima dolorum, adipisci eligendi labore totam magnam dolore earum perferendis voluptas officiis
-                    provident laborum, accusantium, rerum iste?
-                </p>
-                <img class="md:h-96 h-48 transform group-hover:scale-125 transition duration-500 ease-in-out overflow-clip"
-                    src="{{ asset('images/simb/image 1.png') }}" alt="">
-                <h1
-                    class="text-center text-lg md:text-4xl font-nexarust text-white col-start-2 group-hover:-translate-x-full transition duration-500 ease-in-out">
-                    AUDREY
-                </h1>
-            </div>
-
-            <div class="w-1/2 grid grid-cols-2 group relative overflow-visible">
-                <img class="md:h-96 h-48 transform group-hover:scale-125 transition duration-500 ease-in-out overflow-clip"
-                    src="{{ asset('images/simb/image 2.png') }}" alt="">
-                <h1
-                    class="text-center text-lg md:text-4xl font-nexarust text-white col-start-1 group-hover:translate-x-full transition duration-500 ease-in-out">
-                    SHAKTY
-                </h1>
-                <p
-                    class="text-left col-start-2 row-start-1 row-span-2 flex justify-center items-center align-middle transform -translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition duration-500 ease-in-out">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium eos accusamus vitae inventore
-                    minima dolorum, adipisci eligendi labore totam magnam dolore earum perferendis voluptas officiis
-                    provident laborum, accusantium, rerum iste?
-                </p>
-            </div>
-
-        </div>
-
-        <img src="{{ asset('images/simb/image 3.png') }}" alt="" class="absolute top-0 w-full h-full -z-10">
-    </div>
-
-    <div id="simb" class="w-full relative flex flex-wrap justify-center lg:hidden">
-        <div class="w-full h-full p-4 md:p-16 flex flex-wrap justify-center overflow-hidden">
-            <h1 class="w-full text-center font-poppins text-lg md:text-4xl font-bold text-white">MEET THE U-NNOUNCERS
-            </h1>
-
-            <div class="w-1/2 flex flex-wrap justify-center items-center align-center group relative overflow-visible hover:z-50">
-                <div class="w-full h-full flex flex-wrap justify-center align-center items-center overflow-visible group-hover:bg-black group-hover:bg-opacity-75 transition transform group-hover:translate-x-full duration-500 ease-in-out rounded-e-lg">
-                    <img class="md:h-96 h-48 overflow-clip object-cover"
-                        src="{{ asset('images/simb/image 1.png') }}" alt="">
-                    <h1
-                        class="w-full text-center text-lg md:text-4xl font-nexarust text-white">
-                        AUDREY
-                    </h1>
-                </div>
-                <p
-                        class="absolute text-right text-xs p-1 h-full text-white col-start-2 row-start-1 row-span-2 flex justify-center items-center align-middle transform -translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition duration-500 ease-in-out bg-black bg-opacity-75 rounded-s-lg">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium eos accusamus vitae
-                        inventore
-                        minima dolorum, adipisci eligendi labore totam magnam dolore earum perferendis voluptas officiis
-                        provident laborum, accusantium, rerum iste?
-                    </p>
-            </div>
-            <div class="w-1/2 flex flex-wrap justify-center items-center align-center group relative overflow-visible hover:z-50">
-                <div class="w-full h-full flex flex-wrap justify-center align-center items-center overflow-visible group-hover:bg-black group-hover:bg-opacity-75 transition transform group-hover:-translate-x-full duration-500 ease-in-out rounded-s-lg">
-                    <img class="md:h-96 h-48 overflow-clip object-cover"
-                        src="{{ asset('images/simb/image 2.png') }}" alt="">
-                    <h1
-                        class="w-full text-center text-lg md:text-4xl font-nexarust text-white">
-                        SHAKTY
-                    </h1>
-                </div>
-                <p
-                        class="absolute text-left text-xs p-1 h-full text-white col-start-2 row-start-1 row-span-2 flex justify-center items-center align-middle transform translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition duration-500 ease-in-out bg-black bg-opacity-75 rounded-e-lg">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium eos accusamus vitae
-                        inventore
-                        minima dolorum, adipisci eligendi labore totam magnam dolore earum perferendis voluptas officiis
-                        provident laborum, accusantium, rerum iste?
-                    </p>
-            </div>
-
-        </div>
-
-        <img src="{{ asset('images/simb/image 3.png') }}" alt="" class="absolute top-0 w-full h-full -z-10">
-    </div>
-
 
     {{-- ON AIR OFF AIR --}}
-    <div id="section-1" class="w-full mb-16 hidden">
-        <div class="w-full relative h-fit">
+    <div id="section-1" class="w-full bg-[#fdf8e1]">
+        <div class="w-full relative h-fit z-30">
             <img src="{{ asset('assets/paper/1.webp') }}"
                 class="absolute object-cover object-top w-full h-24 md:h-36 rotate-180 -z-20" alt="">
             <div
@@ -207,83 +122,129 @@
             </div>
         </div>
 
-        <div class="flex w-full justify-center pt-36 md:pt-48 hidden">
-            <img class="h-24 md:h-48 w-fit object-cover" src="{{ asset('assets/04. ULTIMO HALO.webp') }}"
-                alt="">
-            <div>
-                <h1 class="text-[#021f3a] font-nexarust text-4xl md:text-7xl font-bold w-full text-center">UMN Radio Is
-                    OFF
-                    AIR</h1>
-                <h1 class="text-[#021f3a] font-emilyolivia text-2xl md:text-5xl font-bold w-full text-center pt-6">See
-                    you
-                    soon, Ultimafriends!</h1>
-            </div>
-            <img class="h-32 md:h-64 w-fit object-cover" src="{{ asset('assets/07. PAN PAN HALO.webp') }}"
-                alt="">
+        <div class="w-full flex justify-center pt-24 md:pt-36">
+            <img src="{{ asset('images/simb/LOGO SIMB 2024.png') }}" alt="" class="w-72 aspect-auto">
         </div>
 
-        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center pt-24 md:pt-36">Live
+        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center hidden">Live
             Broadcast</h1>
-        <div id="sign" class="m-3 md:m-6 text-center">
+        <div class="flex flex-wrap justify-center align-middle bg-gradient-to-b from-[#fdf8e1] to-white">
+            <div id="sign" class="m-3 md:m-6 text-center md:max-w-[50%]">
 
-            {{-- SCHEDULE SYSTEM PHP --}}
+                {{-- SCHEDULE SYSTEM PHP --}}
 
-            <?php
-            use Carbon\Carbon;
-            
-            $day = Carbon::now()->dayOfWeek;
-            $hour = Carbon::now()->hour + 7;
-            // var_dump($day, $hour);
-            // $day = 1;
-            // $hour = 12;
-            
-            foreach ($programs as $program) {
-                if ($program->broadcast_day == $day && $hour < $programs->where('broadcast_day', $day)->first()->start_hour) {
-                    $text = 'Upcoming Program';
-                    $now = $programs->where('broadcast_day', $day)->first();
-                    $onair = 'bg-[#dfdfdf]';
-                } elseif ($program->broadcast_day == $day && $hour < 17) {
-                    $text = "You're Listening to";
-                    if ($hour >= $program->start_hour && $hour < $program->end_hour) {
-                        $now = $program;
+                <?php
+                use Carbon\Carbon;
+                
+                $day = Carbon::now()->dayOfWeek;
+                $hour = Carbon::now()->hour + 7;
+                // var_dump($day, $hour);
+                // $day = 1;
+                // $hour = 12;
+                
+                foreach ($programs as $program) {
+                    if ($program->broadcast_day == $day && $hour < $programs->where('broadcast_day', $day)->first()->start_hour) {
+                        $text = 'Upcoming Program';
+                        $now = $programs->where('broadcast_day', $day)->first();
+                        $onair = 'bg-[#dfdfdf]';
+                    } elseif ($program->broadcast_day == $day && $hour < 17) {
+                        $text = "You're Listening to";
+                        if ($hour >= $program->start_hour && $hour < $program->end_hour) {
+                            $now = $program;
+                        }
+                        $onair = 'bg-[#fc1414]';
+                    } elseif ($program->broadcast_day == $day) {
+                        $text = 'Upcoming Program';
+                        $now = $programs->where('broadcast_day', $day + 1)->first();
+                        $onair = 'bg-[#dfdfdf]';
+                    } elseif ($day >= 5 || $day == 0) {
+                        $text = 'Upcoming Program';
+                        $now = $programs->where('broadcast_day', 1)->first();
+                        $onair = 'bg-[#dfdfdf]';
                     }
-                    $onair = 'bg-[#fc1414]';
-                } elseif ($program->broadcast_day == $day) {
-                    $text = 'Upcoming Program';
-                    $now = $programs->where('broadcast_day', $day + 1)->first();
-                    $onair = 'bg-[#dfdfdf]';
-                } elseif ($day >= 5 || $day == 0) {
+                }
+                
+                if (($day >= 5 && $hour >= 17) || $day == 0) {
                     $text = 'Upcoming Program';
                     $now = $programs->where('broadcast_day', 1)->first();
                     $onair = 'bg-[#dfdfdf]';
                 }
-            }
-            
-            if (($day >= 5 && $hour >= 17) || $day == 0) {
-                $text = 'Upcoming Program';
-                $now = $programs->where('broadcast_day', 1)->first();
-                $onair = 'bg-[#dfdfdf]';
-            }
-            
-            ?>
+                
+                ?>
 
-            <div id="onair" class="border rounded-md {{ $onair }} w-24 p-2 m-auto">
-                <h1 class="font-poppins text-xl text-white"> On Air </h1>
+                <div id="onair" class="border rounded-md {{ $onair }} w-24 p-2 m-auto">
+                    <h1 class="font-poppins text-xl text-white"> On Air </h1>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-4 md:gap-16 mt-6 justify-center items-center">
+                    <img class="h-54 md:h-[400px] rounded-lg object-cover" src="{{ asset($now->img) }}"
+                        alt="ON AIR" />
+
+                    <div>
+                        <h3 class="font-poppins mt-3 font-bold text-black">{{ $text }}</h3>
+                        <h3 class="font-poppins mt-3 font-bold text-3xl text-[#021f3a]">{{ $now->name }}</h3>
+                        <p class="font-poppins mt-3 text-black">{{ $now->desc }}</p>
+                    </div>
+                </div>
             </div>
-
-            <div class="flex flex-col md:flex-row gap-4 md:gap-16 mt-6 justify-center items-center">
-                <img class="h-54 md:h-[400px] rounded-lg object-cover" src="{{ asset($now->img) }}" alt="ON AIR" />
-
-                <div>
-                    <h3 class="font-poppins mt-3 font-bold text-black">{{ $text }}</h3>
-                    <h3 class="font-poppins mt-3 font-bold text-3xl text-[#021f3a]">{{ $now->name }}</h3>
-                    <p class="font-poppins mt-3 text-black">{{ $now->desc }}</p>
+            <div id="simb" class="m-3 md:m-6 relative flex flex-wrap justify-center md:max-w-[50%]">
+                <div class="w-full h-full p-4 flex flex-wrap justify-center">
+                    <h1 class="text-center font-misterHoney text-2xl md:text-4xl font-bold text-[#0d2f6d] pb-4 md:pb-8">
+                        MEET
+                        THE
+                        U-NNOUNCERS
+                    </h1>
+                    <div class="w-full flex justify-center flex-wrap">
+                        <div
+                            class="w-72 bg-[#ede3d0] relative pt-5 px-3 mb-5 h-[475px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2 text-center">
+                            <img class="w-full h-[70%] md:h-2/3 object-cover"
+                                src="{{ asset('images/simb/faikar.png') }}">
+                            <div class="pt-2 relative h-[30%] md:h-1/3 align-top items-start">
+                                <h1 class=" font-requiem text-3xl md:text-4xl text-black mb-3 font-semibold">SHAKTY
+                                    Sudrajat
+                                </h1>
+                                <h1 class="text-sm md:text-base font-timelessMemories text-black">"all the things for
+                                    your
+                                    happiness"
+                                </h1>
+                            </div>
+                            <div
+                                class="text-black flex justify-center flex-wrap gap-5 absolute bottom-2 start-0 w-full">
+                                <a class="hover:text-biru w-full justify-center"
+                                    href="https://www.instagram.com/shktysdrjt_" target="_blank">
+                                    <i class="fa-brands fa-lg fa-instagram"></i>
+                                    <p>@shktysdrjt_</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div
+                            class="w-72 bg-[#ede3d0] relative pt-5 px-3 mb-5 h-[475px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2 text-center">
+                            <img class="w-full h-[70%] md:h-2/3 object-cover"
+                                src="{{ asset('images/simb/vina.png') }}">
+                            <div class="pt-2 relative h-[30%] md:h-1/3 align-top items-start">
+                                <h1 class=" font-requiem text-3xl md:text-4xl text-black mb-3 font-semibold">AUDREY
+                                    Davina
+                                    Thio
+                                </h1>
+                                <h1 class="text-sm md:text-base font-timelessMemories text-black">"rise and slay"
+                                </h1>
+                            </div>
+                            <div
+                                class="text-black flex justify-center flex-wrap gap-5 absolute bottom-2 start-0 w-full">
+                                <a class="hover:text-biru w-full justify-center"
+                                    href="https://www.instagram.com/audreydavinaaa" target="_blank">
+                                    <i class="fa-brands fa-lg fa-instagram"></i>
+                                    <p>@audreydavinaaa</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="schedule" class="md:mt-20 md:pt-10 text-center relative hidden">
+    <div id="schedule" class="md:mt-20 md:pt-10 text-center relative">
         <h1 class="font-poppins text-[#021f3a] text-2xl font-bold text-center mt-8 pt-4">Weekly Schedule</h1>
         <div class="border-t-2 border-[#021f3a] w-56 mx-auto mt-4"></div>
         <div class="tabs-group pb-12">

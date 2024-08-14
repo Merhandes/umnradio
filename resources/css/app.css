@@ -27,6 +27,54 @@
     src: url("fonts/Love.ttf") format("truetype");
 }
 
+/* Badoney */
+@font-face {
+    font-family: 'Badoney';
+    src: url('fonts/Badoney-Regular.otf') format('opentype'),
+        url('fonts/Badoney-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* MISTERHONEY */
+@font-face {
+    font-family: 'MISTERHONEY';
+    src: url('fonts/MISTERHONEY-Regular.otf') format('opentype'),
+        url('fonts/MISTERHONEY-Regular.ttf') format('truetype'),
+        url('fonts/MISTERHONEY-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* MoxyRush */
+@font-face {
+    font-family: 'MoxyRush';
+    src: url('fonts/MoxyRush-Regular.otf') format('opentype'),
+        url('fonts/MoxyRush-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Requiem */
+@font-face {
+    font-family: 'Requiem';
+    src: url('fonts/Requiem.otf') format('opentype'),
+        url('fonts/Requiem.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Timeless Memories */
+@font-face {
+    font-family: 'Timeless Memories';
+    src: url('fonts/Timeless Memories Condensed.otf') format('opentype'),
+        url('fonts/Timeless Memories Condensed.ttf') format('truetype'),
+        url('fonts/Timeless Memories Oblique.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 div::-webkit-scrollbar {
     display: none;
     /* for Chrome, Safari, and Opera */
