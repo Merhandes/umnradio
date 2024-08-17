@@ -113,7 +113,11 @@
 
 
     {{-- ON AIR OFF AIR --}}
-    <div id="section-1" class="w-full bg-[#fdf8e1]">
+    <div id="section-1"
+        class="w-full bg-gradient-to-b from-transparent from-30% via-[#fdf8e1] via-80% to-transparent to-90% relative">
+        <img src="{{ asset('images/simb/bgstar.png') }}" alt=""
+            class="absolute top-0 -z-10 h-[70%] md:h-auto object-cover">
+
         <div class="w-full relative h-fit z-30">
             <img src="{{ asset('assets/paper/1.webp') }}"
                 class="absolute object-cover object-top w-full h-24 md:h-36 rotate-180 -z-20" alt="">
@@ -122,14 +126,14 @@
             </div>
         </div>
 
-        <div class="w-full flex justify-center pt-24 md:pt-36">
-            <img src="{{ asset('images/simb/LOGO SIMB 2024.png') }}" alt="" class="w-72 aspect-auto">
+        <div class="w-full flex justify-center pt-24 md:pt-36 z-30">
+            <img src="{{ asset('images/simb/LOGO SIMB 2024.png') }}" alt="" class="w-80 aspect-auto">
         </div>
 
         <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center hidden">Live
             Broadcast</h1>
-        <div class="flex flex-wrap justify-center align-middle bg-gradient-to-b from-[#fdf8e1] to-white">
-            <div id="sign" class="m-3 md:m-6 text-center md:max-w-[50%]">
+        <div class="flex flex-wrap justify-center align-middle bg-gradient-to-b  z-30">
+            <div id="sign" class="m-3 md:m-6 text-center md:max-w-[40%]">
 
                 {{-- SCHEDULE SYSTEM PHP --}}
 
@@ -139,15 +143,15 @@
                 $day = Carbon::now()->dayOfWeek;
                 $hour = Carbon::now()->hour + 7;
                 // var_dump($day, $hour);
-                // $day = 1;
-                // $hour = 12;
+                // $day = 4;
+                // $hour = 19;
                 
                 foreach ($programs as $program) {
                     if ($program->broadcast_day == $day && $hour < $programs->where('broadcast_day', $day)->first()->start_hour) {
                         $text = 'Upcoming Program';
                         $now = $programs->where('broadcast_day', $day)->first();
                         $onair = 'bg-[#dfdfdf]';
-                    } elseif ($program->broadcast_day == $day && $hour < 17) {
+                    } elseif ($program->broadcast_day == $day && $hour < 19) {
                         $text = "You're Listening to";
                         if ($hour >= $program->start_hour && $hour < $program->end_hour) {
                             $now = $program;
@@ -157,18 +161,20 @@
                         $text = 'Upcoming Program';
                         $now = $programs->where('broadcast_day', $day + 1)->first();
                         $onair = 'bg-[#dfdfdf]';
-                    } elseif ($day >= 5 || $day == 0) {
+                    } elseif ($day >= 4 || $day == 0) {
                         $text = 'Upcoming Program';
                         $now = $programs->where('broadcast_day', 1)->first();
                         $onair = 'bg-[#dfdfdf]';
                     }
                 }
                 
-                if (($day >= 5 && $hour >= 17) || $day == 0) {
+                if (($day >= 4 && $hour >= 19) || $day == 0) {
                     $text = 'Upcoming Program';
                     $now = $programs->where('broadcast_day', 1)->first();
                     $onair = 'bg-[#dfdfdf]';
                 }
+                
+                // var_dump($text, $now, $onair)
                 
                 ?>
 
@@ -180,60 +186,40 @@
                     <img class="h-54 md:h-[400px] rounded-lg object-cover" src="{{ asset($now->img) }}"
                         alt="ON AIR" />
 
-                    <div>
-                        <h3 class="font-poppins mt-3 font-bold text-black">{{ $text }}</h3>
-                        <h3 class="font-poppins mt-3 font-bold text-3xl text-[#021f3a]">{{ $now->name }}</h3>
-                        <p class="font-poppins mt-3 text-black">{{ $now->desc }}</p>
+                    <div class="relative w-[70%] md:w-[40%]">
+                        <img src="{{ asset('images/simb/blankparchment.png') }}" alt=""
+                            class="absolute -z-10 object-fill w-full h-full">
+                        <div class="w-full h-full flex flex-wrap justify-center items-center align-middle p-4">
+                            <h3 class="font-badoney w-full text-black">{{ $text }}</h3>
+                            <h3 class="font-timelessMemories w-full mt-3 font-bold text-3xl text-[#021f3a]">
+                                {{ $now->name }}</h3>
+                            <p class="font-badoney w-full mt-3 text-black">{{ $now->desc }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
             <div id="simb" class="m-3 md:m-6 relative flex flex-wrap justify-center md:max-w-[50%]">
-                <div class="w-full h-full p-4 flex flex-wrap justify-center">
-                    <h1 class="text-center font-misterHoney text-2xl md:text-4xl font-bold text-[#0d2f6d] pb-4 md:pb-8">
-                        MEET
-                        THE
-                        U-NNOUNCERS
-                    </h1>
+                <div class="w-full h-full flex flex-wrap justify-center">
+                    <img src="{{ asset('images/simb/unnouncer1.png') }}" alt=""
+                        class="mt-10 mb-4 h-20 object-contain">
+
                     <div class="w-full flex justify-center flex-wrap">
-                        <div
-                            class="w-72 bg-[#ede3d0] relative pt-5 px-3 mb-5 h-[475px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2 text-center">
-                            <img class="w-full h-[70%] md:h-2/3 object-cover"
-                                src="{{ asset('images/simb/faikar.png') }}">
-                            <div class="pt-2 relative h-[30%] md:h-1/3 align-top items-start">
-                                <h1 class=" font-requiem text-3xl md:text-4xl text-black mb-3 font-semibold">SHAKTY
-                                    Sudrajat
-                                </h1>
-                                <h1 class="text-sm md:text-base font-timelessMemories text-black">"all the things for
-                                    your
-                                    happiness"
-                                </h1>
-                            </div>
+                        <div class="w-80 relative mb-5 drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2 text-center">
+                            <img class="w-full h-full" src="{{ asset('images/simb/SHAKTY.jpg') }}">
                             <div
-                                class="text-black flex justify-center flex-wrap gap-5 absolute bottom-2 start-0 w-full">
-                                <a class="hover:text-biru w-full justify-center"
+                                class="text-white flex justify-center flex-wrap gap-5 absolute bottom-8 start-0 w-full shadow-xl">
+                                <a class="hover:text-[#ffe8d1] w-full justify-center text-xs font-serif font-light"
                                     href="https://www.instagram.com/shktysdrjt_" target="_blank">
-                                    <i class="fa-brands fa-lg fa-instagram"></i>
                                     <p>@shktysdrjt_</p>
                                 </a>
                             </div>
                         </div>
-                        <div
-                            class="w-72 bg-[#ede3d0] relative pt-5 px-3 mb-5 h-[475px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2 text-center">
-                            <img class="w-full h-[70%] md:h-2/3 object-cover"
-                                src="{{ asset('images/simb/vina.png') }}">
-                            <div class="pt-2 relative h-[30%] md:h-1/3 align-top items-start">
-                                <h1 class=" font-requiem text-3xl md:text-4xl text-black mb-3 font-semibold">AUDREY
-                                    Davina
-                                    Thio
-                                </h1>
-                                <h1 class="text-sm md:text-base font-timelessMemories text-black">"rise and slay"
-                                </h1>
-                            </div>
+                        <div class="w-80 relative mb-5 drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2 text-center">
+                            <img class="w-full h-full" src="{{ asset('images/simb/AUDREY.png') }}">
                             <div
-                                class="text-black flex justify-center flex-wrap gap-5 absolute bottom-2 start-0 w-full">
-                                <a class="hover:text-biru w-full justify-center"
+                                class="text-white flex justify-center flex-wrap gap-5 absolute bottom-8 start-0 w-full shadow-xl">
+                                <a class="hover:text-[#ffe8d1] w-full justify-center text-xs font-serif font-light"
                                     href="https://www.instagram.com/audreydavinaaa" target="_blank">
-                                    <i class="fa-brands fa-lg fa-instagram"></i>
                                     <p>@audreydavinaaa</p>
                                 </a>
                             </div>
@@ -241,7 +227,100 @@
                     </div>
                 </div>
             </div>
+
+
+            <div class="w-full flex flex-wrap justify-center items-center align-middle mt-10">
+
+                <img src="{{ asset('images/simb/podcastomb.png') }}" alt=""
+                    class="max-w-[90%] w-64 object-contain">
+                <div class="flex flex-wrap mx-auto rounded-2xl justify-center h-auto max-w-[90%]">
+                    <div class="my-4 p-4 w-[450px] md:max-w-[50%]">
+                        <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                            src="https://open.spotify.com/embed/episode/3AegQ4CNGrCfXN1xs4sStY?utm_source=generator"
+                            width="100%" height="352" frameBorder="0" allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
+                    </div>
+                    <div class="ml-4 md:max-w-[50%] flex flex-wrap items-center">
+                        <div>
+                            <h2 class="text-3xl font-timelessMemories font-bold text-black">Judul Podcast</h2>
+                            <p class="text-black font-serif">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Phasellus
+                                est ipsum, efficitur a consectetur in, vulputate a enim. Aliquam bibendum dapibus
+                                mi,
+                                eget accumsan metus tempus egestas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="mb-10 mt-10 z-10 w-full relative">
+                <img src="{{ asset('images/simb/parchmentblank.png') }}" alt=""
+                    class="absolute top-0 w-full h-full rotate-180 -z-10 object-cover md:object-fill">
+                <div class="flex flex-wrap justify-center items-center align-middle w-full px-2 py-8 md:px-auto">
+                    <h1 class="font-misterHoney text-[#021f3a] text-3xl font-bold text-left md:mx-16 md:px-4">
+                        Episodes</h1>
+                    <div class="block xl:hidden mx-auto justify-center p-4 w-full">
+                        {{-- <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                        src="https://open.spotify.com/embed/episode/3AegQ4CNGrCfXN1xs4sStY?utm_source=generator"
+                        width="100%" frameBorder="0" allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe> --}}
+                        <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                            src="https://open.spotify.com/embed/episode/5imzP6eW3OT1qdRKloRHjV?utm_source=generator"
+                            width="100%" frameBorder="0" height="152" allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
+                        <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                            src="https://open.spotify.com/embed/episode/19BbKE5zB4GMAi6n8FvXt0?utm_source=generator"
+                            width="100%" frameBorder="0" height="152" allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
+                        <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                            src="https://open.spotify.com/embed/episode/3NFFsFZecbUG8rxfUTIKV8?utm_source=generator"
+                            width="100%" frameBorder="0" height="152" allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
+                    </div>
+
+                    <div class="hidden xl:flex mx-auto justify-center px-4 w-full">
+                        {{-- <div class="my-4 p-4 w-[450px] mx-auto">
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                        src="https://open.spotify.com/embed/episode/3AegQ4CNGrCfXN1xs4sStY?utm_source=generator"
+                        width="100%" height="352" frameBorder="0" allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe>
+                </div> --}}
+                        <div class="my-4 p-4 w-[450px] mx-auto">
+                            <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                                src="https://open.spotify.com/embed/episode/5imzP6eW3OT1qdRKloRHjV?utm_source=generator"
+                                width="100%" height="352" frameBorder="0" allowfullscreen=""
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                loading="lazy"></iframe>
+                        </div>
+                        <div class="my-4 p-4 w-[450px] mx-auto">
+                            <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                                src="https://open.spotify.com/embed/episode/19BbKE5zB4GMAi6n8FvXt0?utm_source=generator"
+                                width="100%" height="352" frameBorder="0" allowfullscreen=""
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                loading="lazy"></iframe>
+                        </div>
+                        <div class="my-4 p-4 w-[450px] mx-auto">
+                            <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                                src="https://open.spotify.com/embed/episode/3NFFsFZecbUG8rxfUTIKV8?utm_source=generator"
+                                width="100%" height="352" frameBorder="0" allowfullscreen=""
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        {{-- <div id="bottom" class="w-full flex justify-between align-baseline items-baseline relative">
+            <img src="{{ asset('images/simb/parchmentfade.png') }}" alt="" class="w-full absolute bottom-0 rotate-180 -z-0">
+        </div> --}}
     </div>
 
     <div id="schedule" class="md:mt-20 md:pt-10 text-center relative">

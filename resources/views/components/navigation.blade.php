@@ -31,10 +31,10 @@
                     <img class="absolute -z-10 h-full w-full" src="{{ asset('assets/tapes/34.webp') }}" alt="">
                     <p class="font-nexarust font-bold text-black no-underline z-20 text-base mx-4 my-3">U PODCAST</p>
                 </a>
-                <a href="/charts" class="relative flex justify-center items-center align-middle w-fit hover:scale-110   hover:rotate-3">
+                {{-- <a href="/charts" class="relative flex justify-center items-center align-middle w-fit hover:scale-110   hover:rotate-3">
                     <img class="absolute -z-10 h-full w-full" src="{{ asset('assets/tapes/65.webp') }}" alt="">
                     <p class="font-nexarust font-bold text-black no-underline z-20 text-base mx-4 my-3">Charts</p>
-                </a>
+                </a> --}}
                 <a href="/about" class="relative flex justify-center items-center align-middle w-fit hover:scale-110    hover:rotate-3">
                     <img class="absolute -z-10 h-full w-full rotate-180" src="{{ asset('assets/tapes/15.webp') }}"
                         alt="">
@@ -56,7 +56,7 @@
                         <a href="/articles" class="font-poppins text-sm text-black">Articles</a>
                         <a href="/programs" class="font-poppins text-sm text-black">Programs</a>
                         <a href="https://open.spotify.com/show/6ytg0qKpDz9ehq2fjklepU?si=2e339706e5754214" target="_" class="font-poppins text-sm text-black">Podcasts</a>
-                        <a href="/charts" class="font-poppins text-sm text-black">Charts</a>
+                        {{-- <a href="/charts" class="font-poppins text-sm text-black">Charts</a> --}}
                         <a href="/about" class="font-poppins text-sm text-black">About</a>
                     </div>
                 </div>

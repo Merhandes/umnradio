@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   content: [
     "./resources/**/*.blade.php",
@@ -28,7 +30,19 @@ module.exports = {
   },
   plugins: [
     require("daisyui"),
-    require('flowbite/plugin')
+    require('flowbite/plugin'),
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          glow: (value) => ({
+            textShadow: `0 0 10px ${value}, 0 0 20px ${value}, 0 0 30px ${value}`,
+          }),
+        },
+        {
+          values: theme('colors'),
+          type: 'color',
+        }
+      );
+    }),
   ],
 }
-

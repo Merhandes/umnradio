@@ -124,7 +124,8 @@
         </div>
     </div>
 
-    <x-audiodefault></x-audiodefault>
+    <x-audioplayer></x-audioplayer>
+    <x-footer></x-footer>
 </body>
 
 </html>

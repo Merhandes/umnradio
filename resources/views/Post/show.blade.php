@@ -96,7 +96,8 @@
         </div>
     </div>
     
-    <x-audiodefault></x-audiodefault>
+    <x-audioplayer></x-audioplayer>
+    <x-footer></x-footer>
     <script src="{{ asset('js/attachments.js') }}"></script>
 </body>
 <style>

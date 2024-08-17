@@ -181,36 +181,36 @@ class ProgramsSeeder extends Seeder
         // ]);
 
         Programs::create([
-            'name' => "SIMB",
+            'name' => "SIMB 2024",
             'desc' => "Aug 19-22, 17.00 - 19.00",
             'start_hour' => 17,
             'end_hour' => 19,
             'broadcast_day' => 1,
-            'img' => "images/programs/DM.webp"
+            'img' => "images/simb/POSTER_SIMB.jpg"
         ]);
         Programs::create([
-            'name' => "SIMB",
+            'name' => "SIMB 2024",
             'desc' => "Aug 19-22, 17.00 - 19.00",
             'start_hour' => 17,
             'end_hour' => 19,
             'broadcast_day' => 2,
-            'img' => "images/programs/DM.webp"
+            'img' => "images/simb/POSTER_SIMB.jpg"
         ]);
         Programs::create([
-            'name' => "SIMB",
+            'name' => "SIMB 2024",
             'desc' => "Aug 19-22, 17.00 - 19.00",
             'start_hour' => 17,
             'end_hour' => 19,
             'broadcast_day' => 3,
-            'img' => "images/programs/DM.webp"
+            'img' => "images/simb/POSTER_SIMB.jpg"
         ]);
         Programs::create([
-            'name' => "SIMB",
+            'name' => "SIMB 2024",
             'desc' => "Aug 19-22, 17.00 - 19.00",
             'start_hour' => 17,
             'end_hour' => 19,
-            'broadcast_day' => 3,
-            'img' => "images/programs/DM.webp"
+            'broadcast_day' => 4,
+            'img' => "images/simb/POSTER_SIMB.jpg"
         ]);
 
         // Programs::create([
