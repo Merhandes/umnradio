@@ -127,7 +127,13 @@
         </div>
 
         <div class="w-full flex justify-center pt-24 md:pt-36 z-30">
+            <div class="opacity-0 duration-500 animate-wiggleInLeft">
+                <img src="{{ asset('images/simb/balon1.png') }}" alt="" class="h-40 aspect-auto">
+            </div>
             <img src="{{ asset('images/simb/LOGO SIMB 2024.png') }}" alt="" class="w-80 aspect-auto">
+            <div class="opacity-0 duration-500 animate-wiggleInRight">
+                <img src="{{ asset('images/simb/balon1.png') }}" alt="" class="h-40 aspect-auto">
+            </div>
         </div>
 
         <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center hidden">Live
