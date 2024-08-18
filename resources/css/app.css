@@ -12,15 +12,15 @@
 }
 @font-face {
     font-family: "EmilyOlivia";
-    src: url("fonts/Emily\ Olivia.otf") format("opentype");
+    src: url("fonts/EmilyOlivia.otf") format("opentype");
 }
 @font-face {
     font-family: "HaveIdea";
-    src: url("fonts/Have\ Idea.ttf") format("truetype");
+    src: url("fonts/HaveIdea.ttf") format("truetype");
 }
 @font-face {
     font-family: "HelloMickeys";
-    src: url("fonts/Hello\ Mickeys.ttf") format("truetype");
+    src: url("fonts/HelloMickeys.ttf") format("truetype");
 }
 @font-face {
     font-family: "Love";
@@ -67,9 +67,9 @@
 /* Timeless Memories */
 @font-face {
     font-family: 'Timeless Memories';
-    src: url('fonts/Timeless Memories Condensed.otf') format('opentype'),
-        url('fonts/Timeless Memories Condensed.ttf') format('truetype'),
-        url('fonts/Timeless Memories Oblique.otf') format('opentype');
+    src: url('fonts/TimelessMemoriesCondensed.otf') format('opentype'),
+        url('fonts/TimelessMemoriesCondensed.ttf') format('truetype'),
+        url('fonts/TimelessMemoriesOblique.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }

@@ -7,6 +7,7 @@
     <title>UMN Radio</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
+    <script src="{{asset('js/tailwind.js')}}"></script>
     @vite('resources/css/app.css')
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -114,8 +115,9 @@
 
     {{-- ON AIR OFF AIR --}}
     <div id="section-1"
-        class="w-full bg-gradient-to-b from-transparent from-30% via-[#fdf8e1] via-80% to-transparent to-90% relative">
-        <img src="{{ asset('images/simb/bgstar.png') }}" alt=""
+        class="w-full relative">
+        {{-- bg-gradient-to-b from-transparent from-30% via-[#fdf8e1] via-80% to-transparent to-90% --}}
+        <img src="{{ asset('images/simb/bgstar.webp') }}" alt=""
             class="absolute top-0 -z-10 h-[70%] md:h-auto object-cover">
 
         <div class="w-full relative h-fit z-30">
@@ -126,20 +128,25 @@
             </div>
         </div>
 
-        <div class="w-full flex justify-center pt-24 md:pt-36 z-30">
-            <div class="opacity-0 duration-500 animate-wiggleInLeft">
-                <img src="{{ asset('images/simb/balon1.png') }}" alt="" class="h-40 aspect-auto">
+        <div class="w-full flex justify-between pt-24 md:pt-36 z-30 overflow-hidden">
+            <div
+                class="w-fit flex justify-center items-center align-middle md:animate-wiggleInRight animate-wiggleInLeft">
+                <img src="{{ asset('images/simb/balon1.webp') }}" alt=""
+                    class="md:h-40 h-16 aspect-auto object-contain">
             </div>
-            <img src="{{ asset('images/simb/LOGO SIMB 2024.png') }}" alt="" class="w-80 aspect-auto">
-            <div class="opacity-0 duration-500 animate-wiggleInRight">
-                <img src="{{ asset('images/simb/balon1.png') }}" alt="" class="h-40 aspect-auto">
+            <img src="{{ asset('images/simb/LOGO SIMB 2024.webp') }}" alt="" class="md:w-80 w-64 object-contain">
+            <div
+                class="w-fit flex justify-center items-center align-middle md:animate-wiggleInLeft animate-wiggleInRight">
+                <img src="{{ asset('images/simb/balon1.webp') }}" alt=""
+                    class="md:h-40 h-16 aspect-auto object-contain">
             </div>
         </div>
 
         <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center hidden">Live
             Broadcast</h1>
-        <div class="flex flex-wrap justify-center align-middle bg-gradient-to-b z-30">
-            <div id="sign" class="m-3 md:m-6 text-center md:max-w-[40%] flex justify-center items-center align-middle">
+        <div class="flex flex-wrap justify-center align-middle z-30">
+            <div id="sign"
+                class="m-3 md:m-6 text-center w-full xl:w-auto xl:max-w-[40%] flex justify-center items-center align-middle">
 
                 {{-- SCHEDULE SYSTEM PHP --}}
 
@@ -150,7 +157,7 @@
                 $hour = Carbon::now()->hour + 7;
                 // var_dump($day, $hour);
                 // $day = 4;
-                // $hour = 19;
+                // $hour = 20;
                 
                 foreach ($programs as $program) {
                     if ($program->broadcast_day == $day && $hour < $programs->where('broadcast_day', $day)->first()->start_hour) {
@@ -194,7 +201,7 @@
                             alt="ON AIR" />
 
                         <div class="relative w-[70%] md:w-[40%]">
-                            <img src="{{ asset('images/simb/blankparchment.png') }}" alt=""
+                            <img src="{{ asset('images/simb/blankparchment.webp') }}" alt=""
                                 class="absolute -z-10 object-fill w-full h-full">
                             <div class="w-full h-full flex flex-wrap justify-center items-center align-middle p-4">
                                 <h3 class="font-badoney w-full text-black">{{ $text }}</h3>
@@ -206,26 +213,26 @@
                     </div>
                 </div>
             </div>
-            <div id="simb" class="m-3 md:m-6 relative flex flex-wrap justify-center md:max-w-[50%]">
+            <div id="simb" class="m-3 md:m-6 relative flex flex-wrap justify-center w-full xl:w-auto xl:max-w-[40%]">
                 <div class="w-full h-full flex flex-wrap justify-center">
-                    <img src="{{ asset('images/simb/unnouncer1.png') }}" alt=""
+                    <img src="{{ asset('images/simb/unnouncer1.webp') }}" alt=""
                         class="mt-10 mb-4 h-20 object-contain">
 
                     <div class="w-full flex justify-center flex-wrap">
-                        <div class="w-80 relative mb-5 drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2 text-center">
-                            <img class="w-full h-full" src="{{ asset('images/simb/SHAKTY.jpg') }}">
+                        <div class="w-80 md:max-w-[40%] relative mb-5 drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2 text-center">
+                            <img class="w-full h-full object-contain" src="{{ asset('images/simb/SHAKTY.webp') }}">
                             <div
-                                class="text-white flex justify-center flex-wrap gap-5 absolute bottom-8 start-0 w-full shadow-xl">
+                                class="text-white flex justify-center flex-wrap gap-5 absolute bottom-[7%] start-0 w-full shadow-xl">
                                 <a class="hover:text-[#ffe8d1] w-full justify-center text-xs font-serif font-light"
                                     href="https://www.instagram.com/shktysdrjt_" target="_blank">
                                     <p>@shktysdrjt_</p>
                                 </a>
                             </div>
                         </div>
-                        <div class="w-80 relative mb-5 drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2 text-center">
-                            <img class="w-full h-full" src="{{ asset('images/simb/AUDREY.png') }}">
+                        <div class="w-80 md:max-w-[40%] relative mb-5 drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2 text-center">
+                            <img class="w-full h-full object-contain" src="{{ asset('images/simb/AUDREY.webp') }}">
                             <div
-                                class="text-white flex justify-center flex-wrap gap-5 absolute bottom-8 start-0 w-full shadow-xl">
+                                class="text-white flex justify-center flex-wrap gap-5 absolute bottom-[7%] start-0 w-full shadow-xl">
                                 <a class="hover:text-[#ffe8d1] w-full justify-center text-xs font-serif font-light"
                                     href="https://www.instagram.com/audreydavinaaa" target="_blank">
                                     <p>@audreydavinaaa</p>
@@ -237,10 +244,13 @@
             </div>
 
 
-            <div class="w-full flex flex-wrap justify-center items-center align-middle mt-10 hidden">
-
-                <img src="{{ asset('images/simb/podcastomb.png') }}" alt=""
-                    class="max-w-[90%] w-64 object-contain">
+            <div class="w-full flex flex-wrap justify-center items-center align-middle mt-10 overflow-hidden hidden">
+                <div class="md:w-1/2 flex justify-around">
+                    <img src="{{ asset('images/simb/arrowsign.webp') }}" alt="" class="w-16 md:w-24 animate-[wiggleRight_1s_ease-in-out_infinite] object-contain">
+                    <img src="{{ asset('images/simb/podcastomb.webp') }}" alt=""
+                        class="max-w-[90%] w-52 object-contain">
+                    <img src="{{ asset('images/simb/starlight.webp') }}" alt="" class="w-12 md:w-20 animate-[wiggleLeft_1s_ease-in-out_infinite] object-contain">
+                </div>
                 <div class="flex flex-wrap mx-auto rounded-2xl justify-center h-auto max-w-[90%]">
                     <div class="my-4 p-4 w-[450px] md:max-w-[50%]">
                         <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
@@ -264,7 +274,7 @@
 
 
             <div class="mb-10 mt-10 z-10 w-full relative hidden">
-                <img src="{{ asset('images/simb/parchmentblank.png') }}" alt=""
+                <img src="{{ asset('images/simb/parchmentblank.webp') }}" alt=""
                     class="absolute top-0 w-full h-full rotate-180 -z-10 object-cover md:object-fill">
                 <div class="flex flex-wrap justify-center items-center align-middle w-full px-2 py-8 md:px-auto">
                     <h1 class="font-misterHoney text-[#021f3a] text-3xl font-bold text-left md:mx-16 md:px-4">
@@ -275,17 +285,17 @@
                         width="100%" frameBorder="0" allowfullscreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"></iframe> --}}
-                        <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                        <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] my-2"
                             src="https://open.spotify.com/embed/episode/5imzP6eW3OT1qdRKloRHjV?utm_source=generator"
                             width="100%" frameBorder="0" height="152" allowfullscreen=""
                             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                             loading="lazy"></iframe>
-                        <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                        <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] my-2"
                             src="https://open.spotify.com/embed/episode/19BbKE5zB4GMAi6n8FvXt0?utm_source=generator"
                             width="100%" frameBorder="0" height="152" allowfullscreen=""
                             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                             loading="lazy"></iframe>
-                        <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                        <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] my-2"
                             src="https://open.spotify.com/embed/episode/3NFFsFZecbUG8rxfUTIKV8?utm_source=generator"
                             width="100%" frameBorder="0" height="152" allowfullscreen=""
                             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
