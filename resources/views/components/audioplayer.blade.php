@@ -4,7 +4,7 @@
         class="fixed bottom-0 w-full z-40 h-16 md:h-12 bg-[#0a1f63] flex flex-row gap-1 justify-center items-center transition-all duration-500">
 
         <div class="absolute start-0 w-2/5 md:w-1/4 px-2 overflow-hidden">
-            <h1 id="currently-header" class="text-md font-hellomickeys font-bold">Currently Playing: </h1>
+            <h1 id="currently-header" class="text-sm md:text-md font-hellomickeys font-bold">Currently Playing: </h1>
             <marquee width="100%" direction="left" height="100%" id="track-title"
                 class="text-md text-start align-middle font-hellomickeys whitespace-nowrap block md:hidden">
                 Loading...</marquee>
@@ -39,8 +39,7 @@
                 @foreach ($streams as $stream)
                     <source src="{{$stream->content}}" />
                 @endforeach
-                {{-- <source src="https://icecast.umn.ac.id/live" />
-                <source src="{{ asset('assets/audio/tes.mp3') }}" /> --}}
+                <source src="https://icecast.umn.ac.id/live" />
             </audio>
             <div class="p-4 max-w-md w-full hidden md:block">
                 <div class="flex items-center justify-center">
@@ -53,7 +52,7 @@
 
             {{-- Volume Control Section --}}
 
-            <div class="flex items-center absolute end-5 md:static">
+            {{-- <div class="flex items-center absolute end-5 md:static">
                 <div class="flex items-center gap-2">
                     <button id="volumeIcon" class="text-white">
                         <!-- Font Awesome volume icon -->
@@ -67,7 +66,7 @@
                         <span id="volumeValue" class="text-gray-300 ml-2">50%</span>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
     </footer>

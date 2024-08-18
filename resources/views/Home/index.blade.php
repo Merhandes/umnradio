@@ -132,8 +132,8 @@
 
         <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center hidden">Live
             Broadcast</h1>
-        <div class="flex flex-wrap justify-center align-middle bg-gradient-to-b  z-30">
-            <div id="sign" class="m-3 md:m-6 text-center md:max-w-[40%]">
+        <div class="flex flex-wrap justify-center align-middle bg-gradient-to-b z-30">
+            <div id="sign" class="m-3 md:m-6 text-center md:max-w-[40%] flex justify-center items-center align-middle">
 
                 {{-- SCHEDULE SYSTEM PHP --}}
 
@@ -178,22 +178,24 @@
                 
                 ?>
 
-                <div id="onair" class="border rounded-md {{ $onair }} w-24 p-2 m-auto">
-                    <h1 class="font-poppins text-xl text-white"> On Air </h1>
-                </div>
+                <div>
+                    <div id="onair" class="border rounded-md {{ $onair }} w-24 p-2 m-auto">
+                        <h1 class="font-poppins text-xl text-white"> On Air </h1>
+                    </div>
 
-                <div class="flex flex-col md:flex-row gap-4 md:gap-16 mt-6 justify-center items-center">
-                    <img class="h-54 md:h-[400px] rounded-lg object-cover" src="{{ asset($now->img) }}"
-                        alt="ON AIR" />
+                    <div class="flex flex-col md:flex-row gap-4 md:gap-16 mt-6 justify-center items-center">
+                        <img class="h-80 md:h-[400px] rounded-lg object-cover" src="{{ asset($now->img) }}"
+                            alt="ON AIR" />
 
-                    <div class="relative w-[70%] md:w-[40%]">
-                        <img src="{{ asset('images/simb/blankparchment.png') }}" alt=""
-                            class="absolute -z-10 object-fill w-full h-full">
-                        <div class="w-full h-full flex flex-wrap justify-center items-center align-middle p-4">
-                            <h3 class="font-badoney w-full text-black">{{ $text }}</h3>
-                            <h3 class="font-timelessMemories w-full mt-3 font-bold text-3xl text-[#021f3a]">
-                                {{ $now->name }}</h3>
-                            <p class="font-badoney w-full mt-3 text-black">{{ $now->desc }}</p>
+                        <div class="relative w-[70%] md:w-[40%]">
+                            <img src="{{ asset('images/simb/blankparchment.png') }}" alt=""
+                                class="absolute -z-10 object-fill w-full h-full">
+                            <div class="w-full h-full flex flex-wrap justify-center items-center align-middle p-4">
+                                <h3 class="font-badoney w-full text-black">{{ $text }}</h3>
+                                <h3 class="font-timelessMemories w-full mt-3 font-bold text-3xl text-[#021f3a]">
+                                    {{ $now->name }}</h3>
+                                <p class="font-badoney w-full mt-3 text-black">{{ $now->desc }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -229,7 +231,7 @@
             </div>
 
 
-            <div class="w-full flex flex-wrap justify-center items-center align-middle mt-10">
+            <div class="w-full flex flex-wrap justify-center items-center align-middle mt-10 hidden">
 
                 <img src="{{ asset('images/simb/podcastomb.png') }}" alt=""
                     class="max-w-[90%] w-64 object-contain">
@@ -255,7 +257,7 @@
             </div>
 
 
-            <div class="mb-10 mt-10 z-10 w-full relative">
+            <div class="mb-10 mt-10 z-10 w-full relative hidden">
                 <img src="{{ asset('images/simb/parchmentblank.png') }}" alt=""
                     class="absolute top-0 w-full h-full rotate-180 -z-10 object-cover md:object-fill">
                 <div class="flex flex-wrap justify-center items-center align-middle w-full px-2 py-8 md:px-auto">
@@ -317,10 +319,6 @@
                 </div>
             </div>
         </div>
-
-        {{-- <div id="bottom" class="w-full flex justify-between align-baseline items-baseline relative">
-            <img src="{{ asset('images/simb/parchmentfade.png') }}" alt="" class="w-full absolute bottom-0 rotate-180 -z-0">
-        </div> --}}
     </div>
 
     <div id="schedule" class="md:mt-20 md:pt-10 text-center relative">
@@ -1270,24 +1268,24 @@
             <div
                 class="block xl:hidden mx-auto bg-gradient-to-br from-[#875fd3] to-[#87cfe8] rounded-2xl shadow-lg justify-center p-4 w-full drop-shadow-[0_5px_100px_rgba(231,220,200,0.9)]">
                 <div class="mx-auto xl:gap-6 xl:h-auto sm:columns-2">
-                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] my-1"
                         src="https://open.spotify.com/embed/episode/3AegQ4CNGrCfXN1xs4sStY?utm_source=generator"
-                        width="100%" frameBorder="0" allowfullscreen=""
+                        width="100%" height="152" frameBorder="0" allowfullscreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"></iframe>
-                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] my-1"
                         src="https://open.spotify.com/embed/episode/5imzP6eW3OT1qdRKloRHjV?utm_source=generator"
-                        width="100%" frameBorder="0" allowfullscreen=""
+                        width="100%" height="152" frameBorder="0" allowfullscreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"></iframe>
-                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] my-1"
                         src="https://open.spotify.com/embed/episode/19BbKE5zB4GMAi6n8FvXt0?utm_source=generator"
-                        width="100%" frameBorder="0" allowfullscreen=""
+                        width="100%" height="152" frameBorder="0" allowfullscreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"></iframe>
-                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] my-1"
                         src="https://open.spotify.com/embed/episode/3NFFsFZecbUG8rxfUTIKV8?utm_source=generator"
-                        width="100%" frameBorder="0" allowfullscreen=""
+                        width="100%" height="152" frameBorder="0" allowfullscreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"></iframe>
                 </div>

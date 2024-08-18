@@ -19,6 +19,7 @@
         "@glidejs/glide": "^3.6.0",
         "flowbite": "^2.2.1",
         "swiper": "^10.1.0",
+        "taos": "^1.0.5",
         "tw-elements": "^1.0.0-beta3"
     }
 }
