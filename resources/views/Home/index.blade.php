@@ -7,7 +7,7 @@
     <title>UMN Radio</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
-    <script src="{{asset('js/tailwind.js')}}"></script>
+    <script src="{{ asset('js/tailwind.js') }}"></script>
     @vite('resources/css/app.css')
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -68,14 +68,110 @@
 </head>
 
 <body class="composer">
+    <script src="{{ asset('js/flowbite/dist/flowbite.min.js') }}"></script>
+
     <x-navigation></x-navigation>
+
+
+    <!-- Modal toggle -->
+    <button data-modal-target="default-modal" data-modal-toggle="default-modal"
+        class="block w-0 h-0 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        type="button">
+    </button>
+
+    <!-- Main modal -->
+    <div id="default-modal" tabindex="-1" aria-hidden="true"
+        class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-screen max-h-full bg-gray-800 bg-opacity-60 @if ($hlPost) flex @else hidden @endif">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                        @if ($hlPost)
+                            {{ $hlPost->title }}
+                        @else
+                            No Data
+                        @endif
+                    </h3>
+                    <button type="button" id="closeModalButton"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                        data-modal-hide="default-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-1 max-h-[400px] overflow-y-scroll">
+                    <p class="text-lg leading-relaxed text-gray-500 dark:text-gray-400">
+                        @if ($hlPost)
+                            <span
+                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{ $hlPost->category }}</span>
+                        @else
+                            No Data
+                        @endif
+                    </p>
+                    <p class="text-sm leading-relaxed text-gray-500 dark:text-gray-400">
+                        @if ($hlPost)
+                            <p>{{ $hlPost->published }}</p>
+                            <p>Author: {{ $hlPost->author }}</p>
+                            <p>Editor: {{ $hlPost->editor }}</p>
+                        @else
+                            No Data
+                        @endif
+                    </p>
+                    @if ($hlPost)
+                        <img class="w-full h-36 md:h-52 object-cover"
+                            src="{{ asset('storage/' . $hlPost->cover_photo) }}" alt="Featured Image">
+                    @else
+                        No Data
+                    @endif
+                    <div class="relative">
+                        <div
+                            class="text-base leading-relaxed text-gray-500 dark:text-gray-400 max-h-[400px] overflow-hidden post-content">
+                            @if ($hlPost)
+                                {!! $hlPost->post_content !!}
+                            @else
+                                No Data
+                            @endif
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-white dark:from-gray-700">
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    @if ($hlPost)
+                        <a href="/article/{{ $hlPost->slug }}" data-modal-hide="default-modal" type="button"
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full inline-flex justify-center">Read
+                            More</a>
+                    @else
+                        No Data
+                    @endif
+
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        document.getElementById('closeModalButton').addEventListener('click', function() {
+            const modal = document.getElementById('default-modal');
+            modal.classList.add('hidden');
+        });
+    </script>
+
+
     {{-- BACKGROUND --}}
     <!-- <img class="w-screen z-0" src="{{ asset('images/background.webp') }}"
         alt=""> -->
-    <div class="relative">
-        <img class="h-screen w-auto md:h-auto md:w-screen z-0 object-cover" src="{{ asset('images/background.webp') }}"
-            alt="" />
+    <div class="relative pt-10">
+        <img class="h-[500px] w-auto md:h-auto md:w-screen z-0 object-cover object-right"
+            src="{{ asset('images/bannerweb2.webp') }}" alt="" />
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-4 py-2 w-full">
             <div class="px-4 text-center w-full flex justify-center flex-col relative">
                 <p class="font-poppins z-10 text-white font-bold md:text-2xl">107.7 FM</p>
@@ -114,8 +210,7 @@
 
 
     {{-- ON AIR OFF AIR --}}
-    <div id="section-1"
-        class="w-full relative">
+    <div id="section-1" class="w-full relative">
         {{-- bg-gradient-to-b from-transparent from-30% via-[#fdf8e1] via-80% to-transparent to-90% --}}
         <img src="{{ asset('images/simb/bgstar.webp') }}" alt=""
             class="absolute top-0 -z-10 h-[70%] md:h-auto object-cover">
@@ -134,7 +229,8 @@
                 <img src="{{ asset('images/simb/balon1.webp') }}" alt=""
                     class="md:h-40 h-16 aspect-auto object-contain">
             </div>
-            <img src="{{ asset('images/simb/LOGO SIMB 2024.webp') }}" alt="" class="md:w-80 w-64 object-contain">
+            <img src="{{ asset('images/simb/LOGO SIMB 2024.webp') }}" alt=""
+                class="md:w-80 w-64 object-contain">
             <div
                 class="w-fit flex justify-center items-center align-middle md:animate-wiggleInLeft animate-wiggleInRight">
                 <img src="{{ asset('images/simb/balon1.webp') }}" alt=""
@@ -156,7 +252,7 @@
                 $day = Carbon::now()->dayOfWeek;
                 $hour = Carbon::now()->hour + 7;
                 // var_dump($day, $hour);
-                // $day = 4;
+                // $day = 5;
                 // $hour = 20;
                 
                 foreach ($programs as $program) {
@@ -172,16 +268,25 @@
                         $onair = 'bg-[#fc1414]';
                     } elseif ($program->broadcast_day == $day) {
                         $text = 'Upcoming Program';
-                        $now = $programs->where('broadcast_day', $day + 1)->first();
+                        if ($programs->where('broadcast_day', $day + 1)->first() != null) {
+                            $now = $programs->where('broadcast_day', $day + 1)->first();
+                        } else {
+                            $now = $programs->where('broadcast_day', $day + 2)->first();
+                        }
+                        // $now = $programs->where('broadcast_day', $day + 1)->first();
                         $onair = 'bg-[#dfdfdf]';
-                    } elseif ($day >= 4 || $day == 0) {
+                    } elseif ($day >= 5 || $day == 0) {
+                        $text = 'Upcoming Program';
+                        $now = $programs->where('broadcast_day', 1)->first();
+                        $onair = 'bg-[#dfdfdf]';
+                    } else {
                         $text = 'Upcoming Program';
                         $now = $programs->where('broadcast_day', 1)->first();
                         $onair = 'bg-[#dfdfdf]';
                     }
                 }
                 
-                if (($day >= 4 && $hour >= 19) || $day == 0) {
+                if (($day >= 5 && $hour >= 19) || $day == 0) {
                     $text = 'Upcoming Program';
                     $now = $programs->where('broadcast_day', 1)->first();
                     $onair = 'bg-[#dfdfdf]';
@@ -213,13 +318,15 @@
                     </div>
                 </div>
             </div>
-            <div id="simb" class="m-3 md:m-6 relative flex flex-wrap justify-center w-full xl:w-auto xl:max-w-[40%]">
+            <div id="simb"
+                class="m-3 md:m-6 relative flex flex-wrap justify-center w-full xl:w-auto xl:max-w-[40%]">
                 <div class="w-full h-full flex flex-wrap justify-center">
                     <img src="{{ asset('images/simb/unnouncer1.webp') }}" alt=""
                         class="mt-10 mb-4 h-20 object-contain">
 
                     <div class="w-full flex justify-center flex-wrap">
-                        <div class="w-80 md:max-w-[40%] relative mb-5 drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2 text-center">
+                        <div
+                            class="w-80 md:max-w-[40%] relative mb-5 drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2 text-center">
                             <img class="w-full h-full object-contain" src="{{ asset('images/simb/SHAKTY.webp') }}">
                             <div
                                 class="text-white flex justify-center flex-wrap gap-5 absolute bottom-[7%] start-0 w-full shadow-xl">
@@ -229,7 +336,8 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="w-80 md:max-w-[40%] relative mb-5 drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2 text-center">
+                        <div
+                            class="w-80 md:max-w-[40%] relative mb-5 drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2 text-center">
                             <img class="w-full h-full object-contain" src="{{ asset('images/simb/AUDREY.webp') }}">
                             <div
                                 class="text-white flex justify-center flex-wrap gap-5 absolute bottom-[7%] start-0 w-full shadow-xl">
@@ -246,10 +354,12 @@
 
             <div class="w-full flex flex-wrap justify-center items-center align-middle mt-10 overflow-hidden hidden">
                 <div class="md:w-1/2 flex justify-around">
-                    <img src="{{ asset('images/simb/arrowsign.webp') }}" alt="" class="w-16 md:w-24 animate-[wiggleRight_1s_ease-in-out_infinite] object-contain">
+                    <img src="{{ asset('images/simb/arrowsign.webp') }}" alt=""
+                        class="w-16 md:w-24 animate-[wiggleRight_1s_ease-in-out_infinite] object-contain">
                     <img src="{{ asset('images/simb/podcastomb.webp') }}" alt=""
                         class="max-w-[90%] w-52 object-contain">
-                    <img src="{{ asset('images/simb/starlight.webp') }}" alt="" class="w-12 md:w-20 animate-[wiggleLeft_1s_ease-in-out_infinite] object-contain">
+                    <img src="{{ asset('images/simb/starlight.webp') }}" alt=""
+                        class="w-12 md:w-20 animate-[wiggleLeft_1s_ease-in-out_infinite] object-contain">
                 </div>
                 <div class="flex flex-wrap mx-auto rounded-2xl justify-center h-auto max-w-[90%]">
                     <div class="my-4 p-4 w-[450px] md:max-w-[50%]">
@@ -1633,7 +1743,6 @@
             }
         });
     </script>
-    <script src="{{ asset('js/flowbite/dist/flowbite.min.js') }}"></script>
 
     {{-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> --}}
     <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>

@@ -30,13 +30,20 @@ class Controller extends BaseController
         $partnerships = Partnerships::all();
         $chartcount = Chart::count();
         $streams = Variable::where('type', 'Stream')->get();
+        if (Variable::where('type', 'PostHighlight')->first()) {
+            $postHighlightID = Variable::where('type', 'PostHighlight')->first()->content;
+            $hlPost = Post::where('id', $postHighlightID)->first();
+        }else{
+            $hlPost = null;
+        }
+        
         if ($chartcount>0) {
             $charts = Chart::where('status', 'PUBLISHED')->get()->random(1);
         }else{
             $charts = Chart::all();
         }
 
-        return view('Home.index', ['programs' => $programs, 'posts' => $posts, 'segments' => $segments, 'partnerships' => $partnerships, 'charts' => $charts, 'streams' => $streams]);
+        return view('Home.index', ['programs' => $programs, 'posts' => $posts, 'segments' => $segments, 'partnerships' => $partnerships, 'charts' => $charts, 'streams' => $streams, 'hlPost' => $hlPost]);
     }
 
     public function logo()
