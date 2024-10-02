@@ -1494,7 +1494,73 @@
         </div>
     </div>
 
+    <div id="modal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 px-4">
+        <div class="bg-white rounded-lg shadow-lg p-8 max-w-sm w-full relative">
+            <button id="closeModal" class="absolute top-0 right-0 m-4 p-2 rounded-full bg-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200">
+                <img src="{{ url('/images/close-option.png') }}" alt="Close" class="w-6 h-6">
+            </button>
+    
+            <div id="animation-carousel" class="relative w-full mt-4" data-carousel="static">
+                <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                    <!-- Item 1 -->
+                    <div class="hidden duration-200 ease-linear" data-carousel-item="active">
+                        <img src="{{ url('/images/JOYLAND/SLIDE 1.webp') }}" loading="lazy" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Slide 1">
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="hidden duration-200 ease-linear" data-carousel-item>
+                        <img src="{{ url('/images/JOYLAND/SLIDE 2.webp') }}" loading="lazy" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Slide 2">
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="hidden duration-200 ease-linear" data-carousel-item>
+                        <img src="{{ url('/images/JOYLAND/SLIDE 3.webp') }}" loading="lazy" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Slide 3">
+                    </div>
+                </div>
+
+                <button type="button" class="absolute top-1/2 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none transform -translate-y-1/2" data-carousel-prev>
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 focus:ring-4 group-focus:ring-white focus:outline-none">
+                        <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                        </svg>
+                        <span class="sr-only">Previous</span>
+                    </span>
+                </button>
+                <button type="button" class="absolute top-1/2 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none transform -translate-y-1/2" data-carousel-next>
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 focus:ring-4 group-focus:ring-white focus:outline-none">
+                        <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                        </svg>
+                        <span class="sr-only">Next</span>
+                    </span>
+                </button>
+            </div>
+            <div class="flex justify-center mt-4">
+                <a id="clickHere" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" href="https://docs.google.com/forms/d/e/1FAIpQLSezFKEV3caoyRnx1v_LCUgs_PyfPyNAM_RPudVH34qZHH32og/viewform" target="_blank">
+                    Order here
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+      <script>
+        window.onload = function() {
+          document.getElementById('modal').classList.remove('hidden');
+        };
+      
+        document.getElementById('closeModal').onclick = function() {
+          document.getElementById('modal').classList.add('hidden');
+        };
+      </script>
+
     <x-footer></x-footer>
+
+    <script>
+        window.onload = function() {
+            const modalToggle = document.getElementById('toggleModal');
+            modalToggle.click();
+        };
+    </script>
+
     <script>
         var button = document.getElementById("buttonplay");
         var button2 = document.getElementById("buttonpause");
