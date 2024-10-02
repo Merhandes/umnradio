@@ -508,10 +508,10 @@
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">DICE
                                 </div>
-                                <div class="md:text-xl font-poppins text-center">13.00 -
+                                <div class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">13.00 -
                                     14.00
                                 </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Yakin kalo lo
+                                <p class="text-xs md:text-base text-left">Yakin kalo lo
                                     anak kampus banget?! Atau masih banyak yang bingung anak kampus biasanya ngapain?🤔
 
                                     Tenang! DICE bakal hadir buat nemenin kehidupan kampusnya Ultimafriends! Lo bakal
