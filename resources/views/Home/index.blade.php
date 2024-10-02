@@ -1497,22 +1497,22 @@
     <div id="modal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 px-4">
         <div class="bg-white rounded-lg shadow-lg p-8 max-w-sm w-full relative">
             <button id="closeModal" class="absolute top-0 right-0 m-4 p-2 rounded-full bg-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200">
-                <img src="{{ url('/images/close-option.png') }}" alt="Close" class="w-6 h-6">
+                <img src="{{ asset('images/close-option.png') }}" alt="Close" class="w-6 h-6">
             </button>
     
             <div id="animation-carousel" class="relative w-full mt-4" data-carousel="static">
                 <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                     <!-- Item 1 -->
                     <div class="hidden duration-200 ease-linear" data-carousel-item="active">
-                        <img src="{{ url('/images/JOYLAND/SLIDE 1.webp') }}" loading="lazy" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Slide 1">
+                        <img src="{{ asset('images/JOYLAND/SLIDE 1.webp')}}" loading="lazy" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Slide 1">
                     </div>
                     <!-- Item 2 -->
                     <div class="hidden duration-200 ease-linear" data-carousel-item>
-                        <img src="{{ url('/images/JOYLAND/SLIDE 2.webp') }}" loading="lazy" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Slide 2">
+                        <img src="{{ asset('images/JOYLAND/SLIDE 2.webp')}}" loading="lazy" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Slide 2">
                     </div>
                     <!-- Item 3 -->
                     <div class="hidden duration-200 ease-linear" data-carousel-item>
-                        <img src="{{ url('/images/JOYLAND/SLIDE 3.webp') }}" loading="lazy" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Slide 3">
+                        <img src="{{ asset('images/JOYLAND/SLIDE 3.webp')}}" loading="lazy" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Slide 3">
                     </div>
                 </div>
 
