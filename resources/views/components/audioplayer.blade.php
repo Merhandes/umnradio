@@ -3,13 +3,13 @@
     <footer id="audiosticky"
         class="fixed bottom-0 w-full z-40 h-16 md:h-12 bg-[#0a1f63] flex flex-row gap-1 justify-center items-center transition-all duration-500">
 
-        <div class="absolute start-0 w-2/5 md:w-1/4 px-2 overflow-hidden">
+        {{-- <div class="absolute start-0 w-2/5 md:w-1/4 px-2 overflow-hidden">
             <h1 id="currently-header" class="text-sm md:text-md font-hellomickeys font-bold">Currently Playing: </h1>
             <marquee width="100%" direction="left" height="100%" id="track-title"
                 class="text-md text-start align-middle font-hellomickeys whitespace-nowrap block md:hidden">
                 Loading...</marquee>
             <h1 id="track-title-md" class="text-md text-start align-middle font-hellomickeys whitespace-nowrap hidden md:block">Loading...</h1>
-        </div>
+        </div> --}}
 
         <div class="flex justify-center w-full">
             <button id="buttonplay2"><svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512">
@@ -72,26 +72,26 @@
     </footer>
 
     <script>
-        async function fetchTrackTitle() {
-            try {
-                const response = await axios.get('/proxy-track-title');
-                const data = response.data;
-                const title = data.icestats.source.title || 'No Title';
-                document.getElementById('track-title').innerText = title;
-                document.getElementById('track-title-md').innerText = title;
-            } catch (error) {
-                // console.error('Error fetching track title:', error);
-                document.getElementById('track-title').innerText = '';
-                document.getElementById('track-title-md').innerText = '';
-                document.getElementById('currently-header').innerText = '';
-            }
-        }
+        // async function fetchTrackTitle() {
+        //     try {
+        //         const response = await axios.get('/proxy-track-title');
+        //         const data = response.data;
+        //         const title = data.icestats.source.title || 'No Title';
+        //         document.getElementById('track-title').innerText = title;
+        //         document.getElementById('track-title-md').innerText = title;
+        //     } catch (error) {
+        //         // console.error('Error fetching track title:', error);
+        //         document.getElementById('track-title').innerText = '';
+        //         document.getElementById('track-title-md').innerText = '';
+        //         document.getElementById('currently-header').innerText = '';
+        //     }
+        // }
 
-        // Initial fetch
-        fetchTrackTitle();
+        // // Initial fetch
+        // fetchTrackTitle();
 
-        // Poll every 30 seconds
-        setInterval(fetchTrackTitle, 10000);
+        // // Poll every 30 seconds
+        // setInterval(fetchTrackTitle, 10000);
     </script>
 
     <script>
