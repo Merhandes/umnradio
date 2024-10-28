@@ -211,4 +211,8 @@ Route::get('/about',function(){
     return view('About.index');
 });
 
+Route::get('/ultimacrews', function(){
+    return view('Crews.index');
+});
+
 // Route::resource('posts', PostController::class);
