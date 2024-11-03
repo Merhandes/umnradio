@@ -228,4 +228,10 @@ Route::get('/tes', function () {
 
 Route::get('/proxy-track-title', [StreamController::class, 'proxyTrackTitle']);
 
+Route::get('/ultimacrews', function () {
+    return view('Crews.index');
+});
+
+
+
 // Route::resource('posts', PostController::class);
