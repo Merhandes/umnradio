@@ -25,6 +25,7 @@
             color: #0a1f63;
             transition: background-color 0.3s, color 0.3s, transform 0.2s;
         }
+
         .folder-tab-mobile {
             border: 2px solid #0a1f63;
             background-color: white;
@@ -36,6 +37,7 @@
             background-color: #0a1f63;
             color: white;
         }
+
         .folder-tab-mobile.active {
             background-color: #0a1f63;
             color: white;
@@ -66,12 +68,12 @@
                 class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne text-white w-12">VC</button>
             <button onclick="showDivisionMobile('DC')" id="tab-mobile-DC"
                 class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne text-white w-12">DC</button>
+            <button onclick="showDivisionMobile('MD')" id="tab-mobile-MD"
+                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne text-white w-12">MD</button>
             <button onclick="showDivisionMobile('PR')" id="tab-mobile-PR"
                 class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne text-white w-12">PR</button>
             <button onclick="showDivisionMobile('MA')" id="tab-mobile-MA"
                 class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne text-white w-12">MA</button>
-            <button onclick="showDivisionMobile('MD')" id="tab-mobile-MD"
-                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne text-white w-12">MD</button>
             <button onclick="showDivisionMobile('EVT')" id="tab-mobile-EVT"
                 class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne text-white w-12">EVT</button>
             <button onclick="showDivisionMobile('PRT')" id="tab-mobile-PRT"
@@ -101,12 +103,12 @@
                         class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl text-white">VC</button>
                     <button onclick="showDivision('DC')" id="tab-DC"
                         class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl text-white">DC</button>
+                    <button onclick="showDivision('MD')" id="tab-MD"
+                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl text-white">MD</button>
                     <button onclick="showDivision('PR')" id="tab-PR"
                         class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl text-white">PR</button>
                     <button onclick="showDivision('MA')" id="tab-MA"
                         class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl text-white">MA</button>
-                    <button onclick="showDivision('MD')" id="tab-MD"
-                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl text-white">MD</button>
                     <button onclick="showDivision('EVT')" id="tab-EVT"
                         class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl text-white">EVT</button>
                     <button onclick="showDivision('PRT')" id="tab-PRT"
@@ -119,10 +121,14 @@
                         class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl text-white">IT</button>
                 </div>
             </div>
-            <div class="bg-[#D7C17B] drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]  w-full flex justify-center align-middle items-center md:rounded-tl-none md:rounded-b-lg rounded-l-lg">
+            <div
+                class="bg-[#D7C17B] drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]  w-full flex justify-center align-middle items-center md:rounded-tl-none md:rounded-b-lg rounded-l-lg">
                 <div id="BPH" class="division-section text-center p-0 w-full">
-                    <h1 class="text-6xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">BPH</h1>
-                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Mengelola dan memastikan UMN Radio berjalan dengan baik dan aman setiap hari, baik dari segi operasional maupun administratif.</p>
+                    <h1 class="text-6xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">
+                        BPH</h1>
+                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Mengelola dan memastikan
+                        UMN Radio berjalan dengan baik dan aman setiap hari, baik dari segi operasional maupun
+                        administratif.</p>
 
                     <div class="flex flex-wrap justify-center gap-6 p-4">
                         <div
@@ -171,8 +177,10 @@
 
 
                 <div id="HRD" class="division-section hidden text-center p-0 w-full">
-                    <h1 class="text-6xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">HRD</h1>
-                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Mengawasi dan memonitoring seluruh Ultimacrews dari segi behavior dan juga skill.</p>
+                    <h1 class="text-6xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">
+                        HRD</h1>
+                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Mengawasi dan memonitoring
+                        seluruh Ultimacrews dari segi behavior dan juga skill.</p>
 
                     <div class="flex flex-wrap justify-center gap-6 p-4">
 
@@ -221,9 +229,12 @@
 
 
                 <div id="PD" class="division-section hidden text-center p-0 w-full">
-                    <h1 class="md:text-6xl text-4xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">PROGRAM
+                    <h1
+                        class="md:text-6xl text-4xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">
+                        PROGRAM
                     </h1>
-                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Produser bertanggung jawab sebagai
+                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Produser bertanggung jawab
+                        sebagai
                         konseptor utama dan pelaksana program siaran, memastikan program berjalan sesuai konsep yang
                         telah disusun.</p>
 
@@ -299,11 +310,15 @@
 
 
                 <div id="AC" class="division-section hidden text-center p-0 w-full">
-                    <h1 class="md:text-6xl text-5xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">AUDIO
+                    <h1
+                        class="md:text-6xl text-5xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">
+                        AUDIO
                         CREATIVE
                     </h1>
-                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Audio Creative memproduksi berbagai
-                        kebutuhan audio seperti drama radio, podcast, dan iklan layanan, serta menjaga kualitas audio
+                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Audio Creative memproduksi
+                        berbagai
+                        kebutuhan audio seperti drama radio, podcast, dan iklan layanan masyarakat, serta menjaga
+                        kualitas audio
                         dalam setiap program.</p>
 
                     <div class="flex flex-wrap justify-center gap-6 p-4">
@@ -326,7 +341,8 @@
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
                             <div class="text-center w-full">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Thomas Dito</h3>
-                                <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Audio Creative of BILCIN</p>
+                                <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Audio Creative of BILCIN
+                                </p>
                             </div>
                         </div>
 
@@ -337,7 +353,8 @@
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
                             <div class="text-center w-full">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Vallen Felysia</h3>
-                                <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Audio Creative of CHARTTOPPERS</p>
+                                <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Audio Creative of
+                                    CHARTTOPPERS</p>
                             </div>
                         </div>
 
@@ -349,7 +366,8 @@
                             <div class="text-center w-full">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Christoforus Rivan
                                 </h3>
-                                <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Audio Creative of MUSIKALITAS</p>
+                                <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Audio Creative of
+                                    MUSIKALITAS</p>
                             </div>
                         </div>
 
@@ -372,7 +390,8 @@
                             <div class="text-center w-full">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Samuel Fernandtio
                                 </h3>
-                                <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Audio Creative of SERSAN</p>
+                                <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Audio Creative of SERSAN
+                                </p>
                             </div>
                         </div>
 
@@ -382,10 +401,14 @@
 
 
                 <div id="VC" class="division-section hidden text-center p-0 w-full">
-                    <h1 class="md:text-6xl text-5xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">VISUAL
+                    <h1
+                        class="md:text-6xl text-5xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">
+                        VISUAL
                         CREATIVE
                     </h1>
-                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Bekerja sama dengan berbagai divisi untuk membuat visual yang menarik dengan bantuan software seperti Photoshop, Illustrator dan juga After Effect</p>
+                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Bekerja sama dengan
+                        berbagai divisi untuk membuat visual yang menarik dengan bantuan software seperti Photoshop,
+                        Illustrator dan juga After Effect</p>
 
                     <!-- Crew Profiles for VISUAL CREATIVE Division -->
                     <div class="flex flex-wrap justify-center gap-6 p-4">
@@ -477,7 +500,8 @@
 
                 <!-- Crew Profiles for Documentation Creative Division -->
                 <div id="DC" class="division-section hidden text-center p-0 w-full">
-                    <h1 class="md:text-6xl text-4xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">
+                    <h1
+                        class="md:text-6xl text-4xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">
                         DOCUMENTATION
                         CREATIVE</h1>
                     <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Documentation Creative
@@ -525,8 +549,12 @@
                 </div>
 
                 <div id="PR" class="division-section hidden text-center p-0 w-full">
-                    <h1 class="md:text-6xl text-5xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">PUBLIC RELATIONS</h1>
-                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Memelihara nama baik UMN Radio sebagai radio komunitas dan media kampus UMN dengan menjalin hubungan baik kepada pihak internal dan eksternal.</p>
+                    <h1
+                        class="md:text-6xl text-5xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">
+                        PUBLIC RELATIONS</h1>
+                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Memelihara nama baik UMN
+                        Radio sebagai radio komunitas dan media kampus UMN dengan menjalin hubungan baik kepada pihak
+                        internal dan eksternal.</p>
                     <!-- Crew Profiles -->
                     <div class="flex flex-wrap justify-center gap-6 p-4">
 
@@ -537,7 +565,8 @@
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
                             <div class="text-center w-full">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Kathrine</h3>
-                                <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Head of Public Relations</p>
+                                <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Head of Public Relations
+                                </p>
                             </div>
                         </div>
                         <!-- Profile Card 1 -->
@@ -547,7 +576,8 @@
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
                             <div class="text-center w-full">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Jason Nicholas</h3>
-                                <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Ast. Head of Public Relations</p>
+                                <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Ast. Head of Public
+                                    Relations</p>
                             </div>
                         </div>
                         <!-- Profile Card 1 -->
@@ -587,9 +617,12 @@
                 </div>
 
                 <div id="MA" class="division-section hidden text-center p-0 w-full">
-                    <h1 class="md:text-6xl text-5xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">MEDIA
+                    <h1
+                        class="md:text-6xl text-5xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">
+                        MEDIA
                         AFFAIRS</h1>
-                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Media Affairs bertanggung jawab dalam
+                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Media Affairs bertanggung
+                        jawab dalam
                         mengelola publikasi media sosial dan email UMN Radio untuk media partner, serta merancang ide
                         dan konsep konten sosial media.</p>
                     <!-- Crew Profiles -->
@@ -668,10 +701,14 @@
                 </div>
 
                 <div id="MD" class="division-section hidden text-center p-0 w-full">
-                    <h1 class="md:text-6xl text-5xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">MUSIC
+                    <h1
+                        class="md:text-6xl text-5xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">
+                        MUSIC
                         DIRECTOR
                     </h1>
-                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Menyusun dan mengkurasi musik keperluan siaran program, playlist UMN Radio, serta menjalin hubungan baik dengan para musisi dan label musik.</p>
+                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Menyusun dan mengkurasi
+                        musik keperluan siaran program, playlist UMN Radio, serta menjalin hubungan baik dengan para
+                        musisi dan label musik.</p>
                     <!-- Crew Profiles -->
                     <div class="flex flex-wrap justify-center gap-6 p-4">
 
@@ -749,11 +786,12 @@
                 </div>
 
                 <div id="EVT" class="division-section hidden text-center p-0 w-full">
-                    <h1 class="md:text-6xl text-5xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">EVENT
+                    <h1
+                        class="md:text-6xl text-5xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">
+                        EVENT
                     </h1>
-                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Event berperan dalam menyusun
-                        perencanaan event internal dan eksternal UMN Radio, serta merancang dan mengelola pelaksanaan
-                        event tersebut.</p>
+                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Mengonsepkan dan menyusun
+                        event, baik event internal dan external UMN Radio.</p>
                     <!-- Crew Profiles for EVENT -->
                     <div class="flex flex-wrap justify-center gap-6 p-4">
 
@@ -817,7 +855,8 @@
                 </div>
 
                 <div id="PRT" class="division-section hidden text-center p-0 w-full">
-                    <h1 class="md:text-6xl text-4xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">
+                    <h1
+                        class="md:text-6xl text-4xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">
                         PARTNERSHIP</h1>
                     <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Partnership berfokus pada
                         meningkatkan visibilitas UMN Radio secara internal dan eksternal, serta menjalin kerja sama
@@ -889,9 +928,12 @@
 
 
                 <div id="MT" class="division-section hidden text-center p-0 w-full">
-                    <h1 class="md:text-6xl text-4xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">
+                    <h1
+                        class="md:text-6xl text-4xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">
                         MAINTENANCE</h1>
-                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">We are Maintenance! Divisi yang berfokus untuk mengoperasikan alat-alat siaran secara langsung dan menjaga kualitas peralatan yang berada dibawah naungan UMN Radio.</p>
+                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">We are Maintenance! Divisi
+                        yang berfokus untuk mengoperasikan alat-alat siaran secara langsung dan menjaga kualitas
+                        peralatan yang berada dibawah naungan UMN Radio.</p>
                     <!-- Crew Profiles for PROG -->
                     <div class="flex flex-wrap justify-center gap-6 p-4">
 
@@ -970,8 +1012,11 @@
                 </div>
 
                 <div id="NWS" class="division-section hidden text-center p-0 w-full">
-                    <h1 class="md:text-6xl text-5xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">NEWS</h1>
-                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Description for News division.</p>
+                    <h1
+                        class="md:text-6xl text-5xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">
+                        NEWS</h1>
+                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Menghasilkan produk berita
+                        untuk siaran harian hingga berita tertulis di situs.</p>
                     <!-- Crew Profiles for NWS -->
                     <div class="flex flex-wrap justify-center gap-6 p-4">
 
@@ -1038,7 +1083,9 @@
 
 
                 <div id="IT" class="division-section hidden text-center p-0 w-full">
-                    <h1 class="md:text-6xl text-5xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">IT &
+                    <h1
+                        class="md:text-6xl text-5xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">
+                        IT &
                         SOFTWARE DEV</h1>
                     <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Mengembangkan
                         aplikasi berbasis web, menjaga server streaming, serta melakukan pemeliharaan perangkat lunak,
