@@ -209,9 +209,9 @@ Route::controller(VariableController::class)->middleware(['auth', 'admin'])->gro
     }
 );
 
-// Route::get('/oprec',function(){
-//     return view('Oprec.index');
-// });
+Route::get('/oprec',function(){
+    return view('Oprec.index');
+});
 
 // Route::resource('posts', PostController::class);
 

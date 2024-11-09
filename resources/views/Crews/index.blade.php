@@ -8,6 +8,7 @@
     <title>Ultimacrews - UMN Radio</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
+    <script src="{{ asset('js/tailwind.js') }}"></script>
     @vite('resources/css/app.css')
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -57,68 +58,68 @@
     <div class="flex-wrap justify-start flex md:hidden w-full">
         <div class="flex flex-wrap fixed w-12 h-screen py-20 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)] ">
             <button onclick="showDivisionMobile('BPH')" id="tab-mobile-BPH"
-                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne text-white w-12 active">BPH</button>
+                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne  w-12 active">BPH</button>
             <button onclick="showDivisionMobile('HRD')" id="tab-mobile-HRD"
-                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne text-white w-12">HRD</button>
+                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne  w-12">HRD</button>
             <button onclick="showDivisionMobile('PD')" id="tab-mobile-PD"
-                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne text-white w-12">PD</button>
+                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne  w-12">PD</button>
             <button onclick="showDivisionMobile('AC')" id="tab-mobile-AC"
-                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne text-white w-12">AC</button>
+                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne  w-12">AC</button>
             <button onclick="showDivisionMobile('VC')" id="tab-mobile-VC"
-                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne text-white w-12">VC</button>
+                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne  w-12">VC</button>
             <button onclick="showDivisionMobile('DC')" id="tab-mobile-DC"
-                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne text-white w-12">DC</button>
+                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne  w-12">DC</button>
             <button onclick="showDivisionMobile('MD')" id="tab-mobile-MD"
-                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne text-white w-12">MD</button>
+                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne  w-12">MD</button>
             <button onclick="showDivisionMobile('PR')" id="tab-mobile-PR"
-                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne text-white w-12">PR</button>
+                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne  w-12">PR</button>
             <button onclick="showDivisionMobile('MA')" id="tab-mobile-MA"
-                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne text-white w-12">MA</button>
+                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne  w-12">MA</button>
             <button onclick="showDivisionMobile('EVT')" id="tab-mobile-EVT"
-                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne text-white w-12">EVT</button>
+                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne  w-12">EVT</button>
             <button onclick="showDivisionMobile('PRT')" id="tab-mobile-PRT"
-                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne text-white w-12">PRT</button>
+                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne  w-12">PRT</button>
             <button onclick="showDivisionMobile('MT')" id="tab-mobile-MT"
-                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne text-white w-12">MT</button>
+                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne  w-12">MT</button>
             <button onclick="showDivisionMobile('NWS')" id="tab-mobile-NWS"
-                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne text-white w-12">NWS</button>
+                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne  w-12">NWS</button>
             <button onclick="showDivisionMobile('IT')" id="tab-mobile-IT"
-                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne text-white w-12">IT</button>
+                class="folder-tab-mobile rounded-r-md flex-grow text-center font-racingSansOne  w-12">IT</button>
         </div>
     </div>
-    <div class="flex justify-end md:justify-center items-center align-middle pt-16 md:px-16 pb-16">
+    <div class="flex justify-end md:justify-center items-center align-middle pt-20 md:px-16 pb-16">
         <div class="flex justify-center items-center align-middle flex-wrap w-full mt-8 max-w-[85%]">
             <!-- Desktop Division Tabs -->
             <div class="flex flex-wrap justify-center w-full hidden md:flex">
                 <div class="flex w-full">
                     <button onclick="showDivision('BPH')" id="tab-BPH"
-                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl text-white active">BPH</button>
+                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl  active">BPH</button>
                     <button onclick="showDivision('HRD')" id="tab-HRD"
-                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl text-white">HRD</button>
+                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl ">HRD</button>
                     <button onclick="showDivision('PD')" id="tab-PD"
-                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl text-white">PD</button>
+                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl ">PD</button>
                     <button onclick="showDivision('AC')" id="tab-AC"
-                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl text-white">AC</button>
+                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl ">AC</button>
                     <button onclick="showDivision('VC')" id="tab-VC"
-                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl text-white">VC</button>
+                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl ">VC</button>
                     <button onclick="showDivision('DC')" id="tab-DC"
-                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl text-white">DC</button>
+                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl ">DC</button>
                     <button onclick="showDivision('MD')" id="tab-MD"
-                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl text-white">MD</button>
+                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl ">MD</button>
                     <button onclick="showDivision('PR')" id="tab-PR"
-                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl text-white">PR</button>
+                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl ">PR</button>
                     <button onclick="showDivision('MA')" id="tab-MA"
-                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl text-white">MA</button>
+                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl ">MA</button>
                     <button onclick="showDivision('EVT')" id="tab-EVT"
-                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl text-white">EVT</button>
+                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl ">EVT</button>
                     <button onclick="showDivision('PRT')" id="tab-PRT"
-                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl text-white">PRT</button>
+                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl ">PRT</button>
                     <button onclick="showDivision('MT')" id="tab-MT"
-                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl text-white">MT</button>
+                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl ">MT</button>
                     <button onclick="showDivision('NWS')" id="tab-NWS"
-                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl text-white">NWS</button>
+                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl ">NWS</button>
                     <button onclick="showDivision('IT')" id="tab-IT"
-                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl text-white">IT</button>
+                        class="folder-tab rounded-t-lg flex-grow text-center font-racingSansOne p-1 text-xl ">IT</button>
                 </div>
             </div>
             <div
@@ -135,7 +136,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/bph/clifford.webp') }}" alt="clifford"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Clifford Aaron</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">General Manager</p>
                             </div>
@@ -145,7 +146,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/bph/ciko.webp') }}" alt="ciko"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Classico Joydie
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Vice General Manager</p>
@@ -156,7 +157,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/bph/irene.webp') }}" alt="irene"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Irene Zanetha</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Bendahara</p>
                             </div>
@@ -166,7 +167,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/bph/gloria.webp') }}" alt="gloria"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Gloria Wijaya</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Sekretaris</p>
                             </div>
@@ -188,7 +189,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/hrd/vino.webp') }}" alt="vino"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Delvino Ardi</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Head of HRD</p>
                             </div>
@@ -198,7 +199,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/hrd/keycia.webp') }}" alt="keycia"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Keycia Amanda</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Head of HRD Behave</p>
                             </div>
@@ -208,7 +209,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/hrd/hammam.webp') }}" alt="hammam"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Bintang Hammam</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Head of HRD Skill</p>
                             </div>
@@ -218,7 +219,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/hrd/delgo.webp') }}" alt="delgo"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Delbert Go</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Staff HRD Skill</p>
                             </div>
@@ -233,10 +234,7 @@
                         class="md:text-6xl text-4xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">
                         PROGRAM
                     </h1>
-                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Produser bertanggung jawab
-                        sebagai
-                        konseptor utama dan pelaksana program siaran, memastikan program berjalan sesuai konsep yang
-                        telah disusun.</p>
+                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Mengonsepkan dan memimpin tim siar untuk mengeksekusi program spesial UMN Radio</p>
 
                     <div class="flex flex-wrap justify-center gap-6 p-4">
 
@@ -244,7 +242,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/program/yemima.webp') }}" alt="yemima"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Yemima Wilona</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Program Director, Producer
                                     BILCIN</p>
@@ -255,10 +253,10 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/program/amijah.webp') }}" alt="amijah"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Reniati Noor Q.
                                 </h3>
-                                <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Assistant Program Director,
+                                <p class="text-xs text-gray-800 w-full max-w-40 font-saira">Assistant Program Director,
                                     Producer BILCIN</p>
                             </div>
                         </div>
@@ -267,7 +265,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/program/vina.webp') }}" alt="vina"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Audrey Davina</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Producer SERSAN</p>
                             </div>
@@ -277,7 +275,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/program/hana.webp') }}" alt="hana"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Hana Khairunissa
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Producer MUSIKALITAS</p>
@@ -288,7 +286,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/program/faikar.webp') }}" alt="faikar"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Faikar Shakty</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Producer SODA</p>
                             </div>
@@ -298,7 +296,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/program/frickson.webp') }}" alt="frickson"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Frickson Sufian
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Producer CHARTTOPERS</p>
@@ -327,7 +325,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/ac/yosef.webp') }}" alt="yosef"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Yosef Fourentino
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Head of Audio Creative</p>
@@ -339,7 +337,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/ac/thomas.webp') }}" alt="Thomas Dito"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Thomas Dito</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Audio Creative of BILCIN
                                 </p>
@@ -351,7 +349,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/ac/vallen.webp') }}" alt="Vallen Felysia"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Vallen Felysia</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Audio Creative of
                                     CHARTTOPPERS</p>
@@ -363,7 +361,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/ac/rivan.webp') }}" alt="Christoforus Rivan"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Christoforus Rivan
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Audio Creative of
@@ -376,7 +374,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/ac/hanief.webp') }}" alt="M Hanief Alif"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">M Hanief Alif</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Audio Creative of SODA</p>
                             </div>
@@ -387,7 +385,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/ac/sam.webp') }}" alt="Samuel Fernandio"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Samuel Fernandtio
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Audio Creative of SERSAN
@@ -418,7 +416,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/vc/jess.webp') }}" alt="Jessica"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Jessica</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Head of Visual Creative</p>
                             </div>
@@ -429,7 +427,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/vc/suci.webp') }}" alt="yemima"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Veronika Suci</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Ast. Head Of Visual
                                     Creative</p>
@@ -441,7 +439,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/vc/verene.webp') }}" alt="Verene Oktavia"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Verene Oktavia</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">VC of SERSAN</p>
                             </div>
@@ -452,7 +450,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/vc/vallen.webp') }}" alt="Vallencia Vallerie"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Vallencia Vallerie
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">VC of BILCIN</p>
@@ -464,7 +462,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/vc/clara.webp') }}" alt="Clara Rosalind"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Clara Rosalind</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">VC of SODA</p>
                             </div>
@@ -475,7 +473,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/vc/shena.webp') }}" alt="Shekina Gloria"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Shekina Gloria</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">VC of MUSIKALITAS</p>
                             </div>
@@ -486,7 +484,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/vc/lala.webp') }}" alt="Jessica Marella"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Jessica Marella
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">VC of CHARTTOPPERS</p>
@@ -516,7 +514,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/dc/billy.webp') }}" alt="billy"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Christ Billy</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Head Of Documentation
                                     Creative</p>
@@ -528,7 +526,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/dc/wk.webp') }}" alt="wk"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Wizart Keane</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Documentation Creative</p>
                             </div>
@@ -539,7 +537,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/dc/kenny.webp') }}" alt="kenny"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Kenny Rafael</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Documentation Creative</p>
                             </div>
@@ -563,7 +561,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/pr/kathrine.webp') }}" alt="mare"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Kathrine</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Head of Public Relations
                                 </p>
@@ -574,7 +572,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/pr/econ.webp') }}" alt="mare"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Jason Nicholas</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Ast. Head of Public
                                     Relations</p>
@@ -585,7 +583,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/ma/mare.webp') }}" alt="mare"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Ammara Ghania</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Head of Media Affairs</p>
                             </div>
@@ -595,7 +593,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/event/abel.webp') }}" alt="abel"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Christabell Chalin
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Head of Event</p>
@@ -606,7 +604,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/partner/joce.webp') }}" alt="joce"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Jocelyn Ancylla
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Head of Partnership</p>
@@ -633,7 +631,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/ma/mare.webp') }}" alt="mare"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Ammara Ghania</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Head of Media Affairs</p>
                             </div>
@@ -644,7 +642,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/ma/cecil.webp') }}" alt="cecil"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Cecillia Abbygail
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Media Affairs Of SERSAN</p>
@@ -656,7 +654,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/ma/bella.webp') }}" alt="bella"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Bella Felisha</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Media Affairs Of BILCIN</p>
                             </div>
@@ -667,7 +665,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/ma/andien.webp') }}" alt="andien"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Chiara Andini</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Media Affairs Of SODA</p>
                             </div>
@@ -678,7 +676,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/ma/haura.webp') }}" alt="haura"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Puan Haura</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Media Affairs Of
                                     MUSIKALITAS</p>
@@ -690,7 +688,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/ma/carla.webp') }}" alt="carla"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Carla Kaditha</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Media Affairs Of
                                     CHARTTOPPERS</p>
@@ -717,7 +715,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/md/shannon.webp') }}" alt="shannon"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Shannon Valery</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Head of Music Director</p>
                             </div>
@@ -728,7 +726,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/md/pei.webp') }}" alt="pei"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Helena H. Haryadi
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Ast. Head of Music
@@ -741,8 +739,8 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/md/ayu.webp') }}" alt="ayu"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
-                                <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Lungayu</h3>
+                            <div class="text-center w-full flex justify-center flex-wrap">
+                                <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Lungayu Endahrum</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">MD of MUSIKALITAS</p>
                             </div>
                         </div>
@@ -752,7 +750,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/md/mj.webp') }}" alt="mj"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Marfello Justin
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">MD of CHARTTOPPERS</p>
@@ -764,7 +762,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/md/rifat.webp') }}" alt="rifat"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Rifat Darwis</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">MD of SODA</p>
                             </div>
@@ -775,7 +773,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/md/nata.webp') }}" alt="nata"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Serenata Sylvestra
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">MD of SERSAN</p>
@@ -800,7 +798,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/event/abel.webp') }}" alt="abel"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Christabell Chalin
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Head of Event</p>
@@ -812,7 +810,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/event/oji.webp') }}" alt="oji"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">A. Fakhrurozy</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Event</p>
                             </div>
@@ -823,7 +821,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/event/cipa.webp') }}" alt="cipa"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Aurelia Syifa</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Event</p>
                             </div>
@@ -834,7 +832,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/event/rara.webp') }}" alt="rara"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Khaira Khansa</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Event</p>
                             </div>
@@ -845,7 +843,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/event/martina.webp') }}" alt="martina"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Martina Tandi</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Event</p>
                             </div>
@@ -858,9 +856,7 @@
                     <h1
                         class="md:text-6xl text-4xl font-bold font-sairaStencilOne text-black w-full text-start pt-3 md:px-8 px-3">
                         PARTNERSHIP</h1>
-                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Partnership berfokus pada
-                        meningkatkan visibilitas UMN Radio secara internal dan eksternal, serta menjalin kerja sama
-                        dengan perusahaan, brand, dan komunitas.
+                    <p class="text-black font-saira md:text-lg text-start md:px-8 px-3 pb-1">Menjalin hubungan dengan brand, perusahaan, atau komunitas untuk meningkatkan visibilitas UMN Radio
                     </p>
                     <!-- Crew Profiles for PARTNERSHIP -->
                     <div class="flex flex-wrap justify-center gap-6 p-4">
@@ -870,7 +866,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/partner/joce.webp') }}" alt="joce"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Jocelyn Ancylla
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Head of Partnership</p>
@@ -882,7 +878,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/partner/ricad.webp') }}" alt="ricad"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Richard S. Gunawan
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Partnership</p>
@@ -894,7 +890,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/partner/qinsha.webp') }}" alt="qinsha"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Qinshasya</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Partnership</p>
                             </div>
@@ -905,7 +901,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/partner/dayu.webp') }}" alt="dayu"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Ida Ayu Tretami
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Partnership</p>
@@ -917,7 +913,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/partner/victor.webp') }}" alt="victor"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Manuel Victor</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Partnership</p>
                             </div>
@@ -942,7 +938,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/maint/dodo.webp') }}" alt="dodo"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Geraldo Nathanael
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Head of Maintenance</p>
@@ -954,7 +950,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/maint/darrent.webp') }}" alt="darrent"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Darrent Wijaya</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Maintenance of SERSAN</p>
                             </div>
@@ -965,7 +961,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/maint/chai.webp') }}" alt="chai"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">William Chairuddin
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Maintenance of BILCIN</p>
@@ -977,7 +973,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/maint/justin.webp') }}" alt="justin"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Justine Leonardo
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Maintenance of SODA</p>
@@ -989,7 +985,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/maint/pawas.webp') }}" alt="pawas"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Fawwaz</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Maintenance of MUSIKALITAS
                                 </p>
@@ -1001,7 +997,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/maint/munung.webp') }}" alt="munung"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Angga</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Maintenance of CHARTTOPPERS
                                 </p>
@@ -1025,7 +1021,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/news/viviene.webp') }}" alt="viviene"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Servina Viviene
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Editor In Chief</p>
@@ -1037,7 +1033,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/news/nelson.webp') }}" alt="nelson"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Nelson Nathan</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">News</p>
                             </div>
@@ -1048,7 +1044,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/news/dey.webp') }}" alt="dey"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Denia Eryza</h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">News</p>
                             </div>
@@ -1059,7 +1055,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/news/willa.webp') }}" alt="willa"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Akwilla Immanuel
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">News</p>
@@ -1071,7 +1067,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/news/icil.webp') }}" alt="icil"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Priscilla Victoria
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">News</p>
@@ -1099,7 +1095,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/it/bon.webp') }}" alt="bon"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Bonifasius Martin
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">Head of IT & Software
@@ -1112,7 +1108,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/it/handes.webp') }}" alt="handes"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Merhandes Gunawan
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">IT & Software Development
@@ -1125,7 +1121,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/it/acel.webp') }}" alt="acel"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Marcel Jonathan
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">IT & Software Development
@@ -1138,7 +1134,7 @@
                             class="bg-[#ffffff] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] shadow-lg px-4 pt-4 pb-2 w-60 h-[340px] transform hover:rotate-3 transition-transform duration-300">
                             <img src="{{ asset('images/crews/it/lala.webp') }}" alt="lala"
                                 class="h-60 w-full mx-auto mb-2 rounded-sm object-cover border border-1 border-gray-400">
-                            <div class="text-center w-full">
+                            <div class="text-center w-full flex justify-center flex-wrap">
                                 <h3 class="text-lg w-full max-w-40 font-sairaStencilOne text-black">Graciella Nathania
                                 </h3>
                                 <p class="text-sm text-gray-800 w-full max-w-40 font-saira">IT & Software Development
