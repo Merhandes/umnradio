@@ -282,10 +282,10 @@
 
         </div>
         <img src="{{ asset('images/crews/crews cropped.webp') }}"
-            class="w-full h-full saturate-[75%] md:saturate-0 group-hover:saturate-[75%] group-hover:scale-[105%] transition-all duration-500 ease-in-out brightness-[50%] hidden md:block"
+            class="w-full h-full saturate-[75%] md:saturate-0 group-hover:saturate-[75%] group-hover:scale-[101%] transition-all duration-500 ease-in-out brightness-[50%] hidden md:block"
             alt="">
         <img src="{{ asset('images/crews/crews cropped mobile.webp') }}"
-            class="w-full h-full saturate-[100%] md:saturate-0 group-hover:saturate-[75%] group-hover:scale-[105%] transition-all duration-500 ease-in-out brightness-[45%] block md:hidden pt-6 pb-4"
+            class="w-full h-full saturate-[100%] md:saturate-0 group-hover:saturate-[75%] group-hover:scale-[101%] transition-all duration-500 ease-in-out brightness-[45%] block md:hidden pt-6 pb-4"
             alt="">
 
     </a>
