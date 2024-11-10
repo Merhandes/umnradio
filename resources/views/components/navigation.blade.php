@@ -40,6 +40,11 @@
                         alt="">
                     <p class="font-nexarust font-bold text-black no-underline z-20 text-xl mx-4 my-3">About</p>
                 </a>
+                <a href="https://drive.google.com/file/d/1x452--2-B7-fmVHvy5CWf2LNZa-m1GRw/view?fbclid=PAY2xjawGdHH9leHRuA2FlbQIxMQABphdVZ4G57rTTqWFUEGQzKujmnLviGlc_uppTLUaeoDpz_zGyWWS-jBGYTQ_aem_FW50Bz-E1I2JWZel50TKLg" class="relative flex justify-center items-center align-middle w-fit hover:scale-110    hover:rotate-3" target="_blank">
+                    <img class="absolute -z-10 h-full w-full rotate-180" src="{{ asset('assets/tapes/100.webp') }}"
+                        alt="">
+                    <p class="font-nexarust font-bold text-black no-underline z-20 text-xl mx-4 my-3">First Stage</p>
+                </a>
                 {{-- <a href="/" class="font-poppins text-base text-white no-underline">Home</a> 
                     <a href="/programs" class="font-poppins text-base text-white no-underline">Programs</a>
                 <a href="/podcasts" class="font-poppins text-base text-white no-underline">Podcasts</a>
@@ -58,6 +63,7 @@
                         <a href="https://open.spotify.com/show/6ytg0qKpDz9ehq2fjklepU?si=2e339706e5754214" target="_" class="font-poppins text-sm text-black">Podcasts</a>
                         <a href="/charts" class="font-poppins text-sm text-black">Charts</a>
                         <a href="/about" class="font-poppins text-sm text-black">About</a>
+                        <a href="https://drive.google.com/file/d/1x452--2-B7-fmVHvy5CWf2LNZa-m1GRw/view?fbclid=PAY2xjawGdHH9leHRuA2FlbQIxMQABphdVZ4G57rTTqWFUEGQzKujmnLviGlc_uppTLUaeoDpz_zGyWWS-jBGYTQ_aem_FW50Bz-E1I2JWZel50TKLg" target="_blank" class="font-poppins text-sm text-black">First Stage</a>
                     </div>
                 </div>
             </div>
