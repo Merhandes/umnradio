@@ -12,20 +12,93 @@
 }
 @font-face {
     font-family: "EmilyOlivia";
-    src: url("fonts/Emily\ Olivia.otf") format("opentype");
+    src: url("fonts/EmilyOlivia.otf") format("opentype");
 }
 @font-face {
     font-family: "HaveIdea";
-    src: url("fonts/Have\ Idea.ttf") format("truetype");
+    src: url("fonts/HaveIdea.ttf") format("truetype");
 }
 @font-face {
     font-family: "HelloMickeys";
-    src: url("fonts/Hello\ Mickeys.ttf") format("truetype");
+    src: url("fonts/HelloMickeys.ttf") format("truetype");
 }
 @font-face {
     font-family: "Love";
     src: url("fonts/Love.ttf") format("truetype");
 }
+
+/* Badoney */
+@font-face {
+    font-family: 'Badoney';
+    src: url('fonts/Badoney-Regular.otf') format('opentype'),
+        url('fonts/Badoney-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* MISTERHONEY */
+@font-face {
+    font-family: 'MISTERHONEY';
+    src: url('fonts/MISTERHONEY-Regular.otf') format('opentype'),
+        url('fonts/MISTERHONEY-Regular.ttf') format('truetype'),
+        url('fonts/MISTERHONEY-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* MoxyRush */
+@font-face {
+    font-family: 'MoxyRush';
+    src: url('fonts/MoxyRush-Regular.otf') format('opentype'),
+        url('fonts/MoxyRush-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Requiem */
+@font-face {
+    font-family: 'Requiem';
+    src: url('fonts/Requiem.otf') format('opentype'),
+        url('fonts/Requiem.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Timeless Memories */
+@font-face {
+    font-family: 'Timeless Memories';
+    src: url('fonts/TimelessMemoriesCondensed.otf') format('opentype'),
+        url('fonts/TimelessMemoriesCondensed.ttf') format('truetype'),
+        url('fonts/TimelessMemoriesOblique.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Racing Sans One */
+@font-face {
+    font-family: 'Racing Sans One';
+    src: url('fonts/RacingSansOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Saira Variable */
+@font-face {
+    font-family: 'Saira';
+    src: url('fonts/Saira-VariableFont.ttf') format('truetype'),
+        url('fonts/Saira-Italic-VariableFont.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal, italic;
+}
+
+/* Saira Stencil One */
+@font-face {
+    font-family: 'Saira Stencil One';
+    src: url('fonts/SairaStencilOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 div::-webkit-scrollbar {
     display: none;
@@ -38,4 +111,14 @@ div::-webkit-scrollbar {
 
 .dataTables_filter input {
     border: 1px solid;
+}
+
+@layer utilities {
+    .text-stroke-white {
+        -webkit-text-stroke: 2px white;
+    }
+
+    .text-stroke-none {
+        -webkit-text-stroke: 0px transparent;
+    }
 }

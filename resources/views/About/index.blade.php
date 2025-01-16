@@ -101,7 +101,7 @@
         </div>
 
         <div class="overflow-scroll py-6 md:py-12 px-8 flex flex-row justify-center">
-            <iframe class="w-11/12 md:w-1/2 aspect-video" src="https://www.youtube.com/embed/syRPFdhl8PY"></iframe>
+            <iframe class="w-11/12 md:w-1/2 aspect-video" src="https://www.youtube.com/embed/g0FMWNV7tuQ"></iframe>
         </div>
 
         <h1 class="flex justify-center text-2xl font-bold font-poppins text-black">Contact Us</h1>
@@ -191,6 +191,7 @@
     </div>
     
     <x-audiodefault></x-audiodefault>
+    <x-footer></x-footer>
 </body>
 
 </html>

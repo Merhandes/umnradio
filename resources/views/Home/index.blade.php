@@ -6,16 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>UMN Radio</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    <script src="{{ asset('js/tailwind.js') }}"></script>
 
     @vite('resources/css/app.css')
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{{ asset('css/swiper-bundle.min.css') }}" />
     <script src="https://kit.fontawesome.com/667eb529ec.js" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <style>
         footer {
             display: flex;
@@ -53,27 +51,176 @@
                 width: 100%;
             }
         }
-
-        div::-webkit-scrollbar {
-            display: none;
-        }
-
-        p::-webkit-scrollbar {
-            display: none;
-        }
     </style>
-
 </head>
 
 <body class="composer">
     <x-navigation></x-navigation>
+
+    <div id="modal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 px-4 z-50">
+        <div class=" bg-gray-400 rounded-lg shadow-lg p-2 max-w-sm w-full relative">
+            <button id="closeModal"
+                class="absolute top-0 right-0 m-4 p-2 rounded-full hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 z-50">
+                <img src="{{ asset('images/close-option.png') }}" alt="Close" class="w-6 h-6">
+            </button>
+
+            <div id="animation-carousel" class="relative w-full mt-4" data-carousel="static">
+                <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                    <!-- Item 1 -->
+                    <div class="hidden duration-200 ease-linear" data-carousel-item="active">
+                        <img src="{{ asset('images/JOYLAND/SLIDE 1.webp') }}" loading="eager"
+                            class="absolute block w-full h-[85%] object-contain -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                            alt="Slide 1">
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="hidden duration-200 ease-linear" data-carousel-item>
+                        <img src="{{ asset('images/JOYLAND/SLIDE 2.webp') }}" loading="eager"
+                            class="absolute block w-full h-[85%] object-contain -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                            alt="Slide 2">
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="hidden duration-200 ease-linear" data-carousel-item>
+                        <img src="{{ asset('images/JOYLAND/SLIDE 3.webp') }}" loading="eager"
+                            class="absolute block w-full h-[85%] object-contain -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                            alt="Slide 3">
+                    </div>
+                </div>
+
+                <button type="button"
+                    class="absolute top-1/2 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none transform -translate-y-1/2"
+                    data-carousel-prev>
+                    <span
+                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-black/30 group-hover:bg-black/50 focus:ring-4 group-focus:ring-black focus:outline-none">
+                        <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 1 1 5l4 4" />
+                        </svg>
+                        <span class="sr-only">Previous</span>
+                    </span>
+                </button>
+                <button type="button"
+                    class="absolute top-1/2 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none transform -translate-y-1/2"
+                    data-carousel-next>
+                    <span
+                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-black/30 group-hover:bg-black/50 focus:ring-4 group-focus:ring-black focus:outline-none">
+                        <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 9 4-4-4-4" />
+                        </svg>
+                        <span class="sr-only">Next</span>
+                    </span>
+                </button>
+            </div>
+            <div class="flex justify-center mt-4">
+                <a id="clickHere" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSezFKEV3caoyRnx1v_LCUgs_PyfPyNAM_RPudVH34qZHH32og/viewform"
+                    target="_blank">
+                    Order here
+                </a>
+            </div>
+        </div>
     </div>
+
+    <!-- Modal toggle -->
+    <button data-modal-target="default-modal" data-modal-toggle="default-modal"
+        class="block w-0 h-0 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        type="button">
+    </button>
+
+    <!-- Main modal -->
+    <div id="default-modal" tabindex="-1" aria-hidden="true"
+        class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-screen max-h-full bg-gray-800 bg-opacity-60 @if ($hlPost) flex @else hidden @endif">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                        @if ($hlPost)
+                            {{ $hlPost->title }}
+                        @else
+                            No Data
+                        @endif
+                    </h3>
+                    <button type="button" id="closeModalButton"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                        data-modal-hide="default-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-1 max-h-[400px] overflow-y-scroll">
+                    <p class="text-lg leading-relaxed text-gray-500 dark:text-gray-400">
+                        @if ($hlPost)
+                            <span
+                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{ $hlPost->category }}</span>
+                        @else
+                            No Data
+                        @endif
+                    </p>
+                    <p class="text-sm leading-relaxed text-gray-500 dark:text-gray-400">
+                        @if ($hlPost)
+                            <p>{{ $hlPost->published }}</p>
+                            <p>Author: {{ $hlPost->author }}</p>
+                            <p>Editor: {{ $hlPost->editor }}</p>
+                        @else
+                            No Data
+                        @endif
+                    </p>
+                    @if ($hlPost)
+                        <img class="w-full h-36 md:h-52 object-cover"
+                            src="{{ asset('storage/' . $hlPost->cover_photo) }}" alt="Featured Image">
+                    @else
+                        No Data
+                    @endif
+                    <div class="relative">
+                        <div
+                            class="text-base leading-relaxed text-gray-500 dark:text-gray-400 max-h-[400px] overflow-hidden post-content">
+                            @if ($hlPost)
+                                {!! $hlPost->post_content !!}
+                            @else
+                                No Data
+                            @endif
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-white dark:from-gray-700">
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    @if ($hlPost)
+                        <a href="/article/{{ $hlPost->slug }}" data-modal-hide="default-modal" type="button"
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full inline-flex justify-center">Read
+                            More</a>
+                    @else
+                        No Data
+                    @endif
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('closeModalButton').addEventListener('click', function() {
+            const modal = document.getElementById('default-modal');
+            modal.classList.add('hidden');
+        });
+    </script>
+
     {{-- BACKGROUND --}}
     <!-- <img class="w-screen z-0" src="{{ asset('images/background.webp') }}"
         alt=""> -->
-    <div class="relative">
-        <img class="h-screen w-auto md:h-auto md:w-screen z-0 object-cover" src="{{ asset('images/background.webp') }}"
-            alt="" />
+    <div class="relative pt-10">
+        <img class="h-[500px] w-auto md:h-auto md:w-screen z-0 object-cover object-right"
+            src="{{ asset('images/bannerweb2.webp') }}" alt="" />
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-4 py-2 w-full">
             <div class="px-4 text-center w-full flex justify-center flex-col relative">
                 <p class="font-poppins z-10 text-white font-bold md:text-2xl">107.7 FM</p>
@@ -101,14 +248,107 @@
                                 d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm224-72V328c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24zm112 0V328c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24z" />
                         </svg></button>
                 </div>
-                {{-- <audio id="player">
-                    <source src='http://icecast.umn.ac.id:8000/live' />
-                </audio> --}}
+                <audio id="player">
+                    <source src='https://icecast.umn.ac.id/live' />
+                </audio>
             </div>
         </div>
     </div>
 
-    <x-audioplayer></x-audioplayer>
+    {{-- ULTIMACREWS --}}
+    <a href="/ultimacrews"
+        class="w-full flex justify-center overflow-hidden items-center relative group bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] to-slate-500 via-gray-300 from-slate-100">
+        <img src="{{ asset('assets/paper/9-crop.webp') }}"
+            class="absolute w-full h-[12%] object-cover object-top top-0 z-30 rotate-180" alt="">
+        <img src="{{ asset('assets/paper/4-crop.webp') }}"
+            class="absolute w-full h-[12%] object-cover object-top bottom-0 z-30" alt="">
+        <div
+            class="absolute w-full top-0 bg-gradient-to-b from-white via-transparent to-transparent h-12 z-30">
+        </div>
+        <div class="absolute top-[40%] z-30 text-center">
+
+            <h1
+                class="md:text-3xl text-xl font-saira text-white group-hover:scale-[105%] transition-transform duration-500 ease-in-out transform">
+                UMN Radio Gen 13's
+            </h1>
+            <h1
+                class="font-sairaStencilOne md:text-8xl text-4xl text-white md:text-transparent md:text-stroke-white group-hover:text-white group-hover:scale-[105%] transition-all duration-500 ease-in-out transform">
+                ULTIMACREWS
+            </h1>
+            <h1
+                class="md:text-2xl text-lg font-saira font-semibold px-4 text-white group-hover:scale-[105%] transition-transform duration-500 ease-in-out transform">
+                Proudly say, we've set our tune and raised our volume!
+            </h1>
+
+        </div>
+        <img src="{{ asset('images/crews/crews cropped.webp') }}"
+            class="w-full h-full saturate-[75%] md:saturate-0 group-hover:saturate-[75%] group-hover:scale-[101%] transition-all duration-500 ease-in-out brightness-[50%] hidden md:block"
+            alt="">
+        <img src="{{ asset('images/crews/crews cropped mobile.webp') }}"
+            class="w-full h-full saturate-[100%] md:saturate-0 group-hover:saturate-[75%] group-hover:scale-[101%] transition-all duration-500 ease-in-out brightness-[45%] block md:hidden pt-6 pb-4"
+            alt="">
+
+    </a>
+
+    {{-- AUDIO --}}
+    <link rel="stylesheet" href="{{ asset('path/to/font-awesome/css/all.min.css') }}">
+    <footer id="audiosticky"
+        class="invisible fixed bottom-0 w-full z-40 h-16 bg-[#0a1f63] flex flex-row gap-1 justify-center items-center transition-all duration-500">
+        <button id="buttonplay2"><svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512">
+                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <style>
+                    svg {
+                        fill: #ffffff
+                    }
+                </style>
+                <path
+                    d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
+            </svg></button>
+
+        <button id="buttonpause2" class="hidden"><svg xmlns="http://www.w3.org/2000/svg" height="2em"
+                viewBox="0 0 320 512">
+                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <style>
+                    svg {
+                        fill: #ffffff
+                    }
+                </style>
+                <path
+                    d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z" />
+            </svg></button>
+
+        <audio id="player">
+            {{-- <source src='https://i.klikhost.com/8188/;' /> --}}
+            <source src="https://icecast.umn.ac.id/live" />
+        </audio>
+        <div class="p-4 max-w-md w-full hidden md:block">
+            <div class="flex items-center justify-center">
+                <span class="text-sm text-white" id="currentTime">0:00</span>
+                <input type="range" id="progressBar" min="0" max="100" value="0"
+                    class="slider mx-4 w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                {{-- <span class="text-sm text-white" id="duration">0:00</span> --}}
+            </div>
+        </div>
+
+        {{-- Volume Control Section --}}
+
+        <div class="flex items-center absolute end-5 md:static hidden">
+            <div class="flex items-center gap-2">
+                <button id="volumeIcon" class="text-white">
+                    <!-- Font Awesome volume icon -->
+                    <i class="fas fa-volume-up"></i>
+                </button>
+                <!-- Updated: Wrap volume controls in a container div -->
+                <div id="volumeControls" class="hidden flex items-center">
+                    <input type="range" id="volume"
+                        class="w-16 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer" min="0"
+                        max="100" value="50">
+                    <span id="volumeValue" class="text-gray-300 ml-2">50%</span>
+                </div>
+            </div>
+        </div>
+
+    </footer>
 
     {{-- ON AIR OFF AIR --}}
     <div id="section-1" class="w-full mb-16">
@@ -116,10 +356,12 @@
             <img src="{{ asset('assets/paper/1.webp') }}"
                 class="absolute object-cover object-top w-full h-24 md:h-36 rotate-180 -z-20" alt="">
             <div
-                class="absolute w-full top-0 bg-gradient-to-b from-white via-transparent to-transparent h-12 md:h-36 -z-10">
+                class="hidden absolute w-full top-0 bg-gradient-to-b from-white via-transparent to-transparent h-12 md:h-36 -z-10">
             </div>
         </div>
-        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center pt-24 md:pt-36">Live Broadcast</h1>
+
+        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center pt-24 md:pt-36">Live Broadcast
+        </h1>
         <div id="sign" class="m-3 md:m-6 text-center">
 
             {{-- SCHEDULE SYSTEM PHP --}}
@@ -130,7 +372,7 @@
             $day = Carbon::now()->dayOfWeek;
             $hour = Carbon::now()->hour + 7;
             // var_dump($day, $hour);
-            // $day = 1;
+            // $day = 4;
             // $hour = 12;
             
             foreach ($programs as $program) {
@@ -168,7 +410,8 @@
             </div>
 
             <div class="flex flex-col md:flex-row gap-4 md:gap-16 mt-6 justify-center items-center">
-                <img class="h-54 md:h-[400px] rounded-lg object-cover" src="{{ asset($now->img) }}" alt="ON AIR" />
+                <img class="h-54 md:h-[400px] rounded-lg object-cover" src="{{ asset($now->img) }}"
+                    alt="ON AIR" />
 
                 <div>
                     <h3 class="font-poppins mt-3 font-bold text-black">{{ $text }}</h3>
@@ -658,6 +901,9 @@
             class="absolute h-[160%] md:h-[140%] object-cover bottom-0 -z-10" alt="">
     </div>
 
+
+
+
     <div class="w-full my-10 lg:px-32">
         <h1 class="font-poppins text-2xl font-bold text-center my-2 mb-6 text-[#021f3a]">U-NNOUNCERS</h1>
         <div class="swiper mySwiper my-5 flex justify-center">
@@ -678,13 +924,11 @@
                             <a class="hover:text-biru" href="https://www.tiktok.com/@luvnalena__" target="_blank">
                                 <i class="fa-brands fa-lg fa-tiktok"></i>
                             </a>
-                            <a class="hover:text-biru"
-                                href="https://open.spotify.com/user/peipeihelenaa"
+                            <a class="hover:text-biru" href="https://open.spotify.com/user/peipeihelenaa"
                                 target="_blank">
                                 <i class="fa-brands fa-lg fa-spotify"></i>
                             </a>
-                            <a class="hover:text-biru" href="https://x.com/luvnalena__"
-                                target="_blank">
+                            <a class="hover:text-biru" href="https://x.com/luvnalena__" target="_blank">
                                 <i class="fa-brands fa-lg fa-twitter"></i>
                             </a>
                         </div>
@@ -706,8 +950,8 @@
                             <a class="hover:text-biru" href="https://www.tiktok.com/@keyyrras" target="_blank">
                                 <i class="fa-brands fa-lg fa-tiktok"></i>
                             </a>
-                            <a class="hover:text-biru"
-                                href="https://open.spotify.com/user/khairakhansa" target="_blank">
+                            <a class="hover:text-biru" href="https://open.spotify.com/user/khairakhansa"
+                                target="_blank">
                                 <i class="fa-brands fa-lg fa-spotify"></i>
                             </a>
                         </div>
@@ -720,7 +964,8 @@
                             src="{{ asset('images/announcers/christabell.webp') }}">
                         <div class="pt-2 gap-6 relative h-1/3 align-top items-start">
                             <h1 class=" font-love text-3xl text-black font-semibold mb-1">Christabell Chalin</h1>
-                            <h1 class="text-xl font-hellomickeys text-black">"Never be so kind, you forget to be clever"
+                            <h1 class="text-xl font-hellomickeys text-black">"Never be so kind, you forget to be
+                                clever"
                             </h1>
 
                         </div>
@@ -730,13 +975,10 @@
                                 <i class="fa-brands fa-lg fa-instagram"></i>
                             </a>
                             <a class="hover:text-biru"
-                                href="https://open.spotify.com/user/31npp2u7iinwrhbajoyd37ofzmwi"
-                                target="_blank">
+                                href="https://open.spotify.com/user/31npp2u7iinwrhbajoyd37ofzmwi" target="_blank">
                                 <i class="fa-brands fa-lg fa-spotify"></i>
                             </a>
-                            <a class="hover:text-biru"
-                                href="https://medium.com/@multatulou"
-                                target="_blank">
+                            <a class="hover:text-biru" href="https://medium.com/@multatulou" target="_blank">
                                 <i class="fa-brands fa-lg fa-medium"></i>
                             </a>
                             <a class="hover:text-biru" href="https://pin.it/5kKQOii7A" target="_blank">
@@ -760,13 +1002,11 @@
                             <a class="hover:text-biru" href="https://www.tiktok.com/@delbertgo7" target="_blank">
                                 <i class="fa-brands fa-lg fa-tiktok"></i>
                             </a>
-                            <a class="hover:text-biru" href="https://youtube.com/@delbertgo484"
-                                target="_blank">
+                            <a class="hover:text-biru" href="https://youtube.com/@delbertgo484" target="_blank">
                                 <i class="fa-brands fa-lg fa-youtube"></i>
                             </a>
                             <a class="hover:text-biru"
-                                href="https://open.spotify.com/user/313iyybteuv66cu7zhywbzkyi5je"
-                                target="_blank">
+                                href="https://open.spotify.com/user/313iyybteuv66cu7zhywbzkyi5je" target="_blank">
                                 <i class="fa-brands fa-lg fa-spotify"></i>
                             </a>
                         </div>
@@ -778,7 +1018,8 @@
                         <img class="w-full h-2/3 object-cover" src="{{ asset('images/announcers/carla.webp') }}">
                         <div class="pt-2 gap-6 relative h-1/3 align-top items-start">
                             <h1 class=" font-love text-3xl text-black font-semibold mb-1">Carla Kaditha</h1>
-                            <h1 class="text-xl font-hellomickeys text-black ">“It is never too late, I'm halfway there”</h1>
+                            <h1 class="text-xl font-hellomickeys text-black ">“It is never too late, I'm halfway there”
+                            </h1>
                         </div>
                         <div class="text-black flex justify-center flex-wrap gap-5 absolute bottom-2 start-0 w-full">
                             <a class="hover:text-biru" href="https://www.instagram.com/kadithacarla_"
@@ -829,8 +1070,8 @@
                         class="w-80 bg-[#fff6e7] relative pt-5 px-3 mb-10 h-[475px] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] mx-2">
                         <img class="w-full h-2/3 object-cover" src="{{ asset('images/announcers/serenata.webp') }}">
                         <div class="pt-2 gap-6 relative h-1/3 align-top items-start">
-                            <h1 class="font-love text-3xl text-black font-semibold mb-1">Serenata Silvestra</h1>
-                            <h1 class="text-xl font-hellomickeys text-black">"BISAAAA, HARUS BISAAAA HARUS BISAAAAA
+                            <h1 class="font-love text-2xl text-black font-semibold mb-1">Serenata Silvestra</h1>
+                            <h1 class="text-lg font-hellomickeys text-black">"BISAAAA, HARUS BISAAAA HARUS BISAAAAA
                                 -Desta"</h1>
 
                         </div>
@@ -843,8 +1084,7 @@
                                 <i class="fa-brands fa-lg fa-tiktok"></i>
                             </a>
                             <a class="hover:text-biru"
-                                href="https://open.spotify.com/user/31vu75imzk747zzbykmpnsq7jvcy"
-                                target="_blank">
+                                href="https://open.spotify.com/user/31vu75imzk747zzbykmpnsq7jvcy" target="_blank">
                                 <i class="fa-brands fa-lg fa-spotify"></i>
                             </a>
                         </div>
@@ -866,8 +1106,7 @@
                             <a class="hover:text-biru" href="https://www.tiktok.com/@ancyrawr" target="_blank">
                                 <i class="fa-brands fa-lg fa-tiktok"></i>
                             </a>
-                            <a class="hover:text-biru"
-                                href="https://open.spotify.com/user/qd51npytlhuoreaalj9svrm5r"
+                            <a class="hover:text-biru" href="https://open.spotify.com/user/qd51npytlhuoreaalj9svrm5r"
                                 target="_blank">
                                 <i class="fa-brands fa-lg fa-spotify"></i>
                             </a>
@@ -883,7 +1122,6 @@
         </div>
     </div>
 
-
     {{-- ARTICLE --}}
     <div class="font-poppins text-black mb-6 bg-[#103069] shadow-inner relative @if ($posts->count() > 0) block
         @else
@@ -892,9 +1130,9 @@
         <img src="{{ asset('assets/others/papertexture.webp') }}" alt=""
             class="absolute w-full h-full opacity-20 z-0">
         <img src="{{ asset('assets/others/notebook.webp') }}" alt=""
-            class="absolute top-12 w-64 md:w-auto md:h-full md:end-24 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] rotate-12 md:-rotate-12 brightness-75">
+            class="absolute top-12 w-64 md:w-auto md:h-full md:end-24 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] rotate-12 md:-rotate-12 brightness-[80%]">
         <img src="{{ asset('assets/others/penungu.webp') }}" alt=""
-            class="absolute top-12 w-32 md:w-[20%] drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] brightness-75">
+            class="absolute top-12 w-32 md:w-[20%] drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] brightness-[80%]">
         <div class="w-full h-full p-4 md:p-8 relative">
             <h1 class="font-poppins text-white text-2xl font-bold text-center my-2 mb-6 z-40">Latest Posts</h1>
             <div class="flex flex-wrap gap-8 justify-center">
@@ -1093,25 +1331,17 @@
                     </div>
                 @endif
             @endforeach
-            <div class="text-center flex flex-row justify-center items-center my-6 z-40">
-                <a class="no-underline" href="/charts">
-                    <button
-                        class="bg-white hover:bg-[#021f3a] text-[#021f3a] font-semibold hover:text-white py-2 px-4 border border-[#021f3a] hover:border-transparent rounded ease-in-out duration-100">
-                        Show More
-                    </button>
-                </a>
-            </div>
         </div>
     </div>
 
     {{-- Section 4 --}}
-    <div id="section-5" class="md:mt-12 w-full my-12 @if ($partnerships->count() < 1) hidden @endif">
+    <div id="section-4" class="md:mt-12 w-full my-12 @if ($partnerships->count() < 1) hidden @endif">
         @if ($partnerships->count() > 0)
             <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center">Partnerships</h1>
         @endif
         <div class="flex justify-center align-middle w-full my-2 flex-wrap">
             @foreach ($partnerships as $post)
-                <img src="{{ $post->image }}" alt="{{ $post->image }}" class="h-36 md:h-80 my-4">
+                <img src="{{ $post->image }}" alt="{{ $post->image }}" class="w-36 md:w-80 my-4 object-contain">
             @endforeach
         </div>
     </div>
@@ -1123,74 +1353,6 @@
             </h1>
             <div class="w-full">{!! $segment->content !!}</div>
         @endforeach
-    </div>
-
-    {{-- URD section --}}
-    <div class="mb-10">
-        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold text-center my-2 mb-6">UMN RADIO DRAMA</h1>
-        <div
-            class="block xl:hidden mx-auto bg-gradient-to-br from-[#87cfe8] to-[#875fd3] rounded-2xl shadow-lg justify-center p-2 max-w-[90%]">
-            <div
-                class="block xl:hidden mx-auto bg-gradient-to-br from-[#875fd3] to-[#87cfe8] rounded-2xl shadow-lg justify-center p-4 w-full drop-shadow-[0_5px_100px_rgba(231,220,200,0.9)]">
-                <div class="mx-auto xl:gap-6 xl:h-auto sm:columns-2">
-                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
-                        src="https://open.spotify.com/embed/episode/3AegQ4CNGrCfXN1xs4sStY?utm_source=generator"
-                        width="100%" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
-                        src="https://open.spotify.com/embed/episode/5imzP6eW3OT1qdRKloRHjV?utm_source=generator"
-                        width="100%" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
-                        src="https://open.spotify.com/embed/episode/19BbKE5zB4GMAi6n8FvXt0?utm_source=generator"
-                        width="100%" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
-                        src="https://open.spotify.com/embed/episode/3NFFsFZecbUG8rxfUTIKV8?utm_source=generator"
-                        width="100%" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                </div>
-            </div>
-        </div>
-
-        <div
-            class="hidden xl:flex mx-auto bg-gradient-to-r from-[#87cfe8] to-[#875fd3] rounded-2xl shadow-lg justify-center p-2 max-w-[90%]">
-            <div
-                class="hidden xl:flex mx-auto bg-gradient-to-r from-[#875fd3] to-[#87cfe8] rounded-2xl shadow-lg justify-center px-4 w-full drop-shadow-[0_5px_100px_rgba(231,220,200,0.9)]">
-                <div class="my-4 p-4 w-[450px] mx-auto">
-                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
-                        src="https://open.spotify.com/embed/episode/3AegQ4CNGrCfXN1xs4sStY?utm_source=generator"
-                        width="100%" height="352" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                </div>
-                <div class="my-4 p-4 w-[450px] mx-auto">
-                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
-                        src="https://open.spotify.com/embed/episode/5imzP6eW3OT1qdRKloRHjV?utm_source=generator"
-                        width="100%" height="352" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                </div>
-                <div class="my-4 p-4 w-[450px] mx-auto">
-                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
-                        src="https://open.spotify.com/embed/episode/19BbKE5zB4GMAi6n8FvXt0?utm_source=generator"
-                        width="100%" height="352" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                </div>
-                <div class="my-4 p-4 w-[450px] mx-auto">
-                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]"
-                        src="https://open.spotify.com/embed/episode/3NFFsFZecbUG8rxfUTIKV8?utm_source=generator"
-                        width="100%" height="352" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                </div>
-            </div>
-        </div>
     </div>
 
     {{-- Section 3 --}}
@@ -1214,9 +1376,9 @@
             <div id="utube" class="mx-4 w-[400px] max-w-[90%]">
                 <div id="youtube">
                     <h1 class="font-poppins text-[#021f3a] font-bold text-center my-2">Watch Now!</h1>
-                    <iframe class="my-2" src="https://www.youtube.com/embed/r1VPMTU8R5M" width="100%"
+                    <iframe class="my-2" src="https://www.youtube.com/embed/-3Ex6m_iapg" width="100%"
                         height="216"></iframe>
-                    <iframe class="my-2" src="https://www.youtube.com/embed/DofupqKP4KE" width="100%"
+                    <iframe class="my-2" src="https://www.youtube.com/embed/MFApg6pxg6o" width="100%"
                         height="216"></iframe>
                 </div>
             </div>
@@ -1234,6 +1396,24 @@
     </div>
 
     <x-footer></x-footer>
+
+    <script>
+        window.onload = function() {
+            document.getElementById('modal').classList.remove('hidden');
+        };
+
+        document.getElementById('closeModal').onclick = function() {
+            document.getElementById('modal').classList.add('hidden');
+        };
+    </script>
+
+    <script>
+        window.onload = function() {
+            const modalToggle = document.getElementById('toggleModal');
+            modalToggle.click();
+        };
+    </script>
+
     <script>
         var button = document.getElementById("buttonplay");
         var button2 = document.getElementById("buttonpause");
@@ -1483,8 +1663,8 @@
         });
     </script>
     <script src="{{ asset('js/flowbite/dist/flowbite.min.js') }}"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
     <script>
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: "auto",

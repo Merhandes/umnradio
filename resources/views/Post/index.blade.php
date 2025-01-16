@@ -43,6 +43,7 @@
                     style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                     <thead>
                         <tr>
+                            <th data-priority="0">ID</th>
                             <th data-priority="1">Title</th>
                             <th data-priority="2">Author</th>
                             <th data-priority="3">Editor</th>
@@ -53,6 +54,7 @@
                     <tbody>
                         @foreach ($posts as $post)
                             <tr>
+                                <td>{{ $post->id }}</td>
                                 <td>{{ $post->title }}</td>
                                 <td>{{ $post->author }}</td>
                                 <td>{{ $post->editor }}</td>
@@ -103,15 +105,15 @@
                     autoWidth: false,
                     columnDefs: [{
                             width: '300px',
-                            targets: 0
-                        },
-                        {
-                            width: '300px',
                             targets: 1
                         },
                         {
-                            width: '200px',
+                            width: '300px',
                             targets: 2
+                        },
+                        {
+                            width: '200px',
+                            targets: 3
                         }
                     ]
                 })

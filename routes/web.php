@@ -12,6 +12,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProgramDetailController;
 use App\Http\Controllers\SegmentController;
 use App\Http\Controllers\SongController;
+use App\Http\Controllers\StreamController;
+use App\Http\Controllers\VariableController;
 use App\Models\ChartJunction;
 use App\Models\ProgramDetail;
 use Illuminate\Http\Request;
@@ -198,9 +200,18 @@ Route::controller(PartnershipsController::class)->middleware(['auth', 'admin'])-
     }
 );
 
-// Route::get('/oprec',function(){
-//     return view('Oprec.index');
-// });
+Route::controller(VariableController::class)->middleware(['auth', 'admin'])->group(
+    function () {
+        Route::get('/admin/variables', 'index');
+        Route::post('/admin/variables/new', 'store');
+        Route::put('/admin/variables/{variable:id}/update', 'update');
+        Route::delete('/admin/variables/{variable:id}/remove', 'destroy');
+    }
+);
+
+Route::get('/oprec',function(){
+    return view('Oprec.index');
+});
 
 // Route::resource('posts', PostController::class);
 
@@ -210,5 +221,17 @@ Route::get('/linkstorage', function () {
 Route::get('/about',function(){
     return view('About.index');
 });
+
+Route::get('/tes', function () {
+    return view('Home.test');
+});
+
+Route::get('/proxy-track-title', [StreamController::class, 'proxyTrackTitle']);
+
+Route::get('/ultimacrews', function () {
+    return view('Crews.index');
+});
+
+
 
 // Route::resource('posts', PostController::class);

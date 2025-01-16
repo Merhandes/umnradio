@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Variable;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -21,6 +22,7 @@ class audioplayer extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.audioplayer');
+        $streams = Variable::where('type', 'Stream')->get();
+        return view('components.audioplayer', ['streams' => $streams]);
     }
 }
