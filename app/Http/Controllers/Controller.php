@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Chart;
+use App\Models\Mediapartners;
 use App\Models\Partnerships;
 use App\Models\Post;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -28,6 +29,7 @@ class Controller extends BaseController
         $posts = Post::latest()->take(3)->get();
         $segments = Segment::where('status', 'PUBLISHED')->get();
         $partnerships = Partnerships::all();
+        $mediapartners = Mediapartners::all();
         $chartcount = Chart::count();
         $streams = Variable::where('type', 'Stream')->get();
         if (Variable::where('type', 'PostHighlight')->first()) {
@@ -43,7 +45,7 @@ class Controller extends BaseController
             $charts = Chart::all();
         }
 
-        return view('Home.index', ['programs' => $programs, 'posts' => $posts, 'segments' => $segments, 'partnerships' => $partnerships, 'charts' => $charts, 'streams' => $streams, 'hlPost' => $hlPost]);
+        return view('Home.index', ['programs' => $programs, 'posts' => $posts, 'segments' => $segments, 'partnerships' => $partnerships, 'mediapartners' => $mediapartners, 'charts' => $charts, 'streams' => $streams, 'hlPost' => $hlPost]);
     }
 
     public function logo()

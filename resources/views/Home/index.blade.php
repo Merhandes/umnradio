@@ -1346,6 +1346,18 @@
         </div>
     </div>
 
+    {{-- Section 5 --}}
+    <div id="section-5" class="md:mt-12 w-full my-12 @if ($mediapartners->count() < 1) hidden @endif">
+        @if ($mediapartners->count() > 0)
+            <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center">Media Partners</h1>
+        @endif
+        <div class="flex justify-center align-middle w-full my-2 flex-wrap">
+            @foreach ($mediapartners as $post)
+                <img src="{{ $post->image }}" alt="{{ $post->image }}" class="w-36 md:w-80 my-4 object-contain">
+            @endforeach
+        </div>
+    </div>
+
     {{-- Segments --}}
     <div id="segments" class="md:mt-12 w-full my-12">
         @foreach ($segments as $segment)
