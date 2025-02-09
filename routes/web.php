@@ -1,24 +1,25 @@
 <?php
 
-use App\Http\Controllers\ChartController;
-use App\Http\Controllers\ChartJunctionController;
-use App\Http\Controllers\Controller;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\PartnershipsController;
-use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\PodcastController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\ProgramDetailController;
-use App\Http\Controllers\SegmentController;
-use App\Http\Controllers\SongController;
-use App\Http\Controllers\StreamController;
-use App\Http\Controllers\VariableController;
+use Illuminate\Http\Request;
 use App\Models\ChartJunction;
 use App\Models\ProgramDetail;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\SongController;
+use App\Http\Controllers\ChartController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\StreamController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PodcastController;
+use App\Http\Controllers\SegmentController;
+use App\Http\Controllers\VariableController;
+use App\Http\Controllers\PartnershipsController;
+use App\Http\Controllers\ChartJunctionController;
+use App\Http\Controllers\MediapartnersController;
+use App\Http\Controllers\ProgramDetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,7 @@ Route::controller(Controller::class)->group(function () {
     Route::put('/change-password/{user:id}', 'change_password')->middleware(['auth', 'admin']);
 
     Route::get('/programs-charts', 'programs_charts')->middleware(['auth', 'admin']);
+    Route::get('/partnership-mediapartner', 'partnership_mediapartner')->middleware(['auth', 'admin']);
 });
 
 // Route::get('/article', function () {
@@ -197,6 +199,15 @@ Route::controller(PartnershipsController::class)->middleware(['auth', 'admin'])-
         Route::get('/partnerships/create', 'create');
         Route::post('/partnerships/add', 'store');
         Route::delete('/partnerships/{id}/delete', 'destroy');
+    }
+);
+
+Route::controller(MediapartnersController::class)->middleware(['auth', 'admin'])->group(
+    function () {
+        Route::get('/mediapartners', 'index');
+        Route::get('/mediapartners/create', 'create');
+        Route::post('/mediapartners/add', 'store');
+        Route::delete('/mediapartners/{id}/delete', 'destroy');
     }
 );
 

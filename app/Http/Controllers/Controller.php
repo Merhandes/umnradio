@@ -205,4 +205,9 @@ class Controller extends BaseController
     {
         return view('Internal.programchart');
     }
+
+    public function partnership_mediapartner()
+    {
+        return view('Internal.partnershipmediapartner');
+    }
 }

@@ -64,7 +64,7 @@
                 class="bg-white text-black rounded-lg p-4 md:aspect-square md:w-96 md:h-96 w-full h-40 font-poppins flex flex-wrap justify-center align-middle items-center hover:invert hover:cursor-pointer hover:bg-[#fde0c5] transition ease-in-out delay-100 duration-200 hover:scale-110">
                 <div class="w-full flex justify-center flex-row md:flex-wrap gap-4 align-middle items-center">
                     <img class="md:w-[50%]" src="{{ url('/images/icon-partner.webp') }}" alt="">
-                    <h1 class="font-bold text-2xl md:text-3xl text-center">DASHBOARD PARTNERSHIP</h1>
+                    <h1 class="font-bold text-2xl md:text-3xl text-center">DASHBOARD PARTNERSHIP & MEDIA PARTNER</h1>
                 </div>
             </a>
             <a href="/admin/dashboard"
