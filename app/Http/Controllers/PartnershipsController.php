@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use App\Http\Resources\PartnershipsResource;
 
 class PartnershipsController extends Controller
 {
@@ -94,5 +95,16 @@ class PartnershipsController extends Controller
         }
 
         return redirect('/partnerships')->with('success', 'Partnership has been deleted!');
+    }
+
+    public function partnershipsApi(Request $request)
+    {
+        try{
+            $partnerships = Partnerships::All();
+            return PartnershipsResource::collection($partnerships);
+        }
+        catch (\Exception $e) {
+            return response()->json(['error' => 'Something went wrong.'], 500);
+        }
     }
 }

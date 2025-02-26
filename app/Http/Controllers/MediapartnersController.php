@@ -6,6 +6,7 @@ use App\Models\Mediapartners;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreMediapartnersRequest;
 use App\Http\Requests\UpdateMediapartnersRequest;
+use App\Http\Resources\MediapartnersResource;
 use Illuminate\Support\Str;
 
 class MediapartnersController extends Controller
@@ -94,5 +95,16 @@ class MediapartnersController extends Controller
         }
 
         return redirect('/mediapartners')->with('success', 'Mediapartner has been deleted!');
+    }
+
+    public function mediapartnersApi(Request $request)
+    {
+        try{
+            $medpar = Mediapartners::All();
+            return MediapartnersResource::collection($medpar);
+        }
+        catch (\Exception $e) {
+            return response()->json(['error' => 'Something went wrong.'], 500);
+        }
     }
 }

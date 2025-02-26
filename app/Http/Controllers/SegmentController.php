@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Segment;
 use App\Http\Requests\StoreSegmentRequest;
 use App\Http\Requests\UpdateSegmentRequest;
+use App\Http\Resources\SegmentsResource;
 use Illuminate\Http\Request;
 
 class SegmentController extends Controller
@@ -100,5 +101,16 @@ class SegmentController extends Controller
         //
         $segment->delete();
         return redirect('/admin/segments')->with('success', 'Segment Deleted');
+    }
+
+    public function segmentsApi(Request $request)
+    {
+        try{
+            $segments = Segment::All();
+            return SegmentsResource::collection($segments);
+        }
+        catch (\Exception $e) {
+            return response()->json(['error' => 'Something went wrong.'], 500);
+        }
     }
 }

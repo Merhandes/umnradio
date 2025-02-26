@@ -8,6 +8,7 @@ use App\Http\Requests\UpdatePodcastRequest;
 use App\Models\ProgramDetail;
 use App\Models\Programs;
 use Illuminate\Http\Request;
+use App\Http\Resources\PodcastsResource;
 
 use function Laravel\Prompts\alert;
 
@@ -107,5 +108,16 @@ class PodcastController extends Controller
         //
         $podcast->delete();
         return redirect('/podcasts/dashboard')->with('success', "Podcast Deleted");
+    }
+
+    public function podcastsApi(Request $request)
+    {
+        try{
+            $podcasts = Podcast::All();
+            return PodcastsResource::collection($podcasts);
+        }
+        catch (\Exception $e) {
+            return response()->json(['error' => 'Something went wrong.'], 500);
+        }
     }
 }

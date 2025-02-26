@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Programs;
 use App\Http\Requests\StoreProgramsRequest;
 use App\Http\Requests\UpdateProgramsRequest;
+use App\Http\Resources\ProgramsResource;
+use Illuminate\Http\Request;
 
 class ProgramsController extends Controller
 {
@@ -62,5 +64,16 @@ class ProgramsController extends Controller
     public function destroy(Programs $programs)
     {
         //
+    }
+
+    public function programsApi(Request $request)
+    {
+        try{
+            $programs = Programs::All();
+            return ProgramsResource::collection($programs);
+        }
+        catch (\Exception $e) {
+            return response()->json(['error' => 'Something went wrong.'], 500);
+        }
     }
 }
