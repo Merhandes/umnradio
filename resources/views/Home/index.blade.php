@@ -57,7 +57,8 @@
 <body class="composer">
     <x-navigation></x-navigation>
 
-    <div id="modal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 px-4 z-50">
+    {{-- Popup Joyland --}}
+    {{-- <div id="modal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 px-4 z-50">
         <div class=" bg-gray-400 rounded-lg shadow-lg p-2 max-w-sm w-full relative">
             <button id="closeModal"
                 class="absolute top-0 right-0 m-4 p-2 rounded-full hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 z-50">
@@ -121,16 +122,16 @@
                 </a>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Modal toggle -->
-    <button data-modal-target="default-modal" data-modal-toggle="default-modal"
+    {{-- <button data-modal-target="default-modal" data-modal-toggle="default-modal"
         class="block w-0 h-0 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         type="button">
-    </button>
+    </button> --}}
 
     <!-- Main modal -->
-    <div id="default-modal" tabindex="-1" aria-hidden="true"
+    {{-- <div id="default-modal" tabindex="-1" aria-hidden="true"
         class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-screen max-h-full bg-gray-800 bg-opacity-60 @if ($hlPost) flex @else hidden @endif">
         <div class="relative p-4 w-full max-w-2xl max-h-full">
             <!-- Modal content -->
@@ -206,18 +207,18 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
-    <script>
+    {{-- <script>
         document.getElementById('closeModalButton').addEventListener('click', function() {
             const modal = document.getElementById('default-modal');
             modal.classList.add('hidden');
         });
-    </script>
+    </script> --}}
 
     {{-- BACKGROUND --}}
-    <!-- <img class="w-screen z-0" src="{{ asset('images/background.webp') }}"
-        alt=""> -->
+     {{-- <img class="w-screen z-0" src="{{ asset('images/background.webp') }}"
+        alt="">  --}}
     <div class="relative pt-10">
         <img class="h-[500px] w-auto md:h-auto md:w-screen z-0 object-cover object-right"
             src="{{ asset('images/bannerweb2.webp') }}" alt="" />
@@ -249,14 +250,15 @@
                         </svg></button>
                 </div>
                 <audio id="player">
-                    <source src='https://icecast.umn.ac.id/live' />
+                    {{-- <source src='https://icecast.umn.ac.id/live' /> --}}
+                    <source src="{{ asset('assets/audio/tes.mp3') }}" />
                 </audio>
             </div>
         </div>
     </div>
 
     {{-- ULTIMACREWS --}}
-    <a href="/ultimacrews"
+    {{-- <a href="/ultimacrews"
         class="w-full flex justify-center overflow-hidden items-center relative group bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] to-slate-500 via-gray-300 from-slate-100">
         <img src="{{ asset('assets/paper/9-crop.webp') }}"
             class="absolute w-full h-[12%] object-cover object-top top-0 z-30 rotate-180" alt="">
@@ -288,7 +290,7 @@
             class="w-full h-full saturate-[100%] md:saturate-0 group-hover:saturate-[75%] group-hover:scale-[101%] transition-all duration-500 ease-in-out brightness-[45%] block md:hidden pt-6 pb-4"
             alt="">
 
-    </a>
+    </a> --}}
 
     {{-- AUDIO --}}
     <link rel="stylesheet" href="{{ asset('path/to/font-awesome/css/all.min.css') }}">
@@ -319,7 +321,8 @@
 
         <audio id="player">
             {{-- <source src='https://i.klikhost.com/8188/;' /> --}}
-            <source src="https://icecast.umn.ac.id/live" />
+            {{-- <source src="https://icecast.umn.ac.id/live" /> --}}
+            <source src="{{ asset('assets/audio/tes.mp3') }}" />
         </audio>
         <div class="p-4 max-w-md w-full hidden md:block">
             <div class="flex items-center justify-center">
@@ -380,7 +383,7 @@
                     $text = 'Upcoming Program';
                     $now = $programs->where('broadcast_day', $day)->first();
                     $onair = 'bg-[#dfdfdf]';
-                } elseif ($program->broadcast_day == $day && $hour < 17) {
+                } elseif ($program->broadcast_day == $day && ($hour < 17 || ($day == 4 && $hour < 20))) {
                     $text = "You're Listening to";
                     if ($hour >= $program->start_hour && $hour < $program->end_hour) {
                         $now = $program;
@@ -454,86 +457,66 @@
                         <div
                             class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/NEWSFLASH.webp') }}" />
+                                src="{{ asset('images/programs/programs gen 14/Poster Campushere.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
-                                <div class="font-bold md:text-2xl font-poppins text-center">NEWS FLASH
+                                <div class="font-bold md:text-2xl font-poppins text-center">CAMPUSPHERE
                                 </div>
-                                <div class="md:text-xl font-poppins text-center">12.00 -
+                                <div class="md:text-xl font-poppins text-center">11.00 -
                                     13.00
                                 </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Takut
-                                    ketinggalan berita terkini?🤔
-                                    Di sini, kamu bisa dapetin berita paling up to date dengan NO BOSENIN!🤩
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Ready to vibe with us? Your daily dose of fun, hot topics, and killer playlists is HERE!
 
-                                    Mulai dari berita metropolitan, olahraga, sampai entertainment yang dijamin FUN!🪅
-                                    Mengudara setiap Senin, Rabu, dan Jumat hanya di 107.7 FM atau streaming di
-                                    radio.umn.ac.id!✨</p>
+So, grab your headphones because we’re on air every weekday except Wednesday!📻 Catch us on 107.7 FM or stream online at radio.umn.ac.id!🎧
+</p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/NEWSFLASH_BANNER.webp') }}" />
+                            src="{{ asset('images/programs/programs gen 14/Banner Campusphere.webp') }}" />
                     </div>
 
                     <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
                             class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/DICE.webp') }}" />
+                                src="{{ asset('images/programs/programs gen 14/Poster News.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
-                                <div class="font-bold md:text-2xl font-poppins text-center">DICE
+                                <div class="font-bold md:text-2xl font-poppins text-center">News Flash
                                 </div>
                                 <div class="md:text-xl font-poppins text-center">13.00 -
                                     14.00
                                 </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Yakin kalo lo
-                                    anak kampus banget?! Atau masih banyak yang bingung anak kampus biasanya ngapain?🤔
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Ultimafriends, kalian mau stay up to date biar nggak FOMO?🤔 Tenang, NEWS FLASH siap bawain berita rasa cerita yang nggak cuma informatif, tapi juga entertaining dan anti boring!🙌🏻
 
-                                    Tenang! DICE bakal hadir buat nemenin kehidupan kampusnya Ultimafriends! Lo bakal
-                                    happy deh sama obrolan yang pastinya relate banget sama anak kampus zaman
-                                    sekarang😱🫵🏻
-
-                                    Nah, penasaran nggak, sih?🤪 Makanya stay tuned terus setiap hari Senin sampai Jumat
-                                    hanya di 107.7 FM atau radio.umn.ac.id bareng U-nnouncers kesayangan lo! Hayo, siapa
-                                    aja ya mereka?🤭
-
-                                    DICE, Roll the Dice, Spill the Spice!🎲 </p>
+Dari berita A-Z, semuanya ada di sini! So, keep informed setiap Senin, Rabu, dan Jumat, only on 107.7 FM or radio.umn.ac.id!💥📇</p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/DICE_BANNER.webp') }}" />
+                            src="{{ asset('images/programs/programs gen 14/Banner News.webp') }}" />
                     </div>
 
                     <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
                             class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/SERSAN.webp') }}" />
+                                src="{{ asset('images/programs/programs gen 14/Poster Sersan.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">SERSAN
                                 </div>
                                 <div class="md:text-xl font-poppins text-center">14.00 -
                                     17.00
                                 </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Aloha,
-                                    Ultimafriends!🌆
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Wassgood, Ultimafriends😋‼️ Let SERSAN flow through your ears and get ready to be Radiated With a Smile every Monday!🎧🎶
 
-                                    “Foolish one, stop ngerasa kalau hari Senin itu nyebelin!”
+That’s right, Fam! Dengan dengerin SERSAN, kalian akan mendengarkan keseruan journey baru dari Dayu dan Agustina, loh!💫💞 Pastinya ditemenin bareng Mr. Lucky yang berbeda tiap minggunya!🫅🏻
 
-                                    Betul banget! Kalian harus stop ngerasa Senin itu nyebelin karena Pei dan Rara bakal
-                                    nemenin Ultimafriends di SERSAN setiap jam 2-5 sore!🙌🏼
-
-                                    Pokoknya, kita bakal usut tuntas kehidupan Mr. Lucky yang berbeda setiap minggunya
-                                    cuma di radio.umn.ac.id atau 107.7 FM!👀
-
-                                    Jangan lupa buat stay tuned terus di SERSAN because the good things are coming!✨
-                                </p>
+Stay tuned terus buat liat keseruannya setiap Senin, jam 2–5 sore di 107.7 FM atau radio.umn.ac.id!👈🏻👀‼️ Because SERSAN is all about Setting Up Smiles on Monday! </p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/SERSAN_BANNER.webp') }}" />
+                            src="{{ asset('images/programs/programs gen 14/Banner Sersan.webp') }}" />
                     </div>
                 </div>
 
@@ -543,56 +526,50 @@
                         <div
                             class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/UH.webp') }}" />
+                                src="{{ asset('images/programs/programs gen 14/Poster Campushere.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
-                                <div class="font-bold md:text-2xl font-poppins text-center">UMN HIGHLIGHTS
+                                <div class="font-bold md:text-2xl font-poppins text-center">CAMPUSPHERE
                                 </div>
                                 <div class="md:text-xl font-poppins text-center">12.00 -
-                                    13.00
+                                    14.00
                                 </div>
-                                {{-- <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Lorem ipsum dolor sit amet consectetur
-                                    adipisicing
-                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
-                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
-                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Ready to vibe with us? Your daily dose of fun, hot topics, and killer playlists is HERE!
+
+So, grab your headphones because we’re on air every weekday except Wednesday!📻 Catch us on 107.7 FM or stream online at radio.umn.ac.id!🎧
+</p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/UH.webp') }}" />
+                            src="{{ asset('images/programs/programs gen 14/Banner Campusphere.webp') }}" />
                     </div>
 
                     <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
                             class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/DICE.webp') }}" />
+                                src="{{ asset('images/programs/programs gen 14/Poster Musikalitas.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
-                                <div class="font-bold md:text-2xl font-poppins text-center">DICE
+                                <div class="font-bold md:text-2xl font-poppins text-center">MUSIKALITAS
                                 </div>
-                                <div class="md:text-xl font-poppins text-center">13.00 -
-                                    14.00
+                                <div class="md:text-xl font-poppins text-center">14.00 -
+                                    17.00
                                 </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Yakin kalo lo
-                                    anak kampus banget?! Atau masih banyak yang bingung anak kampus biasanya ngapain?🤔
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Masih jadi poser di era sekarang, Ultimafriends?😦 Atau masih nggak tau karya musik anak bangsa yang segitu banyaknya?🫠
 
-                                    Tenang! DICE bakal hadir buat nemenin kehidupan kampusnya Ultimafriends! Lo bakal
-                                    happy deh sama obrolan yang pastinya relate banget sama anak kampus zaman
-                                    sekarang😱🫵🏻
+Lo disarankan untuk menimba ilmu mahal dengan cara dengerin MUSIKALITAS! Dari yang up rising🔝 sampe underground, semua bakal kita bahas!🤭
 
-                                    Nah, penasaran nggak, sih?🤪 Makanya stay tuned terus setiap hari Senin sampai Jumat
-                                    hanya di 107.7 FM atau radio.umn.ac.id bareng U-nnouncers kesayangan lo! Hayo, siapa
-                                    aja ya mereka?🤭
+Nggak usah takut nyasar🫵 karena Mpok Ipeh dan Bang Apid siap nemenin kalian dengan ngobrol langsung sama para musisi untuk menanyakan perihal NOTASI🎶 Dengerin kita setiap Selasa, jam 2–5 sore di 107.7 FM atau streaming di radio.umn.ac.id!
 
-                                    DICE, Roll the Dice, Spill the Spice!🎲</p>
+MUSIKALITAS, dari sudut kota🌆 ke setiap telinga👂</p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/DICE_BANNER.webp') }}" />
+                            src="{{ asset('images/programs/programs gen 14/Banner Musikalitas.webp') }}" />
                     </div>
 
-                    <div class="relative group md:p-5 md:max-w-[33.3%]">
+                    {{--<div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
                             class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
@@ -603,27 +580,22 @@
                                 <div class="md:text-xl font-poppins text-center">14.00 -
                                     17.00
                                 </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Hey,
-                                    Ultimafriends! Main tebak-tebakan, yuk!🤫
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Hey, Ultimafriends! Main tebak-tebakan, yuk!🤫
 
-                                    Kalo permen rasanya apa?👀🍬
-                                    Selain manis, pasti ada juga kan rasa lainnya?✨
+Kalo permen rasanya apa?👀🍬
+Selain manis, pasti ada juga kan rasa lainnya?✨
 
-                                    Nah, sama kayak cinta! Selain bentuknya yang beragam, rasa yang dikasih juga
-                                    bermacam-macam, tapi semua pengalamannya pasti bisa bikin hidup lo jadi lebih
-                                    berwarna!🌈💫
+Nah, sama kayak cinta! Selain bentuknya yang beragam, rasa yang dikasih juga bermacam-macam, tapi semua pengalamannya pasti bisa bikin hidup lo jadi lebih berwarna!🌈💫
 
-                                    Masih bingung maksudnya gimana?🤔 Kalo gitu langsung aja dengerin Bilcin di 107.7 FM
-                                    atau di radio.umn.ac.id bareng Delgo dan Abel yang bakal nemenin lo menjelajahi
-                                    berbagai rasa cinta setiap hari Selasa jam 2-5 sore!😚
+Masih bingung maksudnya gimana?🤔 Kalo gitu langsung aja dengerin Bilcin di 107.7 FM atau di radio.umn.ac.id bareng Delgo dan Abel yang bakal nemenin lo menjelajahi berbagai rasa cinta setiap hari Selasa jam 2-5 sore!😚
 
-                                    Bilcin, giving you every bit of love’s taste💕</p>
+Bilcin, giving you every bit of love’s taste💕</p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
                             src="{{ asset('images/programs/BILCIN_BANNER.webp') }}" />
-                    </div>
+                    </div>--}}
                 </div>
 
                 <div
@@ -632,266 +604,215 @@
                         <div
                             class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/SODA.webp') }}" />
+                                src="{{ asset('images/programs/programs gen 14/Poster Bilcin.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
-                                <div class="font-bold md:text-2xl font-poppins text-center">SODA
+                                <div class="font-bold md:text-2xl font-poppins text-center">BILCIN
                                 </div>
-                                <div class="md:text-xl font-poppins text-center">12.00 -
-                                    15.00
-                                </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Woy,
-                                    Ultimafriends! Pada cakep-cakep amat sih, padahal baru mau pantun🤪
-
-                                    Beli permen yang jual si Marwan, CAKEP!
-                                    Si Marwan punya patung kuda!
-                                    Ultimafriends yang syantik dan rupawan,
-                                    Yuk, mari dengerin SODA!🔥
-
-                                    Ahay, dari pantunnya aja udah ciamik, apalagi nanti pembahasan di dalamnya🤭👀
-                                    Makanya, pantengin terus SODA tiap hari Rabu jam 12-3 siang bareng duet HARLA
-                                    (Hanif-Carla) yang udah pasti asik, tapi nggak asik sendiri, dong!🤙🏻
-
-                                    Nggak lupa, mereka juga bakal ditemenin bareng para Nona yang pastinya uhuy banget!
-                                    Udah deh, langsung aja gas ke 107.7 FM atau radio.umn.ac.id, yak!😎
-
-                                    SODA, vibe up your day with us!🍻</p>
-                            </div>
-                        </div>
-                        <img alt=""
-                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/SODA_BANNER.webp') }}" />
-                    </div>
-
-                    <div class="relative group md:p-5 md:max-w-[33.3%]">
-                        <div
-                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
-                            <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/NEWSFLASH.webp') }}" />
-                            <div class="w-full flex flex-col container h-full">
-                                <div class="font-bold md:text-2xl font-poppins text-center">NEWS FLASH
-                                </div>
-                                <div class="md:text-xl font-poppins text-center">15.00 -
-                                    16.00
-                                </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Takut
-                                    ketinggalan berita terkini?🤔
-                                    Di sini, kamu bisa dapetin berita paling up to date dengan NO BOSENIN!🤩
-
-                                    Mulai dari berita metropolitan, olahraga, sampai entertainment yang dijamin FUN!🪅
-                                    Mengudara setiap Senin, Rabu, dan Jumat hanya di 107.7 FM atau streaming di
-                                    radio.umn.ac.id!✨</p>
-                            </div>
-                        </div>
-                        <img alt=""
-                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/NEWSFLASH_BANNER.webp') }}" />
-                    </div>
-
-                    <div class="relative group md:p-5 md:max-w-[33.3%]">
-                        <div
-                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
-                            <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/DICE.webp') }}" />
-                            <div class="w-full flex flex-col container h-full">
-                                <div class="font-bold md:text-2xl font-poppins text-center">DICE
-                                </div>
-                                <div class="md:text-xl font-poppins text-center">16.00 -
-                                    17.00
-                                </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Yakin kalo lo
-                                    anak kampus banget?! Atau masih banyak yang bingung anak kampus biasanya ngapain?🤔
-
-                                    Tenang! DICE bakal hadir buat nemenin kehidupan kampusnya Ultimafriends! Lo bakal
-                                    happy deh sama obrolan yang pastinya relate banget sama anak kampus zaman
-                                    sekarang😱🫵🏻
-
-                                    Nah, penasaran nggak, sih?🤪 Makanya stay tuned terus setiap hari Senin sampai Jumat
-                                    hanya di 107.7 FM atau radio.umn.ac.id bareng U-nnouncers kesayangan lo! Hayo, siapa
-                                    aja ya mereka?🤭
-
-                                    DICE, Roll the Dice, Spill the Spice!🎲</p>
-                            </div>
-                        </div>
-                        <img alt=""
-                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/DICE_BANNER.webp') }}" />
-                    </div>
-                </div>
-
-                <div
-                    class="flex justify-around tab-content-item text-center flex-wrap md:flex-nowrap p-2 gap-4 md:gap-0">
-                    <div class="relative group md:p-5 md:max-w-[33.3%]">
-                        <div
-                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
-                            <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/UH.webp') }}" />
-                            <div class="w-full flex flex-col container h-full">
-                                <div class="font-bold md:text-2xl font-poppins text-center">UMN HIGHLIGHTS
-                                </div>
-                                <div class="md:text-xl font-poppins text-center">12.00 -
+                                <div class="md:text-xl font-poppins text-center">10.00 -
                                     13.00
                                 </div>
-                                {{-- <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Lorem ipsum dolor sit amet consectetur
-                                    adipisicing
-                                    elit. Voluptatibus, ipsam officiis excepturi inventore distinctio deserunt
-                                    voluptatem tempora minima beatae commodi maxime autem aliquam consequatur nihil
-                                    blanditiis, neque facilis laboriosam suscipit!</p> --}}
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Ultimafriends, pernah ngerasa capek sama hidup yang berlika-liku ini?🤔 Tenang, lo nggak sendiri! Ikutin aja perjalanannya karena pada akhirnya, lo pasti ketemu kunci dari treasure of love itu untuk diri sendiri!❤️🔐
+
+Petualangan lo bakal ditemenin sama Becca si Overthinker dan Jovan yang Comforting, di Bilcin setiap Rabu, jam 10-1 siang di 107.7 FM atau di radio.umn.ac.id!😙🔍
+
+Bilcin, where every tale sparks love and moral✨</p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/UH.webp') }}" />
+                            src="{{ asset('images/programs/programs gen 14/Banner Bilcin.webp') }}" />
                     </div>
 
                     <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
                             class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/DICE.webp') }}" />
+                                src="{{ asset('images/programs/programs gen 14/Poster News.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
-                                <div class="font-bold md:text-2xl font-poppins text-center">DICE
+                                <div class="font-bold md:text-2xl font-poppins text-center">NEWS FLASH
                                 </div>
                                 <div class="md:text-xl font-poppins text-center">13.00 -
                                     14.00
                                 </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Yakin kalo lo
-                                    anak kampus banget?! Atau masih banyak yang bingung anak kampus biasanya ngapain?🤔
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Ultimafriends, kalian mau stay up to date biar nggak FOMO?🤔 Tenang, NEWS FLASH siap bawain berita rasa cerita yang nggak cuma informatif, tapi juga entertaining dan anti boring!🙌🏻
 
-                                    Tenang! DICE bakal hadir buat nemenin kehidupan kampusnya Ultimafriends! Lo bakal
-                                    happy deh sama obrolan yang pastinya relate banget sama anak kampus zaman
-                                    sekarang😱🫵🏻
-
-                                    Nah, penasaran nggak, sih?🤪 Makanya stay tuned terus setiap hari Senin sampai Jumat
-                                    hanya di 107.7 FM atau radio.umn.ac.id bareng U-nnouncers kesayangan lo! Hayo, siapa
-                                    aja ya mereka?🤭
-
-                                    DICE, Roll the Dice, Spill the Spice!🎲</p>
+Dari berita A-Z, semuanya ada di sini! So, keep informed setiap Senin, Rabu, dan Jumat, only on 107.7 FM or radio.umn.ac.id!💥📇</p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/DICE_BANNER.webp') }}" />
+                            src="{{ asset('images/programs/programs gen 14/Banner News.webp') }}" />
                     </div>
 
                     <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
                             class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/MUSIKALITAS.webp') }}" />
+                                src="{{ asset('images/programs/programs gen 14/Poster Soda.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
-                                <div class="font-bold md:text-2xl font-poppins text-center">MUSIKALITAS
+                                <div class="font-bold md:text-2xl font-poppins text-center">SODA
                                 </div>
                                 <div class="md:text-xl font-poppins text-center">14.00 -
                                     17.00
                                 </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Yakin masih
-                                    muterin lagu yang itu-itu aja? Ah, ini dia sasarannya!
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Ultimafriends, bosen sama hari lo yang gitu-gitu aja?😮‍💨 Kalo iya, berarti lo semua wajib dengerin SODA tiap rabu, nih!🫵🏻
 
-                                    Penasaran nggak sih sama perkembangan musik Indonesia? Atau lo nggak tau harus cari
-                                    akarnya dari mana?😅
+Lo bakal ditemenin sama wujud nyata cowok yang susah ditebak, duo maut Faikar dan Priya!🤣 Dijamin bikin lo ngakak terus sama semua keasbunan mereka, setiap jam 2–5 sore‼️
 
-                                    Makanya sini-sini Ultimafriends! Daripada kebingungan sendiri, mending dengerin
-                                    keseruan duo cewek cantik ini yaitu Sis Bella dan Sis Nata!😚😍
+Eits, jangan lupa juga sama cewe-cewe cantik alias Uptown Girl kita yang bakal kasih kalian cerita-cerita menarik👯‍♀️ Pokoknya nggak SODA, nggak KENA, deh!😎 So, tunggu apa lagi? Langsung aja dengerin SODA di 107.7 FM atau di radio.umn.ac.id!📻
 
-                                    Mengudara di 107.7 FM atau streaming di radio.umn.ac.id setiap hari Kamis jam 2-5
-                                    siang, wajib hukumnya buat dengerin Musikalitas!🎷
-
-                                    😱Makin tau
-                                    🧐Banyak tau
-                                    😬Paling tau
-
-                                    Musik Indonesia setiap minggunya, karena musik Indonesia nggak ada abisnya!🤪</p>
+Let’s make your own thrill with SODA!🥤🤙🏻</p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/MUSIKALITAS_BANNER.webp') }}" />
+                            src="{{ asset('images/programs/programs gen 14/Banner Soda.webp') }}" />
                     </div>
                 </div>
 
                 <div
                     class="flex justify-around tab-content-item text-center flex-wrap md:flex-nowrap p-2 gap-4 md:gap-0">
-
                     <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
                             class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/CHART.webp') }}" />
+                                src="{{ asset('images/programs/programs gen 14/Poster Campushere.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
-                                <div class="font-bold md:text-2xl font-poppins text-center">SUPERB CHARTTOPPERS
+                                <div class="font-bold md:text-2xl font-poppins text-center">CAMPUSPHERE
                                 </div>
                                 <div class="md:text-xl font-poppins text-center">12.00 -
-                                    15.00
+                                    14.00
                                 </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Ay-yo what’s
-                                    up, Ultimafriends‼️ Wanna know about hot songs, news, and new albums from your
-                                    favorite artists?🤩 SUPERB CHARTTOPPERS is back only for Ultimafriends🫵🏻
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Ready to vibe with us? Your daily dose of fun, hot topics, and killer playlists is HERE!
 
-                                    Tune in to SUPERB CHARTTOPPERS with Jocelyn every Friday from 12-3 PM only on 107.7
-                                    FM or radio.umn.ac.id 📻
-
-                                    SUPERB CHARTTOPPERS,
-                                    Epic Hits Music for Your Friday!🎶🔥</p>
+So, grab your headphones because we’re on air every weekday except Wednesday!📻 Catch us on 107.7 FM or stream online at radio.umn.ac.id!🎧
+</p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/CHART_BANNER.webp') }}" />
+                            src="{{ asset('images/programs/programs gen 14/Banner Campusphere.webp') }}" />
                     </div>
 
                     <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
                             class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/NEWSFLASH.webp') }}" />
+                                src="{{ asset('images/programs/programs gen 14/Poster Sathlete.webp') }}" />
+                            <div class="w-full flex flex-col container h-full">
+                                <div class="font-bold md:text-2xl font-poppins text-center">SATHLETE
+                                </div>
+                                <div class="md:text-xl font-poppins text-center">14.00 -
+                                    17.00
+                                </div>
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Yoo, Ultimafriends! Jangan lemes gitu dong, harus semangat!🔥
+
+Karena di SATHLETE, kita bakal bahas seputar dunia olahraga dari yang umum sampai yang EDGY🤯 Pokoknya kita bakal seru-seruan bareng supaya tetep semangat dan happy pastinya!
+
+Tenang aja, Bung Yosan dan Bung Ian selalu siap buat keringetan bareng Ultimafriends setiap hari Kamis jam 2-5 sore di 107.7 FM atau radio.umn.ac.id!🏋🏻‍♂️💥
+
+SATHLETE, Free Your Movement, Get Your Pleasure!</p>
+                            </div>
+                        </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
+                            src="{{ asset('images/programs/programs gen 14/Banner Sathlete.webp') }}" />
+                    </div>
+
+                    <div class="relative group md:p-5 md:max-w-[33.3%]">
+                        <div
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            <img alt="" class="object-contain rounded-xl h-full"
+                                src="{{ asset('images/programs/programs gen 14/Poster jerit malam.webp') }}" />
+                            <div class="w-full flex flex-col container h-full">
+                                <div class="font-bold md:text-2xl font-poppins text-center">Jerit Malam
+                                </div>
+                                <div class="md:text-xl font-poppins text-center">17.00 -
+                                    20.00
+                                </div>
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Ultimafriends, pengen nggak sih dengerin siaran yang ngebahas horor dan kasus kasus di luar nalar buat nemenin malem Jumat lo?🫣😱
+
+Dari cerita horor, teka-teki misterius, sampe kejadian di luar akal, semuanya bakal dikupas habis sama Bagas dan Marva yang siap bikin malam Jumat lo merinding!😨
+
+Nah, kalo kalian beneran penasaran banget, mending langsung dengerin JERIT MALAM💀 setiap hari Kamis jam 5-8 malam cuma di 107.7 FM atau radio.umn.ac.id!
+
+Karena di JERIT MALAM, once you listen to it, you will never forget it!👹</p>
+                            </div>
+                        </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
+                            src="{{ asset('images/programs/programs gen 14/Banner jerit malam.webp') }}" />
+                    </div>
+                </div>
+
+                <div
+                    class="flex justify-around tab-content-item text-center flex-wrap md:flex-nowrap p-2 gap-4 md:gap-0">
+					
+					<div class="relative group md:p-5 md:max-w-[33.3%]">
+                        <div
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            <img alt="" class="object-contain rounded-xl h-full"
+                                src="{{ asset('images/programs/programs gen 14/Poster Campushere.webp') }}" />
+                            <div class="w-full flex flex-col container h-full">
+                                <div class="font-bold md:text-2xl font-poppins text-center">CAMPUSPHERE
+                                </div>
+                                <div class="md:text-xl font-poppins text-center">11.00 -
+                                    13.00
+                                </div>
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Ready to vibe with us? Your daily dose of fun, hot topics, and killer playlists is HERE!
+
+So, grab your headphones because we’re on air every weekday except Wednesday!📻 Catch us on 107.7 FM or stream online at radio.umn.ac.id!🎧
+</p>
+                            </div>
+                        </div>
+                        <img alt=""
+                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
+                            src="{{ asset('images/programs/programs gen 14/Banner Campusphere.webp') }}" />
+                    </div>
+
+                    <div class="relative group md:p-5 md:max-w-[33.3%]">
+                        <div
+                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                            <img alt="" class="object-contain rounded-xl h-full"
+                                src="{{ asset('images/programs/programs gen 14/Poster News.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">NEWS FLASH
                                 </div>
-                                <div class="md:text-xl font-poppins text-center">15.00 -
-                                    16.00
+                                <div class="md:text-xl font-poppins text-center">13.00 -
+                                    14.00
                                 </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Takut
-                                    ketinggalan berita terkini?🤔
-                                    Di sini, kamu bisa dapetin berita paling up to date dengan NO BOSENIN!🤩
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Ultimafriends, kalian mau stay up to date biar nggak FOMO?🤔 Tenang, NEWS FLASH siap bawain berita rasa cerita yang nggak cuma informatif, tapi juga entertaining dan anti boring!🙌🏻
 
-                                    Mulai dari berita metropolitan, olahraga, sampai entertainment yang dijamin FUN!🪅
-                                    Mengudara setiap Senin, Rabu, dan Jumat hanya di 107.7 FM atau streaming di
-                                    radio.umn.ac.id!✨</p>
+Dari berita A-Z, semuanya ada di sini! So, keep informed setiap Senin, Rabu, dan Jumat, only on 107.7 FM or radio.umn.ac.id!💥📇</p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/NEWSFLASH_BANNER.webp') }}" />
+                            src="{{ asset('images/programs/programs gen 14/Banner News.webp') }}" />
                     </div>
 
                     <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div
                             class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/DICE.webp') }}" />
+                                src="{{ asset('images/programs/programs gen 14/Poster Charttoppers.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
-                                <div class="font-bold md:text-2xl font-poppins text-center">DICE
+                                <div class="font-bold md:text-2xl font-poppins text-center">CHARTTOPPERS
                                 </div>
                                 <div class="md:text-xl font-poppins text-center">16.00 -
                                     17.00
                                 </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Yakin kalo lo
-                                    anak kampus banget?! Atau masih banyak yang bingung anak kampus biasanya ngapain?🤔
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Ready to fiddle together, Ultimafriends?🤠 Drop by at Outlaw Charttoppers to enjoy your favorite music, knowing what your favorite artists have been doing, and latest updates of Billboard chart!🎶💥
 
-                                    Tenang! DICE bakal hadir buat nemenin kehidupan kampusnya Ultimafriends! Lo bakal
-                                    happy deh sama obrolan yang pastinya relate banget sama anak kampus zaman
-                                    sekarang😱🫵🏻
+So, what are you waiting for? You’ll only be able to catch Lady on Outlaw Charttoppers every Friday at 2-5 PM, only on 107.7 FM or radio.umn.ac.id!🫵🏻
 
-                                    Nah, penasaran nggak, sih?🤪 Makanya stay tuned terus setiap hari Senin sampai Jumat
-                                    hanya di 107.7 FM atau radio.umn.ac.id bareng U-nnouncers kesayangan lo! Hayo, siapa
-                                    aja ya mereka?🤭
-
-                                    DICE, Roll the Dice, Spill the Spice!🎲</p>
+Catch us now with rambling music from the west! Miss us or don’t miss us!💋
+</p>
                             </div>
                         </div>
                         <img alt=""
                             class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/DICE_BANNER.webp') }}" />
+                            src="{{ asset('images/programs/programs gen 14/Banner Charttoppers.webp') }}" />
                     </div>
                 </div>
             </div>
@@ -901,10 +822,8 @@
             class="absolute h-[160%] md:h-[140%] object-cover bottom-0 -z-10" alt="">
     </div>
 
-
-
-
-    <div class="w-full my-10 lg:px-32">
+    {{-- U-NNOUNCERS --}}
+    {{-- <div class="w-full my-10 lg:px-32">
         <h1 class="font-poppins text-2xl font-bold text-center my-2 mb-6 text-[#021f3a]">U-NNOUNCERS</h1>
         <div class="swiper mySwiper my-5 flex justify-center">
             <div class="swiper-wrapper">
@@ -1120,12 +1039,12 @@
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
         </div>
-    </div>
+    </div> --}}
 
     {{-- ARTICLE --}}
     <div class="font-poppins text-black mb-6 bg-[#103069] shadow-inner relative @if ($posts->count() > 0) block
         @else
-        hidden @endif"
+        @endif"
         style="box-shadow: inset 4px 4px 4px 0 rgb(0 0 0 / 0.05);">
         <img src="{{ asset('assets/others/papertexture.webp') }}" alt=""
             class="absolute w-full h-full opacity-20 z-0">
@@ -1154,9 +1073,9 @@
                             OMB</span>
                     </div>
                 </div>
-            </a>
+            </a> --}}
 
-            <a class="no-underline" href="/article/obral-etalase-mimpi">
+            {{-- <a class="no-underline" href="/article/obral-etalase-mimpi">
                 <div class="rounded overflow-hidden shadow-lg no-underline w-[300px] h-full relative pb-12">
                     <img class="w-full h-36 md:h-52 object-cover"
                         src="{{ asset('images/artikel1/FEATURED IMAGE.webp') }}" alt="Featured Image">
