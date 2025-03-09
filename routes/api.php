@@ -33,6 +33,7 @@ Route::get('/posts', [PostController::class, 'showApi']);
 Route::get('/posts/{post}', [PostController::class, 'showByIdApi']);
 Route::get('/variables/streams', [VariableController::class, 'streamAPI']);
 Route::get('/programs', [ProgramsController::class, 'programsApi']);
+Route::get('/programs/{program}', [ProgramsController::class, 'programsByIdApi']);
 Route::get('/charts', [ChartController::class, 'chartsApi']);
 Route::get('/mediapartners', [MediapartnersController::class, 'mediapartnersApi']);
 Route::get('/partnerships', [PartnershipsController::class, 'partnershipsApi']);

@@ -112,12 +112,20 @@ class PodcastController extends Controller
 
     public function podcastsApi(Request $request)
     {
-        try{
-            $podcasts = Podcast::All();
-            return PodcastsResource::collection($podcasts);
-        }
-        catch (\Exception $e) {
-            return response()->json(['error' => 'Something went wrong.'], 500);
-        }
+        try {
+            $search = $request->query('q');
+            $program_id = $request->query('progid');
+    
+            $podcasts = Podcast::when($search, function ($query, $search) {
+                        $query->where('title', 'like', '%'.$search.'%');
+                    })
+                    ->when($program_id, function ($query, $program_id) {
+                        $query->where('program_id', $program_id);
+                    })
+                    ->paginate(10);
+                return PodcastsResource::collection($podcasts);
+            } catch (\Exception $e) {
+                return response()->json(['error' => 'Something went wrong.'], 500);
+            }
     }
 }

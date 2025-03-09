@@ -120,12 +120,20 @@ class SongController extends Controller
 
     public function songsApi(Request $request)
     {
-        try{
-            $songs = Song::All();
-            return SongResource::collection($songs);
-        }
-        catch (\Exception $e) {
-            return response()->json(['error' => 'Something went wrong.'], 500);
-        }
+        try {
+            $search = $request->query('q');
+            $artist = $request->query('artist');
+    
+            $songs = Song::when($search, function ($query, $search) {
+                        $query->where('title', 'like', '%'.$search.'%');
+                    })
+                    ->when($artist, function ($query, $artist) {
+                        $query->where('artists', $artist);
+                    })
+                    ->paginate(10);
+                return SongResource::collection($songs);
+            } catch (\Exception $e) {
+                return response()->json(['error' => 'Something went wrong.'], 500);
+            }
     }
 }
