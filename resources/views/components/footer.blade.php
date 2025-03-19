@@ -1,4 +1,4 @@
-<div class="bg-[#0a1f63] py-12 px-4 mb-5 text-white font-poppins">
+<div class="bg-[#0a1f63] py-12 px-4 mb-6 text-white font-poppins">
     <!-- Container utama -->
     <div class="max-w-7xl mx-auto">
       
@@ -74,15 +74,6 @@
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                 </svg>
               </a>
-              
-              <!-- Email Icon -->
-              <a target="_" href="mailto:daniel.nicholas@umn.ac.id" 
-                 class="w-9 h-9 rounded-full flex justify-center items-center border text-slate-300 border-slate-400 hover:border-[#a0a0a0] hover:bg-[#a0a0a0] hover:text-white">
-                <svg class="fill-current" width="20" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <title>Email UMN Radio</title>
-                  <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
-                </svg>
-              </a>
             </div>
             <p class="text-sm text-gray-300 text-center md:text-left">Ikuti kami di media sosial untuk mendapatkan informasi terbaru tentang UMN Radio</p>
           </div>
@@ -92,6 +83,15 @@
       <div class="border-t border-blue-800 pt-8 mb-8">
         <h3 class="text-xl font-bold text-center mb-6">Email Us</h3>
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          {{-- Dosen Pembimbing --}}
+          <div class="text-center md:text-left">
+            <h4 class="font-bold mb-2 text-base">Dosen Pembimbing</h4>
+            <a href="mailto:daniel.nicholas@umn.ac.id" class="flex items-center justify-center md:justify-start text-gray-200 hover:text-white group">
+              <img src="{{ asset('assets/gmail.webp') }}" alt="Email" class="w-5 h-5 mr-2">
+              <span class="text-sm group-hover:text-[#a0a0a0]">daniel.nicholas@umn.ac.id</span>
+            </a>
+          </div>
+
           <!-- Partnership -->
           <div class="text-center md:text-left">
             <h4 class="font-bold mb-2 text-base">Partnership</h4>
