@@ -1,8 +1,0 @@
-Sistem: Many songs to one chart
-Bisa add songs to database, jadi tinggal bikin form sama dashboard buat list songs
-Bikin chart, bistu pas edit chart bisa add songs to chart (ada forms buat add song ke chart). Di dalem edit chart itu juga ada list songs yang udah ada di chart itu.
-Bisa langsung delete song from chart (remove assigned chart_id aja)
-Ga bisa delete song kalo chart_idnya ga null
-
-TAMBAHIN COLUMN LINK DI PEMBUATAN CHART
-GA PERLU LINK PER LAGU

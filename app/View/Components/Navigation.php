@@ -21,6 +21,6 @@ class Navigation extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.navigation');
+        return view('components.navbar');
     }
 }

@@ -107,6 +107,67 @@
             }
         });
 
+        function togglePlayPause() {
+            if (audio.paused) {
+                audio.play();
+                button3.classList.add('hidden');
+                button4.classList.remove('hidden');
+            } else {
+                audio.pause();
+                button4.classList.add('hidden');
+                button3.classList.remove('hidden');
+            }
+        }
+    </script>
+
+    {{-- <script>
+        var button3 = document.getElementById("buttonplay2");
+        var button4 = document.getElementById("buttonpause2");
+        var audio = document.getElementById("player");
+
+        var player = document.getElementById("player");
+        const playButton = document.getElementById('buttonplay2');
+        const pauseButton = document.getElementById('buttonpause2');
+        const progressBar = document.getElementById('progressBar');
+        const currentTimeDisplay = document.getElementById('currentTime');
+        // const durationDisplay = document.getElementById('duration');
+
+        let isDragging = false;
+
+        button3.addEventListener("click", togglePlayPause);
+        button4.addEventListener("click", togglePlayPause);
+
+        playButton.addEventListener('click', togglePlayPause);
+
+        pauseButton.addEventListener('click', () => {
+            player.pause();
+            playButton.classList.remove('hidden');
+            pauseButton.classList.add('hidden');
+        });
+
+        progressBar.addEventListener('input', () => {
+            const seekTime = player.duration * (progressBar.value / 100);
+            currentTimeDisplay.textContent = formatTime(seekTime);
+        });
+
+        progressBar.addEventListener('mousedown', () => {
+            isDragging = true;
+            // player.pause(); 
+        });
+
+
+        progressBar.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        player.addEventListener('timeupdate', () => {
+            if (!isDragging) {
+                updateProgressBar();
+                const currentTime = player.currentTime;
+                currentTimeDisplay.textContent = formatTime(currentTime);
+            }
+        });
+
         progressBar.addEventListener('mousemove', (event) => {
             if (isDragging) {
                 const boundingRect = progressBar.getBoundingClientRect();
@@ -146,9 +207,9 @@
             const seconds = Math.floor(time % 60);
             return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
         }
-    </script>
+    </script> --}}
 
-
+      
     <!-- Volume control JS -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -224,4 +285,8 @@
             });
         });
     </script>
+
+<script src="{{ asset('js/flowbite/dist/flowbite.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
 </div>

@@ -2,8 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\VariableController;
+use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\DashboardVariableController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +19,6 @@ use App\Http\Controllers\VariableController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/posts', [PostController::class, 'showApi']); 
-Route::get('/posts/{post}', [PostController::class, 'showByIdApi']);
-Route::get('/variables/streams', [VariableController::class, 'streamAPI']);
+Route::get('/posts', [DashboardPostController::class, 'showApi']); 
+Route::get('/posts/{post}', [DashboardPostController::class, 'showByIdApi']);
+Route::get('/variables/streams', [DashboardVariableController::class, 'streamAPI']);

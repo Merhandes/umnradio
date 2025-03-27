@@ -3,13 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Podcast;
-use App\Http\Requests\StorePodcastRequest;
-use App\Http\Requests\UpdatePodcastRequest;
-use App\Models\ProgramDetail;
-use App\Models\Programs;
 use Illuminate\Http\Request;
-
-use function Laravel\Prompts\alert;
 
 class PodcastController extends Controller
 {
@@ -24,23 +18,12 @@ class PodcastController extends Controller
             'podcasts' => $podcasts
         ]);
     }
-    public function dashboard()
-    {
-        //
-        $podcasts = Podcast::all();
-        $programdetails = ProgramDetail::all();
-
-        return view('Podcast.dashboard', ['podcasts' => $podcasts, 'programs' => $programdetails]);
-    }
-
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
         //
-        $programdetails = ProgramDetail::all();
-        return view('Podcast.create', ['programs' => $programdetails]);
     }
 
     /**
@@ -49,16 +32,6 @@ class PodcastController extends Controller
     public function store(Request $request)
     {
         //
-
-        $validData = $request->validate([
-            'title' => 'required',
-            'embed_code' => 'required',
-            'program_id' => ''
-        ]);
-
-        Podcast::create($validData);
-
-        return redirect('/podcasts/dashboard')->with('success', "New Podcast Added");
     }
 
     /**
@@ -75,8 +48,6 @@ class PodcastController extends Controller
     public function edit(Podcast $podcast)
     {
         //
-        $programs = ProgramDetail::all();
-        return view('Podcast.edit', ['podcast' => $podcast, 'programs' => $programs]);
     }
 
     /**
@@ -85,18 +56,6 @@ class PodcastController extends Controller
     public function update(Request $request, Podcast $podcast)
     {
         //
-
-        $rules = [
-            'title' => 'required',
-            'embed_code' => 'required',
-            'program_id' => ''
-        ];
-
-        $validData = $request->validate($rules);
-
-        Podcast::where('id', $podcast->id)->update($validData);
-
-        return redirect('/podcasts/dashboard')->with('success', "Podcast Modified");
     }
 
     /**
@@ -105,7 +64,5 @@ class PodcastController extends Controller
     public function destroy(Podcast $podcast)
     {
         //
-        $podcast->delete();
-        return redirect('/podcasts/dashboard')->with('success', "Podcast Deleted");
     }
 }

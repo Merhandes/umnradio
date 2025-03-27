@@ -31,7 +31,7 @@ class ChartJunctionController extends Controller
         $charts = Chart::all();
         $songs = Song::all();
 
-        return view('Chart.addsong', ['charts'=>$charts, 'songs'=>$songs]);
+        return view('dashboard.chart.addsong', ['charts'=>$charts, 'songs'=>$songs]);
     }
 
     /**
@@ -55,7 +55,7 @@ class ChartJunctionController extends Controller
 
         ChartJunction::create($validData);
 
-        return redirect('/charts/'.$request->chart_id.'/edit');
+        return redirect('/dashboard/charts/'.$request->chart_id.'/edit');
     }
 
     /**
@@ -84,7 +84,7 @@ class ChartJunctionController extends Controller
         $chartJunction->position = $request->position;
         $chartJunction->save();
 
-        return redirect('/charts/'.$chartJunction->chart_id.'/edit');
+        return redirect('/dashboard/charts/'.$chartJunction->chart_id.'/edit');
     }
 
     /**
@@ -94,6 +94,6 @@ class ChartJunctionController extends Controller
     {
         //
         $chartJunction->delete();
-        return redirect('/charts/'.$chartJunction->chart_id.'/edit')->with('success', 'Song Removed from Chart');
+        return redirect('/dashboard/charts/'.$chartJunction->chart_id.'/edit')->with('success', 'Song Removed from Chart');
     }
 }

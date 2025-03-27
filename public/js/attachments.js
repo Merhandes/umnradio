@@ -44,7 +44,6 @@
         href: xhr.responseText + "?content-disposition=attachment"
       }
       successCallback(attributes)
-
     })
 
     xhr.send(formData)

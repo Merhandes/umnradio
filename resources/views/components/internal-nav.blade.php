@@ -23,8 +23,8 @@
                 @endnews()
                 @admin()
                     <a href="/programs-charts" class="font-poppins text-base text-white no-underline">Program & Chart</a>
-                    <a href="/crews-landing" class="font-poppins text-base text-white no-underline">Partnership</a>
-                    <a href="/admin/dashboard" class="font-poppins text-base text-white no-underline">Admin</a>
+                    <a href="/partnership-mediapartner" class="font-poppins text-base text-white no-underline">Partnership</a>
+                    <a href="/admin-landing" class="font-poppins text-base text-white no-underline">Admin</a>
                 @endadmin
             </div>
             <div class="relative hover:cursor-pointer" id="parent">
@@ -34,9 +34,14 @@
                     <p class="text-[#021f3a] text-xs md:text-md">{{ auth()->user()->name }}</p>
                 </div>
                 <!-- Dropdown menu -->
-                <div id="logoutDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg hidden hover:bg-gray-200">
-                    <a href="/logout" class="block px-4 py-2 text-[#021f3a]">Logout</a>
-                </div>
+                <form action="/logout" method="POST">
+                    @csrf
+                    <div id="logoutDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg hidden">
+                        <button type="submit" class="block w-full text-left px-4 py-2 text-[#021f3a] hover:bg-gray-200">
+                            Logout
+                        </button>
+                    </div>
+                </form>
             </div>
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
@@ -73,10 +78,15 @@
                         @admin()
                             <a href="/programs-charts" class="font-poppins text-sm text-black">Program &
                                 Chart</a>
-                            <a href="/crews-landing" class="font-poppins text-sm text-black">Partnership</a>
-                            <a href="/admin/dashboard" class="font-poppins text-sm text-black">Admin</a>
+                            <a href="/partnership-mediapartner" class="font-poppins text-sm text-black">Partnership</a>
+                            <a href="/admin-landing" class="font-poppins text-sm text-black">Admin</a>
                         @endadmin
-                        <a href="/logout" class="font-poppins text-sm text-black">Logout</a>
+                        <form action="/logout" method="POST">
+                            @csrf
+                            <button type="submit" class="font-poppins text-sm text-black">Logout</button>
+                            {{-- <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i> Logout</button> --}}
+                        </form>
+                        {{-- <a href="/logout" class="font-poppins text-sm text-black">Logout</a> --}}
                     </div>
                 </div>
             </div>

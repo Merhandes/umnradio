@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,7 +15,7 @@ class LoginController extends Controller
         if(Auth::check()){
             return redirect()->intended('/');
         }
-        return view('Login.login');
+        return view('login.index');
     }
 
     public function authenticate(Request $request)
@@ -37,6 +38,33 @@ class LoginController extends Controller
 
     public function logout()
     {
-        return route('login');
+        Auth::logout();
+
+        request()->session()->invalidate();
+
+        request()->session()->regenerateToken();
+    
+        return redirect('/');
+        // return route('login');
+    }
+
+    public function change_password(Request $request, User $user)
+    {
+        $credentials = $request->validate([
+            'password' => 'required',
+            'password_new' => 'required',
+        ]);
+
+        $credentials['email'] = $user->email;
+
+        if (Auth::attempt($credentials)) {
+            $user->update([
+                'password' => bcrypt($request->password_new)
+            ]);
+
+            return redirect('/uang-kas')->with('successPass', 'Password changed.');
+        }
+
+        return back()->with('error', 'Password change failed.');
     }
 }

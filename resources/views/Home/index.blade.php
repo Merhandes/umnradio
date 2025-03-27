@@ -1,62 +1,34 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="bg-white">
+@extends('layouts.main')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>UMN Radio</title>
-    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
-    <script src="{{ asset('js/tailwind.js') }}"></script>
-
-    @vite('resources/css/app.css')
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="{{ asset('css/swiper-bundle.min.css') }}" />
-    <script src="https://kit.fontawesome.com/667eb529ec.js" crossorigin="anonymous"></script>
+@section('container')
     <style>
-        footer {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
+        .swiper {
+            width: 90%;
+            height: 70%;
         }
 
-        .footer-logo {
-            max-width: 100%;
-            margin-bottom: 20px;
+        /* .swiper-wrapper{
+            margin-right: 50px;
+            margin-left: 50px;
+        } */
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            position: relative;
         }
 
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .footer-links a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        @media (max-width: 767px) {
-            .footer-logo {
-                width: 80%;
-                max-width: none;
-            }
-
-            .footer-links {
-                width: 100%;
-            }
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            margin-top: 0;
+            object-fit: cover;
+            max-height: 75%;
+            object-position: center top;
         }
     </style>
-</head>
-
-<body class="composer">
-    <x-navigation></x-navigation>
-
+    
     {{-- Popup Joyland --}}
     {{-- <div id="modal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 px-4 z-50">
         <div class=" bg-gray-400 rounded-lg shadow-lg p-2 max-w-sm w-full relative">
@@ -131,8 +103,7 @@
     </button> --}}
 
     <!-- Main modal -->
-    {{-- <div id="default-modal" tabindex="-1" aria-hidden="true"
-        class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-screen max-h-full bg-gray-800 bg-opacity-60 @if ($hlPost) flex @else hidden @endif">
+    <div id="default-modal" tabindex="-1" aria-hidden="true" class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-screen max-h-full bg-gray-800 bg-opacity-60 @if ($hlPost) flex @else hidden @endif">
         <div class="relative p-4 w-full max-w-2xl max-h-full">
             <!-- Modal content -->
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -207,18 +178,19 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 
-    {{-- <script>
+    <script>
         document.getElementById('closeModalButton').addEventListener('click', function() {
             const modal = document.getElementById('default-modal');
             modal.classList.add('hidden');
         });
-    </script> --}}
+    </script>
 
     {{-- BACKGROUND --}}
-     {{-- <img class="w-screen z-0" src="{{ asset('images/background.webp') }}"
-        alt="">  --}}
+     {{-- <img class="w-screen z-0" src="{{ asset('images/background.webp') }}" alt="">  --}}
+
+    {{-- Landing --}}
     <div class="relative pt-10">
         <img class="h-[500px] w-auto md:h-auto md:w-screen z-0 object-cover object-right"
             src="{{ asset('images/bannerweb2.webp') }}" alt="" />
@@ -293,65 +265,7 @@
     </a> --}}
 
     {{-- AUDIO --}}
-    <link rel="stylesheet" href="{{ asset('path/to/font-awesome/css/all.min.css') }}">
-    <footer id="audiosticky"
-        class="invisible fixed bottom-0 w-full z-40 h-16 bg-[#0a1f63] flex flex-row gap-1 justify-center items-center transition-all duration-500">
-        <button id="buttonplay2"><svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512">
-                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                <style>
-                    svg {
-                        fill: #ffffff
-                    }
-                </style>
-                <path
-                    d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
-            </svg></button>
 
-        <button id="buttonpause2" class="hidden"><svg xmlns="http://www.w3.org/2000/svg" height="2em"
-                viewBox="0 0 320 512">
-                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                <style>
-                    svg {
-                        fill: #ffffff
-                    }
-                </style>
-                <path
-                    d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z" />
-            </svg></button>
-
-        <audio id="player">
-            {{-- <source src='https://i.klikhost.com/8188/;' /> --}}
-            {{-- <source src="https://icecast.umn.ac.id/live" /> --}}
-            <source src="{{ asset('assets/audio/tes.mp3') }}" />
-        </audio>
-        <div class="p-4 max-w-md w-full hidden md:block">
-            <div class="flex items-center justify-center">
-                <span class="text-sm text-white" id="currentTime">0:00</span>
-                <input type="range" id="progressBar" min="0" max="100" value="0"
-                    class="slider mx-4 w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
-                {{-- <span class="text-sm text-white" id="duration">0:00</span> --}}
-            </div>
-        </div>
-
-        {{-- Volume Control Section --}}
-
-        <div class="flex items-center absolute end-5 md:static hidden">
-            <div class="flex items-center gap-2">
-                <button id="volumeIcon" class="text-white">
-                    <!-- Font Awesome volume icon -->
-                    <i class="fas fa-volume-up"></i>
-                </button>
-                <!-- Updated: Wrap volume controls in a container div -->
-                <div id="volumeControls" class="hidden flex items-center">
-                    <input type="range" id="volume"
-                        class="w-16 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer" min="0"
-                        max="100" value="50">
-                    <span id="volumeValue" class="text-gray-300 ml-2">50%</span>
-                </div>
-            </div>
-        </div>
-
-    </footer>
 
     {{-- ON AIR OFF AIR --}}
     <div id="section-1" class="w-full mb-16">
@@ -598,11 +512,9 @@ Bilcin, giving you every bit of love’s taste💕</p>
                     </div>--}}
                 </div>
 
-                <div
-                    class="flex justify-around tab-content-item text-center flex-wrap md:flex-nowrap p-2 gap-4 md:gap-0">
+                <div class="flex justify-around tab-content-item text-center flex-wrap md:flex-nowrap p-2 gap-4 md:gap-0">
                     <div class="relative group md:p-5 md:max-w-[33.3%]">
-                        <div
-                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                        <div class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
                                 src="{{ asset('images/programs/programs gen 14/Poster Bilcin.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
@@ -618,9 +530,7 @@ Petualangan lo bakal ditemenin sama Becca si Overthinker dan Jovan yang Comforti
 Bilcin, where every tale sparks love and moral✨</p>
                             </div>
                         </div>
-                        <img alt=""
-                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/programs gen 14/Banner Bilcin.webp') }}" />
+                        <img alt="" class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video" src="{{ asset('images/programs/programs gen 14/Banner Bilcin.webp') }}" />
                     </div>
 
                     <div class="relative group md:p-5 md:max-w-[33.3%]">
@@ -1288,47 +1198,51 @@ Catch us now with rambling music from the west! Miss us or don’t miss us!💋
 
     {{-- Section 3 --}}
     <div id="section-3" class="mx-4">
-
         <div id="additional-embeds" class="flex justify-center flex-wrap align-middle w-full my-4">
+            <!-- U-Podcast Section -->
             <div id="u-podcast" class="mx-4 w-[400px] max-w-[90%]">
                 <h1 class="font-poppins text-[#021f3a] font-bold text-center my-2">U-Podcast</h1>
                 <iframe class="my-2" style="border-radius:15px"
                     src="https://open.spotify.com/embed/episode/5zOPyOllBf6L1XUA95qiNx?utm_source=generator&theme=0"
-                    width="100%" height="80" allowfullscreen=""
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"></iframe>
+                    width="100%" height="80" 
+                    allow="encrypted-media; clipboard-write; fullscreen; picture-in-picture"
+                    loading="lazy" frameborder="0"></iframe>
                 <iframe class="my-2" style="border-radius:15px"
                     src="https://open.spotify.com/embed/show/6ytg0qKpDz9ehq2fjklepU?utm_source=generator"
-                    width="100%" height="352" frameBorder="0" allowfullscreen=""
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"></iframe>
-
+                    width="100%" height="352" 
+                    allow="encrypted-media; clipboard-write; fullscreen; picture-in-picture"
+                    loading="lazy" frameborder="0"></iframe>
             </div>
+    
+            <!-- YouTube Section -->
             <div id="utube" class="mx-4 w-[400px] max-w-[90%]">
                 <div id="youtube">
                     <h1 class="font-poppins text-[#021f3a] font-bold text-center my-2">Watch Now!</h1>
-                    <iframe class="my-2" src="https://www.youtube.com/embed/-3Ex6m_iapg" width="100%"
-                        height="216"></iframe>
-                    <iframe class="my-2" src="https://www.youtube.com/embed/MFApg6pxg6o" width="100%"
-                        height="216"></iframe>
+                    <iframe class="my-2" src="https://www.youtube.com/embed/-3Ex6m_iapg" 
+                        width="100%" height="216" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                    <iframe class="my-2" src="https://www.youtube.com/embed/MFApg6pxg6o" 
+                        width="100%" height="216" frameborder="0" allowfullscreen loading="lazy"></iframe>
                 </div>
             </div>
-
+    
+            <!-- TikTok Section -->
             <div id="tiktok" class="mx-4 w-[400px] max-w-[90%]">
                 <h1 class="font-poppins text-[#021f3a] font-bold text-center my-2">Tiktok</h1>
-                <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@umnradio" data-unique-id="umnradio"
-                    data-embed-from="embed_page" data-embed-type="creator" class="">
-                    <section> <a target="_blank"
-                            href="https://www.tiktok.com/@umnradio?refer=creator_embed">@umnradio</a> </section>
+                <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@umnradio" 
+                    data-unique-id="umnradio" data-embed-from="embed_page" data-embed-type="creator">
+                    <section> 
+                        <a target="_blank" href="https://www.tiktok.com/@umnradio?refer=creator_embed">
+                            @umnradio
+                        </a> 
+                    </section>
                 </blockquote>
                 <script async src="https://www.tiktok.com/embed.js"></script>
             </div>
         </div>
     </div>
+    
 
-    <x-footer></x-footer>
-
-    <script>
+    {{-- <script>
         window.onload = function() {
             document.getElementById('modal').classList.remove('hidden');
         };
@@ -1336,198 +1250,13 @@ Catch us now with rambling music from the west! Miss us or don’t miss us!💋
         document.getElementById('closeModal').onclick = function() {
             document.getElementById('modal').classList.add('hidden');
         };
-    </script>
-
-    <script>
+    </script> --}}
+    {{-- <script>
         window.onload = function() {
             const modalToggle = document.getElementById('toggleModal');
             modalToggle.click();
         };
-    </script>
-
-    <script>
-        var button = document.getElementById("buttonplay");
-        var button2 = document.getElementById("buttonpause");
-        var button3 = document.getElementById("buttonplay2");
-        var button4 = document.getElementById("buttonpause2");
-        var audio = document.getElementById("player");
-
-        var player = document.getElementById("player");
-        const playButton = document.getElementById('buttonplay2');
-        const pauseButton = document.getElementById('buttonpause2');
-        const progressBar = document.getElementById('progressBar');
-        const currentTimeDisplay = document.getElementById('currentTime');
-        // const durationDisplay = document.getElementById('duration');
-
-        let isDragging = false;
-
-        button.addEventListener("click", togglePlayPause);
-        button2.addEventListener("click", togglePlayPause);
-        button3.addEventListener("click", togglePlayPause);
-        button4.addEventListener("click", togglePlayPause);
-
-        playButton.addEventListener('click', togglePlayPause);
-
-        pauseButton.addEventListener('click', () => {
-            player.pause();
-            playButton.classList.remove('hidden');
-            pauseButton.classList.add('hidden');
-        });
-
-        progressBar.addEventListener('input', () => {
-            const seekTime = player.duration * (progressBar.value / 100);
-            currentTimeDisplay.textContent = formatTime(seekTime);
-        });
-
-        progressBar.addEventListener('mousedown', () => {
-            isDragging = true;
-            // player.pause(); 
-        });
-
-
-        progressBar.addEventListener('mouseup', () => {
-            isDragging = false;
-        });
-
-        player.addEventListener('timeupdate', () => {
-            if (!isDragging) {
-                updateProgressBar();
-                const currentTime = player.currentTime;
-                currentTimeDisplay.textContent = formatTime(currentTime);
-            }
-        });
-
-        progressBar.addEventListener('mousemove', (event) => {
-            if (isDragging) {
-                const boundingRect = progressBar.getBoundingClientRect();
-                const mouseX = event.clientX - boundingRect.left;
-                const percentage = Math.min(100, Math.max(0, (mouseX / boundingRect.width) * 100));
-                progressBar.value = percentage;
-                const seekTime = player.duration * (percentage / 100);
-                currentTimeDisplay.textContent = formatTime(seekTime);
-            }
-        });
-
-        player.addEventListener('loadedmetadata', () => {
-            const duration = player.duration;
-            // durationDisplay.textContent = formatTime(duration);
-        });
-
-        function togglePlayPause() {
-            if (audio.paused) {
-                audio.play();
-                button.classList.add('hidden');
-                button2.classList.remove('hidden');
-                button3.classList.add('hidden');
-                button4.classList.remove('hidden');
-            } else {
-                audio.pause();
-                button2.classList.add('hidden');
-                button.classList.remove('hidden');
-                button4.classList.add('hidden');
-                button3.classList.remove('hidden');
-            }
-        }
-
-        function updateProgressBar() {
-            const currentTime = player.currentTime;
-            const progressPercentage = (currentTime / player.duration) * 100;
-            progressBar.value = progressPercentage;
-        }
-
-        function formatTime(time) {
-            const minutes = Math.floor(time / 60);
-            const seconds = Math.floor(time % 60);
-            return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-        }
-    </script>
-
-
-    <!-- Volume control JS -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-
-            var volumeControl = document.getElementById('volume');
-            var volumeValue = document.getElementById('volumeValue');
-            var volumeIcon = document.getElementById('volumeIcon');
-            var audioPlayer = document.getElementById('player');
-            var volumeControls = document.getElementById('volumeControls');
-
-
-            var previousVolume = 50;
-
-
-            audioPlayer.volume = previousVolume / 100;
-            volumeControl.value = previousVolume;
-
-            function updateVolume() {
-                var volume = volumeControl.value;
-                volumeValue.textContent = volume + '%';
-                audioPlayer.volume = volume / 100;
-
-
-                if (volume === '0') {
-                    volumeIcon.innerHTML = '<i class="fas fa-volume-mute"></i>';
-                } else if (volume <= '50') {
-                    volumeIcon.innerHTML = '<i class="fas fa-volume-down"></i>';
-                } else {
-                    volumeIcon.innerHTML = '<i class="fas fa-volume-up"></i>';
-                }
-            }
-
-
-            function toggleVolumeControls() {
-                volumeControls.classList.toggle('hidden');
-            }
-
-
-            volumeIcon.addEventListener('click', function() {
-
-                // if (audioPlayer.volume > 0) {
-
-                //     previousVolume = volumeControl.value;
-                //     audioPlayer.volume = 0;
-                //     volumeControl.value = 0;
-                // } else {
-
-                //     audioPlayer.volume = previousVolume / 100;
-                //     volumeControl.value = previousVolume;
-                // }
-
-                updateVolume();
-
-                toggleVolumeControls();
-            });
-
-            volumeControl.addEventListener('input', updateVolume);
-        });
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const volumeInput = document.getElementById('volume');
-            const volumeValue = document.getElementById('volumeValue');
-
-            volumeInput.addEventListener('input', function() {
-                const currentVolume = volumeInput.value;
-                volumeValue.textContent = `${currentVolume}%`;
-
-                // Additional actions can be performed here, such as updating the actual volume in your application.
-                // For now, we'll just log the volume value.
-                // console.log(currentVolume);
-            });
-        });
-    </script>
-    <script>
-        window.addEventListener('scroll', function() {
-            var header = document.getElementById('audiosticky');
-            if (window.scrollY > 2) {
-                header.classList.remove('invisible');
-            } else {
-                header.classList.add('invisible');
-            }
-        });
-    </script>
+    </script> --}}
     <script>
         const allTabsGroup = document.querySelectorAll(".tabs-group");
 
@@ -1593,9 +1322,6 @@ Catch us now with rambling music from the west! Miss us or don’t miss us!💋
             }
         });
     </script>
-    <script src="{{ asset('js/flowbite/dist/flowbite.min.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
     <script>
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: "auto",
@@ -1618,33 +1344,28 @@ Catch us now with rambling music from the west! Miss us or don’t miss us!💋
         });
     </script>
 
-    <style>
-        .swiper {
-            width: 90%;
-            height: 70%;
+    <script>
+        var button = document.getElementById("buttonplay");
+        var button2 = document.getElementById("buttonpause");
+        var player = document.getElementById("player");
+    
+        button.addEventListener("click", togglePlayPause);
+        button2.addEventListener("click", togglePlayPause);
+
+        function togglePlayPause() {
+            if (player.paused) {
+                player.play();
+                 button.classList.add('hidden');
+                button2.classList.remove('hidden');
+                button3.classList.add('hidden');
+                button4.classList.remove('hidden');
+            } else {
+                player.pause();
+                button2.classList.add('hidden');
+                button.classList.remove('hidden');
+                button4.classList.add('hidden');
+                button3.classList.remove('hidden');
+            }
         }
-
-        /* .swiper-wrapper{
-            margin-right: 50px;
-            margin-left: 50px;
-        } */
-
-        .swiper-slide {
-            background-position: center;
-            background-size: cover;
-            width: 300px;
-            position: relative;
-        }
-
-        .swiper-slide img {
-            display: block;
-            width: 100%;
-            margin-top: 0;
-            object-fit: cover;
-            max-height: 75%;
-            object-position: center top;
-        }
-    </style>
-</body>
-
-</html>
+    </script>
+@endsection

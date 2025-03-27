@@ -29,7 +29,7 @@ class ChartController extends Controller
     {
         //
         $charts = Chart::all();
-        return view('Chart.dashboard', ['charts' => $charts]);
+        return view('dashboard.chart.index', ['charts' => $charts]);
     }
 
     /**
@@ -38,7 +38,7 @@ class ChartController extends Controller
     public function create()
     {
         //
-        return view('Chart.create');
+        return view('dashboard.chart.create');
     }
 
     /**
@@ -82,7 +82,7 @@ class ChartController extends Controller
         $junctions = ChartJunction::where('chart_id', $chart->id)->get()->sortBy('position');
         $songs = Song::all();
         // dd($junctions);
-        return view('Chart.edit', ['chart' => $chart, 'junctions' => $junctions, 'songs'=>$songs]);
+        return view('dashboard.chart.edit', ['chart' => $chart, 'junctions' => $junctions, 'songs'=>$songs]);
     }
 
     /**
