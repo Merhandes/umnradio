@@ -28,6 +28,68 @@
             object-position: center top;
         }
     </style>
+
+        <!-- JavaScript for banner functionality -->
+        <script>
+            $(document).ready(function() {
+                // Close button functionality
+                $("#close-ad").click(function() {
+                    $("#ad-banner").fadeOut();
+                    
+                    // Set cookie to remember banner was closed
+                    document.cookie = "adBannerClosed=true; max-age=86400"; // 24 hours
+                });
+        
+                // Check if banner was previously closed
+                function getCookie(name) {
+                    const value = `; ${document.cookie}`;
+                    const parts = value.split(`; ${name}=`);
+                    if (parts.length === 2) return parts.pop().split(';').shift();
+                }
+        
+                // if (getCookie('adBannerClosed')) {
+                //     $("#ad-banner").hide();
+                // }
+            });
+        </script>
+
+    {{-- Popup Ads --}}
+    <div id="ad-banner" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
+        <div class="relative max-w-4xl w-full bg-white rounded-lg shadow-lg flex flex-col">
+            <!-- Banner content -->
+            <div class="w-full bg-[#445148] p-4 flex items-center justify-center rounded-t-lg">
+                <div class="text-white text-center">
+                    <h3 class="text-xl font-bold">23rd IFRA Business Expo x ICE 2025</h3>
+                </div>
+            </div>
+    
+            <!-- Main content -->
+            <div class="w-full p-6 flex flex-col items-center">
+                <div class="mb-4">
+                    <div class="rounded w-48 h-48 mx-auto flex items-center justify-center">
+                        <img src="images/ads/ifra.webp" alt="IFRA Business Expo">
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <h4 class="text-lg font-bold text-gray-800">✨TICKET PROMO: <span class="text-[#F6E70F]">BUY 1 GET 1✨</span></h4>
+                    <p class="text-gray-600 my-2">LIMITED STOCK!! Hanya dengan Rp 60.000, kamu bisa mendapatkan 2 tiket</p>
+                    <div class="text-xs text-gray-500 mb-4">valid until 18 April 2025</div>
+                    <a href="https://ifra-indonesia.com/" target="_blank" class="inline-block bg-[#445148] hover:bg-[#57714D] text-white font-bold py-3 px-8 rounded transition-colors">
+                        BELI SEKARANG
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Close button -->
+            <button id="close-ad" class="absolute top-[-12px] right-0 translate-x-1/2 md:top-[-12px] md:right-0 md:translate-x-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors drop-shadow-md" aria-label="Close advertisement">
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </div>
     
     {{-- Popup Joyland --}}
     {{-- <div id="modal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 px-4 z-50">
