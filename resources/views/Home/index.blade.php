@@ -27,31 +27,23 @@
             max-height: 75%;
             object-position: center top;
         }
-    </style>
 
-        <!-- JavaScript for banner functionality -->
-        <script>
-            $(document).ready(function() {
-                // Close button functionality
-                $("#close-ad").click(function() {
-                    $("#ad-banner").fadeOut();
-                    
-                    // Set cookie to remember banner was closed
-                    document.cookie = "adBannerClosed=true; max-age=86400"; // 24 hours
-                });
-        
-                // Check if banner was previously closed
-                function getCookie(name) {
-                    const value = `; ${document.cookie}`;
-                    const parts = value.split(`; ${name}=`);
-                    if (parts.length === 2) return parts.pop().split(';').shift();
-                }
-        
-                // if (getCookie('adBannerClosed')) {
-                //     $("#ad-banner").hide();
-                // }
-            });
-        </script>
+        .swiper-button-next,
+        .swiper-pagination,
+        .swiper-button-prev {
+            color: #0A1F63;
+        }
+
+        .swiper-pagination-bullet {
+            background-color: #0A1F63;
+            opacity: 0.5;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: #0A1F63;
+            opacity: 1;
+        }
+    </style>
 
     {{-- Popup Ads --}}
     <div id="ad-banner" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
@@ -90,6 +82,30 @@
             </button>
         </div>
     </div>
+
+            <!-- JavaScript for banner functionality -->
+            <script>
+                $(document).ready(function() {
+                    // Close button functionality
+                    $("#close-ad").click(function() {
+                        $("#ad-banner").fadeOut();
+                        
+                        // Set cookie to remember banner was closed
+                        document.cookie = "adBannerClosed=true; max-age=86400"; // 24 hours
+                    });
+            
+                    // Check if banner was previously closed
+                    function getCookie(name) {
+                        const value = `; ${document.cookie}`;
+                        const parts = value.split(`; ${name}=`);
+                        if (parts.length === 2) return parts.pop().split(';').shift();
+                    }
+            
+                    // if (getCookie('adBannerClosed')) {
+                    //     $("#ad-banner").hide();
+                    // }
+                });
+            </script>
     
     {{-- Popup Joyland --}}
     {{-- <div id="modal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 px-4 z-50">
@@ -330,7 +346,7 @@
 
 
     {{-- ON AIR OFF AIR --}}
-    <div id="section-1" class="w-full mb-16">
+    {{-- <div id="section-1" class="w-full mb-16">
         <div class="w-full relative h-fit">
             <img src="{{ asset('assets/paper/1.webp') }}"
                 class="absolute object-cover object-top w-full h-24 md:h-36 rotate-180 -z-20" alt="">
@@ -341,7 +357,7 @@
 
         <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center pt-24 md:pt-36">Live Broadcast
         </h1>
-        <div id="sign" class="m-3 md:m-6 text-center">
+        <div id="sign" class="m-3 md:m-6 text-center"> --}}
 
             {{-- SCHEDULE SYSTEM PHP --}}
 
@@ -384,7 +400,7 @@
             
             ?>
 
-            <div id="onair" class="border rounded-md {{ $onair }} w-24 p-2 m-auto">
+            {{-- <div id="onair" class="border rounded-md {{ $onair }} w-24 p-2 m-auto">
                 <h1 class="font-poppins text-xl text-white"> On Air </h1>
             </div>
 
@@ -399,8 +415,107 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
+    {{-- ROMAWEEK --}}
+    <div id="section-1" class="w-full mb-16 flex flex-col items-center">
+        <!-- Background Decoration -->
+        <div class="w-full relative h-fit">
+            <img src="{{ asset('assets/paper/1.webp') }}"
+                 class="absolute object-cover object-top w-full h-24 md:h-36 rotate-180 -z-20"
+                 alt="Background Decorative Image">
+            <div class="absolute top-0 w-full h-12 md:h-36 bg-gradient-to-b from-white via-transparent to-transparent -z-10"></div>
+        </div>
+    
+        <!-- Section Title -->
+        <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center pt-24 md:pt-36">
+            ROMAWEEK
+        </h1>
+    
+        <!-- Swiper Section -->
+        <div class="w-full max-w-[90%] 2xl:max-w-[45%] mt-8">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    @php
+                        $episodes = [
+                            '4U7VAcdbe2XHS36ciZPP6H',
+                            '62reQQ2dHAyZoTrCs6hzuk',
+                            '1zTAEtL1VYm6uJv9lUDHoU',
+                            '7eimlP5w7YF7EMhDhW2YhK',
+                            '1id0xl6WaIAAUPsSqiuhVu',
+                            '7BKLeg02sUZWoTOokbZj9A',
+                            '4qCjynSqGY5Kz8RtUaUouc'
+                        ];
+                    @endphp
+    
+                    @foreach ($episodes as $id)
+                        <div class="swiper-slide flex justify-center">
+                            <iframe
+                                src="https://open.spotify.com/embed/episode/{{ $id }}?utm_source=generator"
+                                width="100%" height="352"
+                                class="drop-shadow-[0_5px_10px_rgba(0,0,0,0.3)] max-w-[500px] w-full rounded-xl"
+                                style="border: none; border-radius: 12px"
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                    @endforeach
+                </div>
+    
+                <!-- Swiper Controls -->
+                <div class="swiper-pagination mt-4"></div>
+                <div class="swiper-button-next hidden md:block #021f3a"></div>
+                <div class="swiper-button-prev hidden md:block"></div>
+            </div>
+        </div>
+    </div>
+    
+    {{-- <div class="mb-10">
+        <div
+            class="block xl:hidden mx-auto bg-gradient-to-br from-[#87cfe8] to-[#875fd3] rounded-2xl shadow-lg justify-center p-2 max-w-[90%]">
+            <div
+                class="block xl:hidden mx-auto bg-gradient-to-br from-[#875fd3] to-[#87cfe8] rounded-2xl shadow-lg justify-center p-4 w-full drop-shadow-[0_5px_100px_rgba(231,220,200,0.9)]">
+                <div class="mx-auto xl:gap-6 xl:h-auto sm:columns-2">
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] my-2"" src="https://open.spotify.com/embed/episode/4U7VAcdbe2XHS36ciZPP6H?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] my-2"" src="https://open.spotify.com/embed/episode/62reQQ2dHAyZoTrCs6hzuk?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] my-2"" src="https://open.spotify.com/embed/episode/1zTAEtL1VYm6uJv9lUDHoU?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] my-2"" src="https://open.spotify.com/embed/episode/7eimlP5w7YF7EMhDhW2YhK?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] my-2"" src="https://open.spotify.com/embed/episode/1id0xl6WaIAAUPsSqiuhVu?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] my-2" src="https://open.spotify.com/embed/episode/7BKLeg02sUZWoTOokbZj9A?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] my-2" src="https://open.spotify.com/embed/episode/4qCjynSqGY5Kz8RtUaUouc?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="hidden xl:flex mx-auto bg-gradient-to-r from-[#87cfe8] to-[#875fd3] rounded-2xl shadow-lg justify-center p-2 max-w-[90%]">
+            <div class="hidden xl:flex mx-auto bg-gradient-to-r from-[#875fd3] to-[#87cfe8] rounded-2xl shadow-lg justify-center px-4 w-full drop-shadow-[0_5px_100px_rgba(231,220,200,0.9)]">
+                <div class="my-4 p-4 w-[450px] mx-auto">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/4U7VAcdbe2XHS36ciZPP6H?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+                <div class="my-4 p-4 w-[450px] mx-auto">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/62reQQ2dHAyZoTrCs6hzuk?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+                <div class="my-4 p-4 w-[450px] mx-auto">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1zTAEtL1VYm6uJv9lUDHoU?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+                <div class="my-4 p-4 w-[450px] mx-auto">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7eimlP5w7YF7EMhDhW2YhK?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+                <div class="my-4 p-4 w-[450px] mx-auto">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1id0xl6WaIAAUPsSqiuhVu?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+                <div class="my-4 p-4 w-[450px] mx-auto">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7BKLeg02sUZWoTOokbZj9A?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+                <div class="my-4 p-4 w-[450px] mx-auto">
+                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]" src="https://open.spotify.com/embed/episode/4qCjynSqGY5Kz8RtUaUouc?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </div> --}}
+    
+    
+    {{-- WEEKLY SCHEDULE --}}
     <div id="schedule" class="md:mt-20 md:pt-10 text-center relative">
         <h1 class="font-poppins text-[#021f3a] text-2xl font-bold text-center mt-8 pt-4">Weekly Schedule</h1>
         <div class="border-t-2 border-[#021f3a] w-56 mx-auto mt-4"></div>
@@ -1384,7 +1499,28 @@ Catch us now with rambling music from the west! Miss us or don’t miss us!💋
             }
         });
     </script>
+
     <script>
+        const swiper = new Swiper(".mySwiper", {
+        loop: true,
+        effect: "fade",
+        fadeEffect: {
+            crossFade: true
+        },
+        slidesPerView: 1,
+        spaceBetween: 20,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        });
+    </script>
+
+    {{-- <script>
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: "auto",
             spaceBetween: 40,
@@ -1404,7 +1540,7 @@ Catch us now with rambling music from the west! Miss us or don’t miss us!💋
                 prevEl: ".swiper-button-prev",
             },
         });
-    </script>
+    </script> --}}
 
     <script>
         var button = document.getElementById("buttonplay");
