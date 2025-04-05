@@ -469,52 +469,6 @@
             </div>
         </div>
     </div>
-    
-    {{-- <div class="mb-10">
-        <div
-            class="block xl:hidden mx-auto bg-gradient-to-br from-[#87cfe8] to-[#875fd3] rounded-2xl shadow-lg justify-center p-2 max-w-[90%]">
-            <div
-                class="block xl:hidden mx-auto bg-gradient-to-br from-[#875fd3] to-[#87cfe8] rounded-2xl shadow-lg justify-center p-4 w-full drop-shadow-[0_5px_100px_rgba(231,220,200,0.9)]">
-                <div class="mx-auto xl:gap-6 xl:h-auto sm:columns-2">
-                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] my-2"" src="https://open.spotify.com/embed/episode/4U7VAcdbe2XHS36ciZPP6H?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] my-2"" src="https://open.spotify.com/embed/episode/62reQQ2dHAyZoTrCs6hzuk?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                        <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] my-2"" src="https://open.spotify.com/embed/episode/1zTAEtL1VYm6uJv9lUDHoU?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                        <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] my-2"" src="https://open.spotify.com/embed/episode/7eimlP5w7YF7EMhDhW2YhK?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                        <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] my-2"" src="https://open.spotify.com/embed/episode/1id0xl6WaIAAUPsSqiuhVu?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                        <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] my-2" src="https://open.spotify.com/embed/episode/7BKLeg02sUZWoTOokbZj9A?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] my-2" src="https://open.spotify.com/embed/episode/4qCjynSqGY5Kz8RtUaUouc?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </div>
-            </div>
-        </div>
-
-        <div class="hidden xl:flex mx-auto bg-gradient-to-r from-[#87cfe8] to-[#875fd3] rounded-2xl shadow-lg justify-center p-2 max-w-[90%]">
-            <div class="hidden xl:flex mx-auto bg-gradient-to-r from-[#875fd3] to-[#87cfe8] rounded-2xl shadow-lg justify-center px-4 w-full drop-shadow-[0_5px_100px_rgba(231,220,200,0.9)]">
-                <div class="my-4 p-4 w-[450px] mx-auto">
-                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/4U7VAcdbe2XHS36ciZPP6H?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </div>
-                <div class="my-4 p-4 w-[450px] mx-auto">
-                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/62reQQ2dHAyZoTrCs6hzuk?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </div>
-                <div class="my-4 p-4 w-[450px] mx-auto">
-                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1zTAEtL1VYm6uJv9lUDHoU?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </div>
-                <div class="my-4 p-4 w-[450px] mx-auto">
-                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7eimlP5w7YF7EMhDhW2YhK?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </div>
-                <div class="my-4 p-4 w-[450px] mx-auto">
-                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1id0xl6WaIAAUPsSqiuhVu?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </div>
-                <div class="my-4 p-4 w-[450px] mx-auto">
-                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7BKLeg02sUZWoTOokbZj9A?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </div>
-                <div class="my-4 p-4 w-[450px] mx-auto">
-                    <iframe style="border-radius:6px" class="drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]" src="https://open.spotify.com/embed/episode/4qCjynSqGY5Kz8RtUaUouc?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-    
-    
     {{-- WEEKLY SCHEDULE --}}
     <div id="schedule" class="md:mt-20 md:pt-10 text-center relative">
         <h1 class="font-poppins text-[#021f3a] text-2xl font-bold text-center mt-8 pt-4">Weekly Schedule</h1>
