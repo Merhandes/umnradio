@@ -8,7 +8,6 @@ use App\Models\Segment;
 use App\Models\Programs;
 use App\Models\Variable;
 use App\Models\Partnerships;
-use Illuminate\Http\Request;
 use App\Models\Mediapartners;
 use App\Http\Controllers\Controller;
 

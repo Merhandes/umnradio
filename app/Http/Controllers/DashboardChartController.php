@@ -6,6 +6,7 @@ use App\Models\Song;
 use App\Models\Chart;
 use Illuminate\Http\Request;
 use App\Models\ChartJunction;
+use App\Http\Resources\ChartsResource;
 use Illuminate\Support\Facades\Storage;
 
 class DashboardChartController extends Controller
@@ -91,5 +92,16 @@ class DashboardChartController extends Controller
         //
         $chart->delete();
         return redirect('/dashboard/charts')->with('success', "Chart Deleted");
+    }
+
+    public function chartsApi(Request $request)
+    {
+        try{
+            $charts = Chart::All();
+            return ChartsResource::collection($charts);
+        }
+        catch (\Exception $e) {
+            return response()->json(['error' => 'Something went wrong.'], 500);
+        }
     }
 }

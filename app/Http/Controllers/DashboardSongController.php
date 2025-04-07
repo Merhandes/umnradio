@@ -3,10 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Song;
-use App\Http\Requests\StoreSongRequest;
-use App\Http\Requests\UpdateSongRequest;
 use App\Http\Resources\SongResource;
-use App\Models\ChartJunction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 

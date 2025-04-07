@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\ChartJunction;
-use App\Http\Requests\StoreChartJunctionRequest;
-use App\Http\Requests\UpdateChartJunctionRequest;
 use App\Models\Chart;
 use App\Models\Song;
 use Illuminate\Http\Request;

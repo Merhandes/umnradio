@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Programs;
 use Illuminate\Http\Request;
 use App\Models\ProgramDetail;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Resources\ProgramsResource;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DashboardProgramController extends Controller
@@ -115,5 +117,40 @@ class DashboardProgramController extends Controller
         //
         $programdetail->delete();
         return redirect('/dashboard/programs')->with('success', "Program Deleted");
+    }
+
+    public function programsApi(Request $request)
+    {
+        try {
+            $search = $request->query('q');
+            $day = $request->query('day');
+    
+            $programs = Programs::when($search, function ($query, $search) {
+                        $query->where('name', 'like', '%'.$search.'%');
+                    })
+                    ->when($day, function ($query, $day) {
+                        $query->where('broadcast_day', $day);
+                    })
+                    ->paginate(10);
+                return ProgramsResource::collection($programs);
+            } catch (\Exception $e) {
+                return response()->json(['error' => 'Something went wrong.'], 500);
+            }
+    }
+
+    public function programsByIdApi($id)
+    {
+        try {
+            if (!is_numeric($id)) {
+                return response()->json(['error' => 'Invalid ID. ID must be a number.'], 400);
+            }
+            $programs = Programs::findOrFail($id);
+
+            return new ProgramsResource($programs);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return response()->json(['error' => 'Program not found.'], 404);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Something went wrong.'], 500);
+        }
     }
 }

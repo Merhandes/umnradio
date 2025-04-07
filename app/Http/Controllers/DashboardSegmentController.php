@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Segment;
 use Illuminate\Http\Request;
+use App\Http\Resources\SegmentsResource;
 
 class DashboardSegmentController extends Controller
 {
@@ -68,5 +69,16 @@ class DashboardSegmentController extends Controller
         //
         $segment->delete();
         return redirect('/dashboard/segments')->with('success', 'Segment Deleted');
+    }
+
+    public function segmentsApi(Request $request)
+    {
+        try{
+            $segments = Segment::All();
+            return SegmentsResource::collection($segments);
+        }
+        catch (\Exception $e) {
+            return response()->json(['error' => 'Something went wrong.'], 500);
+        }
     }
 }
