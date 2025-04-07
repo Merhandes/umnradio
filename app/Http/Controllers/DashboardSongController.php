@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Song;
 use App\Http\Requests\StoreSongRequest;
 use App\Http\Requests\UpdateSongRequest;
+use App\Http\Resources\SongResource;
 use App\Models\ChartJunction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -110,5 +111,24 @@ class DashboardSongController extends Controller
         //     $song->delete();
         //     return redirect('/songs/dashboard')->with('success', 'Song Deleted');
         // }
+    }
+
+    public function songsApi(Request $request)
+    {
+        try {
+            $search = $request->query('q');
+            $artist = $request->query('artist');
+    
+            $songs = Song::when($search, function ($query, $search) {
+                        $query->where('title', 'like', '%'.$search.'%');
+                    })
+                    ->when($artist, function ($query, $artist) {
+                        $query->where('artists', $artist);
+                    })
+                    ->paginate(10);
+                return SongResource::collection($songs);
+            } catch (\Exception $e) {
+                return response()->json(['error' => 'Something went wrong.'], 500);
+            }
     }
 }

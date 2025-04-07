@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Mediapartners;
-use Illuminate\Support\Str;
+use App\Http\Resources\MediapartnersResource;
 
 class DashboardMediapartnerController extends Controller
 {
@@ -59,5 +60,16 @@ class DashboardMediapartnerController extends Controller
         }
 
         return redirect('/dashboard/mediapartners')->with('success', 'Mediapartner has been deleted!');
+    }
+
+    public function mediapartnersApi(Request $request)
+    {
+        try{
+            $medpar = Mediapartners::All();
+            return MediapartnersResource::collection($medpar);
+        }
+        catch (\Exception $e) {
+            return response()->json(['error' => 'Something went wrong.'], 500);
+        }
     }
 }

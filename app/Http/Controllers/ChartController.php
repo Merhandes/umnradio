@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Chart;
 use App\Http\Requests\StoreChartRequest;
 use App\Http\Requests\UpdateChartRequest;
+use App\Http\Resources\ChartsResource;
 use App\Models\ChartJunction;
 use App\Models\Song;
 use Illuminate\Http\Request;
@@ -129,5 +130,16 @@ class ChartController extends Controller
         //
         $chart->delete();
         return redirect('/charts/dashboard')->with('success', "Chart Deleted");
+    }
+
+    public function chartsApi(Request $request)
+    {
+        try{
+            $charts = Chart::All();
+            return ChartsResource::collection($charts);
+        }
+        catch (\Exception $e) {
+            return response()->json(['error' => 'Something went wrong.'], 500);
+        }
     }
 }

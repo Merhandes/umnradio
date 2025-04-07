@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Partnerships;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Http\Resources\PartnershipsResource;
 
 class DashboardPartnershipController extends Controller
 {
@@ -59,5 +60,16 @@ class DashboardPartnershipController extends Controller
         }
 
         return redirect('/dashboard/partnerships')->with('success', 'Partnership has been deleted!');
+    }
+
+    public function partnershipsApi(Request $request)
+    {
+        try{
+            $partnerships = Partnerships::All();
+            return PartnershipsResource::collection($partnerships);
+        }
+        catch (\Exception $e) {
+            return response()->json(['error' => 'Something went wrong.'], 500);
+        }
     }
 }
