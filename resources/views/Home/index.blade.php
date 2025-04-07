@@ -346,7 +346,7 @@
 
 
     {{-- ON AIR OFF AIR --}}
-    {{-- <div id="section-1" class="w-full mb-16">
+    <div id="section-1" class="w-full mb-16">
         <div class="w-full relative h-fit">
             <img src="{{ asset('assets/paper/1.webp') }}"
                 class="absolute object-cover object-top w-full h-24 md:h-36 rotate-180 -z-20" alt="">
@@ -357,7 +357,7 @@
 
         <h1 class="font-poppins text-[#021f3a] text-2xl font-bold w-full text-center pt-24 md:pt-36">Live Broadcast
         </h1>
-        <div id="sign" class="m-3 md:m-6 text-center"> --}}
+        <div id="sign" class="m-3 md:m-6 text-center">
 
             {{-- SCHEDULE SYSTEM PHP --}}
 
@@ -400,7 +400,7 @@
             
             ?>
 
-            {{-- <div id="onair" class="border rounded-md {{ $onair }} w-24 p-2 m-auto">
+            <div id="onair" class="border rounded-md {{ $onair }} w-24 p-2 m-auto">
                 <h1 class="font-poppins text-xl text-white"> On Air </h1>
             </div>
 
@@ -415,10 +415,10 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 
     {{-- ROMAWEEK --}}
-    <div id="section-1" class="w-full mb-16 flex flex-col items-center">
+    {{-- <div id="section-1" class="w-full mb-16 flex flex-col items-center">
         <!-- Background Decoration -->
         <div class="w-full relative h-fit">
             <img src="{{ asset('assets/paper/1.webp') }}"
@@ -468,7 +468,7 @@
                 <div class="swiper-button-prev hidden md:block"></div>
             </div>
         </div>
-    </div>
+    </div> --}}
     {{-- WEEKLY SCHEDULE --}}
     <div id="schedule" class="md:mt-20 md:pt-10 text-center relative">
         <h1 class="font-poppins text-[#021f3a] text-2xl font-bold text-center mt-8 pt-4">Weekly Schedule</h1>
@@ -1454,7 +1454,7 @@ Catch us now with rambling music from the west! Miss us or don’t miss us!💋
         });
     </script>
 
-    <script>
+    {{-- <script>
         const swiper = new Swiper(".mySwiper", {
         loop: true,
         effect: "fade",
@@ -1472,7 +1472,7 @@ Catch us now with rambling music from the west! Miss us or don’t miss us!💋
             prevEl: ".swiper-button-prev",
         },
         });
-    </script>
+    </script> --}}
 
     {{-- <script>
         var swiper = new Swiper(".mySwiper", {
