@@ -34,8 +34,8 @@
                 kampus dalam bentuk media radio yang mampu membawa dampak positif kepada masyarakat melalui media
                 radio.<br>
                 <br>UMN Radio beroperasi di Lantai 6, Gedung B, Universitas Multimedia Nusantara dalam kepengurusan
-                aktif Generasi 13 yang melibatkan 69 mahasiswa UMN dari berbagai program studi. UMN Radio Generasi 13
-                mengangkat tagline operasional "Set The Tune and Raise The Volume" yang menjadi motivasi untuk terus
+                aktif Generasi 14 yang melibatkan 81 mahasiswa UMN dari berbagai program studi. UMN Radio Generasi 14
+                mengangkat tagline operasional "Harmony In Every Pulse" yang menjadi motivasi untuk terus
                 melangkah maju membawa operasional UMN Radio ke arah yang lebih baik dalam segala bidang.
             </p>
         </div>
@@ -44,25 +44,23 @@
             <div class="font-poppins w-full md:w-2/5 md:px-6 py-4 flex flex-col mx-auto text-center">
                 <h1 class="text-2xl md:text-4xl text-black font-bold pb-4">OUR VISION</h1>
                 <ul class="text-xs md:text-base text-justify text-black list-disc">
-                    <li>Menjadikan UMN Radio sebagai sarana untuk mencapai potensi maksimal dalam berkreasi yang
-                        mencakup ide, karya, dan kreativitas Ultimacrews.</li>
-                    <li>Menjadikan UMN Radio sebuah media kampus dan radio komunitas kredibel sebagai representatif
-                        berbagai suara civitas UMN ke pihak luar lewat penyiaran, musik, berita, dan hiburan yang
-                        berkualitas. </li>
+                    <li>Membentuk UMN Radio menjadi wadah bagi Ultimacrews, untuk menuangkan kreativitas, ide, serta potensi yang dimiliki sehingga mampu menciptakan sebuah karya yang luar biasa.</li>
+                    <li>Membuat Umn Radio menjadi sebuah media kampus yang kredibel dalam menyampaikan informasi maupun dalam menghasilkan karya yang berkualitas seperti siaran, musik, konten, dan berita.</li>
+                    <li>Membuat Umn Radio menjadi sebuah media kampus yang kredibel dalam menyampaikan informasi maupun dalam menghasilkan karya yang berkualitas seperti siaran, musik, konten, dan berita.</li>
                 </ul>
             </div>
             <div class="font-poppins w-full md:w-2/5 md:px-6 py-4 flex flex-col mx-auto text-center">
                 <h1 class="text-2xl md:text-4xl text-black font-bold pb-4">OUR MISSION</h1>
                 <ul class="text-xs md:text-base text-justify text-black list-disc">
-                    <li>Memproduksi konten dan berita melalui program yang terpercaya sesuai dengan etika secara
-                        berkualitas untuk menjaga eksistensi sebagai media kampus.</li>
-                    <li>Menjunjung tinggi rasa profesionalitas dan tanggung jawab terhadap UMN Radio.</li>
-                    <li>Membangun lingkungan UMN Radio menjadi nyaman bagi para Ultimacrews demi mencapai potensi yang
-                        maksimal.</li>
-                    <li>Menjalin hubungan baik dengan sesama kegiatan, organisasi, kepanitiaan ataupun media kampus lain
-                        untuk mendorong kolaborasi.</li>
-                    <li>Menyalurkan bakat dan mengasah kreatifitas Ultimacrews dari berbagai kegiatan internal maupun
-                        eksternal.</li>
+                    <li>Menghasilkan karya dan konten berkualitas yang didasarkan oleh etika</li>
+                    <li>Menjalankan tanggung jawab terhadap UMN Radio dengan menjunjung tinggi rasa profesionalita</li>
+                    <li>selalu berusaha untuk berinovasi tanpa batas</li>
+                    <li>Membangun relasi hubungan yang baik dengan pihak eksternal, baik itu organisasi, media kampus, kepanitian, dan komunitas</li>
+                    <li>Menuangkan ide, kreativitas, dan ekspresi dari Ultimacrews sehinggah dapat menciptakan karya yang berkualitas bagi UMN Radio</li>
+                    <li>Membangun lingkungan UMN Radio yang nyaman dan aman bagi semua Ultimacrews</li>
+                    <li>Menjadi wadah untuk menampung semua aspirasi, pendapat, dan pandangan setiap Ultimacrews</li>
+                    <li>Membentuk sikap percaya, peduli dan saling menghargai satu sama lain bagi setiap Ultimacrews</li>
+                    <li>Mempertahankan eksistensi UMN Radio dengan beradaptasi serta berinovasi</li>
                 </ul>
             </div>
         </div>
@@ -75,12 +73,12 @@
                 <p class="text-sm md:text-lg">"Inspiring Change For Tommorrow"</p>
             </div>
             <div class="bg-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] px-4 pt-4 4">
-                <img class="h-52 md:h-96 w-auto" src="{{ asset('images/about/GEN13.webp') }}" alt="">
-                <p class="font-bold font-nexarust text-center w-full text-biru text-3xl py-4">UMN RADIO GEN 13</p>
+                <img class="h-52 md:h-96" src="{{ asset('images/about/GEN14.webp') }}" alt="">
+                <p class="font-bold font-nexarust text-center w-full text-biru text-3xl py-4">UMN RADIO GEN 14</p>
             </div>
             <div class="font-poppins px-8 py-8 md:py-4 flex flex-col text-center">
-                <h1 class="text-lg md:text-2xl font-bold">Tagline UMN RADIO GEN 13</h1>
-                <p class="text-sm md:text-lg">"Set the Tunes and Raise the Volume"</p>
+                <h1 class="text-lg md:text-2xl font-bold">Tagline UMN RADIO GEN 14</h1>
+                <p class="text-sm md:text-lg">"Harmony In Every Pulse"</p>
             </div>
         </div>
 
