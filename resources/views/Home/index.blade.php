@@ -46,7 +46,7 @@
     </style>
 
     {{-- Popup Ads --}}
-    <div id="ad-banner" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
+    {{-- <div id="ad-banner" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
         <div class="relative max-w-4xl w-full bg-white rounded-lg shadow-lg flex flex-col">
             <!-- Banner content -->
             <div class="w-full bg-[#445148] p-4 flex items-center justify-center rounded-t-lg">
@@ -81,10 +81,10 @@
                 </svg>
             </button>
         </div>
-    </div>
+    </div> --}}
 
             <!-- JavaScript for banner functionality -->
-            <script>
+            {{-- <script>
                 $(document).ready(function() {
                     // Close button functionality
                     $("#close-ad").click(function() {
@@ -105,7 +105,7 @@
                     //     $("#ad-banner").hide();
                     // }
                 });
-            </script>
+            </script> --}}
     
     {{-- Popup Joyland --}}
     {{-- <div id="modal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 px-4 z-50">
