@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\ProgramDetail;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Programs extends Model
 {
@@ -20,5 +21,9 @@ class Programs extends Model
 
     public function episodes(): HasMany{
         return $this->hasMany(Podcast::class);
+    }
+    
+    public function details() {
+        return $this->hasOne(ProgramDetail::class, 'id', 'id');
     }
 }

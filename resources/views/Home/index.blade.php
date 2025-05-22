@@ -498,27 +498,30 @@
             <div class="tab-content">
                 <div
                     class="flex justify-around tab-content-item text-center flex-wrap md:flex-nowrap p-2 gap-4 md:gap-0">
-                    <div class="relative group md:p-5 md:max-w-[33.3%]">
-                        <div
-                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
-                            <img alt="" class="object-contain rounded-xl h-full"
-                                src="{{ asset('images/programs/programs gen 14/Poster Campushere.webp') }}" />
-                            <div class="w-full flex flex-col container h-full">
-                                <div class="font-bold md:text-2xl font-poppins text-center">CAMPUSPHERE
+                    @foreach ($programs as $program) 
+                        @if ($program->broadcast_day == 1) 
+                        <div class="relative group md:p-5 md:max-w-[33.3%]">
+                            <div
+                                class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                                <img alt="" class="object-contain rounded-xl h-full"
+                                    src="{{ asset($program->img) }}" />
+                                <div class="w-full flex flex-col container h-full">
+                                    <div class="font-bold md:text-2xl font-poppins text-center">{{ $program->name }}
+                                    </div>
+                                    <div class="md:text-xl font-poppins text-center">{{ $program->start_hour }}.00 -
+                                        {{ $program->end_hour }}.00
+                                    </div>
+                                    <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">{{ $program->desc }}
+                                    </p>
                                 </div>
-                                <div class="md:text-xl font-poppins text-center">11.00 -
-                                    13.00
-                                </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Ready to vibe with us? Your daily dose of fun, hot topics, and killer playlists is HERE!
-
-So, grab your headphones because we’re on air every weekday except Wednesday!📻 Catch us on 107.7 FM or stream online at radio.umn.ac.id!🎧
-</p>
                             </div>
+                                <img alt=""
+                                    class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
+                                    src="{{ asset($program->details->banner_img) }}" />
                         </div>
-                        <img alt=""
-                            class="object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl w-full aspect-video"
-                            src="{{ asset('images/programs/programs gen 14/Banner Campusphere.webp') }}" />
-                    </div>
+                        @endif
+                    @endforeach
+
 
                     <div class="relative group md:p-5 md:max-w-[33.3%]">
                         <div

@@ -41,7 +41,7 @@
                             src="{{ asset('storage/' . $programdetail->image) }}" alt="">
                         <div class="md:w-2/5 p-8 md:mx-8 flex flex-col justify-center gap-4">
                             <div class="text-4xl font-bold">{{ $programdetail->program_name }}</div>
-                            <div class="text-xl font-light">{{ $programdetail->short_desc }}</div>
+                            <div class="text-xl font-light">{{ $programdetail->short_desc }} | {{ $programdetail-> }}</div>
                             <p class="font-light font-sans max-h-48 text-ellipsis overflow-hidden ...">
                                 {!! $programdetail->description !!}</p>
                             <a href="/programs/{{ $programdetail->slug }}">

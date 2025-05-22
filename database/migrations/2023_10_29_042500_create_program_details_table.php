@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('program_details', function (Blueprint $table) {
-            $table->id();
+            $table->unsignedBigInteger('id')->primary();
             $table->string('program_name');
             $table->string('slug');
             $table->text('description');
@@ -27,6 +27,8 @@ return new class extends Migration
             $table->string('music_director')->nullable();
             $table->string('operator')->nullable();
             $table->timestamps();
+
+            $table->foreign('id')->references('id')->on('programs')->onDelete('cascade');
         });
     }
 
