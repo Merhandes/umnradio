@@ -300,8 +300,8 @@
                         </svg></button>
                 </div>
                 <audio id="player">
-                    {{-- <source src='https://icecast.umn.ac.id/live' /> --}}
-                    <source src="{{ asset('assets/audio/tes.mp3') }}" />
+                    <source src='https://icecast.umn.ac.id/live' />
+                    {{-- <source src="{{ asset('assets/audio/tes.mp3') }}" /> --}}
                 </audio>
             </div>
         </div>
@@ -1497,27 +1497,35 @@ Catch us now with rambling music from the west! Miss us or don’t miss us!💋
     </script> --}}
 
     <script>
+        var player = document.getElementById("player");
         var button = document.getElementById("buttonplay");
         var button2 = document.getElementById("buttonpause");
-        var player = document.getElementById("player");
+        var button3 = document.getElementById("button3");
+        var button4 = document.getElementById("button4");
     
-        button.addEventListener("click", togglePlayPause);
-        button2.addEventListener("click", togglePlayPause);
-
+        if (button) {
+            button.addEventListener("click", togglePlayPause);
+        }
+        if (button2) {
+            button2.addEventListener("click", togglePlayPause);
+        }
+    
         function togglePlayPause() {
+            if (!player) return; // Prevent error if player is not present
+    
             if (player.paused) {
                 player.play();
-                 button.classList.add('hidden');
-                button2.classList.remove('hidden');
-                button3.classList.add('hidden');
-                button4.classList.remove('hidden');
+                if (button) button.classList.add('hidden');
+                if (button2) button2.classList.remove('hidden');
+                if (button3) button3.classList.add('hidden');
+                if (button4) button4.classList.remove('hidden');
             } else {
                 player.pause();
-                button2.classList.add('hidden');
-                button.classList.remove('hidden');
-                button4.classList.add('hidden');
-                button3.classList.remove('hidden');
+                if (button2) button2.classList.add('hidden');
+                if (button) button.classList.remove('hidden');
+                if (button4) button4.classList.add('hidden');
+                if (button3) button3.classList.remove('hidden');
             }
         }
-    </script>
+    </script>    
 @endsection

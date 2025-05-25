@@ -25,8 +25,8 @@
 
     <audio id="player">
         {{-- <source src='https://i.klikhost.com/8188/;' /> --}}
-        {{-- <source src="https://icecast.umn.ac.id/live" /> --}}
-        <source src="{{ asset('assets/audio/tes.mp3') }}" />
+        <source src="https://icecast.umn.ac.id/live" />
+        {{-- <source src="{{ asset('assets/audio/tes.mp3') }}" /> --}}
     </audio>
     <div class="p-4 max-w-md w-full hidden md:block">
         <div class="flex items-center justify-center">
@@ -67,77 +67,61 @@
     const currentTimeDisplay = document.getElementById('currentTime');
     const durationDisplay = document.getElementById('duration');
 
-    let isDragging = false;
+    // Prevent dragging/seeking by disabling pointer events or setting it to read-only
+    if (progressBar) {
+        progressBar.addEventListener('mousedown', (e) => e.preventDefault());
+        progressBar.addEventListener('touchstart', (e) => e.preventDefault());
+        progressBar.disabled = false; // Optional: visually disabled
+    }
 
-    button3.addEventListener("click", togglePlayPause);
-    button4.addEventListener("click", togglePlayPause);
+    if (button3) button3.addEventListener("click", togglePlayPause);
+    if (button4) button4.addEventListener("click", togglePlayPause);
 
-    playButton.addEventListener('click', togglePlayPause);
+    if (playButton) playButton.addEventListener('click', togglePlayPause);
 
-    pauseButton.addEventListener('click', () => {
-        player.pause();
-        playButton.classList.remove('hidden');
-        pauseButton.classList.add('hidden');
-    });
+    if (pauseButton) {
+        pauseButton.addEventListener('click', () => {
+            if (player) {
+                player.pause();
+                if (playButton) playButton.classList.remove('hidden');
+                pauseButton.classList.add('hidden');
+            }
+        });
+    }
 
-    progressBar.addEventListener('input', () => {
-        const seekTime = player.duration * (progressBar.value / 100);
-        currentTimeDisplay.textContent = formatTime(seekTime);
-    });
-
-    progressBar.addEventListener('mousedown', () => {
-        isDragging = true;
-        // player.pause(); 
-    });
-
-
-    progressBar.addEventListener('mouseup', () => {
-        isDragging = false;
-    });
-
-    player.addEventListener('timeupdate', () => {
-        if (!isDragging) {
+    if (player) {
+        player.addEventListener('timeupdate', () => {
             updateProgressBar();
             const currentTime = player.currentTime;
-            currentTimeDisplay.textContent = formatTime(currentTime);
-        }
-    });
+            if (currentTimeDisplay) currentTimeDisplay.textContent = formatTime(currentTime);
+        });
 
-    progressBar.addEventListener('mousemove', (event) => {
-        if (isDragging) {
-            const boundingRect = progressBar.getBoundingClientRect();
-            const mouseX = event.clientX - boundingRect.left;
-            const percentage = Math.min(100, Math.max(0, (mouseX / boundingRect.width) * 100));
-            progressBar.value = percentage;
-            const seekTime = player.duration * (percentage / 100);
-            currentTimeDisplay.textContent = formatTime(seekTime);
-        }
-    });
-
-    player.addEventListener('loadedmetadata', () => {
-        const duration = player.duration;
-        // durationDisplay.textContent = formatTime(duration);
-    });
+        player.addEventListener('loadedmetadata', () => {
+            if (durationDisplay) durationDisplay.textContent = formatTime(player.duration);
+        });
+    }
 
     function togglePlayPause() {
+        if (!player) return;
+
         if (player.paused) {
             player.play();
-            button.classList.add('hidden');
-            button2.classList.remove('hidden');
-            button3.classList.add('hidden');
-            button4.classList.remove('hidden');
+            if (button) button.classList.add('hidden');
+            if (button2) button2.classList.remove('hidden');
+            if (button3) button3.classList.add('hidden');
+            if (button4) button4.classList.remove('hidden');
         } else {
             player.pause();
-            button2.classList.add('hidden');
-            button.classList.remove('hidden');
-            button4.classList.add('hidden');
-            button3.classList.remove('hidden');
+            if (button2) button2.classList.add('hidden');
+            if (button) button.classList.remove('hidden');
+            if (button4) button4.classList.add('hidden');
+            if (button3) button3.classList.remove('hidden');
         }
     }
 
     function updateProgressBar() {
-        const currentTime = player.currentTime;
-        const progressPercentage = (currentTime / player.duration) * 100;
+        if (!progressBar || !player) return;
+        const progressPercentage = (player.currentTime / player.duration) * 100;
         progressBar.value = progressPercentage;
     }
 
@@ -147,6 +131,7 @@
         return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
     }
 </script>
+
 
 
 <!-- Volume control JS -->
