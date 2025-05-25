@@ -46,7 +46,7 @@ Route::get('/charts', [ChartController::class, 'index']);
 Route::get('/podcasts', [PodcastController::class, 'index']);
 
 Route::get('/about',function(){
-    return view('About.index');
+    return view('about.index');
 });
 
 // Route::get('/oprec',function(){
