@@ -74,7 +74,7 @@
             </div>
             <div class="bg-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] px-4 pt-4 4">
                 <img class="h-52 md:h-96" src="{{ asset('images/about/GEN14.webp') }}" alt="">
-                <p class="font-bold font-nexarust text-center w-full text-biru text-3xl py-4">UMN RADIO GEN 14</p>
+                <p class="font-bold font-nexarust text-center w-full text-biru text-3xl py-4">UMN RADIO GEN 14</p> 
             </div>
             <div class="font-poppins px-8 py-8 md:py-4 flex flex-col text-center">
                 <h1 class="text-lg md:text-2xl font-bold">Tagline UMN RADIO GEN 14</h1>
