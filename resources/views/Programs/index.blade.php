@@ -1,10 +1,10 @@
 @extends('layouts.main')
-    <style>
+    {{-- <style>
         div::-webkit-scrollbar {
             display: none;
             /* for Chrome, Safari, and Opera */
         }
-    </style>
+    </style> --}}
 
 @section('container')
     {{-- <img src="{{asset('assets/others/papertexture.webp')}}" class="fixed w-screen h-screen object-cover opacity-20" alt=""> --}}

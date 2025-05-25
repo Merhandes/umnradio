@@ -65,22 +65,28 @@
             </div>
         </div>
 
-
-
-        <div class="bg-biru overflow-scroll py-4 md:py-12 flex flex-wrap items-center justify-center text-white">
-            <div class="font-poppins px-8 py-8 md:py-4 flex flex-col text-center">
-                <h1 class="text-lg md:text-2xl font-bold">Tagline UMN RADIO</h1>
-                <p class="text-sm md:text-lg">"Inspiring Change For Tommorrow"</p>
+        <div class="bg-biru overflow-hidden py-6 md:py-12 flex flex-wrap items-center justify-center text-white gap-6">
+  
+            <!-- Left Text Block -->
+            <div class="w-full md:w-1/4 px-4 text-center font-poppins">
+              <h1 class="text-lg md:text-2xl font-bold mb-2">Tagline UMN RADIO</h1>
+              <p class="text-sm md:text-lg">"Inspiring Change For Tomorrow"</p>
             </div>
-            <div class="bg-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] px-4 pt-4 4">
-                <img class="h-52 md:h-96" src="{{ asset('images/about/GEN14.webp') }}" alt="">
-                <p class="font-bold font-nexarust text-center w-full text-biru text-3xl py-4">UMN RADIO GEN 14</p> 
+          
+            <!-- Center Image Block -->
+            <div class="bg-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] p-4 w-full md:w-1/3 flex flex-col items-center">
+              <img class="max-w-full h-52 md:h-80 object-contain" src="{{ asset('images/about/GEN14.webp') }}" alt="UMN RADIO GEN 14">
+              <p class="font-bold font-nexarust text-center text-biru text-xl md:text-3xl py-4">UMN RADIO GEN 14</p>
             </div>
-            <div class="font-poppins px-8 py-8 md:py-4 flex flex-col text-center">
-                <h1 class="text-lg md:text-2xl font-bold">Tagline UMN RADIO GEN 14</h1>
-                <p class="text-sm md:text-lg">"Harmony In Every Pulse"</p>
+          
+            <!-- Right Text Block -->
+            <div class="w-full md:w-1/4 px-4 text-center font-poppins">
+              <h1 class="text-lg md:text-2xl font-bold mb-2">Tagline UMN RADIO GEN 14</h1>
+              <p class="text-sm md:text-lg">"Harmony In Every Pulse"</p>
             </div>
-        </div>
+          
+          </div>
+          
 
         <div class="overflow-scroll py-6 md:py-12 px-8 flex flex-row justify-center">
             <iframe class="w-11/12 md:w-1/2 aspect-video" src="https://www.youtube.com/embed/g0FMWNV7tuQ"></iframe>
