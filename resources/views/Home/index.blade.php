@@ -840,7 +840,7 @@ Dari berita A-Z, semuanya ada di sini! So, keep informed setiap Senin, Rabu, dan
                             <div class="w-full flex flex-col container h-full">
                                 <div class="font-bold md:text-2xl font-poppins text-center">CHARTTOPPERS
                                 </div>
-                                <div class="md:text-xl font-poppins text-center">16.00 -
+                                <div class="md:text-xl font-poppins text-center">14.00 -
                                     17.00
                                 </div>
                                 <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Ready to fiddle together, Ultimafriends?🤠 Drop by at Outlaw Charttoppers to enjoy your favorite music, knowing what your favorite artists have been doing, and latest updates of Billboard chart!🎶💥
