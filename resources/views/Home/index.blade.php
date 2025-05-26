@@ -342,9 +342,6 @@
 
     </a> --}}
 
-    {{-- AUDIO --}}
-
-
     {{-- ON AIR OFF AIR --}}
     <div id="section-1" class="w-full mb-16">
         <div class="w-full relative h-fit">
@@ -400,7 +397,18 @@
             
             ?>
 
-            <div id="onair" class="border rounded-md {{ $onair }} w-24 p-2 m-auto">
+            {{-- OFF AIR --}}
+            <div class="flex w-full justify-center pt-12">
+                <img class="h-24 md:h-48 w-fit object-cover" src="{{ asset('assets/04. ULTIMO HALO.webp') }}" alt="">
+                <div>
+                    <h1 class="text-[#021f3a] font-nexarust text-4xl md:text-7xl font-bold w-full text-center">UMN Radio Is OFF AIR</h1>
+                    <h1 class="text-[#021f3a] font-emilyolivia text-2xl md:text-5xl font-bold w-full text-center pt-6">See you soon, Ultimafriends!</h1>
+                </div>
+                <img class="h-32 md:h-64 w-fit object-cover" src="{{ asset('assets/07. PAN PAN HALO.webp') }}" alt="">
+			</div>
+
+            {{-- ON AIR --}}
+            {{-- <div id="onair" class="border rounded-md {{ $onair }} w-24 p-2 m-auto">
                 <h1 class="font-poppins text-xl text-white"> On Air </h1>
             </div>
 
@@ -413,7 +421,7 @@
                     <h3 class="font-poppins mt-3 font-bold text-3xl text-[#021f3a]">{{ $now->name }}</h3>
                     <p class="font-poppins mt-3 text-black">{{ $now->desc }}</p>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 
@@ -469,6 +477,7 @@
             </div>
         </div>
     </div> --}}
+
     {{-- WEEKLY SCHEDULE --}}
     <div id="schedule" class="md:mt-20 md:pt-10 text-center relative">
         <h1 class="font-poppins text-[#021f3a] text-2xl font-bold text-center mt-8 pt-4">Weekly Schedule</h1>
@@ -496,11 +505,9 @@
             </div>
 
             <div class="tab-content">
-                <div
-                    class="flex justify-around tab-content-item text-center flex-wrap md:flex-nowrap p-2 gap-4 md:gap-0">
+                <div class="flex justify-around tab-content-item text-center flex-wrap md:flex-nowrap p-2 gap-4 md:gap-0">
                     <div class="relative group md:p-5 md:max-w-[33.3%]">
-                        <div
-                            class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
+                        <div class="flex justify-center align-middle items-center absolute h-full w-full group-hover:scale-100 top-0 -left-0 rounded-xl z-30 opacity-0 bg-white/95 transform-gpu group-hover:opacity-100 transition duration-300 ease-in-out text-[#021f3a] p-1 md:p-4">
                             <img alt="" class="object-contain rounded-xl h-full"
                                 src="{{ asset('images/programs/programs gen 14/Poster Campushere.webp') }}" />
                             <div class="w-full flex flex-col container h-full">
@@ -509,10 +516,7 @@
                                 <div class="md:text-xl font-poppins text-center">11.00 -
                                     13.00
                                 </div>
-                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Ready to vibe with us? Your daily dose of fun, hot topics, and killer playlists is HERE!
-
-So, grab your headphones because we’re on air every weekday except Wednesday!📻 Catch us on 107.7 FM or stream online at radio.umn.ac.id!🎧
-</p>
+                                <p class="text-xs md:text-base text-left px-4 max-h-54 overflow-scroll">Ready to vibe with us? Your daily dose of fun, hot topics, and killer playlists is HERE! So, grab your headphones because we’re on air every weekday except Wednesday!📻 Catch us on 107.7 FM or stream online at radio.umn.ac.id!🎧</p>
                             </div>
                         </div>
                         <img alt=""
