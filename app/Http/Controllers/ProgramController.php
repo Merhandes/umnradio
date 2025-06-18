@@ -10,7 +10,7 @@ class ProgramController extends Controller
     public function index()
     {
         $programdetails = ProgramDetail::all();
-        return view('Programs.index', ['programdetails'=>$programdetails]);
+        return view('programs.index', ['programdetails'=>$programdetails]);
     }
 
     public function show(ProgramDetail $programdetail)
